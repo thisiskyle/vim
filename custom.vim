@@ -38,9 +38,21 @@ if !has('gui_running')
 endif
 let g:lightline = { 
             \ 'enable': { 'tabline': 1 },
-            \ 'colorscheme': 'one', 
-            \ 'active': { 'left': [[ 'mode', 'paste' ], [ 'gitbranch', 'filename', 'modified' ]] },
-            \ 'component_function': { 'gitbranch': 'fugitive#head' },
+            \
+            \ 'colorscheme': 'powerline', 
+            \
+            \ 'active': { 
+            \        'left': [[ 'mode', 'paste' ], [ 'gitbranch'], [ 'filepath', 'modified' ]],
+            \        'right': [[ 'lineinfo' ], [ 'percent' ], [ 'filetype' ]]
+            \ },
+            \
+            \ 'component_function': { 
+            \        'gitbranch': 'fugitive#head',
+            \        'filepath': 'LightLineFilePath',
+            \ },
             \ }
 
+function! LightLineFilePath()
+    return expand('%:p')
+endfunction
 
