@@ -26,20 +26,15 @@ map <F11> :tabedit<CR>
 map <C-n> :NERDTreeToggle<CR>
 map <C-s> :w<CR>
 
-"colorscheme
-colorscheme zenburn
-highlight Cursor guifg=black guibg=#e2b900
-highlight iCursor guifg=black guibg=#e2b900
-hi Search guibg=white guifg=black
+"colors
+let g:gruvbox_italic=0
+colors gruvbox
 
 "statusline
-if !has('gui_running')
-  set t_Co=256
-endif
 let g:lightline = { 
             \ 'enable': { 'tabline': 1 },
             \
-            \ 'colorscheme': 'powerline', 
+            \ 'colorscheme': 'gruvbox', 
             \
             \ 'active': { 
             \        'left': [[ 'mode', 'paste' ], [ 'gitbranch'], [ 'filepath', 'modified' ]],
@@ -48,11 +43,11 @@ let g:lightline = {
             \
             \ 'component_function': { 
             \        'gitbranch': 'fugitive#head',
-            \        'filepath': 'LightLineFilePath',
+            \        'filepath': 'GetFilePath',
             \ },
             \ }
 
-function! LightLineFilePath()
+function! GetFilePath()
     return expand('%:p')
 endfunction
 
