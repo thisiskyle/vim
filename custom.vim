@@ -11,6 +11,8 @@ if has("gui_running")
     set guioptions -=T "turn off the toolbar
     set guioptions -=r "turn off the right hand toolbar
     set guioptions -=L "turn off the left toolbar
+else
+
 endif
 
 set guifont=Courier\ Prime\ Code:h10 "set the font
@@ -34,30 +36,59 @@ map <F11> :tabedit<CR>
 map <C-n> :NERDTreeToggle<CR>
 map <C-s> :w<CR>
 
-
 """"""""""""""""""""""""""""""""""" colors
 
 let g:gruvbox_italic=0 
 colors gruvbox 
 
-"""""""""""""""""""""""""""""""""" statusline stuff
+"""""""""""""""""""""""""""""""""" lightline stuff
 
-let g:lightline = { 
-            \ 'enable': { 'tabline': 1 },
-            \
-            \ 'colorscheme': 'gruvbox', 
-            \
-            \ 'active': { 
-            \        'left': [[ 'mode', 'paste' ], [ 'gitbranch'], [ 'filepath', 'modified' ]],
-            \        'right': [[ 'lineinfo' ], [ 'percent' ], [ 'filetype' ]]
-            \ },
-            \
-            \ 'component_function': { 
-            \        'gitbranch': 'fugitive#head',
-            \        'filepath': 'GetFilePath',
-            \ },
-            \ }
+if has("gui_running")
+    let g:lightline = { 
+                \ 'enable': { 'tabline': 1 },
+                \
+                \ 'colorscheme': 'gruvbox',
+                \
+                \ 'active': { 
+                \        'left': [[ 'mode', 'paste' ], [ 'gitbranch'], [ 'filepath', 'modified' ]],
+                \        'right': [[ 'linecount' ], [ ], [ 'filetype' ]]
+                \ },
+                \
+                \ 'component_function': { 
+                \        'gitbranch': 'fugitive#head',
+                \        'filepath': 'GetFilePath',
+                \        'linecount': 'LineCount',
+                \        'charcount': 'CharCount',
+                \ },
+                \ }
+else
+    let g:lightline = { 
+                \ 'enable': { 'tabline': 1 },
+                \
+                \ 'colorscheme': 'powerline',
+                \
+                \ 'active': { 
+                \        'left': [[ 'mode', 'paste' ], [ 'gitbranch'], [ 'filepath', 'modified' ]],
+                \        'right': [[ 'linecount' ], [ ], [ 'filetype' ]]
+                \ },
+                \
+                \ 'component_function': { 
+                \        'gitbranch': 'fugitive#head',
+                \        'filepath': 'GetFilePath',
+                \        'linecount': 'LineCount',
+                \        'charcount': 'CharCount',
+                \ },
+                \ }
+endif
 
 function! GetFilePath()
     return expand('%:p')
+endfunction
+
+function! LineCount()
+    return line('.') . "/"  . line("$")
+endfunction
+
+function! CharCount()
+    return  col(".") . "/" . strlen(getline("."))
 endfunction
