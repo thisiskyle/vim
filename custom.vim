@@ -51,14 +51,15 @@ if has("gui_running")
                 \
                 \ 'active': { 
                 \        'left': [[ 'mode', 'paste' ], [ 'gitbranch'], [ 'filepath', 'modified' ]],
-                \        'right': [[ 'linecount' ], [ ], [ 'filetype' ]]
+                \        'right': [[ 'lineandcolumn' ], [ ], [ 'filetype' ]]
                 \ },
                 \
                 \ 'component_function': { 
                 \        'gitbranch': 'fugitive#head',
                 \        'filepath': 'GetFilePath',
-                \        'linecount': 'LineCount',
-                \        'charcount': 'CharCount',
+                \        'mylineinfo': 'GetLineInfo',
+                \        'columninfo': 'GetColumnInfo',
+                \        'lineandcolumn': 'LineAndColumn',
                 \ },
                 \ }
 else
@@ -69,14 +70,15 @@ else
                 \
                 \ 'active': { 
                 \        'left': [[ 'mode', 'paste' ], [ 'gitbranch'], [ 'filepath', 'modified' ]],
-                \        'right': [[ 'linecount' ], [ ], [ 'filetype' ]]
+                \        'right': [[ 'lineandcolumn' ], [ ], [ 'filetype' ]]
                 \ },
                 \
                 \ 'component_function': { 
                 \        'gitbranch': 'fugitive#head',
                 \        'filepath': 'GetFilePath',
-                \        'linecount': 'LineCount',
-                \        'charcount': 'CharCount',
+                \        'mylineinfo': 'LineInfo',
+                \        'columninfo': 'GetColumnInfo',
+                \        'lineandcolumn': 'LineAndColumn',
                 \ },
                 \ }
 endif
@@ -85,10 +87,14 @@ function! GetFilePath()
     return expand('%:p')
 endfunction
 
-function! LineCount()
+function! GetLineInfo()
     return line('.') . "/"  . line("$")
 endfunction
 
-function! CharCount()
+function! GetColumnInfo()
     return  col(".") . "/" . strlen(getline("."))
+endfunction
+
+function! LineAndColumn()
+    return col(".") . "," . line(".")
 endfunction
