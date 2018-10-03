@@ -35,6 +35,8 @@ map <F12> :e ~/vimfiles/custom.vim<CR>
 map <F11> :tabedit<CR>
 map <C-n> :NERDTreeToggle<CR>
 map <C-s> :w<CR>
+map <C-l> :tabn<CR>
+map <C-h> :tabp<CR>
 
 """"""""""""""""""""""""""""""""""" colors
 
