@@ -52,7 +52,7 @@ if has("gui_running")
                 \ 'colorscheme': 'gruvbox',
                 \
                 \ 'active': { 
-                \        'left': [['mode', 'paste'], ['filepath', 'modified']],
+                \        'left': [['mode', 'paste'], ['modified'], ['filepath']],
                 \        'right': [['lineandcolumn'], ['gitbranch']]               
                 \ },
                 \
