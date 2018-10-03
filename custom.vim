@@ -50,8 +50,8 @@ if has("gui_running")
                 \ 'colorscheme': 'gruvbox',
                 \
                 \ 'active': { 
-                \        'left': [[ 'mode', 'paste' ], [ 'gitbranch'], [ 'filepath', 'modified' ]],
-                \        'right': [[ 'lineandcolumn' ], [ ], [ 'filetype' ]]
+                \        'left': [['mode', 'paste'], ['filepath', 'modified']],
+                \        'right': [['lineandcolumn'], ['gitbranch']]               
                 \ },
                 \
                 \ 'component_function': { 
@@ -69,8 +69,8 @@ else
                 \ 'colorscheme': 'powerline',
                 \
                 \ 'active': { 
-                \        'left': [[ 'mode', 'paste' ], [ 'gitbranch'], [ 'filepath', 'modified' ]],
-                \        'right': [[ 'lineandcolumn' ], [ ], [ 'filetype' ]]
+                \        'left': [['mode', 'paste'], ['filepath', 'modified']],
+                \        'right': [['lineandcolumn'], ['gitbranch']]
                 \ },
                 \
                 \ 'component_function': { 
