@@ -25,18 +25,19 @@ else
 endif
 
 set guifont=Courier\ Prime\ Code:h10 "set the font
-set lines=50      "opening height
-set columns=120   "opening width
-set nobackup      "turn off file backups
+set lines=50 "opening height
+set columns=120 "opening width
+set nobackup "turn off file backups
 set nowritebackup "turn off file backup writing
-set noswapfile    "turn off swap file creation
-set noundofile    "turn off undo file creation
-set tabstop=4     "tab length in spaces
-set shiftwidth=4  "idk what this does
-set expandtab     "idk what this does either
-set belloff=all   "turn off the bell
-set noshowmode    "turn off the mode text in command area
-set laststatus=2  "show status line always
+set noswapfile "turn off swap file creation
+set noundofile "turn off undo file creation
+set tabstop=4 "tab length in spaces
+set shiftwidth=4 "idk what this does
+set expandtab "idk what this does either
+set belloff=all "turn off the bell
+set noshowmode "turn off the mode text in command area
+set laststatus=2 "show status line always
+set encoding=utf-8 "set encoding to utf-8
 
 """"""""""""""""""""""""""""""""""" key bindings
 
