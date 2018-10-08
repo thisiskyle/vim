@@ -1,8 +1,17 @@
 
-""""""""""""""""""""""""""""""""""" pathogen
+""""""""""""""""""""""""""""""""""" plugins
 
-" install plugins with pathogen
-execute pathogen#infect()
+call plug#begin('~/vimfiles/bundle')
+
+Plug 'morhetz/gruvbox'
+Plug 'tpope/vim-fugitive'
+Plug 'itchyny/lightline.vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'vim-syntastic/syntastic'
+Plug 'tpope/vim-git'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+
+call plug#end()
 
 """"""""""""""""""""""""""""""""""" settings
 
@@ -35,8 +44,6 @@ map <F12> :e ~/vimfiles/custom.vim<CR>
 map <F11> :tabedit<CR>
 map <C-n> :NERDTreeToggle<CR>
 map <C-s> :w<CR>
-map <C-l> :tabn<CR>
-map <C-h> :tabp<CR>
 
 """"""""""""""""""""""""""""""""""" colors
 
