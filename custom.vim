@@ -21,10 +21,7 @@ if has("gui_running")
     set guioptions -=T "turn off the toolbar
     set guioptions -=r "turn off the right hand toolbar
     set guioptions -=L "turn off the left toolbar
-else
-
 endif
-
 set guifont=Courier\ Prime\ Code:h10 "set the font
 set lines=50 "opening height
 set columns=120 "opening width
@@ -81,14 +78,14 @@ else
                 \ 'colorscheme': 'powerline',
                 \
                 \ 'active': { 
-                \        'left': [['mode', 'paste'], ['filepath', 'modified']],
+                \        'left': [['mode', 'paste'], ['modified'], ['filepath']],
                 \        'right': [['lineandcolumn'], ['gitbranch']]
                 \ },
                 \
                 \ 'component_function': { 
                 \        'gitbranch': 'fugitive#head',
                 \        'filepath': 'GetFilePath',
-                \        'mylineinfo': 'LineInfo',
+                \        'mylineinfo': 'GetLineInfo',
                 \        'columninfo': 'GetColumnInfo',
                 \        'lineandcolumn': 'LineAndColumn',
                 \ },
