@@ -44,6 +44,7 @@ set encoding=utf-8 "set encoding to utf-8
 
 map <F12> :e ~/vimfiles/custom.vim<CR>
 map <F11> :tabedit<CR>
+map <F10> :e ~/vimfiles/todo.txt<CR>
 map <C-n> :NERDTreeToggle<CR>
 map <C-s> :w<CR>
 
