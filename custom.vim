@@ -9,6 +9,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-syntastic/syntastic'
 Plug 'tpope/vim-git'
+Plug 'scrooloose/nerdtree'
 "Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 
 call plug#end()
