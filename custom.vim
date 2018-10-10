@@ -34,7 +34,8 @@ set expandtab
 set belloff=all
 set laststatus=0
 set encoding=utf-8
-
+set noruler
+set noshowcmd
 
 """"""""""""""""
 " Key Bindings "
