@@ -1,21 +1,21 @@
 
-""""""""""""""""""""""""""""""""""" plugins
-
+"""""""""""
+" Plugins "
+"""""""""""
 call plug#begin('~/vimfiles/bundle')
-
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
-Plug 'itchyny/lightline.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-syntastic/syntastic'
 Plug 'tpope/vim-git'
 Plug 'scrooloose/nerdtree'
 "Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-
 call plug#end()
 
-""""""""""""""""""""""""""""""""""" settings
 
+""""""""""""
+" Settings "
+""""""""""""
 if has("gui_running")
     set guioptions -=m "turn off the menu
     set guioptions -=T "turn off the toolbar
@@ -33,77 +33,22 @@ set tabstop=4 "tab length in spaces
 set shiftwidth=4 "idk what this does
 set expandtab "idk what this does either
 set belloff=all "turn off the bell
-set noshowmode "turn off the mode text in command area
-set laststatus=2 "show status line always
+set laststatus=0 "set statusline
 set encoding=utf-8 "set encoding to utf-8
 
-""""""""""""""""""""""""""""""""""" key bindings
 
+""""""""""""""""
+" Key Bindings "
+""""""""""""""""
 map <F12> :e ~/vimfiles/custom.vim<CR>
 map <F11> :tabedit<CR>
 map <F10> :e ~/vimfiles/todo.txt<CR>
 map <C-n> :NERDTreeToggle<CR>
 map <C-s> :w<CR>
 
-""""""""""""""""""""""""""""""""""" colors
 
+""""""""""
+" Colors "
+""""""""""
 let g:gruvbox_italic=0 
 colors gruvbox 
-
-"""""""""""""""""""""""""""""""""" lightline stuff
-
-if has("gui_running")
-    let g:lightline = { 
-                \ 'enable': { 'tabline': 1 },
-                \
-                \ 'colorscheme': 'gruvbox',
-                \
-                \ 'active': { 
-                \        'left': [['mode', 'paste'], ['modified'], ['filepath']],
-                \        'right': [['lineandcolumn'], ['gitbranch']]               
-                \ },
-                \
-                \ 'component_function': { 
-                \        'gitbranch': 'fugitive#head',
-                \        'filepath': 'GetFilePath',
-                \        'mylineinfo': 'GetLineInfo',
-                \        'columninfo': 'GetColumnInfo',
-                \        'lineandcolumn': 'LineAndColumn',
-                \ },
-                \ }
-else
-    let g:lightline = { 
-                \ 'enable': { 'tabline': 1 },
-                \
-                \ 'colorscheme': 'powerline',
-                \
-                \ 'active': { 
-                \        'left': [['mode', 'paste'], ['modified'], ['filepath']],
-                \        'right': [['lineandcolumn'], ['gitbranch']]
-                \ },
-                \
-                \ 'component_function': { 
-                \        'gitbranch': 'fugitive#head',
-                \        'filepath': 'GetFilePath',
-                \        'mylineinfo': 'GetLineInfo',
-                \        'columninfo': 'GetColumnInfo',
-                \        'lineandcolumn': 'LineAndColumn',
-                \ },
-                \ }
-endif
-
-function! GetFilePath()
-    return expand('%:p')
-endfunction
-
-function! GetLineInfo()
-    return line('.') . "/"  . line("$")
-endfunction
-
-function! GetColumnInfo()
-    return  col(".") . "/" . strlen(getline("."))
-endfunction
-
-function! LineAndColumn()
-    return col(".") . "," . line(".")
-endfunction
