@@ -35,7 +35,8 @@ set belloff=all
 set laststatus=0
 set encoding=utf-8
 set noshowcmd
-set rulerformat=%{fugitive#head()}\ \ %c,%l
+set rulerformat=%15(%{fugitive#head()}\ \ %c,%l%)
+let g:netrw_dirhistmax = 0
 
 """"""""""""""""
 " Key Bindings "
