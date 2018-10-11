@@ -34,8 +34,8 @@ set expandtab
 set belloff=all
 set laststatus=0
 set encoding=utf-8
-set noruler
 set noshowcmd
+set rulerformat=%{fugitive#head()}\ \ %c,%l
 
 """"""""""""""""
 " Key Bindings "
@@ -53,7 +53,6 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-
 
 """"""""""
 " Colors "
