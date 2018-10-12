@@ -23,7 +23,7 @@ if has("gui_running")
 endif
 set guifont=Courier\ Prime\ Code:h10
 set lines=50
-set columns=120
+set columns=110
 set nobackup
 set nowritebackup
 set noswapfile
@@ -35,21 +35,25 @@ set belloff=all
 set laststatus=0
 set encoding=utf-8
 set noshowcmd
-set rulerformat=%15(%{fugitive#head()}%)
+set noruler
+set rulerformat=%20(%{fugitive#head()}\ %l\/%{line('$')}%)
+filetype plugin indent on 
 let g:netrw_dirhistmax = 0
+set autochdir
+
 
 """"""""""""""""
 " Key Bindings "
 """"""""""""""""
-map <C-s> :w<CR>
-map <F2> :bp<CR>
-map <F3> :bn<CR>
-map <F4> :Lex<CR>
-map <F8> :tabp<CR>
-map <F9> :tabn<CR>
-map <F10> :tabedit<CR>
+map <F2> :set ruler!<CR>
+map <F3> :tabedit<CR>
+map <F5> :bp<CR>
+map <F6> :bn<CR>
+map <F7> :tabp<CR>
+map <F8> :tabn<CR>
 map <F11> :e ~/vimfiles/todo.txt<CR>
 map <F12> :e ~/vimfiles/custom.vim<CR>
+map <C-s> :w<CR>
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
