@@ -49,20 +49,20 @@ let g:netrw_winsize = 25
 filetype plugin indent on 
 
 
-
 """"""""""""""""
 " Key Bindings "
 """"""""""""""""
 map <F2> :set ruler!<CR>
-map <F3> :tabedit<CR>
-map <C-n> :call ToggleVExplorer()<CR>
-map <F5> :bp<CR>
-map <F6> :bn<CR>
-map <F7> :tabp<CR>
 map <F8> :tabn<CR>
+map <F9> :tabedit<CR>
+map <F10> :call ToggleVExplorer()<CR>
 map <F11> :e ~/vimfiles/todo.txt<CR>
 map <F12> :e ~/vimfiles/custom.vim<CR>
+map <C-n> :tabp<CR>
+map <C-m> :tabn<CR>
 map <C-s> :w<CR>
+nnoremap , :bp<CR>
+nnoremap . :bn<CR>
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
