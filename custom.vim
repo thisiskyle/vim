@@ -35,8 +35,7 @@ set belloff=all
 set laststatus=0
 set encoding=utf-8
 set noshowcmd
-set noruler
-set rulerformat=%20(%{fugitive#head()}\ %l\/%{line('$')}%)
+set rulerformat=%15(%{fugitive#head()}%)
 set autochdir
 
 let g:netrw_dirhistmax = 0
@@ -82,7 +81,6 @@ colors gruvbox
 """""""""""""
 " Functions "
 """""""""""""
-" Toggle Vexplore
 function! ToggleVExplorer()
     if exists("t:expl_buf_num")
         let expl_win_num = bufwinnr(t:expl_buf_num)
