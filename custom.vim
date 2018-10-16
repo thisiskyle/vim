@@ -35,7 +35,7 @@ set belloff=all
 set laststatus=0
 set encoding=utf-8
 set noshowcmd
-set rulerformat=%15(%{fugitive#head()}%)
+set rulerformat=%20(%{fugitive#head()}%)
 set autochdir
 
 let g:netrw_dirhistmax = 0
@@ -52,7 +52,6 @@ filetype plugin indent on
 " Key Bindings "
 """"""""""""""""
 map <F2> :set ruler!<CR>
-map <F8> :tabn<CR>
 map <F9> :tabedit<CR>
 map <F10> :call ToggleVExplorer()<CR>
 map <F11> :e ~/vimfiles/todo.txt<CR>
