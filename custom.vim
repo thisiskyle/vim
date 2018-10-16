@@ -2,15 +2,22 @@
 " Plugins "
 """""""""""
 call plug#begin('~/vimfiles/bundle')
+
+" utilities
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-syntastic/syntastic'
 Plug 'tpope/vim-git'
 "Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+
+" games
+Plug 'vim-scripts/sokoban.vim'
+Plug 'vim-scripts/Nibble'
+"Plug 'mattn/flappyvird-vim'
+"Plug 'katono/rogue.vim'
+
 call plug#end()
-
-
 
 """"""""""""
 " Settings "
@@ -21,6 +28,7 @@ if has("gui_running")
     set guioptions -=r "turn off the right hand toolbar
     set guioptions -=L "turn off the left toolbar
 endif
+
 set guifont=Courier\ Prime\ Code:h10
 set lines=50
 set columns=110
@@ -47,7 +55,6 @@ let g:netrw_winsize = 25
 
 filetype plugin indent on 
 
-
 """"""""""""""""
 " Key Bindings "
 """"""""""""""""
@@ -66,16 +73,11 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-
-
-
 """"""""""
 " Colors "
 """"""""""
 let g:gruvbox_italic=0 
 colors gruvbox 
-
-
 
 """""""""""""
 " Functions "
