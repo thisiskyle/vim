@@ -2,21 +2,16 @@
 " Plugins "
 """""""""""
 call plug#begin('~/vimfiles/bundle')
-
-" utilities
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-syntastic/syntastic'
 Plug 'tpope/vim-git'
-"Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-
-" games
 Plug 'vim-scripts/sokoban.vim'
 Plug 'vim-scripts/Nibble'
 "Plug 'mattn/flappyvird-vim'
 "Plug 'katono/rogue.vim'
-
+"Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 call plug#end()
 
 """"""""""""
