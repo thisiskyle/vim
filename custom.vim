@@ -22,11 +22,10 @@ if has("gui_running")
     set guioptions -=T "turn off the toolbar
     set guioptions -=r "turn off the right hand toolbar
     set guioptions -=L "turn off the left toolbar
+    set lines=50
+    set columns=110
 endif
-
 set guifont=Courier\ Prime\ Code:h10
-set lines=50
-set columns=110
 set nobackup
 set nowritebackup
 set noswapfile
@@ -40,7 +39,6 @@ set encoding=utf-8
 set noshowcmd
 set rulerformat=%20(%{fugitive#head()}%)
 set autochdir
-
 let g:netrw_dirhistmax = 0
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
