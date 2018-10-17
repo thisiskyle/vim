@@ -8,7 +8,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'vim-syntastic/syntastic'
 Plug 'tpope/vim-git'
 Plug 'vim-scripts/sokoban.vim'
-Plug 'vim-scripts/Nibble'
+"Plug 'vim-scripts/Nibble'
 "Plug 'mattn/flappyvird-vim'
 "Plug 'katono/rogue.vim'
 "Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
@@ -39,13 +39,13 @@ set encoding=utf-8
 set noshowcmd
 set rulerformat=%20(%{fugitive#head()}%)
 set autochdir
+set nowrapscan
 let g:netrw_dirhistmax = 0
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
-
 filetype plugin indent on 
 
 """"""""""""""""
