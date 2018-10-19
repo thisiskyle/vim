@@ -7,11 +7,12 @@ Plug 'tpope/vim-fugitive'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-syntastic/syntastic'
 Plug 'tpope/vim-git'
+"Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+
 Plug 'vim-scripts/sokoban.vim'
 "Plug 'vim-scripts/Nibble'
 "Plug 'mattn/flappyvird-vim'
-"Plug 'katono/rogue.vim'
-"Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'katono/rogue.vim'
 call plug#end()
 
 """"""""""""
@@ -56,15 +57,11 @@ map <F9> :tabedit<CR>
 map <F10> :call ToggleVExplorer()<CR>
 map <F11> :e ~/vimfiles/todo.txt<CR>
 map <F12> :e ~/vimfiles/custom.vim<CR>
-map <C-n> :tabp<CR>
-map <C-m> :tabn<CR>
-map <C-s> :w<CR>
-nnoremap , :bp<CR>
-nnoremap . :bn<CR>
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+nnoremap <C-h> :tabp<CR>
+nnoremap <C-j> :bn<CR>
+nnoremap <C-k> :bp<CR>
+nnoremap <C-l> :tabn<CR>
+command FormatJSON :call FormatJSON()
 
 """"""""""
 " Colors "
@@ -91,4 +88,8 @@ function! ToggleVExplorer()
          Vexplore
          let t:expl_buf_num = bufnr("%")
     endif
+endfunction
+
+function! FormatJSON()
+:%!python -m json.tool
 endfunction
