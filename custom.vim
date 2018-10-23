@@ -5,15 +5,16 @@ call plug#begin('~/vimfiles/bundle')
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'sheerun/vim-polyglot'
-Plug 'vim-syntastic/syntastic'
 Plug 'tpope/vim-git'
-"Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'w0rp/ale'
+"Plug 'OmniSharp/omnisharp-vim'
+"Plug 'Valloric/YouCompleteMe', { 'do': 'py ./install.py' }
 
+"-- Games
 Plug 'vim-scripts/sokoban.vim'
-"Plug 'vim-scripts/Nibble'
-"Plug 'mattn/flappyvird-vim'
 Plug 'katono/rogue.vim'
 call plug#end()
+
 
 """"""""""""
 " Settings "
@@ -36,18 +37,20 @@ set shiftwidth=4
 set expandtab
 set belloff=all
 set laststatus=0
-set encoding=utf-8
 set noshowcmd
 set rulerformat=%20(%{fugitive#head()}%)
 set autochdir
-set nowrapscan
+set encoding=utf-8
+filetype plugin indent on 
+filetype plugin on
 let g:netrw_dirhistmax = 0
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
-filetype plugin indent on 
+let g:rogue#directory = "~/vimfiles/rogue_saves/"
+
 
 """"""""""""""""
 " Key Bindings "
