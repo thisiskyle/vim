@@ -1,4 +1,4 @@
-"""""""""""
+
 " Plugins "
 """""""""""
 call plug#begin('~/vimfiles/bundle')
@@ -8,7 +8,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-git'
 Plug 'w0rp/ale'
 "Plug 'OmniSharp/omnisharp-vim'
-"Plug 'Valloric/YouCompleteMe', { 'do': 'py ./install.py' }
 
 "-- Games
 Plug 'vim-scripts/sokoban.vim'
@@ -16,7 +15,6 @@ Plug 'katono/rogue.vim'
 call plug#end()
 
 
-""""""""""""
 " Settings "
 """"""""""""
 if has("gui_running")
@@ -38,9 +36,10 @@ set expandtab
 set belloff=all
 set laststatus=0
 set noshowcmd
-set rulerformat=%20(%{fugitive#head()}%)
+set rulerformat=%20(%{fugitive#head()}\ %c,%l%)
 set autochdir
 set encoding=utf-8
+set noruler
 filetype plugin indent on 
 filetype plugin on
 let g:netrw_dirhistmax = 0
@@ -50,12 +49,12 @@ let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
 let g:rogue#directory = "~/vimfiles/rogue_saves/"
+let g:ale_enabled = 0
 
-
-""""""""""""""""
 " Key Bindings "
 """"""""""""""""
 map <F2> :set ruler!<CR>
+map <F3> :ALEToggle<CR>
 map <F9> :tabedit<CR>
 map <F10> :call ToggleVExplorer()<CR>
 map <F11> :e ~/vimfiles/todo.txt<CR>
@@ -64,15 +63,19 @@ nnoremap <C-h> :tabp<CR>
 nnoremap <C-j> :bn<CR>
 nnoremap <C-k> :bp<CR>
 nnoremap <C-l> :tabn<CR>
+
+
+" Commands "
+""""""""""""
 command FormatJSON :call FormatJSON()
 
-""""""""""
+
 " Colors "
 """"""""""
 let g:gruvbox_italic=0 
 colors gruvbox 
 
-"""""""""""""
+
 " Functions "
 """""""""""""
 function! ToggleVExplorer()
