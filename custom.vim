@@ -7,6 +7,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-git'
 Plug 'w0rp/ale'
+"Plug 'OmniSharp/omnisharp-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 
 "-- Games
