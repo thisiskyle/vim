@@ -7,11 +7,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-git'
 Plug 'w0rp/ale'
-"Plug 'OmniSharp/omnisharp-vim'
+Plug 'ctrlpvim/ctrlp.vim'
 
 "-- Games
 Plug 'vim-scripts/sokoban.vim'
-Plug 'katono/rogue.vim'
 call plug#end()
 
 
@@ -40,6 +39,7 @@ set rulerformat=%20(%{fugitive#head()}\ %c,%l%)
 set autochdir
 set encoding=utf-8
 set noruler
+set tags=tags;/
 filetype plugin indent on 
 filetype plugin on
 let g:netrw_dirhistmax = 0
@@ -48,21 +48,19 @@ let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
-let g:rogue#directory = "~/vimfiles/rogue_saves/"
 let g:ale_enabled = 0
 
 " Key Bindings "
 """"""""""""""""
-map <F2> :set ruler!<CR>
-map <F3> :ALEToggle<CR>
-map <F9> :tabedit<CR>
-map <F10> :call ToggleVExplorer()<CR>
-map <F11> :e ~/vimfiles/todo.txt<CR>
-map <F12> :e ~/vimfiles/custom.vim<CR>
 nnoremap <C-h> :tabp<CR>
 nnoremap <C-j> :bn<CR>
 nnoremap <C-k> :bp<CR>
 nnoremap <C-l> :tabn<CR>
+map <F2> :set ruler!<CR>
+map <F3> :ALEToggle<CR>
+map <F9> :tabedit<CR>
+map <F11> :e ~/vimfiles/todo.txt<CR>
+map <F12> :e ~/vimfiles/custom.vim<CR>
 
 
 " Commands "
@@ -78,24 +76,6 @@ colors gruvbox
 
 " Functions "
 """""""""""""
-function! ToggleVExplorer()
-    if exists("t:expl_buf_num")
-        let expl_win_num = bufwinnr(t:expl_buf_num)
-        let cur_win_num = winnr()
-        if expl_win_num != -1
-            while expl_win_num != cur_win_num
-                exec "wincmd w"
-                let cur_win_num = winnr()
-            endwhile
-            close
-        endif
-        unlet t:expl_buf_num
-    else
-         Vexplore
-         let t:expl_buf_num = bufnr("%")
-    endif
-endfunction
-
 function! FormatJSON()
 :%!python -m json.tool
 endfunction
