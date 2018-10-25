@@ -35,10 +35,9 @@ set expandtab
 set belloff=all
 set laststatus=0
 set noshowcmd
-set rulerformat=%20(%{fugitive#head()}\ %c,%l%)
+set rulerformat=%20(%{fugitive#head()}%)
 set autochdir
 set encoding=utf-8
-set noruler
 set tags=tags;/
 filetype plugin indent on 
 filetype plugin on
@@ -48,7 +47,6 @@ let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
-let g:ale_enabled = 0
 
 " Key Bindings "
 """"""""""""""""
@@ -60,6 +58,7 @@ map <F2> :set ruler!<CR>
 map <F3> :ALEToggle<CR>
 map <F9> :tabedit<CR>
 map <F11> :e ~/vimfiles/todo.txt<CR>
+map <F10> :Vex<CR>
 map <F12> :e ~/vimfiles/custom.vim<CR>
 
 
