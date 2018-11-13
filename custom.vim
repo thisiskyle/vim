@@ -34,7 +34,7 @@ set expandtab
 set belloff=all
 set laststatus=0
 set noshowcmd
-set rulerformat=%20(%{fugitive#head()}\ %c,%l%)
+set rulerformat=%20(%{fugitive#head()}\ %l/%{line('$')}%)
 set autochdir
 set encoding=utf-8
 set tags=tags;/
@@ -54,7 +54,8 @@ nnoremap <C-l> :tabn<CR>
 nnoremap <C-j> :bn<CR>
 nnoremap <C-k> :bp<CR>
 map <F2> :set ruler!<CR>
-map <F3> :ALEToggle<CR>
+map <F3> :set number!<CR>
+map <F4> :ALEToggle<CR>
 map <F9> :tabedit<CR>
 map <F10> :Vex<CR>
 map <F11> :e ~/vimfiles/todo.txt<CR>
