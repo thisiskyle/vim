@@ -34,7 +34,7 @@ set expandtab
 set belloff=all
 set laststatus=0
 set noshowcmd
-set rulerformat=%20(%{fugitive#head()}\ %l/%{line('$')}%)
+set rulerformat=%20(%{fugitive#head()}%)
 set autochdir
 set encoding=utf-8
 set tags=tags;/
@@ -46,6 +46,7 @@ let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
+
 
 " Key Bindings
 """"""""""""""""
