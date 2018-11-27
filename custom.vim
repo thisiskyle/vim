@@ -6,7 +6,6 @@ Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-git'
-Plug 'w0rp/ale'
 "Plug 'OmniSharp/omnisharp-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-scripts/sokoban.vim'
@@ -23,6 +22,7 @@ if has("gui_running")
     set lines=50
     set columns=110
 endif
+
 set guifont=Courier\ Prime\ Code:h10
 set nobackup
 set nowritebackup
@@ -34,6 +34,7 @@ set expandtab
 set belloff=all
 set laststatus=0
 set noshowcmd
+set noruler
 set rulerformat=%20(%{fugitive#head()}%)
 set autochdir
 set encoding=utf-8
@@ -56,7 +57,6 @@ nnoremap <C-j> :bn<CR>
 nnoremap <C-k> :bp<CR>
 map <F2> :set ruler!<CR>
 map <F3> :set number!<CR>
-map <F4> :ALEToggle<CR>
 map <F9> :tabedit<CR>
 map <F10> :Vex<CR>
 map <F11> :e ~/vimfiles/todo.txt<CR>
