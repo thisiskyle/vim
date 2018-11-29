@@ -1,6 +1,3 @@
-
-" Plugins
-"""""""""""
 call plug#begin('~/vimfiles/bundle')
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
@@ -11,9 +8,17 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-scripts/sokoban.vim'
 call plug#end()
 
+nnoremap <C-h> :tabp<CR>
+nnoremap <C-l> :tabn<CR>
+nnoremap <C-j> :bn<CR>
+nnoremap <C-k> :bp<CR>
+map <F2> :set ruler!<CR>
+map <F3> :set number!<CR>
+map <F9> :tabedit<CR>
+map <F10> :Vex<CR>
+map <F11> :e ~/vimfiles/todo.txt<CR>
+map <F12> :e ~/vimfiles/custom.vim<CR>
 
-" Settings
-""""""""""""
 if has("gui_running")
     set guioptions -=m "turn off the menu
     set guioptions -=T "turn off the toolbar
@@ -21,9 +26,11 @@ if has("gui_running")
     set guioptions -=L "turn off the left toolbar
     set lines=50
     set columns=110
+    set guifont=Courier\ Prime\ Code\ 10
 endif
 
-set guifont=Courier\ Prime\ Code:h10
+colors gruvbox 
+
 set nobackup
 set nowritebackup
 set noswapfile
@@ -39,43 +46,20 @@ set rulerformat=%20(%{fugitive#head()}%)
 set autochdir
 set encoding=utf-8
 set tags=tags;/
+
 filetype plugin indent on 
 filetype plugin on
+
 let g:netrw_dirhistmax = 0
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
+let g:gruvbox_italic=0 
 
-
-" Key Bindings
-""""""""""""""""
-nnoremap <C-h> :tabp<CR>
-nnoremap <C-l> :tabn<CR>
-nnoremap <C-j> :bn<CR>
-nnoremap <C-k> :bp<CR>
-map <F2> :set ruler!<CR>
-map <F3> :set number!<CR>
-map <F9> :tabedit<CR>
-map <F10> :Vex<CR>
-map <F11> :e ~/vimfiles/todo.txt<CR>
-map <F12> :e ~/vimfiles/custom.vim<CR>
-
-
-" Commands
-""""""""""""
 command FormatJSON :call FormatJSON()
 
-
-" Colors
-""""""""""
-let g:gruvbox_italic=0 
-colors gruvbox 
-
-
-" Functions
-"""""""""""""
 function! FormatJSON()
 :%!python -m json.tool
 endfunction
