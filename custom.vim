@@ -1,6 +1,6 @@
 source $VIMRUNTIME/defaults.vim
 
-call plug#begin('~/.vim/bundle')
+call plug#begin('~/vimfiles/bundle')
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'sheerun/vim-polyglot'
@@ -18,8 +18,8 @@ map <F2> :set ruler!<CR>
 map <F3> :set number!<CR>
 map <F9> :tabedit<CR>
 map <F10> :Vex<CR>
-map <F11> :e ~/vim/todo.txt<CR>
-map <F12> :e ~/vim/custom.vim<CR>
+map <F11> :e ~/vimfiles/todo.txt<CR>
+map <F12> :e ~/vimfiles/custom.vim<CR>
 
 if has("gui_running")
     set guioptions -=m "turn off the menu
