@@ -41,8 +41,12 @@ if has("gui_running")
     set guioptions -=L "turn off the left toolbar
     set lines=50
     set columns=110
-    set guifont=Courier\ Prime\ Code\ 10
     set hlsearch
+    if has("win32")
+        set guifont=Courier\ Prime\ Code:h10
+    elseif has("unix")
+        set guifont=Courier\ Prime\ Code\ 10
+    endif
 endif
 set nobackup
 set nowritebackup
