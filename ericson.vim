@@ -42,6 +42,7 @@ if has("gui_running")
     set lines=50
     set columns=110
     set hlsearch
+    let g:gruvbox_contrast_dark = 'soft'
     colors gruvbox 
     if has("win32")
         set guifont=Courier\ Prime\ Code:h10
