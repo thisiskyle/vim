@@ -1,7 +1,12 @@
 
-" Plugins
-"""""""""""
-call plug#begin('~/vimfiles/bundle')
+source $VIMRUNTIME/defaults.vim
+
+
+if has("win32")
+    call plug#begin('~/vimfiles/bundle')
+elseif has("unix")
+    call plug#begin('~/.vim/bundle')
+endif
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'sheerun/vim-polyglot'
@@ -14,6 +19,13 @@ call plug#end()
 
 " Key Bindings
 """"""""""""""""
+if has("win32")
+    map <F11> :e ~/todo.txt<CR>
+    map <F12> :e ~/vimfiles/ericson.vim<CR>
+elseif has("unix")
+    map <F11> :e ~/todo.txt<CR>
+    map <F12> :e ~/.vim/ericson.vim<CR>
+endif
 nnoremap <C-h> :tabp<CR>
 nnoremap <C-l> :tabn<CR>
 nnoremap <C-j> :bn<CR>
@@ -22,8 +34,6 @@ map <F2> :set ruler!<CR>
 map <F3> :set number!<CR>
 map <F9> :tabedit<CR>
 map <F10> :Vex<CR>
-map <F11> :e ~/vimfiles/todo.txt<CR>
-map <F12> :e ~/vimfiles/custom.vim<CR>
 
 
 " Settings
@@ -35,9 +45,15 @@ if has("gui_running")
     set guioptions -=L "turn off the left toolbar
     set lines=50
     set columns=110
+    set hlsearch
+    let g:gruvbox_contrast_dark = 'soft'
+    colors gruvbox 
+    if has("win32")
+        set guifont=Courier\ Prime\ Code:h10
+    elseif has("unix")
+        set guifont=Courier\ Prime\ Code\ 10
+    endif
 endif
-
-set guifont=Courier\ Prime\ Code:h10
 set nobackup
 set nowritebackup
 set noswapfile
@@ -52,7 +68,10 @@ set noruler
 set rulerformat=%20(%{fugitive#head()}%)
 set autochdir
 set encoding=utf-8
+set fileencoding=utf-8
 set tags=tags;/
+set bg=dark
+set autoindent
 filetype plugin indent on 
 filetype plugin on
 let g:netrw_dirhistmax = 0
@@ -64,19 +83,7 @@ let g:netrw_winsize = 25
 
 
 
-" Commands
-""""""""""""
 command FormatJSON :call FormatJSON()
-
-
-" Colors
-""""""""""
-let g:gruvbox_italic=0 
-colors gruvbox 
-
-
-" Functions
-"""""""""""""
 function! FormatJSON()
 :%!python -m json.tool
 endfunction

@@ -1,4 +1,1 @@
-source ~/vimfiles/default.vim
-source ~/vimfiles/custom.vim
-
-
+source ~/vimfiles/ericson.vim
