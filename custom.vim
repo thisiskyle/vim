@@ -12,6 +12,20 @@ Plug 'vim-scripts/sokoban.vim'
 call plug#end()
 
 
+" Key Bindings
+""""""""""""""""
+nnoremap <C-h> :tabp<CR>
+nnoremap <C-l> :tabn<CR>
+nnoremap <C-j> :bn<CR>
+nnoremap <C-k> :bp<CR>
+map <F2> :set ruler!<CR>
+map <F3> :set number!<CR>
+map <F9> :tabedit<CR>
+map <F10> :Vex<CR>
+map <F11> :e ~/vimfiles/todo.txt<CR>
+map <F12> :e ~/vimfiles/custom.vim<CR>
+
+
 " Settings
 """"""""""""
 if has("gui_running")
@@ -48,19 +62,6 @@ let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
 
-
-" Key Bindings
-""""""""""""""""
-nnoremap <C-h> :tabp<CR>
-nnoremap <C-l> :tabn<CR>
-nnoremap <C-j> :bn<CR>
-nnoremap <C-k> :bp<CR>
-map <F2> :set ruler!<CR>
-map <F3> :set number!<CR>
-map <F9> :tabedit<CR>
-map <F10> :Vex<CR>
-map <F11> :e ~/vimfiles/todo.txt<CR>
-map <F12> :e ~/vimfiles/custom.vim<CR>
 
 
 " Commands
