@@ -1,1 +1,0 @@
-source ~/vimfiles/ericson.vim
