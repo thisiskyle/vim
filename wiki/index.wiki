@@ -1,3 +1,2 @@
 = Test =
- - [ ] This is a test
- - [ ] [[project/test|This is a test]]
+ - [X] This is a test
