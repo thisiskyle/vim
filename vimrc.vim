@@ -1,6 +1,9 @@
+
 source $VIMRUNTIME/defaults.vim
 
-" plugins
+"---------------------------
+"          plugins
+"---------------------------
 if has("gui_running")
     if has("win32")
         call plug#begin('~/vimfiles/bundle')
@@ -13,11 +16,15 @@ if has("gui_running")
     Plug 'tpope/vim-git'
     "Plug 'OmniSharp/omnisharp-vim'
     Plug 'ctrlpvim/ctrlp.vim'
+    Plug 'vimwiki/vimwiki'
     Plug 'vim-scripts/sokoban.vim'
     call plug#end()
 endif
 
-" keybindings
+
+"---------------------------
+"        keybindings
+"---------------------------
 nnoremap <C-h> :tabp<CR>
 nnoremap <C-l> :tabn<CR>
 nnoremap <C-j> :bn<CR>
@@ -26,14 +33,17 @@ map <F2> :set ruler!<CR>
 map <F3> :set number!<CR>
 map <F9> :tabedit<CR>
 map <F10> :Vex<CR>
-map <F11> :e ~/todo.txt<CR>
+map <F11> :e ~/todo.wiki<CR>
 if has("win32")
     map <F12> :e ~/vimfiles/vimrc.vim<CR>
 elseif has("unix")
     map <F12> :e ~/.vim/vimrc.vim<CR>
 endif
 
-" settings
+
+"---------------------------
+"         settings
+"---------------------------
 if has("gui_running")
     set guioptions -=m "turn off the menu
     set guioptions -=T "turn off the toolbar
@@ -50,6 +60,7 @@ if has("gui_running")
         set guifont=Courier\ Prime\ Code\ 10
     endif
 endif
+
 set nobackup
 set nowritebackup
 set noswapfile
@@ -68,16 +79,22 @@ set fileencoding=utf-8
 set tags=tags;/
 set bg=dark
 set autoindent
+
 let g:netrw_dirhistmax = 0
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 10
+let g:vimwiki_list = [{'path':'~/vimfiles/wiki', 'path_html':'~/vimfiles/wiki/html/'}]
+
 filetype plugin indent on 
 filetype plugin on
 
-" commands
+
+"---------------------------
+"        commands
+"---------------------------
 command FormatJSON :call FormatJSON()
 function! FormatJSON()
 :%!python -m json.tool
