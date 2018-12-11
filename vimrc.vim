@@ -28,9 +28,9 @@ map <F9> :tabedit<CR>
 map <F10> :Vex<CR>
 map <F11> :e ~/todo.txt<CR>
 if has("win32")
-    map <F12> :e ~/vimfiles/.vimrc<CR>
+    map <F12> :e ~/vimfiles/vimrc.vim<CR>
 elseif has("unix")
-    map <F12> :e ~/.vim/.vimrc<CR>
+    map <F12> :e ~/.vim/vimrc.vim<CR>
 endif
 
 " settings
