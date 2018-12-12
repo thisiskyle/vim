@@ -1,2 +1,7 @@
-= Test =
- - [X] This is a test
+
+
+= Table of Contents =
+
+== Work ==
+* [[work/reminders|Todo]]
+* [[work/copypasta|Copy Paste Stuff]]
