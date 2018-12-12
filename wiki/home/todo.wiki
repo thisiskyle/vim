@@ -1,0 +1,29 @@
+
+Learning
+ |_ Udemy machine learning course
+ |_ Udemy proced. mesh generation
+ |_ Udemy deep learning
+ |_ Shaders in Unity
+ |_ Inverse kinematics videos (coding train)
+
+Game Ideas
+ |_ SS13 Clone
+ |_ Cooking match 3
+ |_ TBS game
+ |_ Rubiks Cube Adventure game
+ |_ Wingman
+
+Shows
+ |_ Gundam Iron Blooded Orphans
+ |_ My Hero Academia
+ |_ Parasyte Maxim
+
+Project
+ |_ Pihole
+ |_ picamera
+
+Games
+ |_ Artifact
+ |_ wargroove
+
+
