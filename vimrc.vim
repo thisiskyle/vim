@@ -96,6 +96,11 @@ filetype plugin on
 "        commands
 "---------------------------
 command FormatJSON :call FormatJSON()
+
+
+"---------------------------
+"        functions
+"---------------------------
 function! FormatJSON()
 :%!python -m json.tool
 endfunction

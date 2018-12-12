@@ -1,9 +1,8 @@
 
-== Todo ==
-[[personal/main|Personal]]
-[[work/main|Work]]
-
-== Projects ==
-[[projects/match3/gdd|Match 3]] 
-
-
+= Welcome to your homepage =
+[[./work/main|Work]]
+[[./personal/learning|Learning]]
+[[./personal/projects|Projects]]
+[[./personal/shows|Shows]]
+[[./personal/gamebacklog|Game Backlog]]
+[[./projects/match3/main|Match-3]]
