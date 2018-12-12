@@ -1,6 +1,6 @@
 
 == Todo ==
-[[home/main|Home]]
+[[personal/main|Personal]]
 [[work/main|Work]]
 
 == Projects ==

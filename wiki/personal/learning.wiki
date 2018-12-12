@@ -1,0 +1,16 @@
+
+= Learning =
+
+== Udemy Courses ==
+- [ ] unity machine learning course
+- [ ] unity proced. mesh generation
+- [ ] deep learning
+
+== Youtube ==
+- [ ] Shaders in Unity
+- [ ] Inverse kinematics videos (coding train)
+
+
+
+[[./main|Back]]
+[[../index|Index]]

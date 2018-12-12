@@ -1,0 +1,16 @@
+
+= Projects =
+
+== Game Ideas ==
+- [ ] SS13 Clone
+- [ ] Cooking match 3
+- [ ] TBS game
+- [ ] Rubiks Cube Adventure game
+- [ ] Wingman
+
+== Pi Projects ==
+- [ ] Pihole
+- [ ] picamera
+
+[[./main|Back]]
+[[../index|Index]]

@@ -1,0 +1,13 @@
+
+= Shows =
+- [ ] Gundam Iron Blooded Orphans
+- [ ] My Hero Academia
+- [ ] Parasyte Maxim
+
+
+
+
+
+
+[[./main|Back]]
+[[../index|Index]]

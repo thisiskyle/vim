@@ -1,0 +1,7 @@
+
+= Welcome to your homepage =
+[[./learning|Learning]]
+[[./projects|Projects]]
+[[./shows|Shows]]
+[[./gamebacklog|Game Backlog]]
+[[../index|Index]]
