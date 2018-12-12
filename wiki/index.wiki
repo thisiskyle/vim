@@ -1,17 +1,9 @@
 
-
-= Table of Contents =
-
-== Work ==
-  [[work/reminders|Todo]]
-  [[work/copypasta|Copy Paste Stuff]]
-
-
-== Home ==
-  [[home/todo|Todo]]
-
+== Todo ==
+[[home/main|Home]]
+[[work/main|Work]]
 
 == Projects ==
-  [[projects/match3/gdd|Match 3]] 
+[[projects/match3/gdd|Match 3]] 
 
 

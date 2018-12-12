@@ -1,14 +1,10 @@
 
 = Todo =
-
 - [ ] Joe to set up a meeting with Justin about Server upgrade
 - [ ] Ask Joe to show me how to look up purchase orders
 - [ ] Backup printer for NRB10 (Jennifer Sharabidze)
 - [ ] Shipper Manifest problem with Toyota. 
 
 
-= Links =
-* [[copypasta|Copy Pasta]]
-* [[../index|Home]]
-
-
+[[cheatsheet|Cheat Sheet]]  
+[[../index|Index]]
