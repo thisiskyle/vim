@@ -1,0 +1,49 @@
+
+= Match-3 Cooking game = 
+
+== Summary ==
+
+    This will be a match three game at it't core. The outer layer will be a
+    restaurant management game. The goal of this game will be to create a 5 star
+    restaurant.
+
+
+
+== Gameplay ==
+
+    The gameplay will be broken down into days lasting only a few minutes. Before
+    the day begins you will choose menu items. These items will have ingedients
+    that determine the pieces you must match on the board. 
+
+       Example: A burger on your menu would add meat, bread, and cheese to your board. 
+       
+    Customers will come throughout the day and order things on you menu. To fullfill the orders you
+    must match 3 of each ingedient. Each order you fullfill will give you some
+    money. Faster orders fullfillment will yield higher tips. Orders will have
+    timers. Missed orders will cost you money.
+
+    Between each day you will have the options to buy new menu items, upgrade
+    your restaurant, change you menu.
+
+
+
+== Assets ==
+
+    Menu Items:
+        
+        Tier 1:
+            - Spaghetti: Pasta, red sauce, meat
+            - Chicken Sandwhich: Meat, bread
+            - Cheeseburger: Meat, bread, cheese
+
+        Tier 2:
+            - Deluxe Cheeseburger: 
+
+        Tier 3:
+
+
+    Ingredients:
+        Meat, cheese, pasta, red sauce, lettuce, tomato,   
+
+      
+    
