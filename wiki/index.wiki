@@ -3,5 +3,15 @@
 = Table of Contents =
 
 == Work ==
-* [[work/reminders|Todo]]
-* [[work/copypasta|Copy Paste Stuff]]
+  [[work/reminders|Todo]]
+  [[work/copypasta|Copy Paste Stuff]]
+
+
+== Home ==
+  [[home/todo|Todo]]
+
+
+== Projects ==
+  [[projects/match3/gdd|Match 3]] 
+
+
