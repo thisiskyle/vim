@@ -12,5 +12,4 @@
 - [ ] Pihole
 - [ ] picamera
 
-[[./main|Back]]
 [[../index|Index]]

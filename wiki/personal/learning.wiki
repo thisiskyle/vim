@@ -12,5 +12,4 @@
 
 
 
-[[./main|Back]]
 [[../index|Index]]

@@ -3,5 +3,4 @@
 - [ ] Artifact
 - [ ] wargroove
 
-[[./main|Back]]
 [[../index|Index]]

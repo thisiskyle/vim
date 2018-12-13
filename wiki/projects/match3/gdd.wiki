@@ -10,7 +10,6 @@
     restaurant.
 
 
-
 == Gameplay ==
 
     The gameplay will be broken down into days lasting only a few minutes. Before
@@ -28,24 +27,43 @@
     your restaurant, change you menu.
 
 
-
 == Assets ==
 
-    Menu Items:
-        
-        Tier 1:
-            - Spaghetti: Pasta, red sauce, meat
-            - Chicken Sandwhich: Meat, bread
-            - Cheeseburger: Meat, bread, cheese
+=== Menu Items ===
 
-        Tier 2:
-            - Deluxe Cheeseburger: 
+    ==== Tier 1 ====
+    
+        1) Spaghetti 
+            * Pasta 
+            * Red sauce
+            * Meat
+        2) Chicken Sandwhich 
+            * Meat
+            * Bread
+        3) Cheeseburger
+            * Meat
+            * Bread
+            * Cheese
 
-        Tier 3:
+    ==== Tier 2 ====
+    
+        1) Deluxe Cheeseburger 
+            * Meat
+            * bread
+            * cheese
+            * Tomato
+            * Lettuce
+
+    ==== Tier 3 ====
 
 
-    Ingredients:
-        Meat, cheese, pasta, red sauce, lettuce, tomato,   
+=== Ingredients ===
+    * Meat
+    * Cheese
+    * Pasta
+    * Red Sauce
+    * Lettuce
+    * Tomato   
 
       
 [[./main|Back]]    

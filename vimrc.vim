@@ -31,9 +31,8 @@ nnoremap <C-j> :bn<CR>
 nnoremap <C-k> :bp<CR>
 map <F2> :set ruler!<CR>
 map <F3> :set number!<CR>
-map <F9> :tabedit<CR>
-map <F10> :Vex<CR>
-map <F11> :e ~/todo.wiki<CR>
+map <F10> :tabedit<CR>
+map <F11> :Vex<CR>
 if has("win32")
     map <F12> :e ~/vimfiles/vimrc.vim<CR>
 elseif has("unix")

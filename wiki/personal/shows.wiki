@@ -4,5 +4,4 @@
 - [ ] My Hero Academia
 - [ ] Parasyte Maxim
 
-[[./main|Back]]
 [[../index|Index]]
