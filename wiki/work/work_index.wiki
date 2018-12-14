@@ -1,0 +1,6 @@
+[[../index|Home]] > Work
+
+=== Gentex ===
+* [[./todo|Todo]]
+* [[./edi/edi_index|EDI]]
+* [[./labeling/labeling_index|Labeling]]

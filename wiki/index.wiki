@@ -1,9 +1,9 @@
 
-= Welcome to your homepage =
 
-[[./work/main|Work]]
-[[./personal/learning|Learning]]
-[[./personal/projects|Projects]]
-[[./personal/shows|Shows]]
-[[./personal/gamebacklog|Game Backlog]]
-[[./projects/match3/main|Match-3]]
+=== Welcome to your wiki! ===
+* [[./work/work_index|Gentex]]
+* [[./projects/projects_index|Projects]]
+* [[./learning|Stuff to Learn]]
+* [[./shows|Shows to Watch]]
+* [[./gamebacklog|Game Backlog]]
+ 

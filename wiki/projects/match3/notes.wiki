@@ -1,19 +1,15 @@
+[[../../index|Home]] > [[../projects_index|Projects]] > [[./match3_index|Match-3]] > Notes
 
-= Notes =
+=== Notes ===
 
-== Todo ==
-
-- [ ] User Input
-    - [ ] Input Event System that listens for mouse click
-    - [ ] Get location of mouse click and return the ingredient at that location
-    - [ ] That ingredient is marked as selected
-    - [ ] If a neighbor is clicked, do a temp swap and check for a match
-    - [ ] If no match, swap back.
-    - [ ] If match, remove matched ingredients.
-
+TODO User Input
+- [ ] Input Event System that listens for mouse click
+- [ ] Get location of mouse click and return the ingredient at that location
+- [ ] That ingredient is marked as selected
+- [ ] If a neighbor is clicked, do a temp swap and check for a match
+- [ ] If no match, swap back.
+- [ ] If match, remove matched ingredients.
 
 
 
 
-[[./main|Back]]
-[[../../index|Index]]

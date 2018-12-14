@@ -1,0 +1,19 @@
+[[../index|Home]] > [[./projects_index|Projects]] > Ideas
+
+
+=== Project Ideas ===
+
+==== Games ====
+* SS13 Clone
+* TBS game
+* Rubiks Cube Adventure game
+* Wingman
+
+==== Pi ====
+* Pihole
+* Picamera
+
+==== Other ====
+* Board game table 
+
+

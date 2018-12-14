@@ -1,70 +1,68 @@
-
-= Match-3 Cooking = 
-== Game Design Doc ==
+[[../../index|Home]] > [[../projects_index|Projects]] > [[./match3_index|Match-3]] > GDD
 
 
-== Summary ==
-
-    This will be a match three game at it't core. The outer layer will be a
-    restaurant management game. The goal of this game will be to create a 5 star
-    restaurant.
+== Match-3 Cooking - Game Design Doc ==
 
 
-== Gameplay ==
+=== Summary ===
 
-    The gameplay will be broken down into days lasting only a few minutes. Before
-    the day begins you will choose menu items. These items will have ingedients
-    that determine the pieces you must match on the board. 
-
-       Example: A burger on your menu would add meat, bread, and cheese to your board. 
-       
-    Customers will come throughout the day and order things on you menu. To fullfill the orders you
-    must match 3 of each ingedient. Each order you fullfill will give you some
-    money. Faster orders fullfillment will yield higher tips. Orders will have
-    timers. Missed orders will cost you money.
-
-    Between each day you will have the options to buy new menu items, upgrade
-    your restaurant, change you menu.
+This will be a match three game at it't core. The outer layer will be a
+restaurant management game. The goal of this game will be to create a 5 star
+restaurant.
 
 
-== Assets ==
+=== Gameplay ===
 
-=== Menu Items ===
+The gameplay will be broken down into days lasting only a few minutes. Before
+the day begins you will choose menu items. These items will have ingedients
+that determine the pieces you must match on the board. 
 
-    ==== Tier 1 ====
-    
-        1) Spaghetti 
-            * Pasta 
-            * Red sauce
-            * Meat
-        2) Chicken Sandwhich 
-            * Meat
-            * Bread
-        3) Cheeseburger
-            * Meat
-            * Bread
-            * Cheese
+   Example: A burger on your menu would add meat, bread, and cheese to your board. 
+   
+Customers will come throughout the day and order things on you menu. To fullfill the orders you
+must match 3 of each ingedient. Each order you fullfill will give you some
+money. Faster orders fullfillment will yield higher tips. Orders will have
+timers. Missed orders will cost you money.
 
-    ==== Tier 2 ====
-    
-        1) Deluxe Cheeseburger 
-            * Meat
-            * bread
-            * cheese
-            * Tomato
-            * Lettuce
-
-    ==== Tier 3 ====
+Between each day you will have the options to buy new menu items, upgrade
+your restaurant, change you menu.
 
 
-=== Ingredients ===
+=== Assets ===
+
+==== Menu Items ====
+
+*Tier 1*
+
+1) Spaghetti 
+    * Pasta 
+    * Red sauce
     * Meat
+2) Chicken Sandwhich 
+    * Meat
+    * Bread
+3) Cheeseburger
+    * Meat
+    * Bread
     * Cheese
-    * Pasta
-    * Red Sauce
-    * Lettuce
-    * Tomato   
 
-      
-[[./main|Back]]    
-[[../../index|Index]]
+*Tier 2*
+
+1) Deluxe Cheeseburger 
+    * Meat
+    * bread
+    * cheese
+    * Tomato
+    * Lettuce
+
+*Tier 3*
+
+
+===== Ingredients =====
+* Meat
+* Cheese
+* Pasta
+* Red Sauce
+* Lettuce
+* Tomato   
+

@@ -1,15 +1,14 @@
+[[./index|Back]]
 
-= Learning =
+=== Learning ===
 
-== General Topics ==
+==== General Topics ====
 - [ ] Shaders in Unity
 - [ ] Inverse kinematics videos (coding train)
 
-== Udemy Courses ==
+==== Udemy Courses ====
 - [ ] unity machine learning course
 - [ ] unity proced. mesh generation
 - [ ] deep learning
 
 
-
-[[../index|Index]]

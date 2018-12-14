@@ -1,0 +1,13 @@
+
+= Add New Printer =
+
+These are instructions for adding a printer to the prod or test server
+to be used in iCaRas.
+
+    1) Remote in to prod server (or test if adding to test)
+    2) Add a printer, with IP address, to the server
+    3) Give it a name
+    4) If needed, [[./change_printer|change or set printer]] in iCaRas
+
+
+[[./edi_index|Back]]

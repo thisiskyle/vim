@@ -1,6 +1,0 @@
-
-= Game Backlog =
-- [ ] Artifact
-- [ ] wargroove
-
-[[../index|Index]]

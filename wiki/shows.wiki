@@ -1,7 +1,8 @@
+[[./index|Back]]
 
-= Shows =
+=== Shows ===
 - [ ] Gundam Iron Blooded Orphans
 - [ ] My Hero Academia
-- [ ] Parasyte Maxim
+- [.] Parasyte Maxim
 
-[[../index|Index]]
+
