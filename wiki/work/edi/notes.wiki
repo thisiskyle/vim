@@ -1,3 +1,4 @@
+[[../../index|Home]] / [[../work_index|Work]] / [[./edi_index|EDI]] / Notes
 
 = Notes =
 * Trading partner Z1 and Z2 so not recieve ASNs
@@ -12,6 +13,3 @@
 * 850 - Forecast
 * 856 - Advanced Shipping Notice
 
-
-
-[[./edi_index|Back]]

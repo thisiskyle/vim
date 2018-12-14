@@ -1,4 +1,4 @@
-[[../index|Home]] > Work
+[[../index|Home]] / Work
 
 === Gentex ===
 * [[./todo|Todo]]

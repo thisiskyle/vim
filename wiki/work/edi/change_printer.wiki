@@ -1,3 +1,4 @@
+[[../../index|Home]] / [[../work_index|Work]] / [[./edi_index|EDI]] / Set Printer
 
 = Set/Change Printer =
 
@@ -9,5 +10,3 @@ These are the instructions for setting or changing a company printer in iCaRas.
     5) Enter desired printer name in 'Printer/Command' field
     6) Hit Update to save changes
 
-
-[[./edi_index|Back]]

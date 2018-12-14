@@ -1,4 +1,4 @@
-[[./index|Back]]
+[[./index|Home]] / Shows
 
 === Shows ===
 - [ ] Gundam Iron Blooded Orphans

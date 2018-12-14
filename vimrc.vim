@@ -48,8 +48,8 @@ if has("gui_running")
     set guioptions -=T "turn off the toolbar
     set guioptions -=r "turn off the right hand toolbar
     set guioptions -=L "turn off the left toolbar
-    set lines=50
-    set columns=110
+    set lines=55
+    set columns=100
     set nohlsearch
     let g:gruvbox_contrast_dark = 'soft'
     colors gruvbox 

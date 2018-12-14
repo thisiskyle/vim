@@ -1,4 +1,4 @@
-[[../../index|Home]] > [[../projects_index|Projects]] > [[./match3_index|Match-3]] > GDD
+[[../../index|Home]] / [[../projects_index|Projects]] / [[./match3_index|Match-3]] / GDD
 
 
 == Match-3 Cooking - Game Design Doc ==

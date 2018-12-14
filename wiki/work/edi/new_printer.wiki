@@ -1,3 +1,4 @@
+[[../../index|Home]] / [[../work_index|Work]] / [[./edi_index|EDI]] / New Printer
 
 = Add New Printer =
 
@@ -9,5 +10,3 @@ to be used in iCaRas.
     3) Give it a name
     4) If needed, [[./change_printer|change or set printer]] in iCaRas
 
-
-[[./edi_index|Back]]

@@ -1,4 +1,4 @@
-[[../index|Home]] > [[./projects_index|Projects]] > Ideas
+[[../index|Home]] / [[./projects_index|Projects]] / Ideas
 
 
 === Project Ideas ===

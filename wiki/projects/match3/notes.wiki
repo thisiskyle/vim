@@ -1,4 +1,4 @@
-[[../../index|Home]] > [[../projects_index|Projects]] > [[./match3_index|Match-3]] > Notes
+[[../../index|Home]] / [[../projects_index|Projects]] / [[./match3_index|Match-3]] / Notes
 
 === Notes ===
 

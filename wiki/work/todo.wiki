@@ -1,4 +1,4 @@
-[[../index|Home]] > [[./work_index|Work]] > ToDo
+[[../index|Home]] / [[./work_index|Work]] / ToDo
 
 === Todo ===
 
