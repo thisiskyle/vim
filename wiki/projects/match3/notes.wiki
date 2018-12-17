@@ -3,8 +3,9 @@
 === Notes ===
 
 TODO User Input
-- [ ] Input Event System that listens for mouse click
-- [ ] Get location of mouse click and return the ingredient at that location
+- [X] Input Event System that listens for mouse click
+- [X] Get location of mouse click
+- [ ] Function that returns ingredient at mouse pos 
 - [ ] That ingredient is marked as selected
 - [ ] If a neighbor is clicked, do a temp swap and check for a match
 - [ ] If no match, swap back.

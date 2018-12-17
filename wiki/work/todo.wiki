@@ -3,9 +3,9 @@
 === Todo ===
 
 - [ ] Joe to set up a meeting with Justin about Server upgrade
+- [ ] Toyota 810s
 - [ ] Ask Joe to show me how to look up purchase orders
 - [ ] Ask Joe to show how to do printer thing again
-- [ ] Toyota 810s
-- [ ] Ask joe about sending test prints
+- [ ] Ask joe about sending test prints to printers
 
 
