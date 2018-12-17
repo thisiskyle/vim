@@ -3,6 +3,9 @@
 === Shows ===
 - [ ] Gundam Iron Blooded Orphans
 - [ ] My Hero Academia
-- [.] Parasyte Maxim
+- [o] Parasyte Maxim
+- [.] Mr Robot
+- [.] Game of Thrones
+- [.] Punisher
 
 

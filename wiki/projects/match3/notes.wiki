@@ -2,7 +2,11 @@
 
 === Notes ===
 
-TODO User Input
+- [ ] Scene Manager
+- [ ] Create a scene class
+- [ ] Title Scene
+- [ ] Scrollable list object (expandable)
+- [ ] UpgradeScene -- for end of day upgrades
 - [X] Input Event System that listens for mouse click
 - [X] Get location of mouse click
 - [ ] Function that returns ingredient at mouse pos 
@@ -10,7 +14,11 @@ TODO User Input
 - [ ] If a neighbor is clicked, do a temp swap and check for a match
 - [ ] If no match, swap back.
 - [ ] If match, remove matched ingredients.
-
+- [ ] Sprites for ingredients
+- [ ] People sprites (all white for easy color changing)
+- [ ] Cash register
+- [ ] Counter top
+- [ ] Buttons
 
 
 
