@@ -1,0 +1,25 @@
+[[./index|Home]] / Below
+
+=== Below ===
+
+==== ToDo ====
+- [ ] Farm levels 1-3 for motes
+- [ ] Try to find marbles and light bits
+
+==== Notes ====
+* Marbles are used to upgrade The Pocket
+* Light bits can be found all over
+
+==== Level 1 ====
+
+==== Level 2 ====
+
+==== Level 3 ====
+* Use Hammer here -- found on level 5
+* Secret Shop -- need 200 motes, sells helmet (80)
+ 
+==== Level 4 ==== 
+* Need a bomb at some point?
+ 
+==== Level 5 ==== 
+* Hammer found here

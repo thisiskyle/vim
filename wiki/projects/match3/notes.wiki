@@ -3,26 +3,21 @@
 === Notes ===
 
 ==== Programming ====
-
-- [ ] Scene Manager
-- [ ] Create a scene class
-- [ ] Title Scene
-- [ ] UpgradeScene -- for end of day upgrades
- 
-- [ ] Scrollable list object (expandable)
-- [o] Function that returns ingredient at mouse pos 
-- [o] That ingredient is marked as selected
-- [ ] If a neighbor is clicked, do a temp swap and check for a match
-- [ ] If no match, swap back.
-- [ ] If match, remove matched ingredients.
-
-==== Art ====
-- [ ] Buttons
-- [ ] Sprites for ingredients
-- [ ] People sprites (all white for easy color changing)
-- [ ] Cash register
-- [ ] Counter top
+- Scene Manager
+- Create a basic GameScene class to inherit from
+- Title Scene
+- UpgradeScene -- for end of day upgrades
+- Scrollable list object (expandable)
+- Function that returns ingredient at mouse pos 
+- That ingredient is marked as selected
+- If a neighbor is clicked, do a temp swap and check for a match
+- If no match, swap back.
+- If match, remove matched ingredients.
 
 ==== Done ====
-- [X] Input Event System that listens for mouse click
-- [X] Get location of mouse click
+- Input Event System that listens for mouse click
+- Get location of mouse click
+
+
+
+==== In-Code Comments ====

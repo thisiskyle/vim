@@ -1,6 +1,7 @@
 [[../index|Home]] / [[./work_index|Work]] / ToDo
 
-=== Todo ===
 
-- [ ] Joe to set up a meeting with Justin about Server upgrade
+=== To Do === 
+
+
 

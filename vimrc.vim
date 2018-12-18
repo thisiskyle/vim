@@ -49,8 +49,9 @@ if has("gui_running")
     set guioptions -=r "turn off the right hand toolbar
     set guioptions -=L "turn off the left toolbar
     set lines=55
-    set columns=100
+    set columns=105
     set nohlsearch
+    let g:gruvbox_italic = '0'
     let g:gruvbox_contrast_dark = 'soft'
     colors gruvbox 
     if has("win32")
@@ -63,7 +64,7 @@ endif
 set nobackup
 set nowritebackup
 set noswapfile
-set textwidth=80
+"set textwidth=80
 set noundofile
 set tabstop=4
 set shiftwidth=4
