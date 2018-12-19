@@ -80,6 +80,7 @@ set fileencoding=utf-8
 set tags=tags;/
 set bg=dark
 set autoindent
+set ff=unix
 
 let g:netrw_dirhistmax = 0
 let g:netrw_banner = 0
