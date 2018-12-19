@@ -52,6 +52,7 @@ if has("gui_running")
     set columns=105
     set nohlsearch
     let g:gruvbox_italic = '0'
+    let g:gruvbox_bold = '0'
     let g:gruvbox_contrast_dark = 'soft'
     colors gruvbox 
     if has("win32")
