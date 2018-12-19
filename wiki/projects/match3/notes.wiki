@@ -1,23 +1,5 @@
-[[../../index|Home]] / [[../projects_index|Projects]] / [[./match3_index|Match-3]] / Notes
-
-=== Notes ===
-
-==== Programming ====
-- Scene Manager
-- Create a basic GameScene class to inherit from
-- Title Scene
-- UpgradeScene -- for end of day upgrades
-- Scrollable list object (expandable)
-- Function that returns ingredient at mouse pos 
-- That ingredient is marked as selected
-- If a neighbor is clicked, do a temp swap and check for a match
-- If no match, swap back.
-- If match, remove matched ingredients.
-
-==== Done ====
-- Input Event System that listens for mouse click
-- Get location of mouse click
-
-
-
-==== In-Code Comments ====
+(GameScene.cs:6) TODO: Create GameScene class
+(GameScene.cs:7) TODO: Title Scene
+(GameScene.cs:8) TODO: EndOfDay
+(GameScene.cs:9) TODO: Scrollable list obj
+(SceneManager.cs:6) TODO: Create the SceneManager
