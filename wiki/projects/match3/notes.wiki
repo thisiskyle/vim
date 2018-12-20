@@ -2,8 +2,13 @@
 
 ==== Notes ====
 
-[GameScene.cs:6] TODO: Create GameScene class
-[GameScene.cs:7] TODO: Title
-[GameScene.cs:8] TODO: EndOfDay
-[GameScene.cs:9] TODO: Scrollable list obj
+- Tile swapping
+- Check for matches
+
 [SceneManager.cs:6] TODO: Create the SceneManager
+[GameScene.cs:6] TODO: Create GameScene base class
+[GameScene.cs:7] TODO: Title scene
+[GameScene.cs:8] TODO: EndOfDay scene
+[GameScene.cs:9] TODO: Scrollable list obj
+
+
