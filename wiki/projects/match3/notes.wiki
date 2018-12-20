@@ -2,6 +2,8 @@
 
 ==== Notes ====
 
-[README.md:11] TODO: Add some super awesome algorithm here
-[README.md:12] BUG: This doesn't work
-[todoit.py:11] TODO: Make this search sub folders as well
+[GameScene.cs:6] TODO: Create GameScene class
+[GameScene.cs:7] TODO: Title
+[GameScene.cs:8] TODO: EndOfDay
+[GameScene.cs:9] TODO: Scrollable list obj
+[SceneManager.cs:6] TODO: Create the SceneManager

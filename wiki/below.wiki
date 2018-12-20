@@ -3,8 +3,9 @@
 === Below ===
 
 ==== ToDo ====
-- [ ] Farm levels 1-3 for motes
-- [ ] Try to find marbles and light bits
+- [ ] Finish level 4
+- [ ] Get Hammer from level 5
+- [ ] Use hammer in level 3
 
 ==== Notes ====
 * Marbles are used to upgrade The Pocket
@@ -23,3 +24,4 @@
  
 ==== Level 5 ==== 
 * Hammer found here
+* Fuck the bone traps
