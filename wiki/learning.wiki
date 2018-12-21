@@ -5,6 +5,7 @@
 ==== General Topics ====
 - [ ] Shaders in Unity
 - [ ] Inverse kinematics videos (coding train)
+- [ ] ScriptableObjects in Unity
 
 ==== Udemy Courses ====
 - [o] unity machine learning course

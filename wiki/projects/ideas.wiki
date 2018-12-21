@@ -9,7 +9,7 @@
 * Rubiks Cube Adventure game
 * Wingman
 * Rogue like card game
-* Solo dungeon card game
+* Card game, cards are the mana
 
 ==== Pi ====
 * Pihole
