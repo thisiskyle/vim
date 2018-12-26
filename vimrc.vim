@@ -1,4 +1,3 @@
-
 source $VIMRUNTIME/defaults.vim
 
 "---------------------------
@@ -42,13 +41,13 @@ if has("gui_running")
     set guioptions -=T "turn off the toolbar
     set guioptions -=r "turn off the right hand toolbar
     set guioptions -=L "turn off the left toolbar
-    set lines=55 
+    set lines=55
     set columns=105
-    set rulerformat=%20(%{fugitive#head()}%) 
+    set rulerformat=%20(%{fugitive#head()}%)
     let g:gruvbox_italic = '0'
     let g:gruvbox_bold = '0'
     let g:gruvbox_contrast_dark = 'soft'
-    colors gruvbox 
+    colors gruvbox
 
     if has("win32")
         set guifont=Courier\ Prime\ Code:h10
