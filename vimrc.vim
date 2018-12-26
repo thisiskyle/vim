@@ -11,17 +11,16 @@ if has("gui_running")
         call plug#begin('~/.vim/bundle')
     endif
     Plug 'morhetz/gruvbox'
+    Plug 'scrooloose/nerdtree'
     Plug 'tpope/vim-fugitive'
     Plug 'sheerun/vim-polyglot'
     Plug 'tpope/vim-git'
-    "Plug 'OmniSharp/omnisharp-vim'
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'vimwiki/vimwiki'
     Plug 'vim-scripts/sokoban.vim'
+    "Plug 'OmniSharp/omnisharp-vim'
     call plug#end()
 endif
-
-
 "---------------------------
 "        keybindings
 "---------------------------
@@ -29,17 +28,14 @@ nnoremap <C-h> :tabp<CR>
 nnoremap <C-l> :tabn<CR>
 nnoremap <C-j> :bn<CR>
 nnoremap <C-k> :bp<CR>
-map <F2> :set ruler!<CR>
-map <F3> :set number!<CR>
-map <F10> :tabedit<CR>
-map <F11> :Vex<CR>
+map <leader>t :tabedit<CR>
+map <C-n> :NERDTreeToggle<CR>
+map <F2> :set number!<CR>
 if has("win32")
     map <F12> :e ~/vimfiles/vimrc.vim<CR>
 elseif has("unix")
     map <F12> :e ~/.vim/vimrc.vim<CR>
 endif
-
-
 "---------------------------
 "         settings
 "---------------------------
@@ -48,13 +44,14 @@ if has("gui_running")
     set guioptions -=T "turn off the toolbar
     set guioptions -=r "turn off the right hand toolbar
     set guioptions -=L "turn off the left toolbar
-    set lines=55
+    set lines=55 
     set columns=105
-    set nohlsearch
+    set rulerformat=%20(%{fugitive#head()}%) 
     let g:gruvbox_italic = '0'
     let g:gruvbox_bold = '0'
     let g:gruvbox_contrast_dark = 'soft'
     colors gruvbox 
+
     if has("win32")
         set guifont=Courier\ Prime\ Code:h10
     elseif has("unix")
@@ -62,44 +59,31 @@ if has("gui_running")
     endif
 endif
 
+set bg=dark
+set incsearch
+set nohlsearch
 set nobackup
 set nowritebackup
 set noswapfile
-"set textwidth=80
 set noundofile
 set tabstop=4
+set autoindent
 set shiftwidth=4
 set expandtab
 set belloff=all
 set laststatus=0
 set noshowcmd
-set rulerformat=%20(%{fugitive#head()}%)
 set autochdir
 set encoding=utf-8
 set fileencoding=utf-8
-set tags=tags;/
-set bg=dark
-set autoindent
+set autoread
 set ff=unix
-
-let g:netrw_dirhistmax = 0
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
-let g:netrw_winsize = 10
 let g:vimwiki_list = [{'path':'~/vimfiles/wiki', 'path_html':'~/vimfiles/wiki/html/'}]
-
-filetype plugin indent on 
-filetype plugin on
-
-
+let g:netrw_dirhistmax = 0
 "---------------------------
 "        commands
 "---------------------------
 command FormatJSON :call FormatJSON()
-
-
 "---------------------------
 "        functions
 "---------------------------
