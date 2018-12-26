@@ -1,10 +1,8 @@
 [[./index|Home]] / Game Backlog
 
 === Game Backlog ===
-- [o] Below
-- [ ] Return to Obra Dinn
-- [ ] wargroove
-- [ ] Eitr
-- [ ] Tunic
+- Return to Obra Dinn
+- DF
+- Artifact
 
 

@@ -2,13 +2,16 @@
 
 ==== Notes ====
 
-- Tile swapping
-- Check for matches
-
-[SceneManager.cs:6] TODO: Create the SceneManager
-[GameScene.cs:6] TODO: Create GameScene base class
-[GameScene.cs:7] TODO: Title scene
-[GameScene.cs:8] TODO: EndOfDay scene
+[GameScene.cs:6] TODO: Create GameScene class
+[GameScene.cs:7] TODO: Title
+[GameScene.cs:8] TODO: EndOfDay
 [GameScene.cs:9] TODO: Scrollable list obj
 
+[Main.cs:19] TODO: create a system for game states
+[Main.cs:20] TODO: WaitingForSwap state
 
+[SceneManager.cs:6] TODO: Create the SceneManager
+
+[Perceptron.cs:17] param <int> Number of inputs
+Remove this line ^^^^^^
+                  

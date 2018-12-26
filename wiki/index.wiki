@@ -6,5 +6,4 @@
 * [[./learning|Stuff to Learn]]
 * [[./shows|Shows to Watch]]
 * [[./gamebacklog|Game Backlog]]
-* [[./below|Below Notes]]
  

@@ -73,7 +73,7 @@ set expandtab
 set belloff=all
 set laststatus=0
 set noshowcmd
-set rulerformat=%20(%{fugitive#head()}%)
+set rulerformat=%20(%{fugitive#head()}\ \ %{line('.')}/%{line('$')}%)
 set autochdir
 set encoding=utf-8
 set fileencoding=utf-8
