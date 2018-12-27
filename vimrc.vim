@@ -1,42 +1,24 @@
 
 source $VIMRUNTIME/defaults.vim
 
-"---------------------------
-"          plugins
-"---------------------------
-if has("gui_running")
-    if has("win32")
-        call plug#begin('~/vimfiles/bundle')
-    elseif has("unix")
-        call plug#begin('~/.vim/bundle')
-    endif
-    Plug 'morhetz/gruvbox'
-    Plug 'tpope/vim-fugitive'
-    Plug 'sheerun/vim-polyglot'
-    Plug 'tpope/vim-git'
-    Plug 'ctrlpvim/ctrlp.vim'
-    Plug 'vimwiki/vimwiki'
-    Plug 'vim-scripts/sokoban.vim'
-"   Plug 'OmniSharp/omnisharp-vim'
-    call plug#end()
-endif
-"---------------------------
-"        keybindings
-"---------------------------
-nnoremap <C-h> :tabp<CR>
-nnoremap <C-l> :tabn<CR>
-nnoremap <C-j> :bn<CR>
-nnoremap <C-k> :bp<CR>
-map <C-m> :tabedit<CR>
-map <F2> :set number!<CR>
+
 if has("win32")
-    map <F12> :e ~/vimfiles/vimrc.vim<CR>
+    call plug#begin('~/vimfiles/bundle')
 elseif has("unix")
-    map <F12> :e ~/.vim/vimrc.vim<CR>
+    call plug#begin('~/.vim/bundle')
 endif
-"---------------------------
-"         settings
-"---------------------------
+Plug 'morhetz/gruvbox'
+Plug 'tpope/vim-fugitive'
+Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-git'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'vimwiki/vimwiki'
+Plug 'vim-scripts/sokoban.vim'
+Plug 'lilydjwg/colorizer'
+"Plug 'OmniSharp/omnisharp-vim'
+call plug#end()
+
+
 if has("gui_running")
     set guioptions -=m "turn off the menu
     set guioptions -=T "turn off the toolbar
@@ -44,18 +26,21 @@ if has("gui_running")
     set guioptions -=L "turn off the left toolbar
     set lines=55 
     set columns=105
-    set rulerformat=%20(%{fugitive#head()}%) 
-    let g:gruvbox_italic = '0'
-    let g:gruvbox_bold = '0'
-    let g:gruvbox_contrast_dark = 'soft'
-    colors gruvbox 
-
     if has("win32")
         set guifont=Courier\ Prime\ Code:h10
     elseif has("unix")
         set guifont=Courier\ Prime\ Code\ 10
     endif
 endif
+
+nnoremap <C-h> :tabp<CR>
+nnoremap <C-l> :tabn<CR>
+nnoremap <C-j> :bn<CR>
+nnoremap <C-k> :bp<CR>
+map <C-m> :tabedit<CR>
+map <F2> :set number!<CR>
+map <F12> :e ~/vimfiles/vimrc.vim<CR>
+map <F12> :e ~/.vim/vimrc.vim<CR>
 
 set bg=dark
 set incsearch
@@ -76,14 +61,17 @@ set encoding=utf-8
 set fileencoding=utf-8
 set autoread
 set ff=unix
+set rulerformat=%20(%{fugitive#head()}%) 
+
 let g:vimwiki_list = [{'path':'~/vimfiles/wiki', 'path_html':'~/vimfiles/wiki/html/'}]
-"---------------------------
-"        commands
-"---------------------------
+let g:gruvbox_italic = '0'
+let g:gruvbox_bold = '0'
+let g:gruvbox_contrast_dark = 'soft'
+
+colors gruvbox 
+
 command FormatJSON :call FormatJSON()
-"---------------------------
-"        functions
-"---------------------------
+
 function! FormatJSON()
 :%!python -m json.tool
 endfunction
