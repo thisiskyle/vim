@@ -91,23 +91,3 @@ function! OpenVimrc()
     elseif has("win32") | :e ~/vimfiles/vimrc.vim
     endif
 endfunction
-
-
-
-let g:ogformat = &fileformat
-
-function! ReadFileFormat()
-    if has("unix")
-        if g:ogformat == "dos"
-            :%s/\r//g
-        endif
-    endif
-endfunction
-
-function! WriteFileFormat()
-    if g:ogformat == "unix"
-        :set ff=unix
-    elseif g:ogformat == "dos"
-        :set ff=dos
-    endif
-endfunction
