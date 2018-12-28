@@ -41,7 +41,6 @@ if has("gui_running")
     set guioptions -=L "turn off the left toolbar
     set lines=55
     set columns=105
-    set rulerformat=%20(%{fugitive#head()}%)
     if has("win32")
         set guifont=Courier\ Prime\ Code:h10
     elseif has("unix")
@@ -67,7 +66,7 @@ set autochdir
 set encoding=utf-8
 set fileencoding=utf-8
 set autoread
-set rulerformat=%50(%m[%{&fileformat}]\ %{fugitive#head()}%) 
+set rulerformat=%40(%m\ %f\ [%{&fileformat}]\ %{fugitive#head()}%) 
 
 let g:vimwiki_list = [{'path':'~/vimfiles/wiki', 'path_html':'~/vimfiles/wiki/html/'}]
 let g:gruvbox_italic = '0'
