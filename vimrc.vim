@@ -67,7 +67,7 @@ set autochdir
 set encoding=utf-8
 set fileencoding=utf-8
 set autoread
-set rulerformat=%20(%{fugitive#head()}%) 
+set rulerformat=%50(%m[%{&fileformat}]\ %{fugitive#head()}%) 
 
 let g:vimwiki_list = [{'path':'~/vimfiles/wiki', 'path_html':'~/vimfiles/wiki/html/'}]
 let g:gruvbox_italic = '0'
@@ -78,8 +78,6 @@ colors gruvbox
 
 command FormatJSON :call FormatJSON()
 command OpenVimrc :call OpenVimrc()
-autocmd BufReadPre * :call ReadFileFormat()
-autocmd BufWritePre * :call WriteFileFormat()
 
 
 function! FormatJSON()
@@ -89,25 +87,5 @@ endfunction
 function! OpenVimrc()
     if has("unix") | :e ~/.vim/vimrc.vim
     elseif has("win32") | :e ~/vimfiles/vimrc.vim
-    endif
-endfunction
-
-
-
-let g:ogformat = &fileformat
-
-function! ReadFileFormat()
-    if has("unix")
-        if g:ogformat == "dos"
-            :%s/\r//g
-        endif
-    endif
-endfunction
-
-function! WriteFileFormat()
-    if g:ogformat == "unix"
-        :set ff=unix
-    elseif g:ogformat == "dos"
-        :set ff=dos
     endif
 endfunction
