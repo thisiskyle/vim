@@ -34,6 +34,21 @@ map <C-m> :tabedit<CR>
 map <F2> :set number!<CR>
 map <F12> :OpenVimrc<CR>
 
+if has("gui_running")
+    set guioptions -=m "turn off the menu
+    set guioptions -=T "turn off the toolbar
+    set guioptions -=r "turn off the right hand toolbar
+    set guioptions -=L "turn off the left toolbar
+    set lines=55
+    set columns=105
+    set rulerformat=%20(%{fugitive#head()}%)
+    if has("win32")
+        set guifont=Courier\ Prime\ Code:h10
+    elseif has("unix")
+        set guifont=Courier\ Prime\ Code\ 10
+    endif
+endif
+
 set bg=dark
 set incsearch
 set nohlsearch
