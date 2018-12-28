@@ -78,6 +78,9 @@ colors gruvbox
 
 command FormatJSON :call FormatJSON()
 command OpenVimrc :call OpenVimrc()
+autocmd BufReadPre * :call ReadFileFormat()
+autocmd BufWritePre * :call WriteFileFormat()
+
 
 function! FormatJSON()
     :%!python -m json.tool
@@ -86,5 +89,25 @@ endfunction
 function! OpenVimrc()
     if has("unix") | :e ~/.vim/vimrc.vim
     elseif has("win32") | :e ~/vimfiles/vimrc.vim
+    endif
+endfunction
+
+
+
+let g:ogformat = &fileformat
+
+function! ReadFileFormat()
+    if has("unix")
+        if g:ogformat == "dos"
+            :%s/\r//g
+        endif
+    endif
+endfunction
+
+function! WriteFileFormat()
+    if g:ogformat == "unix"
+        :set ff=unix
+    elseif g:ogformat == "dos"
+        :set ff=dos
     endif
 endfunction
