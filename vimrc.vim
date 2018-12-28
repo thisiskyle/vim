@@ -67,7 +67,6 @@ set autochdir
 set encoding=utf-8
 set fileencoding=utf-8
 set autoread
-set ffs=dos
 set rulerformat=%20(%{fugitive#head()}%) 
 
 let g:vimwiki_list = [{'path':'~/vimfiles/wiki', 'path_html':'~/vimfiles/wiki/html/'}]
