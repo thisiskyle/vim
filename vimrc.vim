@@ -1,11 +1,7 @@
-
 source $VIMRUNTIME/defaults.vim
 
-
-if has("win32")
-    call plug#begin('~/vimfiles/bundle')
-elseif has("unix")
-    call plug#begin('~/.vim/bundle')
+if has("win32") | call plug#begin('~/vimfiles/bundle')
+elseif has("unix") | call plug#begin('~/.vim/bundle')
 endif
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
@@ -18,7 +14,6 @@ Plug 'lilydjwg/colorizer'
 "Plug 'OmniSharp/omnisharp-vim'
 call plug#end()
 
-
 if has("gui_running")
     set guioptions -=m "turn off the menu
     set guioptions -=T "turn off the toolbar
@@ -26,10 +21,8 @@ if has("gui_running")
     set guioptions -=L "turn off the left toolbar
     set lines=55 
     set columns=105
-    if has("win32")
-        set guifont=Courier\ Prime\ Code:h10
-    elseif has("unix")
-        set guifont=Courier\ Prime\ Code\ 10
+    if has("win32") | set guifont=Courier\ Prime\ Code:h10
+    elseif has("unix") | set guifont=Courier\ Prime\ Code\ 10
     endif
 endif
 
@@ -39,8 +32,7 @@ nnoremap <C-j> :bn<CR>
 nnoremap <C-k> :bp<CR>
 map <C-m> :tabedit<CR>
 map <F2> :set number!<CR>
-map <F12> :e ~/vimfiles/vimrc.vim<CR>
-map <F12> :e ~/.vim/vimrc.vim<CR>
+map <F12> :OpenVimrc<CR>
 
 set bg=dark
 set incsearch
@@ -60,7 +52,7 @@ set autochdir
 set encoding=utf-8
 set fileencoding=utf-8
 set autoread
-set ff=unix
+set ffs=unix
 set rulerformat=%20(%{fugitive#head()}%) 
 
 let g:vimwiki_list = [{'path':'~/vimfiles/wiki', 'path_html':'~/vimfiles/wiki/html/'}]
@@ -71,7 +63,14 @@ let g:gruvbox_contrast_dark = 'soft'
 colors gruvbox 
 
 command FormatJSON :call FormatJSON()
+command OpenVimrc :call OpenVimrc()
 
 function! FormatJSON()
-:%!python -m json.tool
+    :%!python -m json.tool
+endfunction
+
+function! OpenVimrc()
+    if has("unix") | :e ~/.vim/vimrc.vim
+    elseif has("win32") | :e ~/vimfiles/vimrc.vim
+    endif
 endfunction
