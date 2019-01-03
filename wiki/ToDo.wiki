@@ -1,0 +1,10 @@
+[[./index|Home]]
+
+* Get calendar working again
+    * try to install i3gaps manually
+    * fix i3 config removing gaps
+    * Make image of rapbian lite pi
+    * Try to install Arch again
+
+* build pi hole on the touchscreen pi
+* Try to install arch on pi again

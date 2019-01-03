@@ -13,7 +13,8 @@
 
 ==== Pi ====
 * Pihole
-* Picamera
+* Security camera
+* Personal Gitlab server
 
 ==== Other ====
 * Board game table 
