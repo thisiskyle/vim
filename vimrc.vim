@@ -31,8 +31,8 @@ nnoremap <C-l> :tabn<CR>
 nnoremap <C-j> :bn<CR>
 nnoremap <C-k> :bp<CR>
 map <C-m> :tabedit<CR>
-map <F2> :set number!<CR>
-map <F12> :OpenVimrc<CR>
+map <leader>1 :set number!<CR>
+map <leader>v :OpenVimrc<CR>
 
 if has("gui_running")
     set guioptions -=m "turn off the menu

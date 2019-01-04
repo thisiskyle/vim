@@ -1,10 +1,6 @@
 [[./index|Home]]
 
-* Get calendar working again
-    * try to install i3gaps manually
-    * fix i3 config removing gaps
-    * Make image of rapbian lite pi
-    * Try to install Arch again
-
-* build pi hole on the touchscreen pi
 * Try to install arch on pi again
+* build pi hole on the touchscreen pi
+* New above ground fort in dwarf fortress
+* Start adventure mode, got to old fort
