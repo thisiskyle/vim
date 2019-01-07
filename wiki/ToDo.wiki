@@ -1,6 +1,4 @@
 [[./index|Home]]
 
-* Try to install arch on pi again
+* Check router for UPnP setting
 * build pi hole on the touchscreen pi
-* New above ground fort in dwarf fortress
-* Start adventure mode, got to old fort
