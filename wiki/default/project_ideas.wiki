@@ -1,4 +1,4 @@
-[[../index|Home]] / [[./projects_index|Projects]] / Ideas
+[[./index|Home]]
 
 
 === Project Ideas ===
@@ -17,6 +17,5 @@
 * Personal Gitlab server
 
 ==== Other ====
-* Board game table 
 
 

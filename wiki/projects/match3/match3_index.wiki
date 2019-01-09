@@ -1,5 +1,0 @@
-[[../../index|Home]] / [[../projects_index|Projects]] / Match-3
-
-=== Math-3 Cooking Game ===
-* [[./gdd|GDD]]
-* [[./notes|Notes]]

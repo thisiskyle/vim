@@ -1,0 +1,8 @@
+
+
+=== Welcome to your wiki! ===
+* [[./todo|Time Block]]
+* [[./projects|Projects]]
+* [[./learning|Stuff to Learn]]
+* [[./shows|Shows to Watch]]
+ 

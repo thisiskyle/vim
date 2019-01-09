@@ -1,7 +1,0 @@
-[[../../index|Home]] / [[../work_index|Work]] / EDI
-
-=== EDI Reference ===
-
-* [[./notes|Notes]]
-* [[./new_printer|Adding New Printer]]
-* [[./change_printer|Set/Change Printer]]

@@ -1,12 +1,14 @@
 [[./index|Home]]
 
+=== Time Block ===
+
 * 0000 - sleep
 * 0100 - sleep
 * 0200 - sleep
 * 0300 - sleep
 * 0400 - sleep
 * 0500 - sleep
-* 0600 - workout / shows / projects
+* 0600 - workout 
 * 0700 - get ready and leave for work
 * 0800 - work
 * 0900 - work

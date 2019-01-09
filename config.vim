@@ -66,13 +66,17 @@ set autochdir
 set encoding=utf-8
 set fileencoding=utf-8
 set autoread
-set rulerformat=%40(%m\ %f\ [%{&fileformat}]\ %{fugitive#head()}%) 
+set rulerformat=%40(%m\ %f\ [%{&fileformat}]\ %{fugitive#head()}%)
 
-let g:vimwiki_list = [{'path':'~/vimfiles/wiki', 'path_html':'~/vimfiles/wiki/html/'}]
+let wiki1 = {'path':'~\vimfiles\wiki\default', 'path_html':'~\vimfiles\wiki\default\html'}
+let wiki2 = {'path':'~\wiki\work', 'path_html':'~\wiki\work\html'}
+let g:vimwiki_list = [wiki1, wiki2]
+
+
+
 let g:gruvbox_italic = '0'
 let g:gruvbox_bold = '0'
 let g:gruvbox_contrast_dark = 'soft'
-
 colors gruvbox 
 
 command FormatJSON :call FormatJSON()
@@ -84,7 +88,7 @@ function! FormatJSON()
 endfunction
 
 function! OpenVimrc()
-    if has("unix") | :e ~/.vim/vimrc.vim
-    elseif has("win32") | :e ~/vimfiles/vimrc.vim
+    if has("unix") | :e ~/.vim/config.vim
+    elseif has("win32") | :e ~/vimfiles/config.vim
     endif
 endfunction

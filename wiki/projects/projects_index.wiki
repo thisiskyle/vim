@@ -1,9 +1,0 @@
-[[../index|Home]] / Projects
-
-=== Projects ===
-* [[../projects/match3/match3_index|Cooking match 3]]
-* [[./ideas|Ideas]]
-
-
-
-

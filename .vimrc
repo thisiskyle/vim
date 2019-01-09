@@ -1,5 +1,5 @@
 if has("win32")
-    source ~/vimfiles/vimrc.vim
+    source ~/vimfiles/config.vim
 elseif has("unix")
-    source ~/.vim/vimrc.vim
+    source ~/.vim/config.vim
 endif
