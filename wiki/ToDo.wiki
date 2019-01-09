@@ -1,4 +1,27 @@
 [[./index|Home]]
 
-* Check router for UPnP setting
-* build pi hole on the touchscreen pi
+* 0000 - sleep
+* 0100 - sleep
+* 0200 - sleep
+* 0300 - sleep
+* 0400 - sleep
+* 0500 - sleep
+* 0600 - workout / shows / projects
+* 0700 - get ready and leave for work
+* 0800 - work
+* 0900 - work
+* 1000 - work
+* 1100 - work
+* 1200 - work
+* 1300 - work
+* 1400 - work
+* 1500 - work
+* 1600 - work / drive home
+       * Oil change / new key battery
+* 1700 - family time
+* 1800 - family time
+* 1900 - family time
+* 2000 - family time
+* 2100 - games / shows
+* 2200 - projects
+* 2300 - projects

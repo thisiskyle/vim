@@ -1,7 +1,7 @@
 
 
 === Welcome to your wiki! ===
-* [[ToDo]]
+* [[./todo|Daily Plan]]
 * [[./work/work_index|Gentex]]
 * [[./projects/projects_index|Projects]]
 * [[./learning|Stuff to Learn]]
