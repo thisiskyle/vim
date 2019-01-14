@@ -5,12 +5,11 @@ elseif has("unix") | call plug#begin('~/.vim/bundle')
 endif
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
-Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-git'
+Plug 'sheerun/vim-polyglot'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'vim-scripts/sokoban.vim'
-Plug 'lilydjwg/colorizer'
 "Plug 'OmniSharp/omnisharp-vim'
 call plug#end()
 
@@ -71,8 +70,6 @@ set rulerformat=%40(%m\ %f\ [%{&fileformat}]\ %{fugitive#head()}%)
 let wiki1 = {'path':'~\vimfiles\wiki\default', 'path_html':'~\vimfiles\wiki\default\html'}
 let wiki2 = {'path':'~\wiki\work', 'path_html':'~\wiki\work\html'}
 let g:vimwiki_list = [wiki1, wiki2]
-
-
 
 let g:gruvbox_italic = '0'
 let g:gruvbox_bold = '0'
