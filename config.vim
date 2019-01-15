@@ -31,6 +31,7 @@ nnoremap <C-j> :bn<CR>
 nnoremap <C-k> :bp<CR>
 map <C-m> :tabedit<CR>
 map <leader>1 :set number!<CR>
+map <leader>2 :set ruler!<CR>
 map <leader>v :OpenVimrc<CR>
 
 if has("gui_running")
@@ -65,7 +66,8 @@ set autochdir
 set encoding=utf-8
 set fileencoding=utf-8
 set autoread
-set rulerformat=%40(%m\ %f\ [%{&fileformat}]\ %{fugitive#head()}%)
+set noruler
+set rulerformat=%30(%m\ %{fugitive#head()}%)
 
 let wiki1 = {'path':'~\vimfiles\wiki\default', 'path_html':'~\vimfiles\wiki\default\html'}
 let wiki2 = {'path':'~\wiki\work', 'path_html':'~\wiki\work\html'}
@@ -78,7 +80,6 @@ colors gruvbox
 
 command FormatJSON :call FormatJSON()
 command OpenVimrc :call OpenVimrc()
-
 
 function! FormatJSON()
     :%!python -m json.tool
