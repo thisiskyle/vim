@@ -10,6 +10,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'vim-scripts/sokoban.vim'
+Plug 'jiangmiao/auto-pairs'
 "Plug 'OmniSharp/omnisharp-vim'
 call plug#end()
 
