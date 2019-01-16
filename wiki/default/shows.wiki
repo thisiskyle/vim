@@ -7,5 +7,6 @@
 - [.] Mr Robot
 - [.] Game of Thrones
 - [.] Punisher
+- [ ] Mob Psycho 100
 
 

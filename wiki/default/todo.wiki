@@ -1,3 +1,6 @@
 [[./index|Home]]
 
-
+Games
+- [ ] Artifact
+- [ ] Dwarf Fortress
+- [ ] Smash 5
