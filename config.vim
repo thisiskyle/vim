@@ -7,10 +7,10 @@ Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
 Plug 'sheerun/vim-polyglot'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'vim-scripts/sokoban.vim'
-Plug 'jiangmiao/auto-pairs'
+Plug 'ctrlpvim/ctrlp.vim'
+""Plug 'jiangmiao/auto-pairs'
 "Plug 'OmniSharp/omnisharp-vim'
 call plug#end()
 
@@ -69,6 +69,8 @@ set fileencoding=utf-8
 set autoread
 set noruler
 set rulerformat=%30(%m\ %{fugitive#head()}%)
+
+set rtp+=~/vimfiles/bundle/fzf
 
 let wiki1 = {'path':'~\vimfiles\wiki\default', 'path_html':'~\vimfiles\wiki\default\html'}
 let wiki2 = {'path':'~\wiki\work', 'path_html':'~\wiki\work\html'}
