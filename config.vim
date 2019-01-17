@@ -5,12 +5,12 @@ elseif has("unix") | call plug#begin('~/.vim/bundle')
 endif
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
-Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-git'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'sheerun/vim-polyglot'
 Plug 'vimwiki/vimwiki'
 Plug 'vim-scripts/sokoban.vim'
-Plug 'lilydjwg/colorizer'
+Plug 'ctrlpvim/ctrlp.vim'
+""Plug 'jiangmiao/auto-pairs'
 "Plug 'OmniSharp/omnisharp-vim'
 call plug#end()
 
@@ -32,6 +32,7 @@ nnoremap <C-j> :bn<CR>
 nnoremap <C-k> :bp<CR>
 map <C-m> :tabedit<CR>
 map <leader>1 :set number!<CR>
+map <leader>2 :set ruler!<CR>
 map <leader>v :OpenVimrc<CR>
 
 if has("gui_running")
@@ -66,13 +67,14 @@ set autochdir
 set encoding=utf-8
 set fileencoding=utf-8
 set autoread
-set rulerformat=%40(%m\ %f\ [%{&fileformat}]\ %{fugitive#head()}%)
+set noruler
+set rulerformat=%30(%m\ %{fugitive#head()}%)
+
+set rtp+=~/vimfiles/bundle/fzf
 
 let wiki1 = {'path':'~\vimfiles\wiki\default', 'path_html':'~\vimfiles\wiki\default\html'}
 let wiki2 = {'path':'~\wiki\work', 'path_html':'~\wiki\work\html'}
 let g:vimwiki_list = [wiki1, wiki2]
-
-
 
 let g:gruvbox_italic = '0'
 let g:gruvbox_bold = '0'
@@ -81,7 +83,6 @@ colors gruvbox
 
 command FormatJSON :call FormatJSON()
 command OpenVimrc :call OpenVimrc()
-
 
 function! FormatJSON()
     :%!python -m json.tool
