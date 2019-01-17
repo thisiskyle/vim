@@ -67,8 +67,7 @@ set autochdir
 set encoding=utf-8
 set fileencoding=utf-8
 set autoread
-set noruler
-set rulerformat=%30(%m\ %{fugitive#head()}%)
+set rulerformat=%30(%m\ %{fugitive#head()}\ \ %l%)
 
 set rtp+=~/vimfiles/bundle/fzf
 
