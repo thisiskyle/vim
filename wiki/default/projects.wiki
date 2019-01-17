@@ -1,9 +1,22 @@
 [[./index|Home]]
 
-=== Projects ===
-* [[./match3|Cooking match 3]]
-* [[./project_ideas|Ideas]]
 
+=== Project Ideas ===
 
+==== Games ====
+* [o] Match 3 Cooking
+* [ ] SS13 Clone
+* [ ] TBS game
+* [ ] Rubiks Cube Adventure game
+* [ ] Wingman
+* [ ] Rogue like card game
+* [ ] Card game, cards are the mana
+
+==== Pi ====
+* [ ] Pihole
+* [ ] Security camera
+* [ ] Personal Gitlab server
+
+==== Other ====
 
 

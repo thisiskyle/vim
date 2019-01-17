@@ -3,13 +3,13 @@
 === Learning ===
 
 ==== General Topics ====
-- [ ] Shaders in Unity
-- [ ] Inverse kinematics videos (coding train)
-- [ ] ScriptableObjects in Unity
+* [ ] Shaders in Unity
+* [ ] Inverse kinematics videos (coding train)
+* [ ] ScriptableObjects in Unity
 
 ==== Udemy Courses ====
-- [o] unity machine learning course
-- [ ] unity proced. mesh generation
-- [ ] deep learning
+* [o] unity machine learning course
+* [ ] unity proced. mesh generation
+* [ ] deep learning
 
 
