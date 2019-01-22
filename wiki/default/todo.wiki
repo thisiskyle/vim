@@ -3,5 +3,4 @@
 
 Games
 - [ ] Artifact
-- [ ] Dwarf Fortress
 - [ ] Smash 5

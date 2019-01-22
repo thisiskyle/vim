@@ -10,7 +10,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'vimwiki/vimwiki'
 Plug 'vim-scripts/sokoban.vim'
 Plug 'ctrlpvim/ctrlp.vim'
-""Plug 'jiangmiao/auto-pairs'
+"Plug 'jiangmiao/auto-pairs'
 "Plug 'OmniSharp/omnisharp-vim'
 call plug#end()
 
@@ -35,20 +35,6 @@ map <leader>1 :set number!<CR>
 map <leader>2 :set ruler!<CR>
 map <leader>v :OpenVimrc<CR>
 
-if has("gui_running")
-    set guioptions -=m "turn off the menu
-    set guioptions -=T "turn off the toolbar
-    set guioptions -=r "turn off the right hand toolbar
-    set guioptions -=L "turn off the left toolbar
-    set lines=55
-    set columns=105
-    if has("win32")
-        set guifont=Courier\ Prime\ Code:h10
-    elseif has("unix")
-        set guifont=Courier\ Prime\ Code\ 10
-    endif
-endif
-
 set bg=dark
 set incsearch
 set nohlsearch
@@ -69,15 +55,13 @@ set fileencoding=utf-8
 set autoread
 set rulerformat=%30(%m\ %{fugitive#head()}\ \ %l%)
 
-set rtp+=~/vimfiles/bundle/fzf
-
 let wiki1 = {'path':'~\vimfiles\wiki\default', 'path_html':'~\vimfiles\wiki\default\html'}
 let wiki2 = {'path':'~\wiki\work', 'path_html':'~\wiki\work\html'}
 let g:vimwiki_list = [wiki1, wiki2]
-
 let g:gruvbox_italic = '0'
 let g:gruvbox_bold = '0'
 let g:gruvbox_contrast_dark = 'soft'
+
 colors gruvbox 
 
 command FormatJSON :call FormatJSON()
