@@ -53,7 +53,7 @@ set autochdir
 set encoding=utf-8
 set fileencoding=utf-8
 set autoread
-set rulerformat=%30(%m\ %{fugitive#head()}\ \ %l%)
+set rulerformat=%30(%m\ %{fugitive#head()}%)
 
 let wiki1 = {'path':'~\vimfiles\wiki\default', 'path_html':'~\vimfiles\wiki\default\html'}
 let wiki2 = {'path':'~\wiki\work', 'path_html':'~\wiki\work\html'}
