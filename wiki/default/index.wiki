@@ -1,8 +1,34 @@
 
 
 === Welcome to your wiki! ===
-* [[./todo|ToDo]]
-* [[./projects|Projects]]
-* [[./learning|Stuff to Learn]]
-* [[./shows|Shows to Watch]]
  
+==== Todo ====
+ 
+ 
+==== Game Ideas ====
+* [i] Match 3 Cooking
+* [ ] SS13 Clone
+* [ ] TBS/RTS game
+* [ ] Rubiks Cube Adventure/Puzzle game
+* [ ] Binding of Isaac mixed w/ Slay the Spire
+* [ ] Card game, cards are the mana
+* [ ] RTS Card game
+ 
+==== Learning ====
+* [ ] Unity Shaders
+* [ ] Inverse kinematics (coding train)
+* [ ] Unity ScriptableObjects
+* [ ] Unity Portal tutorial
+* [ ] Unity stencil masks
+* [i] Udemy - unity machine learning course
+* [ ] Udemy - unity proced. mesh generation
+* [ ] Udemy - deep learning
+ 
+==== Shows ====
+* [ ] Gundam Iron Blooded Orphans
+* [ ] My Hero Academia
+* [i] Parasyte Maxim
+* [.] Mr Robot
+* [.] Game of Thrones
+* [i] Punisher
+* [ ] Mob Psycho 100

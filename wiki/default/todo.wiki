@@ -1,6 +1,0 @@
-[[./index|Home]]
-
-
-Games
-- [ ] Artifact
-- [ ] Smash 5
