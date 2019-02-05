@@ -30,7 +30,7 @@ nnoremap <C-h> :tabp<CR>
 nnoremap <C-l> :tabn<CR>
 nnoremap <C-j> :bn<CR>
 nnoremap <C-k> :bp<CR>
-map <C-m> :tabedit<CR>
+map <leader>t :tabedit<CR>
 map <leader>1 :set number!<CR>
 map <leader>2 :set ruler!<CR>
 map <leader>v :OpenVimrc<CR>
@@ -53,6 +53,8 @@ set autochdir
 set encoding=utf-8
 set fileencoding=utf-8
 set autoread
+set ignorecase
+set smartcase
 set rulerformat=%40(%m\ %{fugitive#head()}\ \ %l,%c%)
 
 let wiki1 = {'path':'~\vimfiles\wiki\default', 'path_html':'~\vimfiles\wiki\default\html'}
