@@ -34,8 +34,5 @@
 
 ==== Games ====
 - [ ] Wargroove 
-- [ ] SC2
 - [ ] MTGA
 - [ ] SSBU
-- [ ] PUBG
-- [ ] Apex Legends
