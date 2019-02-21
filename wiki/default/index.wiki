@@ -16,17 +16,15 @@
  
 ==== Learning ====
 - [i] Udemy - unity machine learning course
-- [ ] Unity Shaders
-- [ ] Inverse kinematics (coding train)
-- [ ] Unity ScriptableObjects
-- [ ] Unity Portal tutorial
-- [ ] Unity stencil masks
+- [ ] Youtube - Unity Shaders
+- [ ] Youtube - Inverse kinematics (coding train)
+- [ ] Youtube - Unity Portal tutorial
+- [ ] Youtube - Unity stencil masks
 - [ ] Udemy - unity proced. mesh generation
 - [ ] Udemy - deep learning
  
 ==== Shows ====
-- [i] Parasyte Maxim
-- [ ] Gundam Iron Blooded Orphans
+- [i] Gundam Iron Blooded Orphans
 - [ ] My Hero Academia
 - [.] Mr Robot
 - [.] Game of Thrones
@@ -35,4 +33,3 @@
 ==== Games ====
 - [ ] Wargroove 
 - [ ] MTGA
-- [ ] SSBU
