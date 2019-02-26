@@ -27,13 +27,16 @@ if has("gui_running")
 endif
 
 nnoremap <C-h> :tabp<CR>
-nnoremap <C-l> :tabn<CR>
 nnoremap <C-j> :bn<CR>
 nnoremap <C-k> :bp<CR>
+nnoremap <C-l> :tabn<CR>
+
+map <C-s> :wa<CR>
 map <leader>t :tabedit<CR>
+map <leader>v :OpenVimrc<CR>
 map <leader>1 :set number!<CR>
 map <leader>2 :set ruler!<CR>
-map <leader>v :OpenVimrc<CR>
+map <leader>3 :ToggleSyntaxHL<CR>
 
 set bg=dark
 set incsearch
@@ -54,28 +57,33 @@ set autoread
 set ignorecase
 set smartcase
 set rulerformat=%40(%m\ %{fugitive#head()}\ \ %l,%c%)
-if exists('+fixeol')
-    set nofixeol
-endif
+if exists('+fixeol') | set nofixeol | endif
 
 let wiki1 = {'path':'~\vimfiles\wiki\default', 'path_html':'~\vimfiles\wiki\default\html'}
 let wiki2 = {'path':'~\wiki\work', 'path_html':'~\wiki\work\html'}
 let g:vimwiki_list = [wiki1, wiki2]
+
 let g:gruvbox_italic = '0'
 let g:gruvbox_bold = '0'
 let g:gruvbox_contrast_dark = 'soft'
-
-colors gruvbox 
+"colors gruvbox 
+colors simple 
 
 command FormatJSON :call FormatJSON()
-command OpenVimrc :call OpenVimrc()
-
 function! FormatJSON()
     :%!python -m json.tool
 endfunction
 
+command OpenVimrc :call OpenVimrc()
 function! OpenVimrc()
     if has("unix") | :e ~/.vim/config.vim
     elseif has("win32") | :e ~/vimfiles/config.vim
     endif
+endfunction
+
+command ToggleSyntaxHL :call ToggleSyntaxHL()
+function! ToggleSyntaxHL()
+    if exists("g:syntax_on") | syntax off
+    else | syntax enable
+    endif 
 endfunction

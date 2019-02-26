@@ -1,6 +1,5 @@
 
 
-=== Welcome to your wiki! ===
  
 ==== Todo ====
  
@@ -12,7 +11,8 @@
 - [ ] Rubiks Cube Adventure/Puzzle game
 - [ ] Binding of Isaac mixed w/ Slay the Spire
 - [ ] Card game, cards are the mana
-- [ ] RTS Card game
+- [ ] RTS Like Card game
+- [ ] Teleport to arrow game
  
 ==== Learning ====
 - [i] Udemy - unity machine learning course
@@ -32,4 +32,4 @@
 
 ==== Games ====
 - [ ] Wargroove 
-- [ ] MTGA
+- [ ] DF
