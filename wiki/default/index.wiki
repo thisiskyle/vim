@@ -1,10 +1,10 @@
 
 
  
-==== Todo ====
+Todo
  
  
-==== Game Ideas ====
+=== Game Ideas ===
 - [i] Match 3 Cooking
 - [ ] SS13 Clone
 - [ ] TBS/RTS game
@@ -14,7 +14,7 @@
 - [ ] RTS Like Card game
 - [ ] Teleport to arrow game
  
-==== Learning ====
+=== Learning ===
 - [i] Udemy - unity machine learning course
 - [ ] Youtube - Unity Shaders
 - [ ] Youtube - Inverse kinematics (coding train)
@@ -23,13 +23,13 @@
 - [ ] Udemy - unity proced. mesh generation
 - [ ] Udemy - deep learning
  
-==== Shows ====
+=== Shows ===
 - [i] Gundam Iron Blooded Orphans
 - [ ] My Hero Academia
 - [.] Mr Robot
 - [.] Game of Thrones
 - [ ] Mob Psycho 100
 
-==== Games ====
+=== Games ===
 - [ ] Wargroove 
 - [ ] DF
