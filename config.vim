@@ -57,6 +57,7 @@ set autoread
 set ignorecase
 set smartcase
 set rulerformat=%40(%m\ %{fugitive#head()}\ \ %l,%c%)
+set guicursor+=n-v-c:blinkon0
 if exists('+fixeol') | set nofixeol | endif
 
 let wiki1 = {'path':'~\vimfiles\wiki\default', 'path_html':'~\vimfiles\wiki\default\html'}
