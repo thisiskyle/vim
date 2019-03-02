@@ -1,43 +1,48 @@
 set background=dark
 
 hi clear
-if exists("syntax_on")
-    syntax reset
-endif
+
+if exists("syntax_on") | syntax reset | endif
+
 let g:colors_name="simple"
 
-function! s:HL(group, fg, bg)
-  if !empty(a:fg)
-      exec 'hi ' . a:group . ' guifg=' . a:fg
-  endif
-  if !empty(a:bg)
-    exec 'hi ' . a:group . ' guibg=' . a:bg
-  endif
-endfun
+" colors
+"fg #d5c4a1
+"bg #3c3836
+"red #fb4934
+"commen #7c6f64t
 
-"                      FG          BG
-call s:HL('Normal', '#d5c4a1', '#3c3836')
-call s:HL('Cursor', '#3c3836', '#d5c4a1')
-call s:HL('MatchParen', '#fb4934', 'NONE')
-call s:HL('Comment', '#7c6f64', 'NONE')
-call s:HL('Todo', '#7c6f64', 'NONE')
-call s:HL('LineNr', '#7c6f64', 'NONE')
-call s:HL('Visual', '#3c3836', '#d5c4a1')
-call s:HL('Search', '#3c3836', '#d5c4a1')
-call s:HL('VertSplit', '#3c3836', '#d5c4a1')
-call s:HL('EndOfBuffer', '#d5c4a1', 'NONE')
+"                      GUIFG          GUIBG          Decoration
+hi Normal              guifg=#d5c4a1  guibg=#3c3836  gui=NONE
+hi EndofBuffer         guifg=#d5c4a1  guibg=#3c3836  gui=NONE
+hi NonText             guifg=#d5c4a1  guibg=#3c3836  gui=NONE
+hi Special             guifg=#d5c4a1  guibg=#3c3836  gui=NONE
+hi SpecialKey          guifg=#d5c4a1  guibg=#3c3836  gui=NONE
+hi Number              guifg=#d5c4a1  guibg=#3c3836  gui=NONE
+hi Character           guifg=#d5c4a1  guibg=#3c3836  gui=NONE
+hi Statement           guifg=#d5c4a1  guibg=#3c3836  gui=NONE
+hi Type                guifg=#d5c4a1  guibg=#3c3836  gui=NONE
+hi Function            guifg=#d5c4a1  guibg=#3c3836  gui=NONE
+hi PreProc             guifg=#d5c4a1  guibg=#3c3836  gui=NONE
+hi Statementpecial     guifg=#d5c4a1  guibg=#3c3836  gui=NONE
+hi Identifier          guifg=#d5c4a1  guibg=#3c3836  gui=NONE
+hi Constant            guifg=#d5c4a1  guibg=#3c3836  gui=NONE
+hi Boolean             guifg=#d5c4a1  guibg=#3c3836  gui=NONE
+hi String              guifg=#d5c4a1  guibg=#3c3836  gui=NONE
+hi Delimiter           guifg=#d5c4a1  guibg=#3c3836  gui=NONE
+hi Title               guifg=#d5c4a1  guibg=#3c3836  gui=NONE
 
-" clear -------------
-hi clear Number
-hi clear Character
-hi clear Statement
-hi clear Type
-hi clear Function
-hi clear PreProc
-hi clear Special
-hi clear Identifier
-hi clear Constant
-hi clear Boolean
-hi clear String
-hi clear Delimiter
-hi clear Title
+hi Cursor              guifg=#3c3836  guibg=#d5c4a1  gui=NONE
+hi Visual              guifg=#3c3836  guibg=#d5c4a1  gui=NONE
+hi Search              guifg=#3c3836  guibg=#d5c4a1  gui=NONE
+hi VertSplit           guifg=#3c3836  guibg=#d5c4a1  gui=NONE
+hi Pmenu               guifg=#3c3836  guibg=#d5c4a1  gui=NONE
+ 
+hi PmenuSel            guifg=#d5c4a1  guibg=#7c6f64  gui=NONE
+hi PmenuSbar           guifg=#d5c4a1  guibg=#3c3836  gui=NONE
+hi PmenuTumb           guifg=#d5c4a1  guibg=#3c3836  gui=NONE
+
+hi MatchParen          guifg=#fb4934  guibg=NONE     gui=NONE
+hi Comment             guifg=#7c6f64  guibg=NONE     gui=NONE
+hi Todo                guifg=#7c6f64  guibg=NONE     gui=NONE
+hi LineNr              guifg=#7c6f64  guibg=NONE     gui=NONE
