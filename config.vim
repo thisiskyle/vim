@@ -1,19 +1,18 @@
 source $VIMRUNTIME/defaults.vim
 
+" plugins ----------------------------------------------------------------
 if has("win32") | call plug#begin('~/vimfiles/bundle')
 elseif has("unix") | call plug#begin('~/.vim/bundle')
 endif
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
-Plug 'sheerun/vim-polyglot'
-Plug 'vimwiki/vimwiki'
-Plug 'vim-scripts/sokoban.vim'
 Plug 'ctrlpvim/ctrlp.vim'
-"Plug 'jiangmiao/auto-pairs'
-"Plug 'OmniSharp/omnisharp-vim'
+Plug 'vimwiki/vimwiki'
+"Plug 'sheerun/vim-polyglot'
 call plug#end()
 
+" settings ---------------------------------------------------------------
 if has("gui_running")
     set guioptions -=m "turn off the menu
     set guioptions -=T "turn off the toolbar
@@ -25,20 +24,8 @@ if has("gui_running")
     elseif has("unix") | set guifont=Courier\ Prime\ Code\ 10
     endif
 endif
-
-nnoremap <C-h> :tabp<CR>
-nnoremap <C-j> :bn<CR>
-nnoremap <C-k> :bp<CR>
-nnoremap <C-l> :tabn<CR>
-
-map <C-s> :wa<CR>
-map <leader>t :tabedit<CR>
-map <leader>v :OpenVimrc<CR>
-map <leader>1 :set number!<CR>
-map <leader>2 :set ruler!<CR>
-map <leader>3 :ToggleSyntaxHL<CR>
-
 set bg=dark
+set lazyredraw
 set incsearch
 set nohlsearch
 set nobackup
@@ -56,20 +43,37 @@ set autochdir
 set autoread
 set ignorecase
 set smartcase
-set rulerformat=%40(%m\ %{fugitive#head()}\ \ %l,%c%)
 set guicursor+=n-v-c:blinkon0
 if exists('+fixeol') | set nofixeol | endif
+set rulerformat=%40(%m\ %{fugitive#head()}\ \ %l,%c%)
 
+" mappings  ---------------------------------------------------------------
+inoremap {<CR> {<CR>}<ESC>O
+inoremap /*<CR> /*<CR>*/<ESC>O
+inoremap <C-s> <ESC>:wa<CR>
+inoremap jj <ESC>
+nnoremap <C-h> :tabp<CR>
+nnoremap <C-j> :bn<CR>
+nnoremap <C-k> :bp<CR>
+nnoremap <C-l> :tabn<CR>
+nnoremap <C-s> :wa<CR>
+nnoremap <leader>0 :OpenVimrc<CR>
+nnoremap <leader>1 :set number!<CR>
+nnoremap <leader>2 :set ruler!<CR>
+nnoremap <leader>9 :tabedit<CR>
+
+" vim wiki  ---------------------------------------------------------------
 let wiki1 = {'path':'~\vimfiles\wiki\default', 'path_html':'~\vimfiles\wiki\default\html'}
 let wiki2 = {'path':'~\wiki\work', 'path_html':'~\wiki\work\html'}
 let g:vimwiki_list = [wiki1, wiki2]
 
+" colors  -----------------------------------------------------------------
 let g:gruvbox_italic = '0'
 let g:gruvbox_bold = '0'
 let g:gruvbox_contrast_dark = 'soft'
-"colors gruvbox 
 colors simple 
 
+" custom commands ---------------------------------------------------------
 command FormatJSON :call FormatJSON()
 function! FormatJSON()
     :%!python -m json.tool
