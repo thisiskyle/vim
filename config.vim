@@ -45,13 +45,12 @@ set ignorecase
 set smartcase
 set guicursor+=n-v-c:blinkon0
 if exists('+fixeol') | set nofixeol | endif
-set rulerformat=%40(%m\ %{fugitive#head()}\ \ %l,%c%)
 
 " mappings  ---------------------------------------------------------------
 inoremap {<CR> {<CR>}<ESC>O
-inoremap /*<CR> /*<CR>*/<ESC>O
 inoremap <C-s> <ESC>:wa<CR>
 inoremap jj <ESC>
+
 nnoremap <C-h> :tabp<CR>
 nnoremap <C-j> :bn<CR>
 nnoremap <C-k> :bp<CR>
@@ -60,17 +59,21 @@ nnoremap <C-s> :wa<CR>
 nnoremap <leader>0 :OpenVimrc<CR>
 nnoremap <leader>1 :set number!<CR>
 nnoremap <leader>2 :set ruler!<CR>
-nnoremap <leader>9 :tabedit<CR>
+nnoremap <leader>3 :tabedit<CR>
 
 " vim wiki  ---------------------------------------------------------------
 let wiki1 = {'path':'~\vimfiles\wiki\default', 'path_html':'~\vimfiles\wiki\default\html'}
 let wiki2 = {'path':'~\wiki\work', 'path_html':'~\wiki\work\html'}
 let g:vimwiki_list = [wiki1, wiki2]
 
-" colors  -----------------------------------------------------------------
+" color/style  ------------------------------------------------------------
+set rulerformat=%40(%m\ %{fugitive#head()}\ \ %l,%c%)
+set guicursor+=n-v-c:blinkon0
+
 let g:gruvbox_italic = '0'
 let g:gruvbox_bold = '0'
 let g:gruvbox_contrast_dark = 'soft'
+
 colors simple 
 
 " custom commands ---------------------------------------------------------
