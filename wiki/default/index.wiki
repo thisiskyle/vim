@@ -1,13 +1,10 @@
  
-Game Ideas
-- [i] Match 3 Cooking
-- [ ] SS13 Clone
-- [ ] TBS/RTS game
-- [ ] Rubiks Cube Adventure/Puzzle game
-- [ ] Binding of Isaac mixed w/ Slay the Spire
-- [ ] Card game, cards are the mana
-- [ ] RTS Like Card game
-- [ ] Teleport to arrow game
+Projects
+- [ ] Pi - Thermostat
+- [ ] Pi - Lego/Robot Arm
+- [ ] Pi - Print Server
+- [ ] Boardgame Table
+- [ ] The Royal Game of Ur
  
 Learning
 - [i] Udemy - unity machine learning course
@@ -18,13 +15,24 @@ Learning
 - [ ] Udemy - unity proced. mesh generation
 - [ ] Udemy - deep learning
  
+Game Ideas
+- [i] Match 3 Cooking
+- [ ] Teleport to arrow game
+- [ ] SS13 Clone
+- [ ] TBS/RTS game
+- [ ] Rubiks Cube Adventure/Puzzle game
+- [ ] Binding of Isaac mixed w/ Slay the Spire
+- [ ] Card game, cards are the mana
+- [ ] RTS Like Card game
+ 
 Shows
 - [i] Gundam Iron Blooded Orphans
 - [ ] My Hero Academia
+- [ ] Mob Psycho 100
 - [.] Mr Robot
 - [.] Game of Thrones
-- [ ] Mob Psycho 100
 
 Games
 - [ ] Wargroove 
 - [ ] DF
+- [ ] Kerbal Space Program
