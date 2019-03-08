@@ -43,23 +43,27 @@ set autochdir
 set autoread
 set ignorecase
 set smartcase
-set guicursor+=n-v-c:blinkon0
 if exists('+fixeol') | set nofixeol | endif
+
+filetype on
+filetype plugin on
+filetype indent on
 
 " mappings  ---------------------------------------------------------------
 inoremap {<CR> {<CR>}<ESC>O
-inoremap <C-s> <ESC>:wa<CR>
 inoremap jj <ESC>
 
 nnoremap <C-h> :tabp<CR>
 nnoremap <C-j> :bn<CR>
 nnoremap <C-k> :bp<CR>
 nnoremap <C-l> :tabn<CR>
-nnoremap <C-s> :wa<CR>
+
 nnoremap <leader>0 :OpenVimrc<CR>
 nnoremap <leader>1 :set number!<CR>
 nnoremap <leader>2 :set ruler!<CR>
-nnoremap <leader>3 :tabedit<CR>
+nnoremap <leader>c ^i//<ESC>
+nnoremap <leader>x ^2x
+
 
 " vim wiki  ---------------------------------------------------------------
 let wiki1 = {'path':'~\vimfiles\wiki\default', 'path_html':'~\vimfiles\wiki\default\html'}
