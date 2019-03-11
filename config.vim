@@ -56,11 +56,14 @@ inoremap jj <ESC>
 nnoremap <C-n> :bn<CR>
 nnoremap <C-m> :bp<CR>
 nnoremap <C-i> :ToggleComment<CR>
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 nnoremap <leader>0 :OpenVimrc<CR>
 nnoremap <leader>1 :set number!<CR>
 nnoremap <leader>2 :set ruler!<CR>
-nnoremap <leader>3 :vsp<CR>
 
 
 " vim wiki  ---------------------------------------------------------------
@@ -80,36 +83,65 @@ colors simple
 
 " custom commands ---------------------------------------------------------
 command FormatJSON :call FormatJSON()
+command OpenVimrc :call OpenVimrc()
+command ToggleSyntaxHL :call ToggleSyntaxHL()
+command ToggleComment :call ToggleComment()
+
+
 function! FormatJSON()
     :%!python -m json.tool
 endfunction
 
-command OpenVimrc :call OpenVimrc()
+
 function! OpenVimrc()
     if has("unix") | :e ~/.vim/config.vim
     elseif has("win32") | :e ~/vimfiles/config.vim
     endif
 endfunction
 
-command ToggleSyntaxHL :call ToggleSyntaxHL()
+
 function! ToggleSyntaxHL()
     if exists("g:syntax_on") | syntax off
     else | syntax enable
     endif 
 endfunction
 
-command ToggleComment :call ToggleComment()
+
 function! ToggleComment()
     let save_pos = getpos(".")
     normal ^
-    if getline('.')[col('.')-1] == "/"
-        normal xx
-        call setpos(".", save_pos)
-        normal hh
+    "vim file
+    if (&ft=='vim')
+        if getline('.')[col('.')-1] == "\""
+            normal x
+            call setpos(".", save_pos)
+            normal h
+        else
+            normal i"
+            call setpos(".", save_pos)
+            normal l
+        endif
+    "python
+    elseif (&ft=='py')
+        if getline('.')[col('.')-1] == "#"
+            normal x
+            call setpos(".", save_pos)
+            normal h
+        else
+            normal i#
+            call setpos(".", save_pos)
+            normal l
+        endif
+    "c style
     else
-        normal i//
-        call setpos(".", save_pos)
-        normal ll
+        if getline('.')[col('.')-1] == "/"
+            normal xx
+            call setpos(".", save_pos)
+            normal hh
+        else
+            normal i//
+            call setpos(".", save_pos)
+            normal ll
+        endif
     endif
 endfunction
-
