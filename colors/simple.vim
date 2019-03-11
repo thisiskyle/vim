@@ -35,7 +35,7 @@ hi Title               guifg=#d5c4a1  guibg=#3c3836  gui=NONE
 hi Cursor              guifg=#3c3836  guibg=#d5c4a1  gui=NONE
 hi Visual              guifg=#3c3836  guibg=#d5c4a1  gui=NONE
 hi Search              guifg=#3c3836  guibg=#d5c4a1  gui=NONE
-hi VertSplit           guifg=#3c3836  guibg=#d5c4a1  gui=NONE
+hi VertSplit           guifg=#d5c4a1  guibg=#3c3836  gui=NONE
 hi Pmenu               guifg=#3c3836  guibg=#d5c4a1  gui=NONE
  
 hi PmenuSel            guifg=#d5c4a1  guibg=#7c6f64  gui=NONE

@@ -53,16 +53,14 @@ filetype indent on
 inoremap {<CR> {<CR>}<ESC>O
 inoremap jj <ESC>
 
-nnoremap <C-h> :tabp<CR>
-nnoremap <C-j> :bn<CR>
-nnoremap <C-k> :bp<CR>
-nnoremap <C-l> :tabn<CR>
+nnoremap <C-n> :bn<CR>
+nnoremap <C-m> :bp<CR>
+nnoremap <C-i> :ToggleComment<CR>
 
 nnoremap <leader>0 :OpenVimrc<CR>
 nnoremap <leader>1 :set number!<CR>
 nnoremap <leader>2 :set ruler!<CR>
-nnoremap <leader>c ^i//<ESC>
-nnoremap <leader>x ^2x
+nnoremap <leader>3 :vsp<CR>
 
 
 " vim wiki  ---------------------------------------------------------------
@@ -99,3 +97,19 @@ function! ToggleSyntaxHL()
     else | syntax enable
     endif 
 endfunction
+
+command ToggleComment :call ToggleComment()
+function! ToggleComment()
+    let save_pos = getpos(".")
+    normal ^
+    if getline('.')[col('.')-1] == "/"
+        normal xx
+        call setpos(".", save_pos)
+        normal hh
+    else
+        normal i//
+        call setpos(".", save_pos)
+        normal ll
+    endif
+endfunction
+
