@@ -51,7 +51,6 @@ filetype indent on
 
 " mappings  ---------------------------------------------------------------
 inoremap {<CR> {<CR>}<ESC>O
-inoremap jj <ESC>
 
 nnoremap <C-n> :bn<CR>
 nnoremap <C-m> :bp<CR>
