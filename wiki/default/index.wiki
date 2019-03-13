@@ -2,12 +2,12 @@
 Projects
 - [ ] Pi - Thermostat
 - [ ] Pi - Lego/Robot Arm
-- [ ] Pi - Print Server
+- [.] Pi - Print Server
 - [ ] Boardgame Table
 - [ ] The Royal Game of Ur
  
 Learning
-- [i] Udemy - unity machine learning course
+- [.] Udemy - unity machine learning course
 - [ ] Youtube - Unity Shaders
 - [ ] Youtube - Inverse kinematics (coding train)
 - [ ] Youtube - Unity Portal tutorial
@@ -16,7 +16,7 @@ Learning
 - [ ] Udemy - deep learning
  
 Game Ideas
-- [i] Match 3 Cooking
+- [.] Match 3 Cooking
 - [ ] Teleport to arrow game
 - [ ] SS13 Clone
 - [ ] TBS/RTS game
@@ -26,13 +26,8 @@ Game Ideas
 - [ ] RTS Like Card game
  
 Shows
-- [i] Gundam Iron Blooded Orphans
+- [.] Gundam Iron Blooded Orphans
 - [ ] My Hero Academia
 - [ ] Mob Psycho 100
-- [.] Mr Robot
-- [.] Game of Thrones
-
-Games
-- [ ] Wargroove 
-- [ ] DF
-- [ ] Kerbal Space Program
+- [ ] Mr Robot
+- [ ] Game of Thrones
