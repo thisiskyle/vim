@@ -56,6 +56,7 @@ filetype indent on
 
 
 
+
 " mappings  ---------------------------------------------------------------
 inoremap {<CR> {<CR>}<ESC>O
 
@@ -65,12 +66,10 @@ nnoremap <C-k> ddkP
 nnoremap <C-j> ddp
 nnoremap j gj
 nnoremap k gk
-
 nnoremap <C-i> :ToggleComment<CR>
 nnoremap <leader>0 :OpenVimrc<CR>
 nnoremap <leader>1 :set number!<CR>
 nnoremap <leader>2 :set ruler!<CR>
-
 
 
 
@@ -118,7 +117,6 @@ function! ToggleSyntaxHL()
     else | syntax enable
     endif 
 endfunction
-
 
 command ToggleComment :call ToggleComment()
 function! ToggleComment()
