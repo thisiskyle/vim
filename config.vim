@@ -62,8 +62,8 @@ inoremap {<CR> {<CR>}<ESC>O
 
 nnoremap <C-b> :bp<CR>
 nnoremap <C-n> :bn<CR>
-nnoremap <C-k> ddkP
-nnoremap <C-j> ddp
+nnoremap <M-k> ddkP
+nnoremap <M-j> ddp
 nnoremap j gj
 nnoremap k gk
 nnoremap <C-i> :ToggleComment<CR>
@@ -96,7 +96,6 @@ colors simple
 
 
 " custom commands ---------------------------------------------------------
-
 command FormatJSON :call FormatJSON()
 function! FormatJSON()
     :%!python -m json.tool
