@@ -1,6 +1,7 @@
 source $VIMRUNTIME/defaults.vim
 
 
+
 " plugins ----------------------------------------------------------------
 if has("win32") | call plug#begin('~/vimfiles/bundle')
 elseif has("unix") | call plug#begin('~/.vim/bundle')
@@ -16,6 +17,7 @@ call plug#end()
 
 
 
+
 " settings ---------------------------------------------------------------
 if has("gui_running")
     set guioptions -=m "turn off the menu
@@ -23,11 +25,12 @@ if has("gui_running")
     set guioptions -=r "turn off the right hand toolbar
     set guioptions -=L "turn off the left toolbar
     set lines=55 
-    set columns=105
+    set columns=125
     if has("win32") | set guifont=Courier\ Prime\ Code:h10
     elseif has("unix") | set guifont=Courier\ Prime\ Code\ 10
     endif
 endif
+
 set bg=dark
 set lazyredraw
 set incsearch
@@ -46,13 +49,22 @@ set noshowcmd
 set autochdir
 set autoread
 set ignorecase
+set tags+=tags;
 set smartcase
 if exists('+fixeol') | set nofixeol | endif
-
 filetype on
 filetype plugin on
 filetype indent on
 
+" vim wiki 
+let wiki1 = {'path':'~\vimfiles\wiki\default', 'path_html':'~\vimfiles\wiki\default\html'}
+let wiki2 = {'path':'~\wiki\work', 'path_html':'~\wiki\work\html'}
+let g:vimwiki_list = [wiki1, wiki2]
+
+" ctrlp
+let g:ctrlp_extensions = [ 'tag' ]
+let g:ctrlp_regexp = 1
+let g:ctrlp_by_filename = 1
 
 
 
@@ -67,22 +79,15 @@ nnoremap <M-j> ddp
 nnoremap j gj
 nnoremap k gk
 nnoremap <C-i> :ToggleComment<CR>
-nnoremap <leader>0 :OpenVimrc<CR>
+nnoremap <leader><leader> :OpenVimrc<CR>
 nnoremap <leader>1 :set number!<CR>
 nnoremap <leader>2 :set ruler!<CR>
+nnoremap <leader>t :!ctags -R *<CR>
 
 
 
 
-" vim wiki  ---------------------------------------------------------------
-let wiki1 = {'path':'~\vimfiles\wiki\default', 'path_html':'~\vimfiles\wiki\default\html'}
-let wiki2 = {'path':'~\wiki\work', 'path_html':'~\wiki\work\html'}
-let g:vimwiki_list = [wiki1, wiki2]
-
-
-
-
-" color/style  ------------------------------------------------------------
+" style  ------------------------------------------------------------
 set rulerformat=%40(%m\ %{fugitive#head()}\ \ %l,%c%)
 set guicursor+=n-v-c:blinkon0
 
@@ -142,6 +147,18 @@ function! ToggleComment()
             normal i#
             call setpos(".", save_pos)
             normal l
+        endif
+    "html & xml
+    elseif (&ft=='xml')
+        if getline('.')[col('.')-1] == "<" && getline('.')[col('.')] == "!"
+            normal 4x$2h3x
+            call setpos(".", save_pos)
+            normal 4h
+        else
+            normal i<!--
+            normal $a-->
+            call setpos(".", save_pos)
+            normal 4l
         endif
     "c style
     else
