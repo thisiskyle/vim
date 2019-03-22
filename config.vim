@@ -2,7 +2,7 @@ source $VIMRUNTIME/defaults.vim
 
 
 
-" plugins ----------------------------------------------------------------
+" plugins ---------------------------------------------------------
 if has("win32") | call plug#begin('~/vimfiles/bundle')
 elseif has("unix") | call plug#begin('~/.vim/bundle')
 endif
@@ -18,121 +18,116 @@ call plug#end()
 
 
 
-" settings ---------------------------------------------------------------
+" settings -------------------------------------------------------
 if has("gui_running")
     set guioptions -=m "turn off the menu
     set guioptions -=T "turn off the toolbar
     set guioptions -=r "turn off the right hand toolbar
     set guioptions -=L "turn off the left toolbar
-    set lines=60 
-    set columns=115
+    set lines=50 
+    set columns=120
+    set lazyredraw
     if has("win32") | set guifont=Courier\ Prime\ Code:h10
     elseif has("unix") | set guifont=Courier\ Prime\ Code\ 10
     endif
 endif
 
-set bg=dark
-set lazyredraw
-set incsearch
-set nohlsearch
+
 set nobackup
 set nowritebackup
 set noswapfile
 set noundofile
+
+set incsearch 
+set ignorecase
+set nohlsearch
+set smartcase
+
 set tabstop=4
 set autoindent
 set shiftwidth=4
 set expandtab
+filetype plugin indent on
+
 set belloff=all
 set laststatus=0
 set noshowcmd
 set autochdir
 set autoread
-set ignorecase
-set tags+=./docs/tags;
-set smartcase
-if exists('+fixeol') | set nofixeol | endif
-filetype on
-filetype plugin on
-filetype indent on
 
 " vim wiki 
 let wiki1 = {'path':'~\vimfiles\wiki\default', 'path_html':'~\vimfiles\wiki\default\html'}
 let wiki2 = {'path':'~\wiki\work', 'path_html':'~\wiki\work\html'}
 let g:vimwiki_list = [wiki1, wiki2]
-
 " ctrlp
+set tags+=./docs/tags;
 let g:ctrlp_extensions = [ 'tag' ]
 let g:ctrlp_regexp = 1
 let g:ctrlp_by_filename = 1
+" netrw
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_winsize = 25 
 
+" mappings  -------------------------------------------------------
+inoremap {<cr> {<cr>}<esc>O
 
+nnoremap <c-b> :bp<cr>
+nnoremap <c-n> :bn<cr>
+nnoremap <c-k> :ToggleComment<cr>
+nnoremap <m-k> ddkP
+nnoremap <m-j> ddp
+nnoremap <leader><leader> :OpenVimrc<cr>
+nnoremap <leader>c :Ctags<cr>
+nnoremap <leader>d :Doit<cr>
+nnoremap <leader>e :Vex<cr>
 
-
-" mappings  ---------------------------------------------------------------
-inoremap {<CR> {<CR>}<ESC>O
-
-nnoremap <C-b> :bp<CR>
-nnoremap <C-n> :bn<CR>
-nnoremap <M-k> ddkP
-nnoremap <M-j> ddp
-nnoremap j gj
-nnoremap k gk
-nnoremap <C-i> :ToggleComment<CR>
-nnoremap <leader><leader> :OpenVimrc<CR>
-nnoremap <leader>1 :set number!<CR>
-nnoremap <leader>2 :set ruler!<CR>
-
-
-
-
-" style  ------------------------------------------------------------
+" style  ----------------------------------------------------------
 set rulerformat=%40(%m\ %{fugitive#head()}\ \ %l,%c%)
 set guicursor+=n-v-c:blinkon0
-
 let g:gruvbox_italic = '0'
 let g:gruvbox_bold = '0'
 let g:gruvbox_contrast_dark = 'soft'
 colors simple 
 
+" commands --------------------------------------------------------
+command Ctags :call Ctags()
+command Doit :call Doit()
+command FormatJSON :call FormatJSON()
+command OpenVimrc :call OpenVimrc()
+command ToggleComment :call ToggleComment()
 
-
-
-
-" custom commands --------------------------------------------------------
-
-" @TODO: create a function for calling ctags and creating a docs/ folder if one does not exist
-command RunCtags :call RunCtags()
-function! RunCtags()
+" functions -------------------------------------------------------
+" Generate a tags file for current project
+function! Ctags()
     if !isdirectory("./docs")
         call mkdir("./docs", "p")
     endif
-    !ctags -R *
+    execute "!ctags -R -f ./docs/tags " . getcwd()
 endfunction
 
+" Generate a todo.txt file for this project
+function! Doit()
+    if !isdirectory("./docs")
+        call mkdir("./docs", "p")
+    endif
+    !doit ./docs/todo.txt
+endfunction
 
-command FormatJSON :call FormatJSON()
+" Format a json file
 function! FormatJSON()
     :%!python -m json.tool
 endfunction
 
 
-command OpenVimrc :call OpenVimrc()
+" Open the config.vim file the 
 function! OpenVimrc()
     if has("unix") | :e ~/.vim/config.vim
     elseif has("win32") | :e ~/vimfiles/config.vim
     endif
 endfunction
 
-
-command ToggleSyntaxHL :call ToggleSyntaxHL()
-function! ToggleSyntaxHL()
-    if exists("g:syntax_on") | syntax off
-    else | syntax enable
-    endif 
-endfunction
-
-command ToggleComment :call ToggleComment()
+" Toggle comments for current line
 function! ToggleComment()
     let save_pos = getpos(".")
     normal ^
@@ -148,7 +143,7 @@ function! ToggleComment()
             normal l
         endif
     "python
-    elseif (&ft=='py')
+    elseif (&ft=='python')
         if getline('.')[col('.')-1] == "#"
             normal x
             call setpos(".", save_pos)
@@ -159,7 +154,7 @@ function! ToggleComment()
             normal l
         endif
     "html & xml
-    elseif (&ft=='xml')
+    elseif (&ft=='xml' || &ft=='html' || &ft=='htm')
         if getline('.')[col('.')-1] == "<" && getline('.')[col('.')] == "!"
             normal 4x$2h3x
             call setpos(".", save_pos)
