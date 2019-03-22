@@ -24,8 +24,8 @@ if has("gui_running")
     set guioptions -=T "turn off the toolbar
     set guioptions -=r "turn off the right hand toolbar
     set guioptions -=L "turn off the left toolbar
-    set lines=55 
-    set columns=125
+    set lines=60 
+    set columns=115
     if has("win32") | set guifont=Courier\ Prime\ Code:h10
     elseif has("unix") | set guifont=Courier\ Prime\ Code\ 10
     endif
@@ -49,7 +49,7 @@ set noshowcmd
 set autochdir
 set autoread
 set ignorecase
-set tags+=tags;
+set tags+=./docs/tags;
 set smartcase
 if exists('+fixeol') | set nofixeol | endif
 filetype on
@@ -82,7 +82,6 @@ nnoremap <C-i> :ToggleComment<CR>
 nnoremap <leader><leader> :OpenVimrc<CR>
 nnoremap <leader>1 :set number!<CR>
 nnoremap <leader>2 :set ruler!<CR>
-nnoremap <leader>t :!ctags -R *<CR>
 
 
 
@@ -94,13 +93,24 @@ set guicursor+=n-v-c:blinkon0
 let g:gruvbox_italic = '0'
 let g:gruvbox_bold = '0'
 let g:gruvbox_contrast_dark = 'soft'
-
 colors simple 
 
 
 
 
-" custom commands ---------------------------------------------------------
+
+" custom commands --------------------------------------------------------
+
+" @TODO: create a function for calling ctags and creating a docs/ folder if one does not exist
+command RunCtags :call RunCtags()
+function! RunCtags()
+    if !isdirectory("./docs")
+        call mkdir("./docs", "p")
+    endif
+    !ctags -R *
+endfunction
+
+
 command FormatJSON :call FormatJSON()
 function! FormatJSON()
     :%!python -m json.tool
