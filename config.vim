@@ -24,7 +24,7 @@ if has("gui_running")
     set guioptions -=T "turn off the toolbar
     set guioptions -=r "turn off the right hand toolbar
     set guioptions -=L "turn off the left toolbar
-    set lines=50 
+    set lines=60 
     set columns=120
     set lazyredraw
     if has("win32") | set guifont=Courier\ Prime\ Code:h10
