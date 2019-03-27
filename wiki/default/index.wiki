@@ -1,7 +1,5 @@
  
 Projects
-- [ ] Pi - Thermostat
-- [ ] Pi - Lego/Robot Arm
 - [.] Pi - Print Server
 - [ ] Boardgame Table
 - [ ] The Royal Game of Ur
@@ -31,3 +29,5 @@ Shows
 - [ ] Mob Psycho 100
 - [ ] Mr Robot
 - [ ] Game of Thrones
+- [ ] Supernatural
+- [ ] The Walking Dead
