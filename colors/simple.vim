@@ -33,6 +33,9 @@ hi Delimiter           guifg=#d5c4a1  guibg=NONE     gui=NONE
 hi Title               guifg=#d5c4a1  guibg=NONE     gui=NONE
 hi VertSplit           guifg=#d5c4a1  guibg=NONE     gui=NONE
 
+hi WarningMsg          guifg=#fb4934  guibg=NONE     gui=NONE
+hi ErrorgMsg           guifg=#fb4934  guibg=NONE     gui=NONE
+
 hi Cursor              guifg=#32302f  guibg=#d5c4a1  gui=NONE
 hi Visual              guifg=#32302f  guibg=#d5c4a1  gui=NONE
 hi Search              guifg=#32302f  guibg=#d5c4a1  gui=NONE

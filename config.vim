@@ -1,10 +1,12 @@
+"=======================================================
+" source files
+"=======================================================
 source $VIMRUNTIME/defaults.vim
-
-"-------------------------------------------------------
+"=======================================================
 " plugins
-"-------------------------------------------------------
-if has("win32") | call plug#begin('~/vimfiles/bundle')
-elseif has("unix") | call plug#begin('~/.vim/bundle')
+"=======================================================
+if has("win32") | call plug#begin('~/vimfiles/plugged')
+elseif has("unix") | call plug#begin('~/.vim/plugged')
 endif
 
 Plug 'morhetz/gruvbox'
@@ -13,11 +15,12 @@ Plug 'tpope/vim-git'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'sheerun/vim-polyglot'
+Plug 'thisiskyle/do.vim'
 
 call plug#end()
-"-------------------------------------------------------
+"=======================================================
 " settings
-"-------------------------------------------------------
+"=======================================================
 if has("gui_running")
     set guioptions -=m "turn off the menu
     set guioptions -=T "turn off the toolbar
@@ -56,7 +59,7 @@ set autochdir
 set autoread
 set isfname-=:
 
-let wiki1 = {'path':'~\vimfiles\wiki\default', 'path_html':'~\vimfiles\wiki\default\html'}
+let wiki1 = {'path':'~\vimfiles\wiki', 'path_html':'~\vimfiles\wiki\html'}
 let wiki2 = {'path':'~\mystuff\IT\wiki', 'path_html':'~\mystuff\IT\wiki\html'}
 let g:vimwiki_list = [wiki1, wiki2]
 
@@ -69,19 +72,13 @@ let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_winsize = 25 
 let g:netrw_dirhistmax = 0
-"-------------------------------------------------------
+"=======================================================
 " mappings
-"-------------------------------------------------------
+"=======================================================
 inoremap {<cr> {<cr>}<esc>O
-inoremap if<cr> if ()<esc>i
-inoremap for<cr> for ()<esc>i
-inoremap "<cr> ""<esc>i
-inoremap (<cr> ()<esc>i
-inoremap [<cr> []<esc>i
-inoremap <<cr> <><esc>i
 
-nnoremap <c-b> :bp<cr>
-nnoremap <c-n> :bn<cr>
+nnoremap <c-b> :w<cr>:bp<cr>
+nnoremap <c-n> :w<cr>:bn<cr>
 nnoremap <c-k> :call functions#ToggleComment()<cr>
 
 nnoremap <m-k> ddkP
@@ -89,12 +86,12 @@ nnoremap <m-j> ddp
 
 nnoremap <leader><leader> :call functions#OpenVimrc()<cr>
 nnoremap <leader>C :execute "!ctags -R * " . getcwd()<cr>
-nnoremap <leader>D :!doit<cr>
+nnoremap <leader>D :DO<cr>
 nnoremap <leader>E :Vex<cr>
 nnoremap <leader>N :set number!<cr>
-"-------------------------------------------------------
+"=======================================================
 " style
-"-------------------------------------------------------
+"=======================================================
 set rulerformat=%40(%m\ %{fugitive#head()}\ \ %l,%c%)
 set guicursor+=n-v-c:blinkon0
 let g:gruvbox_italic = '0'
@@ -102,3 +99,4 @@ let g:gruvbox_bold = '0'
 let g:gruvbox_contrast_dark = 'soft'
 set cursorline
 colors simple 
+
