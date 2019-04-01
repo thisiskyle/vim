@@ -39,39 +39,34 @@ set nowritebackup
 set noswapfile
 set noundofile
 
-set incsearch 
-set ignorecase
+set ignorecase smartcase
 set nohlsearch
-set smartcase
 
 set tabstop=4
-set autoindent
 set shiftwidth=4
+set autoindent
 set expandtab
-set tags+=./tags;
 
 filetype plugin indent on
 
 set belloff=all
 set laststatus=0
-set noshowcmd
 set autochdir
 set autoread
 set isfname-=:
+set tags+=./tags;
 
 let wiki1 = {'path':'~\vimfiles\wiki', 'path_html':'~\vimfiles\wiki\html'}
 let wiki2 = {'path':'~\mystuff\IT\wiki', 'path_html':'~\mystuff\IT\wiki\html'}
 let g:vimwiki_list = [wiki1, wiki2]
 
-let g:ctrlp_extensions = [ 'tag' ]
+let g:ctrlp_extensions = ['tag']
 let g:ctrlp_regexp = 1
 let g:ctrlp_by_filename = 1
 let g:ctrlp_working_path_mode = 'ra'
 
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_winsize = 25 
-let g:netrw_dirhistmax = 0
+let g:do_file_extensions = ['vim']
+let g:do_identifier = "*"
 "=======================================================
 " mappings
 "=======================================================
@@ -80,15 +75,12 @@ inoremap {<cr> {<cr>}<esc>O
 nnoremap <c-b> :w<cr>:bp<cr>
 nnoremap <c-n> :w<cr>:bn<cr>
 nnoremap <c-k> :call functions#ToggleComment()<cr>
-
-nnoremap <m-k> ddkP
-nnoremap <m-j> ddp
-
+ 
+nnoremap <leader>t :DOtodo<cr>
+nnoremap <leader>d :DO<cr>
 nnoremap <leader><leader> :call functions#OpenVimrc()<cr>
-nnoremap <leader>C :execute "!ctags -R * " . getcwd()<cr>
-nnoremap <leader>D :DO<cr>
-nnoremap <leader>E :Vex<cr>
-nnoremap <leader>N :set number!<cr>
+nnoremap <leader>1 :set number!<cr>
+nnoremap <leader>c :execute "!ctags -R * " . getcwd()<cr>
 "=======================================================
 " style
 "=======================================================
@@ -99,4 +91,3 @@ let g:gruvbox_bold = '0'
 let g:gruvbox_contrast_dark = 'soft'
 set cursorline
 colors simple 
-
