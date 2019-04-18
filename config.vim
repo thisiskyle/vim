@@ -1,26 +1,18 @@
-"=======================================================
-" source files
-"=======================================================
 source $VIMRUNTIME/defaults.vim
-"=======================================================
-" plugins
-"=======================================================
+
 if has("win32") | call plug#begin('~/vimfiles/plugged')
 elseif has("unix") | call plug#begin('~/.vim/plugged')
 endif
 
-Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'vimwiki/vimwiki'
 Plug 'sheerun/vim-polyglot'
 Plug 'thisiskyle/do.vim'
 
 call plug#end()
-"=======================================================
-" settings
-"=======================================================
+
+
 if has("gui_running")
     set guioptions -=m "turn off the menu
     set guioptions -=T "turn off the toolbar
@@ -53,41 +45,22 @@ set belloff=all
 set laststatus=0
 set autochdir
 set autoread
-set isfname-=:
 set tags+=./tags;
 
-let wiki1 = {'path':'~\vimfiles\wiki', 'path_html':'~\vimfiles\wiki\html'}
-let wiki2 = {'path':'~\mystuff\IT\wiki', 'path_html':'~\mystuff\IT\wiki\html'}
-let g:vimwiki_list = [wiki1, wiki2]
+set rulerformat=%40(%m\ %{fugitive#head()}\ \ %l,%c%)
+set cursorline
+colors simple 
 
-let g:ctrlp_extensions = ['tag']
 let g:ctrlp_regexp = 1
 let g:ctrlp_by_filename = 1
 let g:ctrlp_working_path_mode = 'ra'
 
 let g:do_file_extensions = ['vim']
-let g:do_identifier = "*"
-"=======================================================
-" mappings
-"=======================================================
-inoremap {<cr> {<cr>}<esc>O
 
-nnoremap <c-b> :w<cr>:bp<cr>
 nnoremap <c-n> :w<cr>:bn<cr>
 nnoremap <c-k> :call functions#ToggleComment()<cr>
- 
+nnoremap <leader><leader> :call functions#OpenVimrc()<cr>
 nnoremap <leader>t :DOtodo<cr>
 nnoremap <leader>d :DO<cr>
-nnoremap <leader><leader> :call functions#OpenVimrc()<cr>
-nnoremap <leader>1 :set number!<cr>
 nnoremap <leader>c :execute "!ctags -R * " . getcwd()<cr>
-"=======================================================
-" style
-"=======================================================
-set rulerformat=%40(%m\ %{fugitive#head()}\ \ %l,%c%)
-set guicursor+=n-v-c:blinkon0
-let g:gruvbox_italic = '0'
-let g:gruvbox_bold = '0'
-let g:gruvbox_contrast_dark = 'soft'
-set cursorline
-colors simple 
+nnoremap <leader>n:e ~/.notes.txt<cr>
