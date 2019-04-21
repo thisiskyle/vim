@@ -58,8 +58,8 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:do_file_extensions = ['vim']
 
 nnoremap <c-n> :w<cr>:bn<cr>
-nnoremap <c-k> :call functions#ToggleComment()<cr>
-nnoremap <leader><leader> :call functions#OpenVimrc()<cr>
+nnoremap <c-k> :call myfunctions#ToggleComment()<cr>
+nnoremap <leader><leader> :call myfunctions#OpenVimrc()<cr>
 nnoremap <leader>t :DOtodo<cr>
 nnoremap <leader>d :DO<cr>
 nnoremap <leader>c :execute "!ctags -R * " . getcwd()<cr>
