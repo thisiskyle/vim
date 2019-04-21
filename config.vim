@@ -63,4 +63,4 @@ nnoremap <leader><leader> :call myfunctions#OpenVimrc()<cr>
 nnoremap <leader>t :DOtodo<cr>
 nnoremap <leader>d :DO<cr>
 nnoremap <leader>c :execute "!ctags -R * " . getcwd()<cr>
-nnoremap <leader>n:e ~/.notes.txt<cr>
+nnoremap <leader>n :e ~/.notes.txt<cr>
