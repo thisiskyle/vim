@@ -47,9 +47,11 @@ set autochdir
 set autoread
 set tags+=./tags;
 
-set rulerformat=%40(%m\ %{fugitive#head()}\ \ %l,%c%)
+set rulerformat=%50(%m%r\ %{fugitive#head()}\ [%{&ff}]\ %l,%c%)
+
 set cursorline
 colors simple 
+set ff=unix
 
 let g:ctrlp_regexp = 1
 let g:ctrlp_by_filename = 1
@@ -60,7 +62,7 @@ let g:do_file_extensions = ['vim']
 nnoremap <c-n> :w<cr>:bn<cr>
 nnoremap <c-k> :call myfunctions#ToggleComment()<cr>
 nnoremap <leader><leader> :call myfunctions#OpenVimrc()<cr>
-nnoremap <leader>t :DOtodo<cr>
-nnoremap <leader>d :DO<cr>
+nnoremap <leader>t :NewTODO<cr>
+nnoremap <leader>d :TODO<cr>
 nnoremap <leader>c :execute "!ctags -R * " . getcwd()<cr>
 nnoremap <leader>n :e ~/.notes.txt<cr>
