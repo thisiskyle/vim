@@ -47,7 +47,7 @@ set autochdir
 set autoread
 set tags+=./tags;
 
-set rulerformat=%50(%m%r\ %{fugitive#head()}\ [%{&ff}]\ %l,%c%)
+set rulerformat=%50(%m%r\ %#MatchParen#%{fugitive#head()}\ %#Normal#%l,%c%)
 
 set cursorline
 colors simple 
