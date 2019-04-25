@@ -42,7 +42,6 @@ filetype plugin indent on
 
 set belloff=all
 set laststatus=0
-set autochdir
 set autoread
 set tags+=./tags;
 
