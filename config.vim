@@ -8,7 +8,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'sheerun/vim-polyglot'
-Plug 'thisiskyle/do.vim'
+Plug 'thisiskyle/todo.vim'
 
 call plug#end()
 
