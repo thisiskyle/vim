@@ -12,7 +12,6 @@ Plug 'thisiskyle/todo.vim'
 
 call plug#end()
 
-
 if has("gui_running")
     set guioptions -=m "turn off the menu
     set guioptions -=T "turn off the toolbar
@@ -57,12 +56,13 @@ let g:ctrlp_regexp = 1
 let g:ctrlp_by_filename = 1
 let g:ctrlp_working_path_mode = 'ra'
 
-let g:do_file_extensions = ['vim']
+let g:todo_file_extensions = ['vim']
 
 nnoremap <c-n> :w<cr>:bn<cr>
 nnoremap <c-k> :call myfunctions#ToggleComment()<cr>
 nnoremap <leader><leader> :call myfunctions#OpenVimrc()<cr>
 nnoremap <leader>t :NewTODO<cr>
+nnoremap <leader>b :NewBUG<cr>
 nnoremap <leader>d :TODO<cr>
 nnoremap <leader>c :execute "!ctags -R * " . getcwd()<cr>
 nnoremap <leader>n :e ~/.notes.txt<cr>
