@@ -1,17 +1,4 @@
 
-"adds all files and commits
-function! myfunctions#GitCommitAll()
-    :cd %:p:h
-    :!git add . && git commit
-endfunction
-
-
-function! myfunctions#GitPush()
-    :cd %:p:h
-    :!git push
-endfunction
-
-
 " Open the config.vim file the 
 function! myfunctions#OpenVimrc()
     if has("unix") | :e ~/.vim/config.vim
