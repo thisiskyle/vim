@@ -28,7 +28,8 @@ set nobackup
 set nowritebackup
 set noswapfile
 set noundofile
-set ignorecase smartcase
+set ignorecase
+set smartcase
 set nohlsearch
 set tabstop=4
 set shiftwidth=4
@@ -39,89 +40,30 @@ set laststatus=0
 set autoread
 set tags+=./tags;
 set cursorline
-colors simple 
 set ff=unix
 set rulerformat=%50(%m%r\ %#MatchParen#%{gitbranch#name()}\ %#Normal#%l,%c%)
+colors simple 
 filetype plugin indent on
-
 let g:ctrlp_regexp = 1
 let g:ctrlp_by_filename = 1
 let g:ctrlp_working_path_mode = 'ra'
-
 let g:todo_file_extensions = ['vim']
+
 
 inoremap {<cr> {<cr>}<esc>O
 inoremap ii <esc>
+
 nnoremap <c-n> :w<cr>:bn<cr>
-nnoremap <c-m> :w<cr>:bp<cr>
-nnoremap <c-k> :call ToggleComment()<cr>
-nnoremap <leader><leader> :call OpenVimrc()<cr>
-nnoremap <leader>g :call GitCommitAll()<cr>
-nnoremap <leader>t :NewTODO<cr>
-nnoremap <leader>b :NewBUG<cr>
-nnoremap <leader>d :TODO<cr>
+nnoremap <c-b> :w<cr>:bp<cr>
+nnoremap <c-k> :call myfunctions#ToggleComment()<cr>
+
+nnoremap <leader><leader> :call myfunctions#OpenVimrc()<cr>
 nnoremap <leader>c :execute "!ctags -R * " . getcwd()<cr>
 nnoremap <leader>n :e ~/.notes<cr>
 
-" Open the config.vim file the 
-function! OpenVimrc()
-    if has("unix") | :e ~/.vim/config.vim
-    elseif has("win32") | :e ~/vimfiles/config.vim
-    endif
-endfunction
+nnoremap <leader>gc :call myfunctions#GitCommitAll()<cr>
+nnoremap <leader>gp :call myfunctions#GitCommitAll()<cr>
 
-function! GitCommitAll()
-    :!git add . && git commit
-endfunction
-
-" Toggle comments for current line
-function! ToggleComment()
-    let save_pos = getpos(".")
-    normal ^
-    "vim file
-    if (&ft=='vim')
-        if getline('.')[col('.')-1] == "\""
-            normal x
-            call setpos(".", save_pos)
-            normal h
-        else
-            normal i"
-            call setpos(".", save_pos)
-            normal l
-        endif
-    "python
-    elseif (&ft=='python')
-        if getline('.')[col('.')-1] == "#"
-            normal x
-            call setpos(".", save_pos)
-            normal h
-        else
-            normal i#
-            call setpos(".", save_pos)
-            normal l
-        endif
-    "html & xml
-    elseif (&ft=='xml' || &ft=='html' || &ft=='htm')
-        if getline('.')[col('.')-1] == "<" && getline('.')[col('.')] == "!"
-            normal 4x$2h3x
-            call setpos(".", save_pos)
-            normal 4h
-        else
-            normal i<!--
-            normal $a-->
-            call setpos(".", save_pos)
-            normal 4l
-        endif
-    "c style
-    else
-        if getline('.')[col('.')-1] == "/"
-            normal xx
-            call setpos(".", save_pos)
-            normal hh
-        else
-            normal i//
-            call setpos(".", save_pos)
-            normal ll
-        endif
-    endif
-endfunction
+nnoremap <leader>t :NewTODO<cr>
+nnoremap <leader>b :NewBUG<cr>
+nnoremap <leader>d :TODO<cr>
