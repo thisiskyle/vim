@@ -28,27 +28,21 @@ set nobackup
 set nowritebackup
 set noswapfile
 set noundofile
-
 set ignorecase smartcase
 set nohlsearch
-
 set tabstop=4
 set shiftwidth=4
 set autoindent
 set expandtab
-
-filetype plugin indent on
-
 set belloff=all
 set laststatus=0
 set autoread
 set tags+=./tags;
-
-set rulerformat=%50(%m%r\ %#MatchParen#%{gitbranch#name()}\ %#Normal#%l,%c%)
-
 set cursorline
 colors simple 
 set ff=unix
+set rulerformat=%50(%m%r\ %#MatchParen#%{gitbranch#name()}\ %#Normal#%l,%c%)
+filetype plugin indent on
 
 let g:ctrlp_regexp = 1
 let g:ctrlp_by_filename = 1
@@ -57,7 +51,9 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:todo_file_extensions = ['vim']
 
 inoremap {<cr> {<cr>}<esc>O
+inoremap ii <esc>
 nnoremap <c-n> :w<cr>:bn<cr>
+nnoremap <c-m> :w<cr>:bp<cr>
 nnoremap <c-k> :call ToggleComment()<cr>
 nnoremap <leader><leader> :call OpenVimrc()<cr>
 nnoremap <leader>t :NewTODO<cr>
@@ -65,8 +61,6 @@ nnoremap <leader>b :NewBUG<cr>
 nnoremap <leader>d :TODO<cr>
 nnoremap <leader>c :execute "!ctags -R * " . getcwd()<cr>
 nnoremap <leader>n :e ~/.notes<cr>
-
-
 
 " Open the config.vim file the 
 function! OpenVimrc()
