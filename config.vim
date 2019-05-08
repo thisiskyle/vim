@@ -56,6 +56,7 @@ nnoremap <c-n> :w<cr>:bn<cr>
 nnoremap <c-m> :w<cr>:bp<cr>
 nnoremap <c-k> :call ToggleComment()<cr>
 nnoremap <leader><leader> :call OpenVimrc()<cr>
+nnoremap <leader>g :call GitCommitAll()<cr>
 nnoremap <leader>t :NewTODO<cr>
 nnoremap <leader>b :NewBUG<cr>
 nnoremap <leader>d :TODO<cr>
@@ -69,6 +70,9 @@ function! OpenVimrc()
     endif
 endfunction
 
+function! GitCommitAll()
+    :!git add . && git commit
+endfunction
 
 " Toggle comments for current line
 function! ToggleComment()
