@@ -49,7 +49,6 @@ let g:ctrlp_by_filename = 1
 let g:ctrlp_working_path_mode = 'ra'
 let g:todo_file_extensions = ['vim']
 
-
 inoremap {<cr> {<cr>}<esc>O
 inoremap ii <esc>
 
@@ -62,7 +61,7 @@ nnoremap <leader>c :execute "!ctags -R * " . getcwd()<cr>
 nnoremap <leader>n :e ~/.notes<cr>
 
 nnoremap <leader>gc :call myfunctions#GitCommitAll()<cr>
-nnoremap <leader>gp :call myfunctions#GitCommitAll()<cr>
+nnoremap <leader>gp :call myfunctions#GitPush()<cr>
 
 nnoremap <leader>t :NewTODO<cr>
 nnoremap <leader>b :NewBUG<cr>
