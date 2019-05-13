@@ -53,7 +53,6 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:todo_file_extensions = ['vim']
 
 inoremap {<cr> {<cr>}<esc>O
-inoremap ii <esc>
 
 nnoremap <c-n> :w<cr>:bn<cr>
 nnoremap <c-b> :w<cr>:bp<cr>
@@ -62,3 +61,4 @@ nnoremap <c-k> :call myfunctions#ToggleComment()<cr>
 nnoremap <leader><leader> :call myfunctions#OpenVimrc()<cr>
 nnoremap <leader>c :execute "!ctags -R * " . getcwd()<cr>
 nnoremap <leader>n :e ~/.notes<cr>
+nnoremap <leader>cd :%:p:h<cr>
