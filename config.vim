@@ -61,4 +61,4 @@ nnoremap <c-k> :call myfunctions#ToggleComment()<cr>
 nnoremap <leader><leader> :call myfunctions#OpenVimrc()<cr>
 nnoremap <leader>c :execute "!ctags -R * " . getcwd()<cr>
 nnoremap <leader>n :e ~/.notes<cr>
-nnoremap <leader>cd :%:p:h<cr>
+nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
