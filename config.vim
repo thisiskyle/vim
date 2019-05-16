@@ -50,6 +50,7 @@ filetype plugin indent on
 let g:ctrlp_regexp = 1
 let g:ctrlp_by_filename = 1
 let g:ctrlp_working_path_mode = 'ra'
+
 let g:todo_file_extensions = ['vim']
 
 inoremap {<cr> {<cr>}<esc>O
@@ -62,3 +63,4 @@ nnoremap <leader><leader> :call myfunctions#OpenVimrc()<cr>
 nnoremap <leader>c :execute "!ctags -R * " . getcwd()<cr>
 nnoremap <leader>n :e ~/.notes<cr>
 nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
+nnoremap <leader>j :%!python -m json.tool<cr>
