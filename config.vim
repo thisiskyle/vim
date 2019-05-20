@@ -61,8 +61,10 @@ nnoremap <leader>cd       :cd %:p:h<cr>:pwd<cr
 nnoremap <leader>j        :%!python -m json.tool<cr
 
 " visual mode
-vnoremap <leader>p        :call Surround("(", ")")<cr>
-vnoremap <leader>q        :call Surround("\"")<cr>
+vnoremap <leader>(        :call Surround("(", ")")<cr>
+vnoremap <leader>"        :call Surround("\"")<cr>
+vnoremap <leader>'        :call Surround("'")<cr>
+vnoremap <leader><        :call Surround("<", ">")<cr>
 vnoremap <c-k>            :call ToggleComment()<cr>
 
 "-----------------------------------------------------------------------------------------------------------
