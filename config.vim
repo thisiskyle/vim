@@ -10,6 +10,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'thisiskyle/todo.vim'
 Plug 'itchyny/vim-gitbranch'
 Plug 'vimwiki/vimwiki'
+"Plug 'morhetz/gruvbox'
 
 call plug#end()
 
@@ -28,7 +29,7 @@ let g:todo_file_extensions = ['vim']
 
 " vim wiki
 let g:edi_wiki = {'path': '~\mystuff\IT\wiki\edi', 'path_html': '~\mystuff\IT\edi_documentation' }
-let g:default_wiki = {'path': '~\vimfiles\wiki\', 'path_html': '~\vimfiles\wiki\html' }
+let g:default_wiki = {'path': '~\.notes.wiki'}
 let g:vimwiki_list = [default_wiki, edi_wiki]
 
 
@@ -60,6 +61,8 @@ nnoremap <leader>cd       :cd %:p:h<cr>:pwd<cr
 nnoremap <leader>j        :%!python -m json.tool<cr
 
 " visual mode
+vnoremap <leader>p        :call Surround("(", ")")<cr>
+vnoremap <leader>q        :call Surround("\"")<cr>
 vnoremap <c-k>            :call ToggleComment()<cr>
 
 "-----------------------------------------------------------------------------------------------------------
@@ -75,9 +78,6 @@ if has("gui_running")
     set columns=120
     set lazyredraw
     set cursorline
-    if has("win32") | set guifont=Consolas:h10
-    elseif has("unix") | set guifont=Consolas\ 10
-    endif
 else
     syntax off
 endif
@@ -157,3 +157,13 @@ function! ToggleComment()
         endwhile
     endif
 endfunction
+
+function! Surround(...)
+    execute "normal `<i" . a:1
+    if a:0 == 2
+        execute "normal `>A" . a:2
+    else
+        execute "normal `>A" . a:1
+    endif
+endfunction
+
