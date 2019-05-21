@@ -41,25 +41,26 @@ hi ErrorgMsg           guifg=#fb4934  guibg=NONE     gui=NONE
 
 hi Visual              guifg=#83a598  guibg=NONE     gui=NONE
 hi Search              guifg=#83a598  guibg=NONE     gui=NONE
-hi IncSearch           guifg=#83a598  guibg=NONE     gui=NONE
 
-hi MatchParen          guifg=#fe8019  guibg=NONE     gui=NONE
-hi WarningMsg          guifg=#fe8019  guibg=NONE     gui=NONE
 
-hi Cursor              guifg=#32302f  guibg=#d5c4a1  gui=NONE
-hi Pmenu               guifg=#32302f  guibg=#d5c4a1  gui=NONE
+hi matchparen          guifg=#fe8019  guibg=NONE     gui=NONE
+hi warningmsg          guifg=#fe8019  guibg=NONE     gui=NONE
+
+hi cursor              guifg=#32302f  guibg=#d5c4a1  gui=NONE
+hi pmenu               guifg=#32302f  guibg=#d5c4a1  gui=NONE
  
-hi PmenuSel            guifg=#d5c4a1  guibg=#7c6f64  gui=NONE
-hi PmenuSbar           guifg=#d5c4a1  guibg=#32302f  gui=NONE
-hi PmenuTumb           guifg=#d5c4a1  guibg=#32302f  gui=NONE
+hi pmenusel            guifg=#d5c4a1  guibg=#7c6f64  gui=NONE
+hi pmenusbar           guifg=#d5c4a1  guibg=#32302f  gui=NONE
+hi pmenutumb           guifg=#d5c4a1  guibg=#32302f  gui=NONE
 
-hi Comment             guifg=#7c6f64  guibg=NONE     gui=NONE
-hi Folded              guifg=#7c6f64  guibg=NONE     gui=NONE
-hi EndofBuffer         guifg=#7c6f64  guibg=NONE     gui=NONE
-hi Todo                guifg=#7c6f64  guibg=NONE     gui=NONE
-hi LineNr              guifg=#7c6f64  guibg=NONE     gui=NONE
+hi comment             guifg=#7c6f64  guibg=NONE     gui=NONE
+hi folded              guifg=#7c6f64  guibg=NONE     gui=NONE
+hi endofbuffer         guifg=#7c6f64  guibg=NONE     gui=NONE
+hi todo                guifg=#7c6f64  guibg=NONE     gui=NONE
+hi linenr              guifg=#7c6f64  guibg=NONE     gui=NONE
 
 hi CursorLine          guifg=#7c6f64  guibg=#282828  gui=NONE
 hi CursorLineNR        guifg=#7c6f64  guibg=#282828  gui=NONE
 
 hi RulerGitBranch      guifg=#b8bb26  guibg=NONE     gui=NONE
+hi IncSearch           guifg=#b8bb26  guibg=NONE     gui=NONE

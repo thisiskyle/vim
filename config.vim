@@ -57,7 +57,7 @@ nnoremap <leader>c        :execute "!ctags -R * " . getcwd()<cr>
 nnoremap <leader>n        :e ~/.notes<cr>
 nnoremap <leader>cd       :cd %:p:h<cr>:pwd<cr>
 nnoremap <c-k>            :call ToggleComment()<cr>
-nnoremap <leader>cd       :cd %:p:h<cr>:pwd<cr
+nnoremap <leader>cd       :cd %:p:h<cr>:pwd<cr>
 nnoremap <leader>j        :%!python -m json.tool<cr
 
 " visual mode
@@ -65,6 +65,8 @@ vnoremap <leader>(        :call Surround("(", ")")<cr>
 vnoremap <leader>"        :call Surround("\"")<cr>
 vnoremap <leader>'        :call Surround("'")<cr>
 vnoremap <leader><        :call Surround("<", ">")<cr>
+vnoremap <leader>[        :call Surround("[", "]")<cr>
+vnoremap <leader>{        :call Surround("{", "}")<cr>
 vnoremap <c-k>            :call ToggleComment()<cr>
 
 "-----------------------------------------------------------------------------------------------------------
@@ -85,9 +87,7 @@ set nobackup
 set nowritebackup
 set noswapfile
 set noundofile
-set ignorecase
 set smartcase
-set nohlsearch
 set tabstop=4
 set shiftwidth=4
 set autoindent
@@ -95,9 +95,11 @@ set expandtab
 set belloff=all
 set laststatus=0
 set autoread
+set hlsearch
 set ff=unix
 set tags+=./tags;
 set rulerformat=%50(%m%r\ %#RulerGitBranch#%{gitbranch#name()}\ %#Normal#%l,%c%)
+
 filetype plugin indent on
 
 color simple
@@ -114,7 +116,7 @@ function! OpenVimrc()
 endfunction
 
 
-" Toggle comments
+" Toggle a line to be a comment or not
 function! ToggleComment()
     let save_pos = getpos(".")
     let cstr = g:comment_types[&ft] 
@@ -157,6 +159,7 @@ function! ToggleComment()
     endif
 endfunction
 
+" Surround a selection with given character
 function! Surround(...)
     execute "normal `<i" . a:1
     if a:0 == 2
