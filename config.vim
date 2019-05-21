@@ -33,7 +33,7 @@ let g:default_wiki = {'path': '~\.notes.wiki'}
 let g:vimwiki_list = [default_wiki, edi_wiki]
 
 
-" commenter
+" Toggle Comments
 let g:comment_types = { }
 let g:comment_types['vim'] =    "\""
 let g:comment_types['python'] = "#"
@@ -79,9 +79,6 @@ if has("gui_running")
     set lines=60
     set columns=120
     set lazyredraw
-    set cursorline
-else
-    syntax off
 endif
 
 set nobackup
@@ -100,7 +97,7 @@ set laststatus=0
 set autoread
 set ff=unix
 set tags+=./tags;
-set rulerformat=%50(%m%r\ %#MatchParen#%{gitbranch#name()}\ %#Normal#%l,%c%)
+set rulerformat=%50(%m%r\ %#RulerGitBranch#%{gitbranch#name()}\ %#Normal#%l,%c%)
 filetype plugin indent on
 
 color simple
