@@ -163,9 +163,9 @@ endfunction
 function! Surround(...)
     execute "normal `<i" . a:1
     if a:0 == 2
-        execute "normal `>A" . a:2
+        execute "normal `>la" . a:2
     else
-        execute "normal `>A" . a:1
+        execute "normal `>la" . a:1
     endif
 endfunction
 
