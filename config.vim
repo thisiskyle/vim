@@ -40,7 +40,7 @@ let g:comment_types['python'] = "#"
 let g:comment_types['cpp'] =    "//"
 let g:comment_types['cs'] =     "//"
 let g:comment_types['h'] =      "//"
-let g:comment_types['js'] =     "//"
+let g:comment_types['javascript.jsx'] =     "//"
 
 "-----------------------------------------------------------------------------------------------------------
 " Mappings
@@ -126,12 +126,12 @@ function! ToggleComment()
     let i = 0
     let check = 0
     while i < len(cstr)
-        if getline('.')[col('.')-(i+1)] == cstr[i]
+        if getline('.')[(col('.') - 1) + i] == cstr[i]
             let check = 1
         else 
             let check = 0
         endif
-        let i += 1
+        let i = i + 1
     endwhile
 
     if check == 1
