@@ -35,12 +35,12 @@ let g:vimwiki_list = [default_wiki, edi_wiki]
 
 " Toggle Comments
 let g:comment_types = { }
-let g:comment_types['vim'] =    "\""
+let g:comment_types['vim'] = "\""
 let g:comment_types['python'] = "#"
-let g:comment_types['cpp'] =    "//"
-let g:comment_types['cs'] =     "//"
-let g:comment_types['h'] =      "//"
-let g:comment_types['javascript.jsx'] =     "//"
+let g:comment_types['cpp'] = "//"
+let g:comment_types['cs'] = "//"
+let g:comment_types['h'] = "//"
+let g:comment_types['javascript.jsx'] = "//"
 
 "-----------------------------------------------------------------------------------------------------------
 " Mappings
@@ -48,31 +48,24 @@ let g:comment_types['javascript.jsx'] =     "//"
 
 " insert mode
 inoremap {<cr>            {<cr>}<esc>O
-inoremap (                ()<esc>i
-inoremap <                <><esc>i
-inoremap [                []<esc>i
-inoremap "                ""<esc>i
-inoremap '                ''<esc>i
 
 " normal mode
 nnoremap <c-n>            :w<cr>:bn<cr>
 nnoremap <c-b>            :w<cr>:bp<cr>
+nnoremap <c-c>            :call ToggleComment()<cr>
 nnoremap <leader><leader> :call OpenVimrc()<cr>
-nnoremap <leader>c        :execute "!ctags -R * " . getcwd()<cr>
-nnoremap <leader>n        :e ~/.notes<cr>
-nnoremap <leader>cd       :cd %:p:h<cr>:pwd<cr>
-nnoremap <c-k>            :call ToggleComment()<cr>
+nnoremap <leader>ct       :execute "!ctags -R * " . getcwd()<cr>
 nnoremap <leader>cd       :cd %:p:h<cr>:pwd<cr>
 nnoremap <leader>j        :%!python -m json.tool<cr
 
 " visual mode
-vnoremap <leader>(        :call Surround("(", ")")<cr>
-vnoremap <leader>"        :call Surround("\"")<cr>
-vnoremap <leader>'        :call Surround("'")<cr>
-vnoremap <leader><        :call Surround("<", ">")<cr>
-vnoremap <leader>[        :call Surround("[", "]")<cr>
-vnoremap <leader>{        :call Surround("{", "}")<cr>
-vnoremap <c-k>            :call ToggleComment()<cr>
+vnoremap ((        :call Surround("(", ")")<cr>
+vnoremap ""        :call Surround("\"")<cr>
+vnoremap ''        :call Surround("'")<cr>
+vnoremap <<        :call Surround("<", ">")<cr>
+vnoremap [[        :call Surround("[", "]")<cr>
+vnoremap {{        :call Surround("{", "}")<cr>
+vnoremap <c-c>        :call ToggleComment()<cr>
 
 "-----------------------------------------------------------------------------------------------------------
 " Settings
@@ -130,8 +123,8 @@ function! ToggleComment()
     " check to see if the line has a comment
     let i = 0
     let check = 0
-    while i < len(cstr)
-        if getline('.')[(col('.') - 1) + i] == cstr[i]
+    while i < strlen(cstr)
+        if getline(".")[(col(".") - 1) + i] == cstr[i]
             let check = 1
         else 
             let check = 0
@@ -157,7 +150,7 @@ function! ToggleComment()
         :execute "normal i" . cstr
         call setpos(".", save_pos)
         let i = 0
-        while i < len(cstr)
+        while i < strlen(cstr)
             normal l
             let i += 1
         endwhile
