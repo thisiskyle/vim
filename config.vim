@@ -48,6 +48,11 @@ let g:comment_types['javascript.jsx'] =     "//"
 
 " insert mode
 inoremap {<cr>            {<cr>}<esc>O
+inoremap (                ()<esc>i
+inoremap <                <><esc>i
+inoremap [                []<esc>i
+inoremap "                ""<esc>i
+inoremap '                ''<esc>i
 
 " normal mode
 nnoremap <c-n>            :w<cr>:bn<cr>
