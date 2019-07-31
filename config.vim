@@ -1,29 +1,9 @@
-"-----------------------------------------------------------------------------------------------------------
-" Settings
-"-----------------------------------------------------------------------------------------------------------
-if has("gui_running")
-    set guioptions =''
-    set lines=60
-    set columns=120
-endif
-set incsearch
-set hlsearch
-set nobackup
-set noswapfile
-set noundofile
-set tabstop=4
-set shiftwidth=4
-set expandtab
-set smartcase
-set autoindent
-set belloff=all
-set laststatus=0
-set ff=unix
-set rulerformat=%50(%m%r\ %#RulerGitBranch#%{gitbranch#name()}\ %#Normal#%l,%c%)
-filetype plugin indent on
-color simple
-if has("win32") | let g:vimhome = '~/vimfiles/'
-elseif has("unix") | let g:vimhome = '~/.vim/'
+if has("win32")
+    let g:vimhome = '~/vimfiles/'
+    set guifont=Consolas:h10
+elseif has("unix")
+    let g:vimhome = '~/.vim/'
+    set guifont=Consolas\ 10
 endif
 "-----------------------------------------------------------------------------------------------------------
 " Plugin
@@ -33,9 +13,39 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'thisiskyle/todo.vim'
 Plug 'itchyny/vim-gitbranch'
-"Plug 'vimwiki/vimwiki'
-"Plug 'morhetz/gruvbox'
+Plug 'vimwiki/vimwiki'
+Plug 'morhetz/gruvbox'
 call plug#end()
+"-----------------------------------------------------------------------------------------------------------
+" Settings
+"-----------------------------------------------------------------------------------------------------------
+if has("gui_running")
+    set guioptions =''
+    set lines=60
+    set columns=120
+endif
+set incsearch
+set nobackup
+set noswapfile
+set noundofile
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set ignorecase
+set smartcase
+set autoindent
+set belloff=all
+set laststatus=0
+set ff=unix
+set tags=tags;/
+set rulerformat=%50(%m%r\ %#GitBranch#%{gitbranch#name()}\ %#Normal#%l,%c%)
+filetype plugin indent on
+"-----------------------------------------------------------------------------------------------------------
+" Colors
+"-----------------------------------------------------------------------------------------------------------
+color gruvbox
+hi GitBranch guifg=#fb4934
+hi Todo gui=italic guifg=#928374
 "-----------------------------------------------------------------------------------------------------------
 " Options
 "-----------------------------------------------------------------------------------------------------------
@@ -43,6 +53,8 @@ call plug#end()
 let g:todo_file_extensions = ['vim']
 " Toggle Comments
 let g:comment_types = {'vim':"\"", 'python':"#", 'default':"//",}
+" vimwiki
+let g:vimwiki_list = [{'path': '~\vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
 "-----------------------------------------------------------------------------------------------------------
 " Mappings
 "-----------------------------------------------------------------------------------------------------------
@@ -55,6 +67,7 @@ nnoremap <c-k>            :call ToggleComment()<cr>
 nnoremap <leader><leader> :execute ":e" . g:vimhome . "config.vim"<cr>
 nnoremap <leader>ct       :execute "!ctags -R * " . getcwd()<cr>
 nnoremap <leader>cd       :cd %:p:h<cr>:pwd<cr>
+nnoremap <leader>n        :e ~/.notes<cr>
 " visual mode
 vnoremap <c-k>            :call ToggleComment()<cr>
 "-----------------------------------------------------------------------------------------------------------
