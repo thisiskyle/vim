@@ -22,7 +22,7 @@ call plug#end()
 if has("gui_running")
     set guioptions =''
     set lines=60
-    set columns=120
+    set columns=160
 endif
 set incsearch
 set nobackup
@@ -54,7 +54,10 @@ let g:todo_file_extensions = ['vim']
 " Toggle Comments
 let g:comment_types = {'vim':"\"", 'python':"#", 'default':"//",}
 " vimwiki
-let g:vimwiki_list = [{'path': '~\vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
+let g:default = {'path': '~\vimwiki', 'syntax': 'markdown', 'ext': '.md'}
+let g:match3 = {'path': 'S:\dev\match3\docs', 'syntax': 'markdown', 'ext': '.md'}
+let g:krumit = {'path': 'C:\Users\kylee\OneDrive\Desktop\krumit_notes', 'syntax': 'markdown', 'ext': '.md'}
+let g:vimwiki_list = [g:default, g:match3]
 "-----------------------------------------------------------------------------------------------------------
 " Mappings
 "-----------------------------------------------------------------------------------------------------------
