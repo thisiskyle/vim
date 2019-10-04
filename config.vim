@@ -13,7 +13,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'thisiskyle/todo.vim'
 Plug 'itchyny/vim-gitbranch'
-Plug 'vimwiki/vimwiki'
 Plug 'morhetz/gruvbox'
 call plug#end()
 "-----------------------------------------------------------------------------------------------------------
@@ -22,9 +21,11 @@ call plug#end()
 if has("gui_running")
     set guioptions =''
     set lines=60
-    set columns=160
+    set columns=140
+    set guifont=Consolas:h10
 endif
 set incsearch
+set ignorecase
 set nobackup
 set noswapfile
 set noundofile
@@ -63,16 +64,21 @@ let g:vimwiki_list = [g:default, g:match3]
 "-----------------------------------------------------------------------------------------------------------
 " insert mode
 inoremap {<cr>            {<cr>}<esc>O
-" normal mode
+"normal mode
+nnoremap <m-k>            ddkP
+nnoremap <m-j>            ddp
 nnoremap <c-n>            :w<cr>:bn<cr>
 nnoremap <c-b>            :w<cr>:bp<cr>
-nnoremap <c-k>            :call ToggleComment()<cr>
-nnoremap <leader><leader> :execute ":e" . g:vimhome . "config.vim"<cr>
-nnoremap <leader>ct       :execute "!ctags -R * " . getcwd()<cr>
-nnoremap <leader>cd       :cd %:p:h<cr>:pwd<cr>
-nnoremap <leader>n        :e ~/.notes<cr>
-" visual mode
-vnoremap <c-k>            :call ToggleComment()<cr>
+nnoremap <c-m>            :ToggleComment<cr>
+ "visual mode
+vnoremap <c-m>            :call ToggleComment()<cr>
+"-----------------------------------------------------------------------------------------------------------
+" Commands
+"-----------------------------------------------------------------------------------------------------------
+command Config :call OpenConfig()
+command ToggleComment :call ToggleComment()
+command Ctags :call Ctags()
+command Cd :call CdToCurrent()
 "-----------------------------------------------------------------------------------------------------------
 " Functions
 "-----------------------------------------------------------------------------------------------------------
@@ -118,4 +124,21 @@ function! ToggleComment()
             let i += 1
         endwhile
     endif
+endfunction
+
+
+function! OpenConfig()
+    :execute ":e" . g:vimhome . "config.vim"
+endfunction
+
+
+function! Ctags()
+    CdToCurrent()
+    :execute "!ctags -R * " . getcwd()
+endfunction
+
+
+function! CdToCurrent()
+    :cd %:p:h
+    :pwd
 endfunction
