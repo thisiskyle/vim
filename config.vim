@@ -48,30 +48,19 @@ color gruvbox
 hi GitBranch guifg=#fb4934
 hi Todo gui=italic guifg=#928374
 "-----------------------------------------------------------------------------------------------------------
-" Options
+" Key Bindings
 "-----------------------------------------------------------------------------------------------------------
-" todo.vim
-let g:todo_file_extensions = ['vim']
-" Toggle Comments
-let g:comment_types = {'vim':"\"", 'python':"#", 'default':"//",}
-" vimwiki
-let g:default = {'path': '~\vimwiki', 'syntax': 'markdown', 'ext': '.md'}
-let g:match3 = {'path': 'S:\dev\match3\docs', 'syntax': 'markdown', 'ext': '.md'}
-let g:krumit = {'path': 'C:\Users\kylee\OneDrive\Desktop\krumit_notes', 'syntax': 'markdown', 'ext': '.md'}
-let g:vimwiki_list = [g:default, g:match3]
-"-----------------------------------------------------------------------------------------------------------
-" Mappings
-"-----------------------------------------------------------------------------------------------------------
-" insert mode
-inoremap {<cr>            {<cr>}<esc>O
-"normal mode
-nnoremap <m-k>            ddkP
-nnoremap <m-j>            ddp
-nnoremap <c-n>            :w<cr>:bn<cr>
-nnoremap <c-b>            :w<cr>:bp<cr>
-nnoremap <c-m>            :ToggleComment<cr>
- "visual mode
-vnoremap <c-m>            :call ToggleComment()<cr>
+inoremap {<cr> {<cr>}<esc>O
+
+nnoremap <c-n> :w<cr>:bn<cr>
+nnoremap <c-b> :w<cr>:bp<cr>
+
+nnoremap <leader>t :TODO<cr>
+nnoremap <leader>n :NewTODO TODO<cr>
+nnoremap <leader>b :NewTODO BUG<cr>
+
+nnoremap <c-m> :ToggleComment<cr>
+vnoremap <c-m> :ToggleComment<cr>
 "-----------------------------------------------------------------------------------------------------------
 " Commands
 "-----------------------------------------------------------------------------------------------------------
@@ -83,11 +72,12 @@ command Cd :call CdToCurrent()
 " Functions
 "-----------------------------------------------------------------------------------------------------------
 function! ToggleComment()
+    let l:comment_types = {'vim':"\"", 'python':"#", 'default':"//"}
     let save_pos = getpos(".")
     if has_key(g:comment_types, &ft)
-        let cstr = g:comment_types[&ft]
+        let cstr = l:comment_types[&ft]
     else
-        let cstr = g:comment_types["default"]
+        let cstr = l:comment_types["default"]
     endif
     normal ^
     " check to see if the line has a comment
