@@ -21,7 +21,7 @@ call plug#end()
 if has("gui_running")
     set guioptions =''
     set lines=60
-    set columns=140
+    set columns=120
     set guifont=Consolas:h10
 endif
 set incsearch
@@ -54,6 +54,11 @@ inoremap {<cr> {<cr>}<esc>O
 
 nnoremap <c-n> :w<cr>:bn<cr>
 nnoremap <c-b> :w<cr>:bp<cr>
+
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
 
 nnoremap <leader>t :TODO<cr>
 nnoremap <leader>n :NewTODO TODO<cr>
