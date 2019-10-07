@@ -69,10 +69,11 @@ vnoremap <c-m> :ToggleComment<cr>
 "-----------------------------------------------------------------------------------------------------------
 " Commands
 "-----------------------------------------------------------------------------------------------------------
-command Config :call OpenConfig()
+command Config :call Open('config')
+command Notes :call Open('notes')
 command ToggleComment :call ToggleComment()
 command Ctags :call Ctags()
-command Cd :call CdToCurrent()
+command CD :call CdToCurrent()
 "-----------------------------------------------------------------------------------------------------------
 " Functions
 "-----------------------------------------------------------------------------------------------------------
@@ -121,19 +122,23 @@ function! ToggleComment()
     endif
 endfunction
 
-
-function! OpenConfig()
-    :execute ":e" . g:vimhome . "config.vim"
+function! Open(mode)
+    if a:mode == 'config' 
+        :execute ":e" . g:vimhome . "config.vim"
+    elseif a:mode == 'notes'
+        :execute ":e" . "~\\.notes.md"
+    endif
 endfunction
-
 
 function! Ctags()
-    CdToCurrent()
     :execute "!ctags -R * " . getcwd()
 endfunction
-
 
 function! CdToCurrent()
     :cd %:p:h
     :pwd
+endfunction
+
+function! GitCommitAll()
+    :execute "!git add . & git commit & git push"
 endfunction
