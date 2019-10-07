@@ -14,6 +14,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'thisiskyle/todo.vim'
 Plug 'itchyny/vim-gitbranch'
 Plug 'morhetz/gruvbox'
+Plug 'katono/rogue.vim'
 call plug#end()
 "-----------------------------------------------------------------------------------------------------------
 " Settings
@@ -74,6 +75,7 @@ command Notes :call Open('notes')
 command ToggleComment :call ToggleComment()
 command Ctags :call Ctags()
 command CD :call CdToCurrent()
+command Commit :call GitCommitAll()
 "-----------------------------------------------------------------------------------------------------------
 " Functions
 "-----------------------------------------------------------------------------------------------------------
