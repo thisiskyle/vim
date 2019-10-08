@@ -12,8 +12,9 @@ call plug#begin(g:vimhome . 'plugged')
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'thisiskyle/todo.vim'
-Plug 'itchyny/vim-gitbranch'
+Plug 'itchyny/vim-gitbranch', {'branch': 'release'}
 Plug 'morhetz/gruvbox'
+Plug 'neoclide/coc.nvim'
 Plug 'katono/rogue.vim'
 call plug#end()
 "-----------------------------------------------------------------------------------------------------------
@@ -27,6 +28,7 @@ if has("gui_running")
 endif
 set incsearch
 set ignorecase
+set updatetime=300
 set nobackup
 set noswapfile
 set noundofile
@@ -38,9 +40,8 @@ set smartcase
 set autoindent
 set belloff=all
 set laststatus=0
-set ff=unix
 set tags=tags;/
-set rulerformat=%50(%m%r\ %#GitBranch#%{gitbranch#name()}\ %#Normal#%l,%c%)
+set rulerformat=%30(%m%r\ %#GitBranch#%{gitbranch#name()}\ %#Normal#%l,%c%)
 filetype plugin indent on
 "-----------------------------------------------------------------------------------------------------------
 " Colors
@@ -65,27 +66,33 @@ nnoremap <leader>t :TODO<cr>
 nnoremap <leader>n :NewTODO TODO<cr>
 nnoremap <leader>b :NewTODO BUG<cr>
 
-nnoremap <c-m> :ToggleComment<cr>
-vnoremap <c-m> :ToggleComment<cr>
+nnoremap <c-m> :call ToggleComment()<cr>
+vnoremap <c-m> :call ToggleComment()<cr>
 "-----------------------------------------------------------------------------------------------------------
 " Commands
 "-----------------------------------------------------------------------------------------------------------
 command Config :call Open('config')
 command Notes :call Open('notes')
-command ToggleComment :call ToggleComment()
 command Ctags :call Ctags()
 command CD :call CdToCurrent()
 command Commit :call GitCommitAll()
+command Status :call GitStatus()
+command Num :set number!
+command Ruler :set ruler!
+"-----------------------------------------------------------------------------------------------------------
+" Options
+"-----------------------------------------------------------------------------------------------------------
+let g:comment_types = {'vim':"\"", 'python':"#", 'default':"//"}
+let g:coc_global_extensions = ['coc-omnisharp']
 "-----------------------------------------------------------------------------------------------------------
 " Functions
 "-----------------------------------------------------------------------------------------------------------
 function! ToggleComment()
-    let l:comment_types = {'vim':"\"", 'python':"#", 'default':"//"}
     let save_pos = getpos(".")
     if has_key(g:comment_types, &ft)
-        let cstr = l:comment_types[&ft]
+        let cstr = g:comment_types[&ft]
     else
-        let cstr = l:comment_types["default"]
+        let cstr = g:comment_types["default"]
     endif
     normal ^
     " check to see if the line has a comment
@@ -142,5 +149,9 @@ function! CdToCurrent()
 endfunction
 
 function! GitCommitAll()
-    :execute "!git add . & git commit & git push"
+    :execute "new | r !git add . & git commit & git push"
+endfunction
+
+function! GitStatus()
+    :execute "new | r !git status"
 endfunction
