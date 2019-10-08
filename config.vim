@@ -149,9 +149,9 @@ function! CdToCurrent()
 endfunction
 
 function! GitCommitAll()
-    :execute "new | r !git add . & git commit & git push"
+    :execute "!git add . & git commit & git push"
 endfunction
 
 function! GitStatus()
-    :execute "new | r !git status"
+    :execute "!git status"
 endfunction
