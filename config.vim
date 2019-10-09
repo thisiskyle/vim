@@ -1,9 +1,9 @@
 if has("win32")
     let g:vimhome = '~/vimfiles/'
-    set guifont=Consolas:h10
+    set guifont=Courier\ Prime\ Code:h10,Courier\ New:h10,Consolas:h10
 elseif has("unix")
     let g:vimhome = '~/.vim/'
-    set guifont=Consolas\ 10
+    set guifont=Courier\ Prime\ Code\ 10,Courier\ New\ 10,Consolas\ 10
 endif
 "-----------------------------------------------------------------------------------------------------------
 " Plugin
@@ -24,7 +24,6 @@ if has("gui_running")
     set guioptions =''
     set lines=60
     set columns=120
-    set guifont=Consolas:h10
 endif
 set incsearch
 set ignorecase
@@ -83,7 +82,7 @@ command Ruler :set ruler!
 " Options
 "-----------------------------------------------------------------------------------------------------------
 let g:comment_types = {'vim':"\"", 'python':"#", 'default':"//"}
-let g:coc_global_extensions = ['coc-omnisharp']
+"let g:coc_global_extensions = ['coc-omnisharp']
 "-----------------------------------------------------------------------------------------------------------
 " Functions
 "-----------------------------------------------------------------------------------------------------------
