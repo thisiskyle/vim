@@ -14,7 +14,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'thisiskyle/todo.vim'
 Plug 'itchyny/vim-gitbranch', {'branch': 'release'}
 Plug 'morhetz/gruvbox'
-Plug 'neoclide/coc.nvim'
 Plug 'katono/rogue.vim'
 call plug#end()
 "-----------------------------------------------------------------------------------------------------------
@@ -76,13 +75,13 @@ command Ctags :call Ctags()
 command CD :call CdToCurrent()
 command Commit :call GitCommitAll()
 command Status :call GitStatus()
+command Diff :call GitDiff()
 command Num :set number!
 command Ruler :set ruler!
 "-----------------------------------------------------------------------------------------------------------
 " Options
 "-----------------------------------------------------------------------------------------------------------
 let g:comment_types = {'vim':"\"", 'python':"#", 'default':"//"}
-"let g:coc_global_extensions = ['coc-omnisharp']
 "-----------------------------------------------------------------------------------------------------------
 " Functions
 "-----------------------------------------------------------------------------------------------------------
@@ -152,5 +151,9 @@ function! GitCommitAll()
 endfunction
 
 function! GitStatus()
-    :execute "!git status"
+    :execute "new | r !git status"
+endfunction
+
+function! GitDiff()
+    :execute "new | r !git diff"
 endfunction
