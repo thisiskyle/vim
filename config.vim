@@ -48,9 +48,11 @@ filetype plugin indent on
 "-----------------------------------------------------------------------------------------------------------
 " Colors
 "-----------------------------------------------------------------------------------------------------------
-color gruvbox
+set background=dark
+color vim-material
 hi GitBranch guifg=#fb4934
-hi Todo gui=italic guifg=#928374
+hi Comment gui=NONE
+hi Todo gui=NONE guifg=#5D818E guibg=NONE
 "-----------------------------------------------------------------------------------------------------------
 " Key Bindings
 "-----------------------------------------------------------------------------------------------------------
@@ -64,8 +66,8 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
-nnoremap <leader>t :TODO<cr>
-nnoremap <leader>n :NewTODO TODO<cr>
+nnoremap <leader>d :TODO<cr>
+nnoremap <leader>t :NewTODO TODO<cr>
 nnoremap <leader>b :NewTODO BUG<cr>
 
 nnoremap <c-m> :call ToggleComment()<cr>
