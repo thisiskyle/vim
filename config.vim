@@ -9,11 +9,15 @@ endif
 " Plugin
 "-----------------------------------------------------------------------------------------------------------
 call plug#begin(g:vimhome . 'plugged')
+"utility
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'thisiskyle/todo.vim'
 Plug 'itchyny/vim-gitbranch', {'branch': 'release'}
+"colorschemes
 Plug 'morhetz/gruvbox'
+Plug 'hzchirs/vim-material'
+"games
 Plug 'katono/rogue.vim'
 call plug#end()
 "-----------------------------------------------------------------------------------------------------------
@@ -69,15 +73,15 @@ vnoremap <c-m> :call ToggleComment()<cr>
 "-----------------------------------------------------------------------------------------------------------
 " Commands
 "-----------------------------------------------------------------------------------------------------------
-command Config :call Open('config')
-command Notes :call Open('notes')
-command Ctags :call Ctags()
-command CD :call CdToCurrent()
-command Commit :call GitCommitAll()
-command Status :call GitStatus()
-command Diff :call GitDiff()
-command Num :set number!
-command Ruler :set ruler!
+command Config :execute ":e" . g:vimhome . "config.vim"
+command Notes  :e ~\\.notes.md
+command Ctags  :execute "!ctags -R *" . getcwd()
+command CD     :cd %:p:h
+command Commit :!git add . & git commit & git push
+command Status :new | r !git status
+command Diff   :new | r !git diff
+command Num    :set number!
+command Ruler  :set ruler!
 "-----------------------------------------------------------------------------------------------------------
 " Options
 "-----------------------------------------------------------------------------------------------------------
@@ -127,33 +131,4 @@ function! ToggleComment()
             let i += 1
         endwhile
     endif
-endfunction
-
-function! Open(mode)
-    if a:mode == 'config' 
-        :execute ":e" . g:vimhome . "config.vim"
-    elseif a:mode == 'notes'
-        :execute ":e" . "~\\.notes.md"
-    endif
-endfunction
-
-function! Ctags()
-    :execute "!ctags -R * " . getcwd()
-endfunction
-
-function! CdToCurrent()
-    :cd %:p:h
-    :pwd
-endfunction
-
-function! GitCommitAll()
-    :execute "!git add . & git commit & git push"
-endfunction
-
-function! GitStatus()
-    :execute "new | r !git status"
-endfunction
-
-function! GitDiff()
-    :execute "new | r !git diff"
 endfunction
