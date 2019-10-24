@@ -15,8 +15,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'thisiskyle/todo.vim'
 Plug 'itchyny/vim-gitbranch', {'branch': 'release'}
 "colorschemes
-Plug 'morhetz/gruvbox'
-Plug 'hzchirs/vim-material'
 Plug 'sainnhe/gruvbox-material'
 "games
 Plug 'katono/rogue.vim'
@@ -50,7 +48,7 @@ filetype plugin indent on
 " Colors
 "-----------------------------------------------------------------------------------------------------------
 set background=dark
-color vim-material
+color gruvbox-material
 hi GitBranch guifg=#fb4934
 hi Comment gui=NONE
 hi Todo gui=NONE guifg=#5D818E guibg=NONE
@@ -81,8 +79,9 @@ command Notes  :e ~\\.notes.md
 command Ctags  :execute "!ctags -R *" . getcwd()
 command CD     :cd %:p:h
 command Commit :!git add . & git commit & git push
-command Status :new | r !git status
-command Diff   :new | r !git diff
+command Status :!git status
+command Diff   :!git diff
+command Pull   :!git pull
 command Num    :set number!
 command Ruler  :set ruler!
 "-----------------------------------------------------------------------------------------------------------
