@@ -16,6 +16,7 @@ Plug 'thisiskyle/todo.vim'
 Plug 'itchyny/vim-gitbranch', {'branch': 'release'}
 "colorschemes
 Plug 'sainnhe/gruvbox-material'
+Plug 'hzchirs/vim-material'
 "games
 Plug 'katono/rogue.vim'
 call plug#end()
@@ -48,10 +49,9 @@ filetype plugin indent on
 " Colors
 "-----------------------------------------------------------------------------------------------------------
 set background=dark
-color gruvbox-material
+color vim-material
 hi GitBranch guifg=#fb4934
 hi Comment gui=NONE
-hi Todo gui=NONE guifg=#5D818E guibg=NONE
 "-----------------------------------------------------------------------------------------------------------
 " Key Bindings
 "-----------------------------------------------------------------------------------------------------------
@@ -66,8 +66,8 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
 nnoremap <leader>d :TODO<cr>
-nnoremap <leader>t :NewTODO TODO<cr>
-nnoremap <leader>b :NewTODO BUG<cr>
+nnoremap <leader>t :NewTODO todo<cr>
+nnoremap <leader>b :NewTODO bug<cr>
 
 nnoremap <c-m> :call ToggleComment()<cr>
 vnoremap <c-m> :call ToggleComment()<cr>

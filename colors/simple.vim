@@ -11,20 +11,20 @@ let g:colors_name="simple"
 let s:gui = {}
 
 if !exists('g:simple_style')
-    let g:simple_style='default'
+    let g:simple_style='material'
 endif
 
 
 
-let s:gui.bg      = { 'default':'#263238', 'gruvbox':'#32302F'}
-let s:gui.fg      = { 'default':'#ECEFF1', 'gruvbox':'#D5C4A1'}
-let s:gui.comment = { 'default':'#5D818E', 'gruvbox':'#7C6F64'}
-let s:gui.none    = { 'default':'NONE',    'gruvbox':'NONE'}
-let s:gui.red     = { 'default':'NONE',    'gruvbox':'#FB4934'}
-let s:gui.green   = { 'default':'NONE',    'gruvbox':'#B8BB26'}
-let s:gui.yellow  = { 'default':'NONE',    'gruvbox':'#FABD2F'}
-let s:gui.blue    = { 'default':'NONE',    'gruvbox':'#83A598'}
-let s:gui.orange  = { 'default':'NONE',    'gruvbox':'#FE8019'}
+let s:gui.bg      = { 'material':'#263238', 'gruvbox':'#32302F'}
+let s:gui.fg      = { 'material':'#ECEFF1', 'gruvbox':'#D5C4A1'}
+let s:gui.comment = { 'material':'#5D818E', 'gruvbox':'#7C6F64'}
+let s:gui.none    = { 'material':'NONE',    'gruvbox':'NONE'}
+let s:gui.red     = { 'material':'NONE',    'gruvbox':'#FB4934'}
+let s:gui.green   = { 'material':'NONE',    'gruvbox':'#B8BB26'}
+let s:gui.yellow  = { 'material':'NONE',    'gruvbox':'#FABD2F'}
+let s:gui.blue    = { 'material':'NONE',    'gruvbox':'#83A598'}
+let s:gui.orange  = { 'material':'NONE',    'gruvbox':'#FE8019'}
 
 
 
