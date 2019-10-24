@@ -1,22 +1,12 @@
 
 hi clear
-
 if exists("syntax_on")
     syntax reset
 endif
 
+
 let g:colors_name="simple"
 
-" gruvbox stuff
-" background       #32302f
-" dark background  #282828
-" main text        #d5c4a1
-" alt text         #7c6f64
-" red              #fb4934
-" green            #b8bb26
-" yellow           #fabd2f
-" blue             #83a598
-" orange           #fe8019
 
 let s:gui = {}
 
@@ -24,10 +14,19 @@ if !exists('g:simple_style')
     let g:simple_style='default'
 endif
 
-let s:gui.bg      = { 'default':'#263238', 'gruvbox':'#32302f'}
-let s:gui.fg      = { 'default':'#ECEFF1', 'gruvbox':'#32302f'}
-let s:gui.comment = { 'default':'#5D818E', 'gruvbox':''}
+
+
+let s:gui.bg      = { 'default':'#263238', 'gruvbox':'#32302F'}
+let s:gui.fg      = { 'default':'#ECEFF1', 'gruvbox':'#D5C4A1'}
+let s:gui.comment = { 'default':'#5D818E', 'gruvbox':'#7C6F64'}
 let s:gui.none    = { 'default':'NONE',    'gruvbox':'NONE'}
+let s:gui.red     = { 'default':'NONE',    'gruvbox':'#FB4934'}
+let s:gui.green   = { 'default':'NONE',    'gruvbox':'#B8BB26'}
+let s:gui.yellow  = { 'default':'NONE',    'gruvbox':'#FABD2F'}
+let s:gui.blue    = { 'default':'NONE',    'gruvbox':'#83A598'}
+let s:gui.orange  = { 'default':'NONE',    'gruvbox':'#FE8019'}
+
+
 
 function! s:hi(group, guifg, guibg, guistyle)
     exec "hi " . a:group . " guifg=" . a:guifg[g:simple_style]
@@ -36,11 +35,11 @@ function! s:hi(group, guifg, guibg, guistyle)
 endfunction
 
 
+
 call s:hi("Normal",        s:gui.fg,      s:gui.bg,        s:gui.none)
 call s:hi("NonText",       s:gui.fg,      s:gui.none,      s:gui.none)
 call s:hi("Special",       s:gui.fg,      s:gui.none,      s:gui.none)
 call s:hi("SpecialKey",    s:gui.fg,      s:gui.none,      s:gui.none)
-call s:hi("Number",        s:gui.comment, s:gui.none,      s:gui.none)
 call s:hi("Character",     s:gui.fg,      s:gui.none,      s:gui.none)
 call s:hi("Statement",     s:gui.fg,      s:gui.none,      s:gui.none)
 call s:hi("Function",      s:gui.fg,      s:gui.none,      s:gui.none)
@@ -53,27 +52,23 @@ call s:hi("Delimiter",     s:gui.fg,      s:gui.none,      s:gui.none)
 call s:hi("Title",         s:gui.fg,      s:gui.none,      s:gui.none)
 call s:hi("VertSplit",     s:gui.fg,      s:gui.none,      s:gui.none)
 call s:hi("Type",          s:gui.fg,      s:gui.none,      s:gui.none)
+call s:hi("Number",        s:gui.fg,      s:gui.none,      s:gui.none)
 call s:hi("Comment",       s:gui.comment, s:gui.none,      s:gui.none)
-
-
-"hi Error               guifg=#fb4934  guibg=NONE     gui=NONE
-"hi ErrorgMsg           guifg=#fb4934  guibg=NONE     gui=NONE
-"hi warningmsg          guifg=#fe8019  guibg=NONE     gui=NONE
-"hi matchparen          guifg=#fb4934  guibg=NONE     gui=NONE
-"hi RulerGitBranch      guifg=#fb4934  guibg=NONE     gui=NONE
-"hi IncSearch           guifg=#b8bb26  guibg=NONE     gui=NONE
-"hi Search              guifg=#b8bb26  guibg=NONE     gui=NONE
-"hi Visual              guifg=#282828  guibg=#ffffff  gui=NONE
-"hi cursor              guifg=#32302f  guibg=#ffffff  gui=NONE
-"hi pmenu               guifg=#32302f  guibg=#ffffff  gui=NONE
-"hi pmenusel            guifg=#b8bb26  guibg=#ffffff  gui=NONE
-"hi pmenusbar           guifg=NONE     guibg=NONE     gui=NONE
-"hi pmenutumb           guifg=NONE     guibg=NONE     gui=NONE
-"hi comment             guifg=#7c6f64  guibg=NONE     gui=italic
-"hi folded              guifg=#7c6f64  guibg=NONE     gui=NONE
-"hi endofbuffer         guifg=#7c6f64  guibg=NONE     gui=NONE
-"hi todo                guifg=#7c6f64  guibg=NONE     gui=NONE
-"hi linenr              guifg=#7c6f64  guibg=NONE     gui=NONE
-"hi CursorLineNR        guifg=#7c6f64  guibg=#32302f  gui=NONE
-"hi CursorLine          guifg=NONE     guibg=#32302f  gui=NONE
-
+call s:hi("Folded",        s:gui.comment, s:gui.none,      s:gui.none)
+call s:hi("EndOfBuffer",   s:gui.comment, s:gui.none,      s:gui.none)
+call s:hi("Todo",          s:gui.comment, s:gui.none,      s:gui.none)
+call s:hi("Linear",        s:gui.comment, s:gui.none,      s:gui.none)
+call s:hi("CursorLineNR",  s:gui.comment, s:gui.none,      s:gui.none)
+call s:hi("CursorLine",    s:gui.none,    s:gui.none,      s:gui.none)
+call s:hi("Error",         s:gui.none,    s:gui.none,      s:gui.none)
+call s:hi("ErrorMsg",      s:gui.none,    s:gui.none,      s:gui.none)
+call s:hi("WarningMsg",    s:gui.none,    s:gui.none,      s:gui.none)
+call s:hi("Matchparen",    s:gui.none,    s:gui.none,      s:gui.none)
+call s:hi("IncSearch",     s:gui.none,    s:gui.none,      s:gui.none)
+call s:hi("Search",        s:gui.none,    s:gui.none,      s:gui.none)
+call s:hi("Visual",        s:gui.none,    s:gui.none,      s:gui.none)
+call s:hi("Cursor",        s:gui.bg,      s:gui.fg,        s:gui.none)
+call s:hi("Pmenu",         s:gui.none,    s:gui.none,      s:gui.none)
+call s:hi("Pmenusel",      s:gui.none,    s:gui.none,      s:gui.none)
+call s:hi("Pmenusbar",     s:gui.none,    s:gui.none,      s:gui.none)
+call s:hi("Pmenutumb",     s:gui.none,    s:gui.none,      s:gui.none)

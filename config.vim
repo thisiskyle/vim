@@ -17,6 +17,7 @@ Plug 'itchyny/vim-gitbranch', {'branch': 'release'}
 "colorschemes
 Plug 'morhetz/gruvbox'
 Plug 'hzchirs/vim-material'
+Plug 'sainnhe/gruvbox-material'
 "games
 Plug 'katono/rogue.vim'
 call plug#end()
@@ -88,6 +89,9 @@ command Ruler  :set ruler!
 " Options
 "-----------------------------------------------------------------------------------------------------------
 let g:comment_types = {'vim':"\"", 'python':"#", 'default':"//"}
+
+let g:ctrlp_by_filename = 1
+let g:ctrl_working_path_mode = 'rc'
 "-----------------------------------------------------------------------------------------------------------
 " Functions
 "-----------------------------------------------------------------------------------------------------------
