@@ -79,17 +79,17 @@ command Config :execute ":e" . g:vimhome . "config.vim"
 command Notes  :e ~\\.notes.md
 command Ctags  :execute "!ctags -R *" . getcwd()
 command CD     :cd %:p:h
+" git commands
 command Commit :!git add . & git commit & git push
 command Status :!git status
 command Diff   :!git diff
 command Pull   :!git pull
-command Num    :set number!
-command Ruler  :set ruler!
 "-----------------------------------------------------------------------------------------------------------
 " Options
 "-----------------------------------------------------------------------------------------------------------
+" toggle comments
 let g:comment_types = {'vim':"\"", 'python':"#", 'default':"//"}
-
+" ctrlp
 let g:ctrlp_by_filename = 1
 let g:ctrl_working_path_mode = 'rc'
 "-----------------------------------------------------------------------------------------------------------
