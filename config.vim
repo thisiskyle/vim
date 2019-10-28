@@ -50,7 +50,7 @@ filetype plugin indent on
 "-----------------------------------------------------------------------------------------------------------
 set background=dark
 color vim-material
-hi GitBranch guifg=#fb4934
+hi GitBranch guifg=#FF5370
 hi Comment gui=NONE
 hi Cursor guifg=#263238
 "-----------------------------------------------------------------------------------------------------------
