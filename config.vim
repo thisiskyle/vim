@@ -65,7 +65,7 @@ nnoremap <c-l> <c-w>l
 nnoremap <c-h> <c-w>h
 nnoremap <c-n> :w<cr>:bn<cr>
 nnoremap <c-b> :w<cr>:bp<cr>
-nnoremap <leader>t :Todo<cr>
+nnoremap <leader>t :NewTodo todo<cr>
 nnoremap <leader>n :NewTodo<cr>
 nnoremap <c-m> :call ToggleComment()<cr>
 vnoremap <c-m> :call ToggleComment()<cr>
