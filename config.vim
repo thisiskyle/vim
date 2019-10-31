@@ -59,10 +59,14 @@ hi Todo guibg=NONE
 "-----------------------------------------------------------------------------------------------------------
 inoremap {<cr> {<cr>}<esc>O
 
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
+nnoremap <c-h> <c-w>h
 nnoremap <c-n> :w<cr>:bn<cr>
 nnoremap <c-b> :w<cr>:bp<cr>
-nnoremap <leader>d :Todo<cr>
-nnoremap <leader>t :NewTodo<cr>
+nnoremap <leader>t :Todo<cr>
+nnoremap <leader>n :NewTodo<cr>
 nnoremap <c-m> :call ToggleComment()<cr>
 vnoremap <c-m> :call ToggleComment()<cr>
 "-----------------------------------------------------------------------------------------------------------
@@ -72,11 +76,6 @@ command Config :execute ":e" . g:vimhome . "config.vim"
 command Notes  :e ~\\.notes.md
 command Ctags  :execute "!ctags -f doc/tags -R * " . getcwd()
 command CD     :cd %:p:h
-" git commands
-command Commit :!git add . & git commit & git push
-command Status :!git status
-command Diff   :!git diff
-command Pull   :!git pull
 "-----------------------------------------------------------------------------------------------------------
 " Options
 "-----------------------------------------------------------------------------------------------------------
