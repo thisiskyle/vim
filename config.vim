@@ -42,8 +42,8 @@ set smartcase
 set autoindent
 set belloff=all
 set laststatus=0
-set tags=tags;/
-set rulerformat=%30(%m%r\ %#GitBranch#%{gitbranch#name()}\ %#Normal#%l,%c%)
+set tags=doc/tags;/
+set rulerformat=%60(%=%m%r\ %f\ %#GitBranch#%{gitbranch#name()}%#Normal#\ %l:%c%)
 filetype plugin indent on
 "-----------------------------------------------------------------------------------------------------------
 " Colors
@@ -53,6 +53,7 @@ color vim-material
 hi GitBranch guifg=#FF5370
 hi Comment gui=NONE
 hi Cursor guifg=#263238
+hi Todo guibg=NONE
 "-----------------------------------------------------------------------------------------------------------
 " Key Bindings
 "-----------------------------------------------------------------------------------------------------------
@@ -60,16 +61,8 @@ inoremap {<cr> {<cr>}<esc>O
 
 nnoremap <c-n> :w<cr>:bn<cr>
 nnoremap <c-b> :w<cr>:bp<cr>
-
-nnoremap <c-h> <c-w>h
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-l> <c-w>l
-
-nnoremap <leader>d :TODO<cr>
-nnoremap <leader>t :NewTODO todo<cr>
-nnoremap <leader>b :NewTODO bug<cr>
-
+nnoremap <leader>d :Todo<cr>
+nnoremap <leader>t :NewTodo<cr>
 nnoremap <c-m> :call ToggleComment()<cr>
 vnoremap <c-m> :call ToggleComment()<cr>
 "-----------------------------------------------------------------------------------------------------------
@@ -77,7 +70,7 @@ vnoremap <c-m> :call ToggleComment()<cr>
 "-----------------------------------------------------------------------------------------------------------
 command Config :execute ":e" . g:vimhome . "config.vim"
 command Notes  :e ~\\.notes.md
-command Ctags  :execute "!ctags -R *" . getcwd()
+command Ctags  :execute "!ctags -f doc/tags -R * " . getcwd()
 command CD     :cd %:p:h
 " git commands
 command Commit :!git add . & git commit & git push
@@ -92,6 +85,8 @@ let g:comment_types = {'vim':"\"", 'python':"#", 'default':"//"}
 " ctrlp
 let g:ctrlp_by_filename = 1
 let g:ctrl_working_path_mode = 'rc'
+" todo
+let g:todo_output_filename = 'doc/todo'
 "-----------------------------------------------------------------------------------------------------------
 " Functions
 "-----------------------------------------------------------------------------------------------------------
@@ -132,6 +127,7 @@ function! ToggleComment()
         :execute "normal i" . cstr
         call setpos(".", save_pos)
         let i = 0
+        " @todo 
         while i < strlen(cstr)
             normal l
             let i += 1
