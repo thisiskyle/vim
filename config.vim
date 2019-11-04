@@ -126,7 +126,6 @@ function! ToggleComment()
         :execute "normal i" . cstr
         call setpos(".", save_pos)
         let i = 0
-        " @todo 
         while i < strlen(cstr)
             normal l
             let i += 1
