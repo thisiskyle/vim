@@ -42,6 +42,7 @@ set smartcase
 set autoindent
 set belloff=all
 set laststatus=0
+set enc=utf8
 set tags=doc/tags;/
 set rulerformat=%60(%=%m%r\ %f\ %#GitBranch#%{gitbranch#name()}%#Normal#\ %l:%c%)
 filetype plugin indent on
