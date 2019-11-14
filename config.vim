@@ -13,7 +13,7 @@ call plug#begin(g:vimhome . 'plugged')
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'thisiskyle/todo.vim'
-Plug 'itchyny/vim-gitbranch', {'branch': 'release'}
+Plug 'itchyny/vim-gitbranch'
 "colorschemes
 Plug 'sainnhe/gruvbox-material'
 Plug 'hzchirs/vim-material'
