@@ -13,10 +13,11 @@ call plug#begin(g:vimhome . 'plugged')
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'thisiskyle/todo.vim'
-Plug 'itchyny/vim-gitbranch', {'branch': 'release'}
+Plug 'itchyny/vim-gitbranch'
 "colorschemes
 Plug 'sainnhe/gruvbox-material'
 Plug 'hzchirs/vim-material'
+Plug 'morhetz/gruvbox'
 "games
 Plug 'katono/rogue.vim'
 call plug#end()
@@ -37,24 +38,13 @@ set noundofile
 set tabstop=4
 set shiftwidth=4
 set expandtab
-set ignorecase
 set smartcase
 set autoindent
 set belloff=all
 set laststatus=0
-set enc=utf8
 set tags=doc/tags;/
 set rulerformat=%60(%=%m%r\ %f\ %#GitBranch#%{gitbranch#name()}%#Normal#\ %l:%c%)
 filetype plugin indent on
-"-----------------------------------------------------------------------------------------------------------
-" Colors
-"-----------------------------------------------------------------------------------------------------------
-set background=dark
-color vim-material
-hi GitBranch guifg=#FF5370
-hi Comment gui=NONE
-hi Cursor guifg=#263238
-hi Todo guibg=NONE
 "-----------------------------------------------------------------------------------------------------------
 " Key Bindings
 "-----------------------------------------------------------------------------------------------------------
@@ -78,7 +68,7 @@ command Notes  :e ~\\.notes.md
 command Ctags  :execute "!ctags -f doc/tags -R * " . getcwd()
 command CD     :cd %:p:h
 "-----------------------------------------------------------------------------------------------------------
-" Options
+" Plugin Options
 "-----------------------------------------------------------------------------------------------------------
 " toggle comments
 let g:comment_types = {'vim':"\"", 'python':"#", 'default':"//"}
@@ -87,6 +77,13 @@ let g:ctrlp_by_filename = 1
 let g:ctrl_working_path_mode = 'rc'
 " todo
 let g:todo_output_filename = 'doc/todo'
+" colors
+set background=dark
+let g:gruvbox_contrast_dark = 'soft'
+let g:gruvbox_italic = 0
+let g:gruvbox_bold = 0
+color gruvbox
+hi GitBranch guifg=#FF5370
 "-----------------------------------------------------------------------------------------------------------
 " Functions
 "-----------------------------------------------------------------------------------------------------------
