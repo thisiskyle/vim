@@ -15,7 +15,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'thisiskyle/todo.vim'
 Plug 'itchyny/vim-gitbranch'
 "colorschemes
-Plug 'sainnhe/gruvbox-material'
 Plug 'hzchirs/vim-material'
 Plug 'morhetz/gruvbox'
 "games
@@ -59,6 +58,7 @@ nnoremap <c-b> :w<cr>:bp<cr>
 nnoremap <leader>t :NewTodo todo<cr>
 nnoremap <leader>n :NewTodo<cr>
 nnoremap <c-m> :call ToggleComment()<cr>
+nnoremap S :keeppatterns substitute/\s*\%#\s*/\r/e <bar> normal! ==<cr><cr>
 vnoremap <c-m> :call ToggleComment()<cr>
 "-----------------------------------------------------------------------------------------------------------
 " Commands
