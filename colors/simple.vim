@@ -4,18 +4,13 @@ if exists("syntax_on")
     syntax reset
 endif
 
-
 let g:colors_name="simple"
-
-
-let s:gui = {}
 
 if !exists('g:simple_style')
     let g:simple_style='material'
 endif
 
-
-
+let s:gui = {}
 let s:gui.bg      = { 'material':'#263238', 'gruvbox':'#32302F'}
 let s:gui.fg      = { 'material':'#ECEFF1', 'gruvbox':'#D5C4A1'}
 let s:gui.comment = { 'material':'#5D818E', 'gruvbox':'#7C6F64'}
@@ -26,15 +21,11 @@ let s:gui.yellow  = { 'material':'NONE',    'gruvbox':'#FABD2F'}
 let s:gui.blue    = { 'material':'NONE',    'gruvbox':'#83A598'}
 let s:gui.orange  = { 'material':'NONE',    'gruvbox':'#FE8019'}
 
-
-
 function! s:hi(group, guifg, guibg, guistyle)
     exec "hi " . a:group . " guifg=" . a:guifg[g:simple_style]
     exec "hi " . a:group . " guibg=" . a:guibg[g:simple_style]
     exec "hi " . a:group . " gui=" . a:guistyle[g:simple_style]
 endfunction
-
-
 
 call s:hi("Normal",        s:gui.fg,      s:gui.bg,        s:gui.none)
 call s:hi("NonText",       s:gui.fg,      s:gui.none,      s:gui.none)

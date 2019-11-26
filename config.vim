@@ -17,8 +17,6 @@ Plug 'itchyny/vim-gitbranch'
 "colorschemes
 Plug 'hzchirs/vim-material'
 Plug 'morhetz/gruvbox'
-"games
-Plug 'katono/rogue.vim'
 call plug#end()
 "-----------------------------------------------------------------------------------------------------------
 " Settings
@@ -30,7 +28,6 @@ if has("gui_running")
 endif
 set incsearch
 set ignorecase
-set updatetime=300
 set nobackup
 set noswapfile
 set noundofile
@@ -42,24 +39,36 @@ set autoindent
 set belloff=all
 set laststatus=0
 set tags=doc/tags;/
+set background=dark
 set rulerformat=%60(%=%m%r\ %f\ %#GitBranch#%{gitbranch#name()}%#Normal#\ %l:%c%)
 filetype plugin indent on
+" ToggleWindowSize()
+let g:window_max = 0
+" ToggleComment()
+let g:comment_types = {'vim':"\"", 'python':"#", 'default':"//"}
+" ctrlp
+let g:ctrlp_by_filename = 1
+let g:ctrl_working_path_mode = 'rc'
+" todo.vim
+let g:todo_output_filename = 'doc/todo'
+" gruvbox
+let g:gruvbox_contrast_dark = 'soft'
+let g:gruvbox_italic = 0
+let g:gruvbox_bold = 0
+" colors
+color gruvbox
+hi GitBranch guifg=#FF5370
 "-----------------------------------------------------------------------------------------------------------
 " Key Bindings
 "-----------------------------------------------------------------------------------------------------------
 inoremap {<cr> {<cr>}<esc>O
-
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-l> <c-w>l
-nnoremap <c-h> <c-w>h
-nnoremap <c-n> :w<cr>:bn<cr>
-nnoremap <c-b> :w<cr>:bp<cr>
 nnoremap <leader>t :NewTodo todo<cr>
 nnoremap <leader>n :NewTodo<cr>
-nnoremap <c-m> :call ToggleComment()<cr>
+nnoremap <leader>f :call ToggleWindowSize()<cr>
+nnoremap <c-n> :bn<cr>
+nnoremap <c-k> :call ToggleComment()<cr>
+vnoremap <c-k> :call ToggleComment()<cr>
 nnoremap S :keeppatterns substitute/\s*\%#\s*/\r/e <bar> normal! ==<cr><cr>
-vnoremap <c-m> :call ToggleComment()<cr>
 "-----------------------------------------------------------------------------------------------------------
 " Commands
 "-----------------------------------------------------------------------------------------------------------
@@ -67,23 +76,6 @@ command Config :execute ":e" . g:vimhome . "config.vim"
 command Notes  :e ~\\.notes.md
 command Ctags  :execute "!ctags -f doc/tags -R * " . getcwd()
 command CD     :cd %:p:h
-"-----------------------------------------------------------------------------------------------------------
-" Plugin Options
-"-----------------------------------------------------------------------------------------------------------
-" toggle comments
-let g:comment_types = {'vim':"\"", 'python':"#", 'default':"//"}
-" ctrlp
-let g:ctrlp_by_filename = 1
-let g:ctrl_working_path_mode = 'rc'
-" todo
-let g:todo_output_filename = 'doc/todo'
-" colors
-set background=dark
-let g:gruvbox_contrast_dark = 'soft'
-let g:gruvbox_italic = 0
-let g:gruvbox_bold = 0
-color gruvbox
-hi GitBranch guifg=#FF5370
 "-----------------------------------------------------------------------------------------------------------
 " Functions
 "-----------------------------------------------------------------------------------------------------------
@@ -130,3 +122,14 @@ function! ToggleComment()
         endwhile
     endif
 endfunction
+
+function! ToggleWindowSize()
+    if g:window_max == 0
+        let g:window_max = 1
+        :sim ~x
+    else
+        let g:window_max = 0
+        :sim ~r
+    endif
+endfunction
+
