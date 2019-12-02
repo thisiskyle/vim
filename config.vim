@@ -62,12 +62,15 @@ hi GitBranch guifg=#FF5370
 " Key Bindings
 "-----------------------------------------------------------------------------------------------------------
 inoremap {<cr> {<cr>}<esc>O
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
 nnoremap <leader>t :NewTodo todo<cr>
 nnoremap <leader>n :NewTodo<cr>
 nnoremap <leader>f :call ToggleWindowSize()<cr>
-nnoremap <c-n> :bn<cr>
-nnoremap <c-k> :call ToggleComment()<cr>
-vnoremap <c-k> :call ToggleComment()<cr>
+nnoremap <c-n> :call ToggleComment()<cr>
+vnoremap <c-n> :call ToggleComment()<cr>
 nnoremap S :keeppatterns substitute/\s*\%#\s*/\r/e <bar> normal! ==<cr><cr>
 "-----------------------------------------------------------------------------------------------------------
 " Commands
