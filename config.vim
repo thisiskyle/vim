@@ -73,7 +73,7 @@ nnoremap <leader>r :silent call ReplaceAll()<cr>
 nnoremap <c-n> :call ToggleComment()<cr>
 vnoremap <c-n> :call ToggleComment()<cr>
 "-----------------------------------------------------------------------------------------------------------
-" s
+" Commands 
 "-----------------------------------------------------------------------------------------------------------
 command Config :execute ":e" . g:vimhome . "config.vim"
 command Notes  :e ~\\.notes.md
