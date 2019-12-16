@@ -10,12 +10,10 @@ endif
 "-----------------------------------------------------------------------------------------------------------
 call plug#begin(g:vimhome . 'plugged')
 "utility
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'thisiskyle/todo.vim'
 Plug 'itchyny/vim-gitbranch'
 "colorschemes
-Plug 'hzchirs/vim-material'
 Plug 'morhetz/gruvbox'
 call plug#end()
 "-----------------------------------------------------------------------------------------------------------
@@ -55,6 +53,9 @@ let g:todo_output_filename = 'doc/todo'
 let g:gruvbox_contrast_dark = 'soft'
 let g:gruvbox_italic = 0
 let g:gruvbox_bold = 0
+" netrw
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
 " colors
 color gruvbox
 hi GitBranch guifg=#FF5370
@@ -67,9 +68,8 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 nnoremap <leader>d :NewTodo<cr>
+nnoremap <leader>s :CD<cr>:vsp **/*
 nnoremap <leader>f :call ToggleFullscreen()<cr>
-nnoremap <leader>t :CD<cr>:silent sh<cr>
-nnoremap <leader>x :CD<cr>:Vex<cr>
 nnoremap <c-n> :call ToggleComment()<cr>
 vnoremap <c-n> :call ToggleComment()<cr>
 "-----------------------------------------------------------------------------------------------------------
