@@ -55,7 +55,6 @@ let g:gruvbox_italic = 0
 let g:gruvbox_bold = 0
 " netrw
 let g:netrw_banner = 0
-let g:netrw_liststyle = 3
 " colors
 color gruvbox
 hi GitBranch guifg=#FF5370
@@ -67,18 +66,24 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
-nnoremap <leader>d :NewTodo<cr>
+nnoremap <leader>t :NewTodo<cr>
 nnoremap <leader>s :CD<cr>:vsp **/*
 nnoremap <leader>f :call ToggleFullscreen()<cr>
+nnoremap <leader>r :silent call ReplaceAll()<cr>
 nnoremap <c-n> :call ToggleComment()<cr>
 vnoremap <c-n> :call ToggleComment()<cr>
 "-----------------------------------------------------------------------------------------------------------
-" Commands
+" s
 "-----------------------------------------------------------------------------------------------------------
 command Config :execute ":e" . g:vimhome . "config.vim"
 command Notes  :e ~\\.notes.md
 command Ctags  :execute "!ctags -f doc/tags -R * " . getcwd()
 command CD     :cd %:p:h
+
+augroup ProjectDrawer
+    autocmd!
+    autocmd VimEnter * if argc() == 0 | Explore! | endif
+augroup END
 "-----------------------------------------------------------------------------------------------------------
 " Functions
 "-----------------------------------------------------------------------------------------------------------
@@ -134,5 +139,11 @@ function! ToggleFullscreen()
         let g:window_max = 0
         :sim ~r
     endif
+endfunction
+
+function! ReplaceAll()
+    let word = expand("<cword>")
+    let replacement = input("Replace [" . word . "] with: ")
+    :execute "%s/" . word . "/" . replacement . "/g"
 endfunction
 
