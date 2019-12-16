@@ -67,7 +67,7 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 nnoremap <leader>t :NewTodo<cr>
-nnoremap <leader>s :CD<cr>:vsp **/*
+nnoremap <leader>s :CD<cr>:e **/*
 nnoremap <leader>f :call ToggleFullscreen()<cr>
 nnoremap <leader>r :silent call ReplaceAll()<cr>
 nnoremap <c-n> :call ToggleComment()<cr>
