@@ -9,81 +9,61 @@ endif
 " Plugin
 "-----------------------------------------------------------------------------------------------------------
 call plug#begin(g:vimhome . 'plugged')
-"utility
-Plug 'sheerun/vim-polyglot'
+"Plug 'sheerun/vim-polyglot'
 Plug 'thisiskyle/todo.vim'
 Plug 'itchyny/vim-gitbranch'
-"colorschemes
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'morhetz/gruvbox'
 call plug#end()
 "-----------------------------------------------------------------------------------------------------------
 " Settings
 "-----------------------------------------------------------------------------------------------------------
-if has("gui_running")
-    set guioptions =''
-    set lines=60
-    set columns=120
-endif
-set incsearch
-set ignorecase
-set nobackup
-set noswapfile
-set noundofile
-set tabstop=4
-set shiftwidth=4
-set expandtab
-set smartcase
-set autoindent
+if has("gui_running") | set guioptions ='' | set lines=60 | set columns=120 | endif
+set incsearch hlsearch ignorecase smartcase
+set nobackup noswapfile noundofile
+set autoindent expandtab
+set tabstop=4 shiftwidth=4
 set belloff=all
 set laststatus=0
 set tags=doc/tags;/
-set background=dark
-set rulerformat=%70(%=%f\ %m%r\ %#GitBranch#%{gitbranch#name()}%#Normal#\ \ %l:%c%)
+set rulerformat=%70(%=%t\ %m%r\ %{gitbranch#name()}\ \ %l:%c%)
+color gruvbox
 filetype plugin indent on
- "ToggleWindowSize()
-let g:window_max = 0
-" ToggleComment()
+let g:session_dir = g:vimhome . "doc/sessions/"
 let g:comment_types = {'vim':"\"", 'python':"#", 'default':"//"}
-" ctrlp
 let g:ctrlp_by_filename = 1
-let g:ctrl_working_path_mode = 'rc'
-" todo.vim
+let g:ctrlp_regexp = 1
 let g:todo_output_filename = 'doc/todo'
-" gruvbox
+let g:todo_identifier = '@@'
 let g:gruvbox_contrast_dark = 'soft'
 let g:gruvbox_italic = 0
 let g:gruvbox_bold = 0
-" netrw
 let g:netrw_banner = 0
-" colors
-color gruvbox
-hi GitBranch guifg=#FF5370
+let g:netrw_liststyle = 3
 "-----------------------------------------------------------------------------------------------------------
 " Key Bindings
 "-----------------------------------------------------------------------------------------------------------
 inoremap {<cr> {<cr>}<esc>O
+
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 nnoremap <leader>t :NewTodo<cr>
-nnoremap <leader>s :CD<cr>:e **/*
-nnoremap <leader>f :call ToggleFullscreen()<cr>
 nnoremap <leader>r :silent call ReplaceAll()<cr>
-nnoremap <c-n> :call ToggleComment()<cr>
-vnoremap <c-n> :call ToggleComment()<cr>
+nnoremap <c-m> :call ToggleComment()<cr>
+
+vnoremap <c-m> :call ToggleComment()<cr>
 "-----------------------------------------------------------------------------------------------------------
 " Commands 
 "-----------------------------------------------------------------------------------------------------------
 command Config :execute ":e" . g:vimhome . "config.vim"
-command Notes  :e ~\\.notes.md
-command Ctags  :execute "!ctags -f doc/tags -R * " . getcwd()
-command CD     :cd %:p:h
-
-augroup ProjectDrawer
-    autocmd!
-    autocmd VimEnter * if argc() == 0 | Explore! | endif
-augroup END
+command Notes :execute ":e" . g:vimhome . "doc/notes.md"
+command Ctgs :execute "!ctags -f doc/tags -R * " . getcwd()
+command CD :cd %:p:h
+command FS :call ToggleFullscreen()
+command -nargs=? SS call SessionSave(<q-args>)
+command -nargs=? SL call SessionLoad(<q-args>)
 "-----------------------------------------------------------------------------------------------------------
 " Functions
 "-----------------------------------------------------------------------------------------------------------
@@ -131,6 +111,7 @@ function! ToggleComment()
     endif
 endfunction
 
+let g:window_max = 0
 function! ToggleFullscreen()
     if g:window_max == 0
         let g:window_max = 1
@@ -142,8 +123,17 @@ function! ToggleFullscreen()
 endfunction
 
 function! ReplaceAll()
+    let save_pos = getpos(".")
     let word = expand("<cword>")
     let replacement = input("Replace [" . word . "] with: ")
     :execute "%s/" . word . "/" . replacement . "/g"
+    call setpos(".", save_pos)
 endfunction
 
+function! SessionSave(fname)
+    :execute ":mks!" . g:session_dir . a:fname . ".vim"
+endfunction
+
+function! SessionLoad(fname)
+    :execute ":so" . g:session_dir . a:fname . ".vim"
+endfunction
