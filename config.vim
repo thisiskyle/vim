@@ -21,8 +21,7 @@ call plug#end()
 if has("gui_running") | set guioptions ='' | set lines=60 | set columns=120 | endif
 set incsearch hlsearch ignorecase smartcase
 set nobackup noswapfile noundofile
-set autoindent expandtab
-set tabstop=4 shiftwidth=4
+set autoindent expandtab tabstop=4 shiftwidth=4
 set belloff=all
 set laststatus=0
 set tags=doc/tags;/
