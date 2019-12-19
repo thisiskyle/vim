@@ -26,7 +26,6 @@ set belloff=all
 set laststatus=0
 set tags=doc/tags;/
 set rulerformat=%70(%=%t\ %m%r\ %{gitbranch#name()}\ \ %l:%c%)
-color gruvbox
 filetype plugin indent on
 let g:session_dir = g:vimhome . "doc/sessions/"
 let g:comment_types = {'vim':"\"", 'python':"#", 'default':"//"}
@@ -39,6 +38,7 @@ let g:gruvbox_italic = 0
 let g:gruvbox_bold = 0
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
+color gruvbox
 "-----------------------------------------------------------------------------------------------------------
 " Key Bindings
 "-----------------------------------------------------------------------------------------------------------
@@ -58,11 +58,12 @@ vnoremap <c-m> :call ToggleComment()<cr>
 "-----------------------------------------------------------------------------------------------------------
 command Config :execute ":e" . g:vimhome . "config.vim"
 command Notes :execute ":e" . g:vimhome . "doc/notes.md"
-command Ctgs :execute "!ctags -f doc/tags -R * " . getcwd()
+command Ctags :execute "!ctags -f doc/tags -R * " . getcwd()
 command CD :cd %:p:h
-command FS :call ToggleFullscreen()
+command Fullscreen :call ToggleFullscreen()
 command -nargs=? SS call SessionSave(<q-args>)
-command -nargs=? SL call SessionLoad(<q-args>)
+command -nargs=? SR call SessionLoad(<q-args>)
+autocmd Vimresized * wincmd =
 "-----------------------------------------------------------------------------------------------------------
 " Functions
 "-----------------------------------------------------------------------------------------------------------
