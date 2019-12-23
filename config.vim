@@ -24,6 +24,7 @@ set nobackup noswapfile noundofile
 set autoindent expandtab tabstop=4 shiftwidth=4
 set belloff=all
 set laststatus=0
+set background=dark
 set ff=unix
 set tags=doc/tags;/
 set rulerformat=%70(%=%t\ %m%r\ %{gitbranch#name()}\ \ %l:%c%)
