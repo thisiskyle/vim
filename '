@@ -1,6 +1,5 @@
 if has("win32")
     let g:vimhome = '~/vimfiles/'
-    set guifont=Courier_Prime_Code:h11
 elseif has("unix")
     let g:vimhome = '~/.vim/'
 endif
@@ -26,7 +25,7 @@ set laststatus=0
 set background=dark
 set ff=unix
 set tags=doc/tags;/
-set rulerformat=%70(%=%t\ %m%r\ %#Label#%{gitbranch#name()}%#Normal#\ \ %l:%c%)
+set rulerformat=%70(%=%t\ %m%r\ %#String#%{gitbranch#name()}%#Normal#\ \ %l:%c%)
 filetype plugin indent on
 let g:session_dir = g:vimhome . "doc/sessions/"
 let g:comment_types = {'vim':"\"", 'python':"#", 'default':"//"}
