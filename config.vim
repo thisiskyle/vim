@@ -1,9 +1,9 @@
 if has("win32")
     let g:vimhome = '~/vimfiles/'
-    set guifont=Courier\ Prime\ Code:h10,Courier\ New:h10,Consolas:h10
+    set guifont=Courier_Prime_Code:h11,Consolas:h11
 elseif has("unix")
     let g:vimhome = '~/.vim/'
-    set guifont=Courier\ Prime\ Code\ 10,Courier\ New\ 10,Consolas\ 10
+    set guifont=Courier_Prime_Code_11,Consolas_11
 endif
 "-----------------------------------------------------------------------------------------------------------
 " Plugin
