@@ -1,7 +1,3 @@
-bundle/
-wiki/
-plugged/
+vimplug/
 doc/
 .netrwhist
-tags
-todo.txt
