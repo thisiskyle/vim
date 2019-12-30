@@ -9,8 +9,8 @@ endif
 "-----------------------------------------------------------------------------------------------------------
 call plug#begin(g:vimhome . 'vimplug')
 "Plug 'sheerun/vim-polyglot'
+"Plug 'ctrlpvim/ctrlp.vim'
 Plug 'itchyny/vim-gitbranch'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'morhetz/gruvbox'
 call plug#end()
 "-----------------------------------------------------------------------------------------------------------
@@ -26,6 +26,7 @@ set laststatus=0
 set background=dark
 set ff=unix
 set tags=doc/tags;/
+set path=.,**
 set rulerformat=%70(%=%t\ %m%r\ %#Label#%{gitbranch#name()}%#Normal#\ \ %l:%c%)
 filetype plugin indent on
 " crtlp
@@ -46,15 +47,18 @@ color gruvbox
 "-----------------------------------------------------------------------------------------------------------
 " Key Bindings
 "-----------------------------------------------------------------------------------------------------------
+" insert mode
 inoremap {<cr> {<cr>}<esc>O
+" normal mode
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 nnoremap <leader>t :NewTodo<cr>
 nnoremap <leader>r :silent call functions#ReplaceAll()<cr>
-nnoremap <c-m> :call functions#ToggleComment()<cr>
-vnoremap <c-m> :call functions#ToggleComment()<cr>
+nnoremap <c-n> :call functions#ToggleComment()<cr>
+" visual mode
+vnoremap <c-n> :call functions#ToggleComment()<cr>
 "-----------------------------------------------------------------------------------------------------------
 " Commands 
 "-----------------------------------------------------------------------------------------------------------
@@ -62,7 +66,8 @@ command Config :execute ":e" . g:vimhome . "config.vim"
 command Notes :execute ":e" . g:vimhome . "doc/notes.md"
 command Ctags :execute "!ctags -f doc/tags -R * " . getcwd()
 command CD :cd %:p:h
-command F :call functions#ToggleFullscreen()
+command F call functions#ToggleFullscreen()
 command -nargs=? SS call functions#SessionSave(<q-args>)
 command -nargs=? SL call functions#SessionLoad(<q-args>)
+" auto commands
 autocmd Vimresized * wincmd =
