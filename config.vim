@@ -10,6 +10,7 @@ endif
 call plug#begin(g:vimhome . 'vimplug')
 "Plug 'sheerun/vim-polyglot'
 "Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'vimwiki/vimwiki'
 Plug 'itchyny/vim-gitbranch'
 Plug 'morhetz/gruvbox'
 call plug#end()
