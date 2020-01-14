@@ -67,12 +67,18 @@ command CD :cd %:p:h
 command F call ToggleFullscreen()
 command -nargs=? SS call SessionSave(<q-args>)
 command -nargs=? SL call SessionLoad(<q-args>)
-" auto commands
+"auto commands
 autocmd Vimresized * wincmd =
+
 "-----------------------------------------------------------------------------------------------------------
 " Functions 
 "-----------------------------------------------------------------------------------------------------------
 function! ToggleComment()
+    " skip line if empty
+    if strlen(getline('.')) <= 0
+        return
+    endif
+
     let save_pos = getpos(".")
     if has_key(g:comment_types, &ft)
         let cstr = g:comment_types[&ft]
