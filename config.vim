@@ -37,7 +37,7 @@ let g:todo_output_filename = 'doc/todo'
 let g:todo_identifier = '@'
 " custom functions 
 let g:window_max = 0
-let g:session_dir = g:vimhome . "doc/sessions/"
+let g:session_dir = "~/vim_sessions/"
 let g:comment_types = {'vim':"\"", 'python':"#", 'default':"//"}
 " gruvbox
 let g:gruvbox_contrast_dark = 'soft'
@@ -61,7 +61,7 @@ vnoremap <c-n> :call ToggleComment()<cr>
 " Commands 
 "-----------------------------------------------------------------------------------------------------------
 command Config :execute ":e" . g:vimhome . "config.vim"
-command Notes :execute ":e" . g:vimhome . "doc/notes.md"
+command Notes :execute ":e" . "~/notes.md"
 command Ctags :execute "!ctags -f doc/tags -R * " . getcwd()
 command CD :cd %:p:h
 command F call ToggleFullscreen()
