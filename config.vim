@@ -69,7 +69,6 @@ command -nargs=? SS call SessionSave(<q-args>)
 command -nargs=? SL call SessionLoad(<q-args>)
 "auto commands
 autocmd Vimresized * wincmd =
-
 "-----------------------------------------------------------------------------------------------------------
 " Functions 
 "-----------------------------------------------------------------------------------------------------------
@@ -123,6 +122,9 @@ function! ToggleComment()
 endfunction
 
 function! ToggleFullscreen()
+    if has("unix")
+        return
+    endif
     if g:window_max == 0
         let g:window_max = 1
         :sim ~x
