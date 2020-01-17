@@ -56,7 +56,7 @@ nnoremap <m-j> ddp
 nnoremap <m-k> ddkP
 nnoremap <leader>t :NewTodo<cr>
 nnoremap <leader>r :silent call ReplaceAll()<cr>
-nnoremap <c-n> :bn<cr>
+nnoremap <c-n> :w<cr>:bn<cr>
 nnoremap <c-m> :call ToggleComment()<cr>
 " visual mode
 vnoremap <c-m> :call ToggleComment()<cr>
