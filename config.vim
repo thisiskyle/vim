@@ -8,10 +8,10 @@ endif
 " Plugins
 "-----------------------------------------------------------------------------------------------------------
 call plug#begin(g:vimhome . 'vimplug')
-"Plug 'sheerun/vim-polyglot'
-"Plug 'ctrlpvim/ctrlp.vim'
+Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/vim-gitbranch'
 Plug 'morhetz/gruvbox'
+"Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 "-----------------------------------------------------------------------------------------------------------
 " Settings
@@ -52,11 +52,14 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
+nnoremap <m-j> ddp
+nnoremap <m-k> ddkP
 nnoremap <leader>t :NewTodo<cr>
 nnoremap <leader>r :silent call ReplaceAll()<cr>
-nnoremap <c-n> :call ToggleComment()<cr>
+nnoremap <c-n> :bn<cr>
+nnoremap <c-m> :call ToggleComment()<cr>
 " visual mode
-vnoremap <c-n> :call ToggleComment()<cr>
+vnoremap <c-m> :call ToggleComment()<cr>
 "-----------------------------------------------------------------------------------------------------------
 " Commands 
 "-----------------------------------------------------------------------------------------------------------
