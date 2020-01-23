@@ -5,7 +5,7 @@ elseif has("unix")
     let g:vimhome = '~/.vim/'
 endif
 "-----------------------------------------------------------------------------------------------------------
-" Plugins
+" plugins
 "-----------------------------------------------------------------------------------------------------------
 call plug#begin(g:vimhome . 'vimplug')
 Plug 'sheerun/vim-polyglot'
@@ -14,9 +14,8 @@ Plug 'morhetz/gruvbox'
 "Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 "-----------------------------------------------------------------------------------------------------------
-" Settings
+" settings
 "-----------------------------------------------------------------------------------------------------------
-" general settings
 if has("gui_running") | set guioptions ='' | set lines=60 | set columns=120 | endif
 set incsearch hlsearch ignorecase smartcase
 set nobackup noswapfile noundofile
@@ -24,7 +23,6 @@ set autoindent expandtab tabstop=4 shiftwidth=4
 set belloff=all
 set laststatus=0
 set background=dark
-set ff=unix
 set tags=doc/tags;/
 set path=.,**
 set rulerformat=%70(%=%t\ %m%r\ %#Label#%{gitbranch#name()}%#Normal#\ \ %l:%c%)
@@ -35,33 +33,30 @@ let g:ctrlp_regexp = 1
 " todo.vim
 let g:todo_output_filename = 'doc/todo'
 let g:todo_identifier = '@'
-" custom functions 
+" variables for my functions 
 let g:window_max = 0
 let g:session_dir = "~/vim_sessions/"
-let g:comment_types = {'vim':"\"", 'python':"#", 'default':"//"}
+let g:comment_types = { 'vim':"\"", 'python':"#", 'cs':"//", 'cpp':"//", 'js':"//", 'default':""}
 " gruvbox
 let g:gruvbox_contrast_dark = 'soft'
 let g:gruvbox_italic = 0
 let g:gruvbox_bold = 0
 color gruvbox
 "-----------------------------------------------------------------------------------------------------------
-" Key Bindings
+" key bindings
 "-----------------------------------------------------------------------------------------------------------
 " normal mode
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
-nnoremap <m-j> ddp
-nnoremap <m-k> ddkP
 nnoremap <leader>t :NewTodo<cr>
 nnoremap <leader>r :silent call ReplaceAll()<cr>
-nnoremap <c-n> :w<cr>:bn<cr>
-nnoremap <c-m> :call ToggleComment()<cr>
+nnoremap <c-n> :call ToggleComment()<cr>
 " visual mode
-vnoremap <c-m> :call ToggleComment()<cr>
+vnoremap <c-n> :call ToggleComment()<cr>
 "-----------------------------------------------------------------------------------------------------------
-" Commands 
+" commands 
 "-----------------------------------------------------------------------------------------------------------
 command Config :execute ":e" . g:vimhome . "config.vim"
 command Notes :execute ":e" . "~/notes.md"
@@ -73,8 +68,11 @@ command -nargs=? SL call SessionLoad(<q-args>)
 "auto commands
 autocmd Vimresized * wincmd =
 "-----------------------------------------------------------------------------------------------------------
-" Functions 
+" functions 
 "-----------------------------------------------------------------------------------------------------------
+
+" adds a comment string at the beginning of current line
+" unless the line is empty
 function! ToggleComment()
     " skip line if empty
     if strlen(getline('.')) <= 0
@@ -124,19 +122,23 @@ function! ToggleComment()
     endif
 endfunction
 
+
+" maximizes the window if you are running gvim
 function! ToggleFullscreen()
-    if has("unix")
-        return
-    endif
-    if g:window_max == 0
-        let g:window_max = 1
-        :sim ~x
-    else
-        let g:window_max = 0
-        :sim ~r
+    if has("gui_running")
+        if g:window_max == 0
+            let g:window_max = 1
+            :sim ~x
+        else
+            let g:window_max = 0
+            :sim ~r
+        endif
     endif
 endfunction
 
+
+" Replace all instances of the word under the cursor with a new one
+" shortcut for :%s/<word>/<replacement>/g/
 function! ReplaceAll()
     let save_pos = getpos(".")
     let word = expand("<cword>")
@@ -145,10 +147,12 @@ function! ReplaceAll()
     call setpos(".", save_pos)
 endfunction
 
+" save the current session
 function! SessionSave(fname)
     :execute ":mks!" . g:session_dir . a:fname . ".vim"
 endfunction
 
+" load a session
 function! SessionLoad(fname)
     :execute ":so" . g:session_dir . a:fname . ".vim"
 endfunction
