@@ -7,7 +7,7 @@ endif
 "-----------------------------------------------------------------------------------------------------------
 " plugins
 "-----------------------------------------------------------------------------------------------------------
-call plug#begin(g:vimhome . 'vimplug')
+call plug#begin(g:vimhome . 'plug')
 Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/vim-gitbranch'
 Plug 'morhetz/gruvbox'
@@ -17,25 +17,27 @@ call plug#end()
 " settings
 "-----------------------------------------------------------------------------------------------------------
 if has("gui_running") | set guioptions ='' | set lines=60 | set columns=120 | endif
+exec "set backupdir=" . g:vimhome . '.tmp/backup/'
+exec "set undodir=" . g:vimhome . '.tmp/undo/'
+exec "set directory=" . g:vimhome . '.tmp/swap/'
 set incsearch hlsearch ignorecase smartcase
-set nobackup noswapfile noundofile
 set autoindent expandtab tabstop=4 shiftwidth=4
 set belloff=all
 set laststatus=0
 set background=dark
 set tags=doc/tags;/
 set path=.,**
-set rulerformat=%70(%=%t\ %m%r\ %#Label#%{gitbranch#name()}%#Normal#\ \ %l:%c%)
+set rulerformat=%60(%=%t\ %m%r\ %#Label#%{gitbranch#name()}%#Normal#\ \ %l:%c%)
 filetype plugin indent on
 " crtlp
 let g:ctrlp_by_filename = 1
 let g:ctrlp_regexp = 1
 " todo.vim
-let g:todo_output_filename = 'doc/todo'
-let g:todo_identifier = '@'
+let g:todo_output_filename = 'todo'
+let g:todo_identifier = '@@'
 " variables for my functions 
 let g:window_max = 0
-let g:session_dir = "~/vim_sessions/"
+let g:session_dir = g:vimhome . ".tmp/sessions/"
 let g:comment_types = { 'vim':"\"", 'python':"#", 'cs':"//", 'cpp':"//", 'js':"//", 'default':""}
 " gruvbox
 let g:gruvbox_contrast_dark = 'soft'
@@ -60,7 +62,7 @@ vnoremap <c-n> :call ToggleComment()<cr>
 "-----------------------------------------------------------------------------------------------------------
 command Config :execute ":e" . g:vimhome . "config.vim"
 command Notes :execute ":e" . "~/notes.md"
-command Ctags :execute "!ctags -f doc/tags -R * " . getcwd()
+command Ctags :execute "!ctags -f tags -R * " . getcwd()
 command CD :cd %:p:h
 command F call ToggleFullscreen()
 command -nargs=? SS call SessionSave(<q-args>)
@@ -122,7 +124,6 @@ function! ToggleComment()
     endif
 endfunction
 
-
 " maximizes the window if you are running gvim
 function! ToggleFullscreen()
     if has("gui_running")
@@ -135,7 +136,6 @@ function! ToggleFullscreen()
         endif
     endif
 endfunction
-
 
 " Replace all instances of the word under the cursor with a new one
 " shortcut for :%s/<word>/<replacement>/g/

@@ -1,3 +1,2 @@
-vimplug/
-doc/
-.netrwhist
+plug/
+.tmp/
