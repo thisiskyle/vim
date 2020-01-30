@@ -21,12 +21,13 @@ exec "set backupdir=" . g:vimhome . '.tmp/backup/'
 exec "set undodir=" . g:vimhome . '.tmp/undo/'
 exec "set directory=" . g:vimhome . '.tmp/swap/'
 set incsearch hlsearch ignorecase smartcase
-set autoindent expandtab tabstop=4 shiftwidth=4
+set wrap autoindent expandtab tabstop=4 shiftwidth=4
 set belloff=all
 set laststatus=0
 set background=dark
 set tags=doc/tags;/
 set path=.,**
+set cursorline
 set rulerformat=%60(%=%t\ %m%r\ %#Label#%{gitbranch#name()}%#Normal#\ \ %l:%c%)
 filetype plugin indent on
 " crtlp
