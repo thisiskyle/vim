@@ -20,6 +20,7 @@ if has("gui_running") | set guioptions ='' | set lines=60 | set columns=120 | en
 exec "set backupdir=" . g:vimhome . '.tmp/backup/'
 exec "set undodir=" . g:vimhome . '.tmp/undo/'
 exec "set directory=" . g:vimhome . '.tmp/swap/'
+exec "set viewdir=" . g:vimhome . '.tmp/view/'
 set incsearch hlsearch ignorecase smartcase
 set wrap autoindent expandtab tabstop=4 shiftwidth=4
 set belloff=all
@@ -34,7 +35,7 @@ filetype plugin indent on
 let g:ctrlp_by_filename = 1
 let g:ctrlp_regexp = 1
 " todo.vim
-let g:todo_output_filename = 'todo'
+let g:todo_output_filename = 'doc/todo'
 let g:todo_identifier = '@@'
 " variables for my functions 
 let g:window_max = 0
@@ -63,13 +64,15 @@ vnoremap <c-n> :call ToggleComment()<cr>
 "-----------------------------------------------------------------------------------------------------------
 command Config :execute ":e" . g:vimhome . "config.vim"
 command Notes :execute ":e" . "~/notes.md"
-command Ctags :execute "!ctags -f tags -R * " . getcwd()
+command Ctags :execute "!ctags -f doc/tags -R * " . getcwd()
 command CD :cd %:p:h
 command F call ToggleFullscreen()
 command -nargs=? SS call SessionSave(<q-args>)
 command -nargs=? SL call SessionLoad(<q-args>)
 "auto commands
 autocmd Vimresized * wincmd =
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview
 "-----------------------------------------------------------------------------------------------------------
 " functions 
 "-----------------------------------------------------------------------------------------------------------
