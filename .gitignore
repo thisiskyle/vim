@@ -1,2 +1,13 @@
 plug/
-.tmp/
+.tmp/backup/*
+.tmp/sessions/*
+.tmp/swap/*
+.tmp/undo/*
+.tmp/view/*
+
+
+!.tmp/backup/.gitkeep
+!.tmp/sessions/.gitkeep
+!.tmp/swap/.gitkeep
+!.tmp/undo/.gitkeep
+!.tmp/view/.gitkeep
