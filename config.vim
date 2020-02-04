@@ -11,7 +11,7 @@ call plug#begin(g:vimhome . 'plug')
 Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/vim-gitbranch'
 Plug 'morhetz/gruvbox'
-"Plug 'ctrlpvim/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 "-----------------------------------------------------------------------------------------------------------
 " settings
