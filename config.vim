@@ -27,7 +27,6 @@ set belloff=all
 set laststatus=0
 set background=dark
 set tags=doc/tags;/
-set path=.,**
 set cursorline
 set rulerformat=%60(%=%t\ %m%r\ %#Label#%{gitbranch#name()}%#Normal#\ \ %l:%c%)
 filetype plugin indent on
