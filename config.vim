@@ -28,7 +28,7 @@ set laststatus=0
 set background=dark
 set tags=doc/tags;/
 set cursorline
-set rulerformat=%60(%=%m\ %t\ %#Label#%{gitbranch#name()}%#Normal#\ %c,%l%)
+set rulerformat=%60(%=%m\ %#Label#%{gitbranch#name()}%#Normal#\ %c,%l%)
 filetype plugin indent on
 " crtlp
 let g:ctrlp_by_filename = 1
