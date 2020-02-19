@@ -8,19 +8,20 @@ endif
 " plugins
 "===============================================================================================================
 call plug#begin(g:vimhome . 'plug')
-Plug 'sheerun/vim-polyglot'
-Plug 'itchyny/vim-gitbranch'
-Plug 'morhetz/gruvbox'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'https://github.com/sheerun/vim-polyglot'
+Plug 'https://github.com/itchyny/vim-gitbranch'
+Plug 'https://github.com/morhetz/gruvbox'
+Plug 'https://github.com/ctrlpvim/ctrlp.vim'
+Plug 'https://gitlab.com/dbeniamine/todo.txt-vim'
 call plug#end()
 "===============================================================================================================
 " settings
 "===============================================================================================================
 if has("gui_running") | set guioptions ='' | set lines=60 | set columns=120 | endif
-exec "set backupdir=" . g:vimhome . '.tmp/backup/'
-exec "set undodir=" . g:vimhome . '.tmp/undo/'
-exec "set directory=" . g:vimhome . '.tmp/swap/'
-exec "set viewdir=" . g:vimhome . '.tmp/view/'
+exec "set backupdir=" . g:vimhome . 'tmp/backup/'
+exec "set undodir=" . g:vimhome . 'tmp/undo/'
+exec "set directory=" . g:vimhome . 'tmp/swap/'
+exec "set viewdir=" . g:vimhome . 'tmp/view/'
 set incsearch hlsearch ignorecase smartcase
 set wrap autoindent expandtab tabstop=4 shiftwidth=4
 set belloff=all
@@ -33,12 +34,9 @@ filetype plugin indent on
 " crtlp
 let g:ctrlp_by_filename = 1
 let g:ctrlp_regexp = 1
-" todo.vim
-let g:todo_output_filename = 'doc/todo'
-let g:todo_identifier = '@@'
-" variables for my functions 
+" variables
 let g:window_max = 0
-let g:session_dir = g:vimhome . ".tmp/sessions/"
+let g:session_dir = g:vimhome . "tmp/sessions/"
 let g:comment_types = { 'vim':"\"", 'python':"#", 'cs':"//", 'cpp':"//", 'js':"//", 'default':""}
 " gruvbox
 let g:gruvbox_contrast_dark = 'soft'
@@ -53,9 +51,8 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
-nnoremap <leader>t :NewTodo<cr>
-nnoremap <leader>r :silent call ReplaceAll()<cr>
 nnoremap <c-n> :call ToggleComment()<cr>
+nnoremap <leader>r :silent call ReplaceAll()<cr>
 " visual mode
 vnoremap <c-n> :call ToggleComment()<cr>
 "===============================================================================================================
@@ -63,9 +60,10 @@ vnoremap <c-n> :call ToggleComment()<cr>
 "===============================================================================================================
 command Config :execute ":e" . g:vimhome . "config.vim"
 command Notes :execute ":e" . "~/notes.md"
-command Ctags :execute "!ctags -f doc/tags -R * " . getcwd()
+command Ctags :execute "!ctags -f tags -R * " . getcwd()
 command CD :cd %:p:h
 command F call ToggleFullscreen()
+command Todo call TodoGrep()
 command -nargs=? SS call SessionSave(<q-args>)
 command -nargs=? SL call SessionLoad(<q-args>)
 "auto commands
@@ -83,7 +81,6 @@ function! ToggleComment()
     if strlen(getline('.')) <= 0
         return
     endif
-
     let save_pos = getpos(".")
     if has_key(g:comment_types, &ft)
         let cstr = g:comment_types[&ft]
@@ -140,13 +137,17 @@ function! ToggleFullscreen()
     endif
 endfunction
 
-" Replace all instances of the word under the cursor with a new one
+" search all files for a pattern and open the quickfix window
+function! TodoGrep()
+    :execute "vimgrep /@@todo/ **/*" 
+    :cw
+endfunction
+
 " shortcut for :%s/<word>/<replacement>/g/
 function! ReplaceAll()
     let save_pos = getpos(".")
     let word = expand("<cword>")
-    let replacement = input("Replace [" . word . "] with: ")
-    :execute "%s/" . word . "/" . replacement . "/g"
+    :execute "%s/" . word . "/" . input("Replace [" . word . "] with: ") . "/g"
     call setpos(".", save_pos)
 endfunction
 
