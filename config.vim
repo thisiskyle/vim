@@ -15,6 +15,33 @@ Plug 'https://github.com/ctrlpvim/ctrlp.vim'
 Plug 'https://gitlab.com/dbeniamine/todo.txt-vim'
 call plug#end()
 "===============================================================================================================
+" variables
+"===============================================================================================================
+" crtlp
+let g:ctrlp_by_filename = 1
+let g:ctrlp_regexp = 1
+" doit
+let g:doit_identifier = '@@'
+" my functions
+let g:window_max = 0
+let g:session_dir = g:vimhome . "tmp/sessions"
+let g:comment_types = { 'vim':"\"", 'python':"#", 'cs':"//", 'cpp':"//", 'js':"//", 'default':""}
+let s:toppad = 20 
+let s:leftpad = 45 
+let s:startup_text = 
+            \[
+            \'     #',
+            \'    ###    Hey, listen! ',
+            \'   #####',
+            \'  #     #        `o´',
+            \' ###   ###',
+            \'##### #####',
+            \]
+" gruvbox
+let g:gruvbox_contrast_dark = 'soft'
+let g:gruvbox_italic = 0
+let g:gruvbox_bold = 0
+"===============================================================================================================
 " settings
 "===============================================================================================================
 if has("gui_running") | set guioptions ='' | set lines=60 | set columns=120 | endif
@@ -29,32 +56,20 @@ set laststatus=0
 set background=dark
 set tags=doc/tags;/
 set cursorline
-set rulerformat=%60(%=%m\ %#Label#%{gitbranch#name()}%#Normal#\ %c,%l%)
+set rulerformat=%60(%=%m\ %#Label#%{gitbranch#name()}%#Normal#\ %l:%c%)
 filetype plugin indent on
-" crtlp
-let g:ctrlp_by_filename = 1
-let g:ctrlp_regexp = 1
-" variables
-let g:window_max = 0
-let g:session_dir = g:vimhome . "tmp/sessions/"
-let g:comment_types = { 'vim':"\"", 'python':"#", 'cs':"//", 'cpp':"//", 'js':"//", 'default':""}
-" gruvbox
-let g:gruvbox_contrast_dark = 'soft'
-let g:gruvbox_italic = 0
-let g:gruvbox_bold = 0
 color gruvbox
 "===============================================================================================================
 " key bindings
 "===============================================================================================================
-" normal mode
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 nnoremap <c-n> :call ToggleComment()<cr>
-nnoremap <leader>r :silent call ReplaceAll()<cr>
-" visual mode
 vnoremap <c-n> :call ToggleComment()<cr>
+nnoremap <leader>r :silent call ReplaceAll()<cr>
+nnoremap <leader>t :NewTodo todo<cr>
 "===============================================================================================================
 " commands 
 "===============================================================================================================
@@ -63,13 +78,13 @@ command Notes :execute ":e" . "~/notes.md"
 command Ctags :execute "!ctags -f tags -R * " . getcwd()
 command CD :cd %:p:h
 command F call ToggleFullscreen()
-command Todo call TodoGrep()
 command -nargs=? SS call SessionSave(<q-args>)
 command -nargs=? SL call SessionLoad(<q-args>)
 "auto commands
 autocmd Vimresized * wincmd =
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
+autocmd VimEnter * call StartUp()
 "===============================================================================================================
 " functions 
 "===============================================================================================================
@@ -137,12 +152,6 @@ function! ToggleFullscreen()
     endif
 endfunction
 
-" search all files for a pattern and open the quickfix window
-function! TodoGrep()
-    :execute "vimgrep /@@todo/ **/*" 
-    :cw
-endfunction
-
 " shortcut for :%s/<word>/<replacement>/g/
 function! ReplaceAll()
     let save_pos = getpos(".")
@@ -159,4 +168,47 @@ endfunction
 " load a session
 function! SessionLoad(fname)
     :execute ":so" . g:session_dir . a:fname . ".vim"
+endfunction
+
+function! StartUp()
+    " Don't run if: we have commandline arguments, we don't have an empty
+    " buffer, if we've not invoked as vim or gvim, or if we'e start in insert mode
+    if argc() || line2byte('$') != -1 || v:progname !~? '^[-gmnq]\=vim\=x\=\%[\.exe]$' || &insertmode
+        return
+    endif
+    enew
+    setlocal 
+            \ bufhidden=wipe 
+            \ buftype=nofile 
+            \ nobuflisted
+            \ nocursorcolumn 
+            \ nocursorline 
+            \ nolist 
+            \ nonumber 
+            \ noswapfile 
+            \ norelativenumber
+
+    let i = 0
+    while i < s:toppad
+        call append('$', '')
+        let i += 1
+    endwhile
+
+    syntax match Triforce '#'
+    syntax match Navi 'o'
+    syntax match Wings '[`´]'
+    hi default link Triforce GruvboxYellow
+    hi default link Navi GruvboxBlue
+    hi default link Wings Normal
+
+    for l in s:startup_text
+        let c = 0
+        let s = ''
+        while c < s:leftpad
+            let s = s . ' '
+            let c += 1
+        endwhile
+        call append('$', s . l)
+    endfor
+    setlocal nomodifiable nomodified
 endfunction
