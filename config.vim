@@ -30,12 +30,20 @@ let s:toppad = 20
 let s:leftpad = 45 
 let s:startup_text = 
             \[
-            \'     #',
+            \'    /_\    ',
+            \'    |_|    ',
+            \'   _|_|_  ',
+            \'  / ___ \ ',
+            \' |_/| |\_| ',
+            \'    |#|    ',
             \'    ###    Hey, listen! ',
-            \'   #####',
-            \'  #     #        `o´',
-            \' ###   ###',
+            \'   #####   ',
+            \'  # | | #        `o´',
+            \' ###| |### ',
             \'##### #####',
+            \'    | |    ',
+            \'    | |    ',
+            \'    \ /    ',
             \]
 " gruvbox
 let g:gruvbox_contrast_dark = 'soft'
@@ -194,12 +202,15 @@ function! StartUp()
         let i += 1
     endwhile
 
+    " this is really bad, but i dont know the right way to do this
     syntax match Triforce '#'
     syntax match Navi 'o'
     syntax match Wings '[`´]'
+    syntax match Hilt '_\||_|\|/_\\\||_/\|\\_|\|/ ___ \\'
     hi default link Triforce GruvboxYellow
     hi default link Navi GruvboxBlue
     hi default link Wings Normal
+    hi default link Hilt GruvboxBlue
 
     for l in s:startup_text
         let c = 0
