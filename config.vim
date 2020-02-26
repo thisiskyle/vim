@@ -25,7 +25,7 @@ let g:doit_identifier = '@@'
 " my functions
 let g:window_max = 0
 let g:session_dir = g:vimhome . "tmp/sessions"
-let g:comment_types = { 'vim':"\"", 'python':"#", 'cs':"//", 'cpp':"//", 'js':"//", 'default':"//"}
+let g:comment_types = { 'vim':"\"", 'python':"#", 'cs':"//", 'cpp':"//", 'js':"//", 'default':""}
 let s:toppad = 20 
 let s:leftpad = 45 
 let s:startup_text = 
@@ -52,7 +52,10 @@ let g:gruvbox_bold = 0
 "===============================================================================================================
 " settings
 "===============================================================================================================
-if has("gui_running") | set guioptions ='' | set lines=60 | set columns=120 | endif
+set nocursorline
+if has("gui_running")
+    set guioptions ='' lines=60 columns=120 cursorline
+endif
 exec "set backupdir=" . g:vimhome . 'tmp/backup/'
 exec "set undodir=" . g:vimhome . 'tmp/undo/'
 exec "set directory=" . g:vimhome . 'tmp/swap/'
@@ -63,7 +66,6 @@ set belloff=all
 set laststatus=0
 set background=dark
 set tags=doc/tags;/
-set cursorline
 set ff=unix
 set rulerformat=%60(%=%m\ %#Label#%{gitbranch#name()}%#Normal#\ %l:%c%)
 filetype plugin indent on
