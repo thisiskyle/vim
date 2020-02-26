@@ -25,7 +25,7 @@ let g:doit_identifier = '@@'
 " my functions
 let g:window_max = 0
 let g:session_dir = g:vimhome . "tmp/sessions"
-let g:comment_types = { 'vim':"\"", 'python':"#", 'cs':"//", 'cpp':"//", 'js':"//", 'default':""}
+let g:comment_types = { 'vim':"\"", 'python':"#", 'cs':"//", 'cpp':"//", 'js':"//", 'default':"//"}
 let s:toppad = 20 
 let s:leftpad = 45 
 let s:startup_text = 
@@ -64,6 +64,7 @@ set laststatus=0
 set background=dark
 set tags=doc/tags;/
 set cursorline
+set ff=unix
 set rulerformat=%60(%=%m\ %#Label#%{gitbranch#name()}%#Normal#\ %l:%c%)
 filetype plugin indent on
 color gruvbox

@@ -45,4 +45,5 @@ set isfname-=:
 " Commands 
 "=========================================
 command Doit :call doit#Doit()
+command DoitFresh :call doit#DoitFresh()
 command -nargs=? NewTodo call doit#NewTodo(<q-args>)

@@ -2,73 +2,38 @@
 " autoload/doit.vim
 "=========================================
 
+let s:output = []
 
 " main function to run doit.vim
 fun! doit#Doit()
+    if len(s:output) == 0
 
-    let s:output = []
+        if (g:doit_recursive == 1)
+            let wildcard = "**"
+        else
+            let wildcard = "*"
+        endif
 
-    :echo "Searching files..."
+        let files = globpath(g:doit_search_path, wildcard, 0, 1)
 
-    if (g:doit_recursive == 1)
-        let wildcard = "**"
-    else
-        let wildcard = "*"
+        for file in files
+            if (s:CheckFileExtension(file) == 1)
+                :echo "Searching " . file
+                call SearchFile(file)
+                :redraw
+            endif 
+        endfor
     endif
-
-    let files = globpath(g:doit_search_path, wildcard, 0, 1)
-
-    for file in files
-        if (s:CheckFileExtension(file) == 1)
-            if g:doit_identifier == '*' || g:doit_identifier == '.'
-                let regex = s:GetRegexCommentString(file) . '\s\{-}\' . g:doit_identifier . '\(\w\+\)\s*\s*\(.*\)'
-            else
-                let regex = s:GetRegexCommentString(file) . '\s\{-}'  . g:doit_identifier . '\(\w\+\)\s*\s*\(.*\)'
-            endif
-
-            try
-                let lines = readfile(file)
-                let line_num = 1
-                for line in lines
-                    let matches = matchlist(line, regex)
-                    if (len(matches) > 0) 
-                        let tag = "[" . matches[1] . "]"
-                        let fileinfo = " (" . fnamemodify(file, g:doit_filename_modifier) . ":" . line_num . ")"
-                        let temp_line = "" . tag . " " . matches[2] . fileinfo 
-
-                        " if there are no duplicates add the new line to the output
-                        if s:CheckDuplicates(fileinfo) == 0
-                            call add(s:output, temp_line)
-                        endif
-                    endif
-                    let line_num = line_num + 1
-                endfor
-            catch
-            endtry
-        endif 
-    endfor
-
-    new
-
-    setlocal 
-            \ bufhidden=wipe 
-            \ buftype=nofile 
-            \ nobuflisted
-            \ nocursorcolumn 
-            \ nocursorline 
-            \ nolist 
-            \ nonumber 
-            \ noswapfile 
-            \ norelativenumber
-
-    for l in s:output
-        call append('$', l)
-    endfor
-    execute "resize " . g:doit_split_h  
-    setlocal nomodifiable nomodified
-
+    call NewBuffer()
     :echo "Done!"
 endfun
+
+" @@todo this is a nice test
+fun! doit#DoitFresh()
+    call ClearCache()
+    call doit#Doit()
+endfun
+
 
 
 " insert a 'todo' line using given tag
@@ -160,4 +125,57 @@ fun! s:CheckDuplicates(fileinfo)
         endif
     endfor
     return 0
+endfun
+
+fun! NewBuffer()
+    new
+    setlocal 
+            \ bufhidden=wipe 
+            \ buftype=nofile 
+            \ nobuflisted
+            \ nocursorcolumn 
+            \ nocursorline 
+            \ nolist 
+            \ nonumber 
+            \ noswapfile 
+            \ norelativenumber
+
+    for l in s:output
+        call append('$', l)
+    endfor
+    normal ggdd
+    execute "resize " . g:doit_split_h  
+    setlocal nomodifiable nomodified
+endfun
+
+fun! SearchFile(file)
+    if g:doit_identifier == '*' || g:doit_identifier == '.'
+        let regex = s:GetRegexCommentString(a:file) . '\s\{-}\' . g:doit_identifier . '\(\w\+\)\s*\s*\(.*\)'
+    else
+        let regex = s:GetRegexCommentString(a:file) . '\s\{-}'  . g:doit_identifier . '\(\w\+\)\s*\s*\(.*\)'
+    endif
+
+    try
+        let lines = readfile(a:file)
+        let line_num = 1
+        for line in lines
+            let matches = matchlist(line, regex)
+            if (len(matches) > 0) 
+                let tag = "[" . matches[1] . "]"
+                let fileinfo = " (" . fnamemodify(a:file, g:doit_filename_modifier) . ":" . line_num . ")"
+                let temp_line = "" . tag . " " . matches[2] . fileinfo 
+
+                " if there are no duplicates add the new line to the output
+                if s:CheckDuplicates(fileinfo) == 0
+                    call add(s:output, temp_line)
+                endif
+            endif
+            let line_num = line_num + 1
+        endfor
+    catch
+    endtry
+endfun
+
+fun! ClearCache()
+    let s:output = []
 endfun
