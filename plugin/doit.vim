@@ -47,3 +47,5 @@ set isfname-=:
 command Doit :call doit#Doit()
 command DoitFresh :call doit#DoitFresh()
 command -nargs=? NewTodo call doit#NewTodo(<q-args>)
+
+nnoremap <c-m> :call doit#OpenSelectedFile()<cr>

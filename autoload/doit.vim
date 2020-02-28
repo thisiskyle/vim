@@ -25,6 +25,7 @@ fun! doit#Doit()
         endfor
     endif
     call NewBuffer()
+    :set filetype=doit
     :echo "Done!"
 endfun
 
@@ -148,6 +149,19 @@ fun! NewBuffer()
     setlocal nomodifiable nomodified
 endfun
 
+fun! doit#OpenSelectedFile()
+    try
+        let line = getline('.')
+        let reg = '^.\+|.\+|\s\(.\+\):\(\d\+\)$'
+        let matches = matchlist(line, reg)
+        :echo matches[0]
+        execute ":e " . matches[1]
+        execute ":" . matches[2]
+        " @@todo i will probably need to create a syntax file for the hotkey
+    catch
+    endtry
+endfun
+
 fun! SearchFile(file)
     if g:doit_identifier == '*' || g:doit_identifier == '.'
         let regex = s:GetRegexCommentString(a:file) . '\s\{-}\' . g:doit_identifier . '\(\w\+\)\s*\s*\(.*\)'
@@ -161,9 +175,9 @@ fun! SearchFile(file)
         for line in lines
             let matches = matchlist(line, regex)
             if (len(matches) > 0) 
-                let tag = "[" . matches[1] . "]"
-                let fileinfo = " (" . fnamemodify(a:file, g:doit_filename_modifier) . ":" . line_num . ")"
-                let temp_line = "" . tag . " " . matches[2] . fileinfo 
+                let tag = matches[1]
+                let fileinfo = fnamemodify(a:file, g:doit_filename_modifier) . ":" . line_num
+                let temp_line = tag . " | " . matches[2] . " | " . fileinfo 
 
                 " if there are no duplicates add the new line to the output
                 if s:CheckDuplicates(fileinfo) == 0

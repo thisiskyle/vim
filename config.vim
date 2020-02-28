@@ -52,9 +52,8 @@ let g:gruvbox_bold = 0
 "===============================================================================================================
 " settings
 "===============================================================================================================
-set nocursorline
 if has("gui_running")
-    set guioptions ='' lines=60 columns=120 cursorline
+    set guioptions ='' lines=60 columns=120
 endif
 exec "set backupdir=" . g:vimhome . 'tmp/backup/'
 exec "set undodir=" . g:vimhome . 'tmp/undo/'
@@ -69,6 +68,7 @@ set tags=doc/tags;/
 set ff=unix
 set rulerformat=%60(%=%m\ %#Label#%{gitbranch#name()}%#Normal#\ %l:%c%)
 filetype plugin indent on
+set t_Co=256
 color gruvbox
 "===============================================================================================================
 " key bindings
