@@ -13,6 +13,7 @@ Plug 'https://github.com/itchyny/vim-gitbranch'
 Plug 'https://github.com/morhetz/gruvbox'
 Plug 'https://github.com/ctrlpvim/ctrlp.vim'
 Plug 'https://gitlab.com/dbeniamine/todo.txt-vim'
+Plug 'https://github.com/vim/killersheep'
 call plug#end()
 "===============================================================================================================
 " variables
@@ -27,6 +28,7 @@ let g:window_max = 0
 let g:session_dir = g:vimhome . "tmp/sessions"
 let g:comment_types = { 'vim':"\"", 'python':"#", 'cs':"//", 'cpp':"//", 'js':"//", 'default':""}
 let s:toppad = 20 
+"(a) @inProgress Having some issues with the jump function +playerController #blocked
 let s:leftpad = 45 
 let s:startup_text = 
             \[
