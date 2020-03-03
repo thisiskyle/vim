@@ -28,7 +28,6 @@ let g:window_max = 0
 let g:session_dir = g:vimhome . "tmp/sessions"
 let g:comment_types = { 'vim':"\"", 'python':"#", 'cs':"//", 'cpp':"//", 'js':"//", 'default':""}
 let s:toppad = 20 
-"(a) @inProgress Having some issues with the jump function +playerController #blocked
 let s:leftpad = 45 
 let s:startup_text = 
             \[
@@ -67,7 +66,6 @@ set belloff=all
 set laststatus=0
 set background=dark
 set tags=doc/tags;/
-set ff=unix
 set rulerformat=%60(%=%m\ %#Label#%{gitbranch#name()}%#Normal#\ %l:%c%)
 filetype plugin indent on
 set t_Co=256
@@ -87,7 +85,7 @@ nnoremap <leader>t :NewTodo todo<cr>
 " commands 
 "===============================================================================================================
 command Config :execute ":e" . g:vimhome . "config.vim"
-command Notes :execute ":e" . "~/notes.md"
+command Todo :execute ":e" . "~/todo.txt"
 command Ctags :execute "!ctags -f tags -R * " . getcwd()
 command CD :cd %:p:h
 command F call ToggleFullscreen()
@@ -98,6 +96,7 @@ autocmd Vimresized * wincmd =
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
 autocmd VimEnter * call StartUp()
+autocmd BufWinEnter * set ff=unix
 "===============================================================================================================
 " functions 
 "===============================================================================================================

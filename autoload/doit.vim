@@ -134,7 +134,7 @@ endfun
 fun! doit#OpenSelectedFile()
     try
         let line = getline('.')
-        let reg = '^.\+|.\+|\s\(.\+\):\(\d\+\)$'
+        let reg = '\(\S\+\):\(\d\+\)$'
         let matches = matchlist(line, reg)
         :echo matches[0]
         execute ":e " . matches[1]
@@ -191,6 +191,9 @@ fun! SearchFile(file)
                     let temp = temp . " " . t
                 endfor
 
+                let fileinfo = fnamemodify(a:file, g:doit_filename_modifier) . ":" . line_num
+                let temp = temp . " " . fileinfo
+
 
                 call add(s:output, temp)
             endif
@@ -198,7 +201,6 @@ fun! SearchFile(file)
             "let matches = matchlist(line, regex)
             "if (len(matches) > 0) 
                 "let tag = matches[1]
-                "let fileinfo = fnamemodify(a:file, g:doit_filename_modifier) . ":" . line_num
                 "let temp_line = tag . " | " . matches[2] . " | " . fileinfo 
                 "call add(s:output, temp_line)
             "endif
