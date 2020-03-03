@@ -33,15 +33,17 @@ let s:startup_text =
             \[
             \'    /_\    ',
             \'    |_|    ',
-            \'   _|_|_  ',
-            \'  / ___ \ ',
+            \'   _|_|_   ',
+            \'  / ___ \  ',
             \' |_/| |\_| ',
+            \'    / \     Hey, listen!',
             \'    |#|    ',
-            \'    ###    Hey, listen! ',
-            \'   #####   ',
-            \'  # | | #        `o´',
+            \'    ###    ',
+            \'   #####        `o´',
+            \'  # | | #  ',
             \' ###| |### ',
             \'##### #####',
+            \'    | |    ',
             \'    | |    ',
             \'    | |    ',
             \'    \ /    ',
@@ -96,7 +98,7 @@ autocmd Vimresized * wincmd =
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
 autocmd VimEnter * call StartUp()
-autocmd BufWinEnter * set ff=unix
+autocmd BufWinEnter * silent set ff=unix
 "===============================================================================================================
 " functions 
 "===============================================================================================================
@@ -188,7 +190,7 @@ function! StartUp()
     if argc() || line2byte('$') != -1 || v:progname !~? '^[-gmnq]\=vim\=x\=\%[\.exe]$' || &insertmode
         return
     endif
-    enew
+    enew!
     setlocal 
             \ bufhidden=wipe 
             \ buftype=nofile 
