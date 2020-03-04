@@ -18,15 +18,15 @@ fun! doit#Doit()
 
         for file in files
             if (s:CheckFileExtension(file) == 1)
-                ":echo "Searching " . file
+                :echo "Searching " . file
                 call SearchFile(file)
-                ":redraw
+                :redraw
             endif 
         endfor
     endif
     call NewBuffer()
     :set filetype=doit
-    ":echo "Done!"
+    :echo "Done!"
 endfun
 
 " @@todo this is a nice test
@@ -145,66 +145,24 @@ fun! doit#OpenSelectedFile()
 endfun
 
 fun! SearchFile(file)
-    "if g:doit_identifier == '*' || g:doit_identifier == '.'
-        "let regex = s:GetRegexCommentString(a:file) . '\s\{-}\' . g:doit_identifier . '\(\w\+\)\s*\s*\(.*\)'
-    "else
-        "let regex = s:GetRegexCommentString(a:file) . '\s\{-}'  . g:doit_identifier . '\(\w\+\)\s*\s*\(.*\)'
-    "endif
-
-    let regex_line = s:GetRegexCommentString(a:file) . '\((\w\{-})\)'
-    let regex_status = '@\S\+'
-    let regex_context = '+\S\+'
-    let regex_tag = '#\S\+'
+    if g:doit_identifier == '*' || g:doit_identifier == '.'
+        let regex = s:GetRegexCommentString(a:file) . '\s\{-}\' . g:doit_identifier . '\(\w\+\)\s*\s*\(.*\)'
+    else
+        let regex = s:GetRegexCommentString(a:file) . '\s\{-}'  . g:doit_identifier . '\(\w\+\)\s*\s*\(.*\)'
+    endif
 
     try
         let lines = readfile(a:file)
         let line_num = 1
-        let tags = []
-        let context = []
-        let status = [] 
-        let priority = ""
 
         for line in lines
-            if(match(line, regex_line) > -1)
-                let temp = ""
-                let matches = matchlist(line, regex_line)
-
-                " add priority
-                let priority = matches[1]
-                let temp = temp . priority
-                
-                " add status
-                call substitute(line, regex_status, '\=add(status, submatch(0))', 'g')
-                for s in status
-                    let temp = temp . " " . s
-                endfor
-
-                " add context
-                call substitute(line, regex_context, '\=add(context, submatch(0))', 'g')
-                for c in context
-                    let temp = temp . " " . c
-                endfor
-
-                " add tags
-                call substitute(line, regex_tag, '\=add(tags, submatch(0))', 'g')
-                for t in tags
-                    let temp = temp . " " . t
-                endfor
-
+            let matches = matchlist(line, regex)
+            if (len(matches) > 0) 
+                let tag = matches[1]
                 let fileinfo = fnamemodify(a:file, g:doit_filename_modifier) . ":" . line_num
-                let temp = temp . " " . fileinfo
-
-
-                call add(s:output, temp)
+                let temp_line = tag . " | " . matches[2] . " | " . fileinfo 
+                call add(s:output, temp_line)
             endif
-
-            "let matches = matchlist(line, regex)
-            "if (len(matches) > 0) 
-                "let tag = matches[1]
-                "let temp_line = tag . " | " . matches[2] . " | " . fileinfo 
-                "call add(s:output, temp_line)
-            "endif
-
             let line_num = line_num + 1
         endfor
     catch
