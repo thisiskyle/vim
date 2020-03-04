@@ -1,1 +1,1 @@
-"(a) @inProgress this is a test +doit #testing #vim
+" @@inProgress this is a test #testing #blocked

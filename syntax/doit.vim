@@ -2,14 +2,17 @@
 " doit.vim syntax file
 "=========================================================
 
-syn match doitTag '^\S*\s' 
+syn match doitTag '#\S\+' contained
+syn match doitContext '+\S\+' contained 
+syn match doitStatus '^\S\+' contained
+syn match doitFileInfo '\S*:\d*$' contained
 syn match doitSeparator '|' contained
-syn match doitMessage '|.*|'hs=s+2,he=e-2 contains=doitSeparator
-syn match doitFileInfo '\S*:\d*$' 
+syn match doitMessage '.*' contains=doitSeparator,doitTag,doitContext,doitStatus,doitFileInfo
 
 let b:current_syntax = "doit"
 
-hi def link doitTag Statement
-hi def link doitMessage Normal
-hi def link doitFileInfo Comment
-hi def link doitSeparator String
+hi def link doitTag Special
+hi def link doitContext Identifier
+hi def link doitStatus Statement
+hi def link doitFileInfo Underlined
+hi def link doitSeparator Comment

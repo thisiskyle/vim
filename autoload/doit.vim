@@ -139,29 +139,69 @@ fun! doit#OpenSelectedFile()
         :echo matches[0]
         execute ":e " . matches[1]
         execute ":" . matches[2]
-        " @@todo i will probably need to create a syntax file for the hotkey
+        " @@todo i will probably need to create a syntax file for the hotkey +doit #feature
     catch
     endtry
 endfun
 
 fun! SearchFile(file)
-    if g:doit_identifier == '*' || g:doit_identifier == '.'
-        let regex = s:GetRegexCommentString(a:file) . '\s\{-}\' . g:doit_identifier . '\(\w\+\)\s*\s*\(.*\)'
-    else
-        let regex = s:GetRegexCommentString(a:file) . '\s\{-}'  . g:doit_identifier . '\(\w\+\)\s*\s*\(.*\)'
-    endif
+    "let regex_line = s:GetRegexCommentString(a:file) . '\((\w\{-})\)'
+    let regex_line = s:GetRegexCommentString(a:file) . " " . g:doit_identifier
+
+    let regex_status = g:doit_identifier . '\S\+'
+    let regex_context = '+\S\+'
+    let regex_tag = '#\S\+'
 
     try
         let lines = readfile(a:file)
         let line_num = 1
 
         for line in lines
-            let matches = matchlist(line, regex)
-            if (len(matches) > 0) 
-                let tag = matches[1]
+            if(match(line, regex_line) > -1)
+                let templine = line
+                let temp = ""
+                let statusString = ""
+                let contextString = ""
+                let tagString = ""
+                let matches = matchlist(line, regex_line)
+
+                " add priority we dont really need this anymore?
+                " keeping it for later maybe?
+                "let priority = matches[1]
+                
+                call substitute(line, regex_status, '\=add(status, submatch(0))', 'g')
+                call substitute(line, regex_context, '\=add(context, submatch(0))', 'g')
+                call substitute(line, regex_tag, '\=add(tags, submatch(0))', 'g')
+
+                " add status
+                for s in status
+                    let statusString = statusString . s
+                    let templine = substitute(templine, " " . s, "", 'g')
+                endfor
+
+                " add context
+                for c in context
+                    let contextString = contextString . " " . c
+                    let templine = substitute(templine, " " . c, "", 'g')
+                endfor
+
+                " add tags
+                for t in tags
+                    let tagString = tagString . " " . t
+                    let templine = substitute(templine, " " . t, "", 'g')
+                endfor
+
+                " remove the comment string
+                let templine = substitute(templine, s:GetRegexCommentString(a:file), "", 'g')
+                let statusString = substitute(statusString, g:doit_identifier, "", 'g')
+
+                " build file info
                 let fileinfo = fnamemodify(a:file, g:doit_filename_modifier) . ":" . line_num
-                let temp_line = tag . " | " . matches[2] . " | " . fileinfo 
-                call add(s:output, temp_line)
+
+                " build output string 
+                let temp = statusString . " |" . templine . " |" . contextString . tagString . " | " . fileinfo
+
+                call add(s:output, temp)
             endif
             let line_num = line_num + 1
         endfor
