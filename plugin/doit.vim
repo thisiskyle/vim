@@ -8,7 +8,7 @@ if !exists('g:doit_output_filename')
 endif
 
 if !exists('g:doit_split_h')
-    let g:doit_split_h = 15 
+    let g:doit_split_h = 5 
 endif
 
 if !exists('g:doit_search_path')
@@ -48,4 +48,4 @@ command Doit :call doit#Doit()
 command DoitFresh :call doit#DoitFresh()
 command -nargs=? NewTodo call doit#NewTodo(<q-args>)
 
-nnoremap <c-m> :call doit#OpenSelectedFile()<cr>
+autocmd FileType doit nnoremap <buffer> <c-m> :call doit#OpenSelectedFile()<cr>

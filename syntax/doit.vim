@@ -12,7 +12,7 @@ syn match doitMessage '.*' contains=doitSeparator,doitTag,doitContext,doitStatus
 let b:current_syntax = "doit"
 
 hi def link doitTag Special
-hi def link doitContext Identifier
+hi def link doitContext Constant
 hi def link doitStatus Statement
 hi def link doitFileInfo Underlined
 hi def link doitSeparator Comment

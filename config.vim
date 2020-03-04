@@ -103,9 +103,7 @@ autocmd BufWinEnter * silent set ff=unix
 "===============================================================================================================
 " functions 
 "===============================================================================================================
-
-" adds a comment string at the beginning of current line
-" unless the line is empty
+" adds a comment string at the beginning of current line unless the line is empty
 function! ToggleComment()
     " skip line if empty
     if strlen(getline('.')) <= 0

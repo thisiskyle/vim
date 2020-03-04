@@ -29,12 +29,10 @@ fun! doit#Doit()
     :echo "Done!"
 endfun
 
-" @@todo this is a nice test
 fun! doit#DoitFresh()
     call ClearCache()
     call doit#Doit()
 endfun
-
 
 
 " insert a 'todo' line using given tag
@@ -111,7 +109,7 @@ fun! s:GetRegexCommentString(file)
 endfun
 
 fun! NewBuffer()
-    new
+    below new
     setlocal 
             \ bufhidden=wipe 
             \ buftype=nofile 
@@ -136,18 +134,14 @@ fun! doit#OpenSelectedFile()
         let line = getline('.')
         let reg = '\(\S\+\):\(\d\+\)$'
         let matches = matchlist(line, reg)
-        :echo matches[0]
         execute ":e " . matches[1]
         execute ":" . matches[2]
-        " @@todo i will probably need to create a syntax file for the hotkey +doit #feature
     catch
     endtry
 endfun
 
 fun! SearchFile(file)
-    "let regex_line = s:GetRegexCommentString(a:file) . '\((\w\{-})\)'
     let regex_line = s:GetRegexCommentString(a:file) . " " . g:doit_identifier
-
     let regex_status = g:doit_identifier . '\S\+'
     let regex_context = '+\S\+'
     let regex_tag = '#\S\+'
@@ -163,10 +157,13 @@ fun! SearchFile(file)
                 let statusString = ""
                 let contextString = ""
                 let tagString = ""
-                let matches = matchlist(line, regex_line)
+                let status = []
+                let tags = []
+                let context = []
 
                 " add priority we dont really need this anymore?
                 " keeping it for later maybe?
+                "let matches = matchlist(line, regex_line)
                 "let priority = matches[1]
                 
                 call substitute(line, regex_status, '\=add(status, submatch(0))', 'g')
