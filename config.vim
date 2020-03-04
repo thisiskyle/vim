@@ -83,7 +83,7 @@ nnoremap <c-l> <c-w>l
 nnoremap <c-n> :call ToggleComment()<cr>
 vnoremap <c-n> :call ToggleComment()<cr>
 nnoremap <leader>r :silent call ReplaceAll()<cr>
-nnoremap <leader>t :NewTodo todo<cr>
+nnoremap <leader>t :NewTodo<cr>
 "===============================================================================================================
 " commands 
 "===============================================================================================================

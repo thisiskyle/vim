@@ -2,10 +2,17 @@
 " autoload/doit.vim
 "=========================================
 
+" @@todo Should make each 'column' of the output have the same width +doit #ui #maybe
+" @@todo Add the ability to sort the output                          +doit #ui #maybe
+
 let s:output = []
 
 " main function to run doit.vim
 fun! doit#Doit()
+    try
+        :silent bd! doit
+    catch
+    endtry
     if len(s:output) == 0
 
         if (g:doit_recursive == 1)
@@ -34,6 +41,9 @@ fun! doit#DoitFresh()
     call doit#Doit()
 endfun
 
+fun! ClearCache()
+    let s:output = []
+endfun
 
 " insert a 'todo' line using given tag
 fun! doit#NewTodo(tag)
@@ -68,7 +78,6 @@ fun! doit#NewTodo(tag)
     :startinsert!
 endfun
 
-
 " returns true is file extension is 'supported' in g:doit_file_extensions
 fun! s:CheckFileExtension(file)
     for ext in g:doit_file_extensions
@@ -78,7 +87,6 @@ fun! s:CheckFileExtension(file)
     endfor
     return 0
 endfun
-
 
 " get the correct comment string based on filetype
 fun! s:GetCommentString(file)
@@ -109,13 +117,12 @@ fun! s:GetRegexCommentString(file)
 endfun
 
 fun! NewBuffer()
-    below new
+    :silent below new doit
     setlocal 
             \ bufhidden=wipe 
             \ buftype=nofile 
-            \ nobuflisted
+            "\ nobuflisted
             \ nocursorcolumn 
-            \ nocursorline 
             \ nolist 
             \ nonumber 
             \ noswapfile 
@@ -126,7 +133,7 @@ fun! NewBuffer()
     endfor
     normal ggdd
     execute "resize " . g:doit_split_h  
-    setlocal nomodifiable nomodified
+    setlocal nomodifiable nomodified readonly
 endfun
 
 fun! doit#OpenSelectedFile()
@@ -134,6 +141,7 @@ fun! doit#OpenSelectedFile()
         let line = getline('.')
         let reg = '\(\S\+\):\(\d\+\)$'
         let matches = matchlist(line, reg)
+        :bd!
         execute ":e " . matches[1]
         execute ":" . matches[2]
     catch
@@ -141,25 +149,25 @@ fun! doit#OpenSelectedFile()
 endfun
 
 fun! SearchFile(file)
-    let regex_line = s:GetRegexCommentString(a:file) . " " . g:doit_identifier
-    let regex_status = g:doit_identifier . '\S\+'
-    let regex_context = '+\S\+'
-    let regex_tag = '#\S\+'
-
     try
         let lines = readfile(a:file)
-        let line_num = 1
+        let line_num = 0
+        let regex_line = s:GetRegexCommentString(a:file) . " " . g:doit_identifier
+        let regex_status = g:doit_identifier . '\S\+'
+        let regex_epic = '+\S\+'
+        let regex_tag = '#\S\+'
 
         for line in lines
+            let line_num = line_num + 1
             if(match(line, regex_line) > -1)
                 let templine = line
                 let temp = ""
                 let statusString = ""
-                let contextString = ""
+                let epicString = ""
                 let tagString = ""
                 let status = []
                 let tags = []
-                let context = []
+                let epic = []
 
                 " add priority we dont really need this anymore?
                 " keeping it for later maybe?
@@ -167,45 +175,46 @@ fun! SearchFile(file)
                 "let priority = matches[1]
                 
                 call substitute(line, regex_status, '\=add(status, submatch(0))', 'g')
-                call substitute(line, regex_context, '\=add(context, submatch(0))', 'g')
+                call substitute(line, regex_epic, '\=add(epic, submatch(0))', 'g')
                 call substitute(line, regex_tag, '\=add(tags, submatch(0))', 'g')
 
-                " add status
-                for s in status
-                    let statusString = statusString . s
-                    let templine = substitute(templine, " " . s, "", 'g')
-                endfor
-
-                " add context
-                for c in context
-                    let contextString = contextString . " " . c
-                    let templine = substitute(templine, " " . c, "", 'g')
-                endfor
-
-                " add tags
-                for t in tags
-                    let tagString = tagString . " " . t
-                    let templine = substitute(templine, " " . t, "", 'g')
-                endfor
-
+                " build status string
+                if len(status) > 0
+                    let statusString = ""
+                    for s in status
+                        let statusString = statusString . s
+                        let templine = substitute(templine, " " . s, "", 'g')
+                    endfor
+                endif
+                " build epic string
+                if len(epic) > 0
+                    let epicString = " |"
+                    for c in epic
+                        let epicString = epicString . " " . c
+                        let templine = substitute(templine, " " . c, "", 'g')
+                    endfor
+                endif
+                " build tags string
+                if len(tags) > 0
+                    let tagString = " |"
+                    for t in tags
+                        let tagString = tagString . " " . t
+                        let templine = substitute(templine, " " . t, "", 'g')
+                    endfor
+                endif
                 " remove the comment string
                 let templine = substitute(templine, s:GetRegexCommentString(a:file), "", 'g')
+                " remove the doit_identifier string
                 let statusString = substitute(statusString, g:doit_identifier, "", 'g')
-
-                " build file info
+                " build file info string
                 let fileinfo = fnamemodify(a:file, g:doit_filename_modifier) . ":" . line_num
-
                 " build output string 
-                let temp = statusString . " |" . templine . " |" . contextString . tagString . " | " . fileinfo
+                let temp = statusString . " |" . templine . tagString . epicString  . " | " . fileinfo
 
                 call add(s:output, temp)
             endif
-            let line_num = line_num + 1
         endfor
     catch
     endtry
 endfun
 
-fun! ClearCache()
-    let s:output = []
-endfun
