@@ -10,13 +10,12 @@ endif
 call plug#begin(g:vimhome . 'plug')
 Plug 'https://github.com/sheerun/vim-polyglot'
 Plug 'https://github.com/itchyny/vim-gitbranch'
-Plug 'https://github.com/morhetz/gruvbox'
+Plug 'https://github.com/lifepillar/vim-gruvbox8'
 Plug 'https://github.com/ctrlpvim/ctrlp.vim'
-Plug 'https://gitlab.com/dbeniamine/todo.txt-vim'
-Plug 'https://github.com/vim/killersheep'
+Plug 'https://github.com/vim-scripts/todo-txt.vim'
 call plug#end()
 "===============================================================================================================
-" variables
+" plugin variables
 "===============================================================================================================
 " crtlp
 let g:ctrlp_by_filename = 1
@@ -29,32 +28,12 @@ let g:session_dir = g:vimhome . "tmp/sessions"
 let g:comment_types = { 'vim':"\"", 'python':"#", 'cs':"//", 'cpp':"//", 'js':"//", 'default':""}
 let s:toppad = 20 
 let s:leftpad = 45 
-let s:startup_text = 
-            \[
-            \'    /_\    ',
-            \'    |_|    ',
-            \'    |_|    ',
-            \'   _|_|_   ',
-            \'  / ___ \  ',
-            \' |_/| |\_|    --------------',
-            \'    / \      | Hey, listen! |',
-            \'    |#|       --------------',
-            \'    ###         /',
-            \'   #####   ',
-            \'  # | | #    `o´',
-            \' ###| |### ',
-            \'##### #####',
-            \'    | |    ',
-            \'    | |    ',
-            \'    | |    ',
-            \'    \ /    ',
-            \]
-" gruvbox
-let g:gruvbox_contrast_dark = 'soft'
-let g:gruvbox_italic = 0
+" gruvbox8
+let g:gruvbox_italics = 0
 let g:gruvbox_bold = 0
+let g:gruvbox_italicize_strings = 0
 "===============================================================================================================
-" settings
+" vim settings
 "===============================================================================================================
 if has("gui_running")
     set guioptions ='' lines=60 columns=120
@@ -63,16 +42,12 @@ exec "set backupdir=" . g:vimhome . 'tmp/backup/'
 exec "set undodir=" . g:vimhome . 'tmp/undo/'
 exec "set directory=" . g:vimhome . 'tmp/swap/'
 exec "set viewdir=" . g:vimhome . 'tmp/view/'
-set incsearch hlsearch ignorecase smartcase
-set wrap autoindent expandtab tabstop=4 shiftwidth=4
-set belloff=all
-set laststatus=0
-set background=dark
-set tags=doc/tags;/
-set rulerformat=%60(%=%m\ %#Label#%{gitbranch#name()}%#Normal#\ %l:%c%)
+set incsearch hlsearch ignorecase smartcase wrap autoindent expandtab tabstop=4 shiftwidth=4
+set belloff=all laststatus=0 background=dark t_Co=256
+set tags=tags;/
+set rulerformat=%60(%=%m\ %#Identifier#%t\ %#Label#%{gitbranch#name()}%#Normal#\ %l:%c%)
 filetype plugin indent on
-set t_Co=256
-color gruvbox
+color gruvbox8_soft
 "===============================================================================================================
 " key bindings
 "===============================================================================================================
@@ -99,7 +74,7 @@ autocmd Vimresized * wincmd =
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
 autocmd VimEnter * call StartUp()
-autocmd BufWinEnter * silent set ff=unix
+autocmd BufWinEnter * silent! set ff=unix
 "===============================================================================================================
 " functions 
 "===============================================================================================================
@@ -184,11 +159,29 @@ function! SessionLoad(fname)
 endfunction
 
 function! StartUp()
-    " Don't run if: we have commandline arguments, we don't have an empty
-    " buffer, if we've not invoked as vim or gvim, or if we'e start in insert mode
     if argc() || line2byte('$') != -1 || v:progname !~? '^[-gmnq]\=vim\=x\=\%[\.exe]$' || &insertmode
         return
     endif
+    let s:startup_text = 
+                \[
+                \'    /_\    ',
+                \'    |_|    ',
+                \'    |_|    ',
+                \'   _|_|_   ',
+                \'  / ___ \  ',
+                \' |_/| |\_|    --------------',
+                \'    / \      | Hey, listen! |',
+                \'    |#|       --------------',
+                \'    ###         /',
+                \'   #####   ',
+                \'  # | | #    `o´',
+                \' ###| |### ',
+                \'##### #####',
+                \'    | |    ',
+                \'    | |    ',
+                \'    | |    ',
+                \'    \ /    ',
+                \]
     enew!
     setlocal 
             \ bufhidden=wipe 
@@ -208,14 +201,15 @@ function! StartUp()
     endwhile
 
     " this is really bad, but i dont know the right way to do this
+    " it works so dont touch it :)
     syntax match Triforce '#'
     syntax match Navi 'o'
     syntax match Wings '[`´]'
     syntax match Hilt '_\||_|\|/_\\\||_/\|\\_|\|/ ___ \\'
-    hi default link Triforce GruvboxYellow
-    hi default link Navi GruvboxBlue
+    hi default link Triforce Type
+    hi default link Navi Identifier
     hi default link Wings Normal
-    hi default link Hilt GruvboxBlue
+    hi default link Hilt Identifier
 
     for l in s:startup_text
         let c = 0

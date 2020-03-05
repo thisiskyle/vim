@@ -3,7 +3,7 @@
 "=========================================
 
 " @@todo Should make each 'column' of the output have the same width +doit #ui #maybe
-" @@todo Add the ability to sort the output                          +doit #ui #maybe
+" @@todo Add the ability to sort the output +doit #ui #maybe
 
 let s:output = []
 
@@ -191,7 +191,7 @@ fun! SearchFile(file)
                     let epicString = " |"
                     for c in epic
                         let epicString = epicString . " " . c
-                        let templine = substitute(templine, " " . c, "", 'g')
+                        "let templine = substitute(templine, " " . c, "", 'g')
                     endfor
                 endif
                 " build tags string
@@ -199,7 +199,7 @@ fun! SearchFile(file)
                     let tagString = " |"
                     for t in tags
                         let tagString = tagString . " " . t
-                        let templine = substitute(templine, " " . t, "", 'g')
+                        "let templine = substitute(templine, " " . t, "", 'g')
                     endfor
                 endif
                 " remove the comment string
@@ -209,7 +209,8 @@ fun! SearchFile(file)
                 " build file info string
                 let fileinfo = fnamemodify(a:file, g:doit_filename_modifier) . ":" . line_num
                 " build output string 
-                let temp = statusString . " |" . templine . tagString . epicString  . " | " . fileinfo
+                "let temp = statusString . " |" . templine . tagString . epicString  . " | " . fileinfo
+                let temp = statusString . " |" . templine . " | " . fileinfo
 
                 call add(s:output, temp)
             endif
