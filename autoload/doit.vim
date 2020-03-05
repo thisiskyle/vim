@@ -25,15 +25,17 @@ fun! doit#Doit()
 
         for file in files
             if (s:CheckFileExtension(file) == 1)
-                :echo "Searching " . file
-                call SearchFile(file)
                 :redraw
+                echo "Doing it...   " . file
+                call SearchFile(file)
             endif 
         endfor
     endif
     call NewBuffer()
     :set filetype=doit
-    :echo "Done!"
+    :redraw
+    echo "Done!"
+    normal <c-m>
 endfun
 
 fun! doit#DoitFresh()
