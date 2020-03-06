@@ -74,7 +74,6 @@ autocmd Vimresized * wincmd =
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
 autocmd VimEnter * call StartUp()
-autocmd BufWinEnter * silent! set ff=unix
 "===============================================================================================================
 " functions 
 "===============================================================================================================
