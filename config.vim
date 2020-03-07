@@ -26,8 +26,6 @@ let g:doit_identifier = '@@'
 let g:window_max = 0
 let g:session_dir = g:vimhome . "tmp/sessions"
 let g:comment_types = { 'vim':"\"", 'python':"#", 'cs':"//", 'cpp':"//", 'js':"//", 'default':""}
-let s:toppad = 20 
-let s:leftpad = 45 
 " gruvbox8
 let g:gruvbox_italics = 0
 let g:gruvbox_bold = 0
@@ -44,8 +42,9 @@ exec "set directory=" . g:vimhome . 'tmp/swap/'
 exec "set viewdir=" . g:vimhome . 'tmp/view/'
 set incsearch hlsearch ignorecase smartcase wrap autoindent expandtab tabstop=4 shiftwidth=4
 set belloff=all laststatus=0 background=dark t_Co=256
+set cursorline
 set tags=tags;/
-set rulerformat=%60(%=%m\ %#Identifier#%t\ %#Label#%{gitbranch#name()}%#Normal#\ %l:%c%)
+set rulerformat=%60(%=%m\ %#Identifier#%t\ %#Label#%{gitbranch#name()}%#Normal#\ %l:%c\ `%#Identifier#o%#Normal#´%)
 filetype plugin indent on
 color gruvbox8_soft
 "===============================================================================================================
@@ -73,7 +72,8 @@ command -nargs=? SL call SessionLoad(<q-args>)
 autocmd Vimresized * wincmd =
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
-autocmd VimEnter * call StartUp()
+autocmd CursorMoved * call NaviFlap()
+autocmd CursorMovedI * call NaviFlap()
 "===============================================================================================================
 " functions 
 "===============================================================================================================
@@ -157,67 +157,13 @@ function! SessionLoad(fname)
     :execute ":so" . g:session_dir . a:fname . ".vim"
 endfunction
 
-function! StartUp()
-    if argc() || line2byte('$') != -1 || v:progname !~? '^[-gmnq]\=vim\=x\=\%[\.exe]$' || &insertmode
-        return
+let s:flap = 0
+function! NaviFlap()
+    if s:flap == 0
+        :set rulerformat=%60(%=%m\ %#Identifier#%t\ %#Label#%{gitbranch#name()}%#Normal#\ %l:%c\ ,%#Identifier#o%#Normal#,%)
+        let s:flap = 1
+    else
+        :set rulerformat=%60(%=%m\ %#Identifier#%t\ %#Label#%{gitbranch#name()}%#Normal#\ %l:%c\ `%#Identifier#o%#Normal#´%)
+        let s:flap = 0
     endif
-    let s:startup_text = 
-                \[
-                \'    /_\    ',
-                \'    |_|    ',
-                \'    |_|    ',
-                \'   _|_|_   ',
-                \'  / ___ \  ',
-                \' |_/| |\_|    --------------',
-                \'    / \      | Hey, listen! |',
-                \'    |#|       --------------',
-                \'    ###         /',
-                \'   #####   ',
-                \'  # | | #    `o´',
-                \' ###| |### ',
-                \'##### #####',
-                \'    | |    ',
-                \'    | |    ',
-                \'    | |    ',
-                \'    \ /    ',
-                \]
-    enew!
-    setlocal 
-            \ bufhidden=wipe 
-            \ buftype=nofile 
-            \ nobuflisted
-            \ nocursorcolumn 
-            \ nocursorline 
-            \ nolist 
-            \ nonumber 
-            \ noswapfile 
-            \ norelativenumber
-
-    let i = 0
-    while i < s:toppad
-        call append('$', '')
-        let i += 1
-    endwhile
-
-    " this is really bad, but i dont know the right way to do this
-    " it works so dont touch it :)
-    syntax match Triforce '#'
-    syntax match Navi 'o'
-    syntax match Wings '[`´]'
-    syntax match Hilt '_\||_|\|/_\\\||_/\|\\_|\|/ ___ \\'
-    hi default link Triforce Type
-    hi default link Navi Identifier
-    hi default link Wings Normal
-    hi default link Hilt Identifier
-
-    for l in s:startup_text
-        let c = 0
-        let s = ''
-        while c < s:leftpad
-            let s = s . ' '
-            let c += 1
-        endwhile
-        call append('$', s . l)
-    endfor
-    setlocal nomodifiable nomodified
 endfunction
