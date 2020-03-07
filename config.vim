@@ -24,7 +24,7 @@ let g:ctrlp_regexp = 1
 let g:doit_identifier = '@@'
 " my functions
 let g:window_max = 0
-let g:session_dir = g:vimhome . "tmp/sessions"
+let g:session_dir = g:vimhome . "tmp/sessions/"
 let g:comment_types = { 'vim':"\"", 'python':"#", 'cs':"//", 'cpp':"//", 'js':"//", 'default':""}
 " gruvbox8
 let g:gruvbox_italics = 0
