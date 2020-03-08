@@ -65,13 +65,10 @@ command Config :execute ":e" . g:vimhome . "config.vim"
 command Todo :execute ":e" . "~/todo.txt"
 command Ctags :execute "!ctags -f tags -R * " . getcwd()
 command CD :cd %:p:h
-command F call ToggleFullscreen()
 command -nargs=? SS call SessionSave(<q-args>)
 command -nargs=? SL call SessionLoad(<q-args>)
 "auto commands
 autocmd Vimresized * wincmd =
-autocmd BufWinLeave *.* mkview
-autocmd BufWinEnter *.* silent loadview
 autocmd CursorMoved * call NaviFlap()
 autocmd CursorMovedI * call NaviFlap()
 "===============================================================================================================
@@ -123,19 +120,6 @@ function! ToggleComment()
             normal l
             let i += 1
         endwhile
-    endif
-endfunction
-
-" maximizes the window if you are running gvim
-function! ToggleFullscreen()
-    if has("gui_running")
-        if g:window_max == 0
-            let g:window_max = 1
-            :sim ~x
-        else
-            let g:window_max = 0
-            :sim ~r
-        endif
     endif
 endfunction
 
