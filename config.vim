@@ -23,9 +23,8 @@ let g:ctrlp_regexp = 1
 " doit
 let g:doit_identifier = '@@'
 " my functions
-let g:window_max = 0
 let g:session_dir = g:vimhome . "tmp/sessions/"
-let g:comment_types = { 'vim':"\"", 'python':"#", 'cs':"//", 'cpp':"//", 'js':"//", 'default':""}
+let g:comment_types = { 'vim':"\"", 'python':"#", 'cs':"//", 'cpp':"//", 'js':"//", 'default':"//"}
 " gruvbox8
 let g:gruvbox_italics = 0
 let g:gruvbox_bold = 0
@@ -41,8 +40,7 @@ exec "set undodir=" . g:vimhome . 'tmp/undo/'
 exec "set directory=" . g:vimhome . 'tmp/swap/'
 exec "set viewdir=" . g:vimhome . 'tmp/view/'
 set incsearch hlsearch ignorecase smartcase wrap autoindent expandtab tabstop=4 shiftwidth=4
-set belloff=all laststatus=0 background=dark t_Co=256
-set cursorline
+set belloff=all laststatus=0 background=dark t_Co=256 cursorline
 set tags=tags;/
 set rulerformat=%60(%=%m\ %#Identifier#%t\ %#Label#%{gitbranch#name()}%#Normal#\ %l:%c\ `%#Identifier#o%#Normal#´%)
 filetype plugin indent on
@@ -50,6 +48,7 @@ color gruvbox8_soft
 "===============================================================================================================
 " key bindings
 "===============================================================================================================
+inoremap {<c-m> {<cr>}<esc>O
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
@@ -68,7 +67,6 @@ command CD :cd %:p:h
 command -nargs=? SS call SessionSave(<q-args>)
 command -nargs=? SL call SessionLoad(<q-args>)
 "auto commands
-autocmd Vimresized * wincmd =
 autocmd CursorMoved * call NaviFlap()
 autocmd CursorMovedI * call NaviFlap()
 "===============================================================================================================
