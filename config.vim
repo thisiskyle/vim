@@ -67,8 +67,9 @@ command CD :cd %:p:h
 command -nargs=? SS call SessionSave(<q-args>)
 command -nargs=? SL call SessionLoad(<q-args>)
 "auto commands
-autocmd CursorMoved * call NaviFlap()
-autocmd CursorMovedI * call NaviFlap()
+autocmd CursorMoved * call NaviAnimate()
+autocmd CursorMovedI * call NaviAnimate()
+autocmd BufEnter * silent! set ff=unix
 "===============================================================================================================
 " functions 
 "===============================================================================================================
@@ -140,7 +141,7 @@ function! SessionLoad(fname)
 endfunction
 
 let s:flap = 0
-function! NaviFlap()
+function! NaviAnimate()
     if s:flap == 0
         :set rulerformat=%60(%=%m\ %#Identifier#%t\ %#Label#%{gitbranch#name()}%#Normal#\ %l:%c\ ,%#Identifier#o%#Normal#,%)
         let s:flap = 1
