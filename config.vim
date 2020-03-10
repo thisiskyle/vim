@@ -69,7 +69,8 @@ command -nargs=? SL call SessionLoad(<q-args>)
 "auto commands
 autocmd CursorMoved * call NaviAnimate()
 autocmd CursorMovedI * call NaviAnimate()
-autocmd BufEnter * silent! set ff=unix
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview
 "===============================================================================================================
 " functions 
 "===============================================================================================================
