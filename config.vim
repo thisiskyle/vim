@@ -33,7 +33,7 @@ let g:gruvbox_italicize_strings = 0
 " vim settings
 "===============================================================================================================
 if has("gui_running")
-    set guioptions ='' lines=60 columns=120
+    set guioptions ='' lines=55 columns=120
 endif
 exec "set backupdir=" . g:vimhome . 'tmp/backup/'
 exec "set undodir=" . g:vimhome . 'tmp/undo/'
