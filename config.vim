@@ -60,6 +60,7 @@ nnoremap <leader>t :NewTodo<cr>
 " commands 
 "===============================================================================================================
 command Config :execute ":e" . g:vimhome . "config.vim"
+command Notes :execute ":e ~/notes.txt" 
 command Ctags :execute "!ctags -f tags -R * " . getcwd()
 command CD :cd %:p:h
 command -nargs=? SS call SessionSave(<q-args>)
