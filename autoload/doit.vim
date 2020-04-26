@@ -193,7 +193,6 @@ fun! SearchFile(file)
                     let epicString = " |"
                     for c in epic
                         let epicString = epicString . " " . c
-                        "let templine = substitute(templine, " " . c, "", 'g')
                     endfor
                 endif
                 " build tags string
@@ -201,18 +200,19 @@ fun! SearchFile(file)
                     let tagString = " |"
                     for t in tags
                         let tagString = tagString . " " . t
-                        "let templine = substitute(templine, " " . t, "", 'g')
                     endfor
                 endif
                 " remove the comment string
                 let templine = substitute(templine, s:GetRegexCommentString(a:file), "", 'g')
+                " remove leading spaces
+                let templine = substitute(templine, '^\s*\(.\{-}\)\s*$', '\1', '')
                 " remove the doit_identifier string
                 let statusString = substitute(statusString, g:doit_identifier, "", 'g')
                 " build file info string
                 let fileinfo = fnamemodify(a:file, g:doit_filename_modifier) . ":" . line_num
                 " build output string 
                 "let temp = statusString . " |" . templine . tagString . epicString  . " | " . fileinfo
-                let temp = statusString . " |" . templine . " | " . fileinfo
+                let temp = statusString . " | " . templine . " | " . fileinfo
 
                 call add(s:output, temp)
             endif
