@@ -34,10 +34,7 @@ let g:gruvbox_italicize_strings = 0
 if has("gui_running")
     set guioptions ='' lines=55 columns=120
 endif
-exec "set backupdir=" . g:vimhome . 'tmp/backup/'
-exec "set undodir=" . g:vimhome . 'tmp/undo/'
-exec "set directory=" . g:vimhome . 'tmp/swap/'
-exec "set viewdir=" . g:vimhome . 'tmp/view/'
+set nobackup noswapfile noundofile
 set incsearch hlsearch ignorecase smartcase wrap autoindent expandtab tabstop=4 shiftwidth=4
 set belloff=all laststatus=0 background=dark t_Co=256 cursorline
 set tags=tags;/
@@ -56,6 +53,8 @@ nnoremap <c-n> :call ToggleComment()<cr>
 vnoremap <c-n> :call ToggleComment()<cr>
 nnoremap <leader>r :silent call ReplaceAll()<cr>
 nnoremap <leader>t :NewTodo<cr>
+nnoremap <leader>d :Doit<cr>
+nnoremap <leader>df :Doit Fresh<cr>
 "===============================================================================================================
 " commands 
 "===============================================================================================================
@@ -65,9 +64,6 @@ command Ctags :execute "!ctags -f tags -R * " . getcwd()
 command CD :cd %:p:h
 command -nargs=? SS call SessionSave(<q-args>)
 command -nargs=? SL call SessionLoad(<q-args>)
-"auto commands
-autocmd BufWinLeave *.* mkview
-autocmd BufWinEnter *.* silent loadview
 "===============================================================================================================
 " functions 
 "===============================================================================================================
