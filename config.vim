@@ -11,7 +11,6 @@ call plug#begin(g:vimhome . 'plug')
 Plug 'https://github.com/sheerun/vim-polyglot'
 Plug 'https://github.com/itchyny/vim-gitbranch'
 Plug 'https://github.com/lifepillar/vim-gruvbox8'
-Plug 'https://github.com/ctrlpvim/ctrlp.vim'
 call plug#end()
 "===============================================================================================================
 " plugin variables
@@ -22,12 +21,13 @@ let g:ctrlp_regexp = 1
 " doit
 let g:doit_identifier = '@@'
 " my functions
-let g:session_dir = g:vimhome . "tmp/sessions/"
 let g:comment_types = { 'vim':"\"", 'python':"#", 'cs':"//", 'cpp':"//", 'js':"//", 'default':"//"}
 " gruvbox8
 let g:gruvbox_italics = 0
 let g:gruvbox_bold = 0
 let g:gruvbox_italicize_strings = 0
+" simple
+let g:simple_style = "gruvbox"
 "===============================================================================================================
 " vim settings
 "===============================================================================================================
@@ -39,8 +39,10 @@ set incsearch hlsearch ignorecase smartcase wrap autoindent expandtab tabstop=4 
 set belloff=all laststatus=0 background=dark t_Co=256 cursorline
 set tags=tags;/
 set rulerformat=%60(%=%m\ %#Identifier#%t\ %#Label#%{gitbranch#name()}%#Normal#\ %l:%c%)
+set path+=**/*
 filetype plugin indent on
-color gruvbox8_soft
+"color gruvbox8_soft
+color simple
 "===============================================================================================================
 " key bindings
 "===============================================================================================================
@@ -54,16 +56,14 @@ vnoremap <c-n> :call ToggleComment()<cr>
 nnoremap <leader>r :silent call ReplaceAll()<cr>
 nnoremap <leader>t :NewTodo<cr>
 nnoremap <leader>d :Doit<cr>
-nnoremap <leader>df :Doit Fresh<cr>
+nnoremap <leader>D :Doit Fresh<cr>
 "===============================================================================================================
 " commands 
 "===============================================================================================================
 command Config :execute ":e" . g:vimhome . "config.vim"
-command Notes :execute ":e ~/notes.md" 
+command Todo :execute ":e ~/todo.txt" 
 command Ctags :execute "!ctags -f tags -R * " . getcwd()
 command CD :cd %:p:h
-command -nargs=? SS call SessionSave(<q-args>)
-command -nargs=? SL call SessionLoad(<q-args>)
 "===============================================================================================================
 " functions 
 "===============================================================================================================
@@ -122,14 +122,4 @@ function! ReplaceAll()
     let word = expand("<cword>")
     :execute "%s/" . word . "/" . input("Replace [" . word . "] with: ") . "/g"
     call setpos(".", save_pos)
-endfunction
-
-" save the current session
-function! SessionSave(fname)
-    :execute ":mks!" . g:session_dir . a:fname . ".vim"
-endfunction
-
-" load a session
-function! SessionLoad(fname)
-    :execute ":so" . g:session_dir . a:fname . ".vim"
 endfunction
