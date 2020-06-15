@@ -2,8 +2,8 @@
 " autoload/doit.vim
 "=========================================
 
-" @@todo Should make each 'column' of the output have the same width +doit #ui #maybe
-" @@todo Add the ability to sort the output +doit #ui #maybe
+" @todo Should make each 'column' of the output have the same width
+" @todo Add the ability to sort the output
 
 let s:output = []
 
@@ -152,9 +152,10 @@ endfun
 
 fun! SearchFile(file)
     try
+        let commentString = s:GetRegexCommentString(a:file)
         let lines = readfile(a:file)
         let line_num = 0
-        let regex_line = s:GetRegexCommentString(a:file) . " " . g:doit_identifier
+        let regex_line = commentString . " " . g:doit_identifier
         let regex_status = g:doit_identifier . '\S\+'
         let regex_epic = '+\S\+'
         let regex_tag = '#\S\+'
@@ -187,6 +188,9 @@ fun! SearchFile(file)
                         let statusString = statusString . s
                         let templine = substitute(templine, " " . s, "", 'g')
                     endfor
+                    let statusString = statusString . " |"
+                else
+                    let statusString = ""
                 endif
                 " build epic string
                 if len(epic) > 0
@@ -202,17 +206,16 @@ fun! SearchFile(file)
                         let tagString = tagString . " " . t
                     endfor
                 endif
-                " remove the comment string
-                let templine = substitute(templine, s:GetRegexCommentString(a:file), "", 'g')
-                " remove leading spaces
-                let templine = substitute(templine, '^\s*\(.\{-}\)\s*$', '\1', '')
-                " remove the doit_identifier string
-                let statusString = substitute(statusString, g:doit_identifier, "", 'g')
                 " build file info string
                 let fileinfo = fnamemodify(a:file, g:doit_filename_modifier) . ":" . line_num
                 " build output string 
-                "let temp = statusString . " |" . templine . tagString . epicString  . " | " . fileinfo
-                let temp = statusString . " | " . templine . " | " . fileinfo
+                let temp = statusString . templine . " | " . fileinfo
+                " remove the doit_identifier string
+                let temp = substitute(temp, g:doit_identifier, "", 'g')
+                " remove the comment string
+                let temp = substitute(temp, commentString, "", 'g')
+                " remove leading spaces
+                let temp = substitute(temp, '^\s*\(.\{-}\)\s*$', '\1', '')
 
                 call add(s:output, temp)
             endif
