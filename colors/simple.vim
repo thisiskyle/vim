@@ -14,7 +14,7 @@ let s:gui.bg = { 'material':'#263238', 'gruvbox':'#282828'}
 let s:gui.bg2 = { 'material':'NONE', 'gruvbox':'#3c3836'}
 let s:gui.bg3 = { 'material':'NONE', 'gruvbox':'#1d2021'}
 let s:gui.fg = { 'material':'#ECEFF1', 'gruvbox':'#bdae93'}
-let s:gui.comment = { 'material':'#5D818E', 'gruvbox':'#7C6F64'}
+let s:gui.comment = { 'material':'#5D818E', 'gruvbox':'#504945'}
 let s:gui.none = { 'material':'NONE', 'gruvbox':'NONE',  }
 let s:gui.red = { 'material':'NONE', 'gruvbox':'#FB4934'}
 let s:gui.green = { 'material':'NONE', 'gruvbox':'#B8BB26'}
@@ -66,4 +66,5 @@ call s:hi("Pmenusel", s:gui.red, s:gui.bg3, s:gui.none)
 call s:hi("Pmenusbar", s:gui.fg, s:gui.none, s:gui.none)
 call s:hi("PmenuThumb", s:gui.fg, s:gui.none, s:gui.none)
 call s:hi("Underlined", s:gui.fg, s:gui.none, s:gui.none)
-call s:hi("WildMenu", s:gui.fg, s:gui.none, s:gui.none)
+call s:hi("WildMenu", s:gui.red, s:gui.bg3, s:gui.none)
+call s:hi("StatusLine", s:gui.none, s:gui.bg3, s:gui.none)

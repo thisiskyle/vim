@@ -37,6 +37,7 @@ endif
 set nobackup noswapfile noundofile
 set incsearch hlsearch ignorecase smartcase wrap autoindent expandtab tabstop=4 shiftwidth=4
 set belloff=all laststatus=0 background=dark t_Co=256 cursorline
+set scrolloff=0
 set tags=tags;/
 set rulerformat=%60(%=%m\ %#Identifier#%t\ %#Label#%{gitbranch#name()}%#Normal#\ %l:%c%)
 set path+=**/*
