@@ -4,6 +4,7 @@ if has("win32")
 elseif has("unix")
     let g:vimhome = '~/.vim/'
 endif
+" @todo is a test
 "===============================================================================================================
 " plugins
 "===============================================================================================================
@@ -19,7 +20,7 @@ call plug#end()
 let g:ctrlp_by_filename = 1
 let g:ctrlp_regexp = 1
 " doit
-let g:doit_identifier = '@@'
+let g:doit_identifier = '::'
 " my functions
 let g:comment_types = { 'vim':"\"", 'python':"#", 'cs':"//", 'cpp':"//", 'js':"//", 'default':"//"}
 " gruvbox8
