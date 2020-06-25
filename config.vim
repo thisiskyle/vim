@@ -17,11 +17,11 @@ call plug#end()
 "===============================================================================================================
 " plugin variables
 "===============================================================================================================
-" crtlp
-let g:ctrlp_by_filename = 1
-let g:ctrlp_regexp = 1
 " my functions
-let g:comment_types = { 'vim':"\"", 'python':"#", 'cs':"//", 'cpp':"//", 'js':"//", 'default':"//"}
+let g:comment_types = { 'default':"//" }
+let g:comment_types.vim = "\""
+let g:comment_types.python = "#"
+let g:comment_types.sh = "#"
 " gruvbox8
 let g:gruvbox_italics = 0
 let g:gruvbox_bold = 0
@@ -69,49 +69,30 @@ command Todo noautocmd vimgrep /\s@\(TODO\)\s/j **/* | cw
 " adds a comment string at the beginning of current line unless the line is empty
 function! ToggleComment()
     " skip line if empty
-    if strlen(getline('.')) <= 0
-        return
+    if strlen(getline('.')) <= 0 
+        return 
     endif
+    " save position
     let save_pos = getpos(".")
-    if has_key(g:comment_types, &ft)
+    " get the comment string
+    if has_key(g:comment_types, &ft) 
         let cstr = g:comment_types[&ft]
-    else
-        let cstr = g:comment_types["default"]
+    else 
+        let cstr = g:comment_types["default"] 
     endif
+    " jump to first character in line
     normal ^
     " check to see if the line has a comment
-    let i = 0
-    let check = 0
-    while i < strlen(cstr)
-        if getline(".")[(col(".") - 1) + i] == cstr[i]
-            let check = 1
-        else 
-            let check = 0
-        endif
-        let i = i + 1
-    endwhile
-    if check == 1
+    if getline(".")[(col(".") - 1):(strlen(cstr) - 1)] == cstr
         " remove the comment string
-        let i = 0
-        while i < len(cstr)
-            normal x
-            let i += 1
-        endwhile
+        :execute "normal " . strlen(cstr) . "x"
         call setpos(".", save_pos)
-        let i = 0
-        while i < len(cstr)
-            normal h
-            let i += 1
-        endwhile
-    else
-         "add a comment string
+        :execute "normal " . strlen(cstr) . "h"
+    else 
+        " add a comment string
         :execute "normal i" . cstr
         call setpos(".", save_pos)
-        let i = 0
-        while i < strlen(cstr)
-            normal l
-            let i += 1
-        endwhile
+        :execute "normal " . strlen(cstr) . "l"
     endif
 endfunction
 

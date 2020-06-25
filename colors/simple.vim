@@ -10,17 +10,17 @@ if !exists('g:simple_style')
 endif
 
 let s:gui = {}
-let s:gui.bg = { 'material':'#263238', 'gruvbox':'#282828'}
-let s:gui.bg2 = { 'material':'NONE', 'gruvbox':'#3c3836'}
-let s:gui.bg3 = { 'material':'NONE', 'gruvbox':'#1d2021'}
-let s:gui.fg = { 'material':'#ECEFF1', 'gruvbox':'#bdae93'}
+let s:gui.fg =      { 'material':'#ECEFF1', 'gruvbox':'#bdae93'}
+let s:gui.bg =      { 'material':'#263238', 'gruvbox':'#282828'}
+let s:gui.bg2 =     { 'material':'#263238', 'gruvbox':'#3c3836'}
+let s:gui.bg3 =     { 'material':'#455a64', 'gruvbox':'#1d2021'}
 let s:gui.comment = { 'material':'#5D818E', 'gruvbox':'#504945'}
-let s:gui.none = { 'material':'NONE', 'gruvbox':'NONE',  }
-let s:gui.red = { 'material':'NONE', 'gruvbox':'#FB4934'}
-let s:gui.green = { 'material':'NONE', 'gruvbox':'#B8BB26'}
-let s:gui.yellow = { 'material':'NONE', 'gruvbox':'#FABD2F'}
-let s:gui.blue = { 'material':'NONE', 'gruvbox':'#83A598'}
-let s:gui.orange = { 'material':'NONE', 'gruvbox':'#FE8019'}
+let s:gui.red =     { 'material':'#ef5350', 'gruvbox':'#FB4934'}
+let s:gui.green =   { 'material':'#43a047', 'gruvbox':'#B8BB26'}
+let s:gui.yellow =  { 'material':'#fdd835', 'gruvbox':'#FABD2F'}
+let s:gui.blue =    { 'material':'#2196f3', 'gruvbox':'#83A598'}
+let s:gui.orange =  { 'material':'#ef6c00', 'gruvbox':'#FE8019'}
+let s:gui.none =    { 'material':'NONE',    'gruvbox':'NONE',  }
 
 function! s:hi(group, guifg, guibg, guistyle)
     exec "hi " . a:group . " guifg=" . a:guifg[g:simple_style]
@@ -57,10 +57,10 @@ call s:hi("CursorColumn", s:gui.none, s:gui.bg3, s:gui.none)
 call s:hi("Error", s:gui.red, s:gui.none, s:gui.none)
 call s:hi("ErrorMsg", s:gui.red, s:gui.none, s:gui.none)
 call s:hi("WarningMsg", s:gui.yellow, s:gui.none, s:gui.none)
-call s:hi("Matchparen", s:gui.red, s:gui.none, s:gui.none)
+call s:hi("Matchparen", s:gui.green, s:gui.none, s:gui.none)
 call s:hi("IncSearch", s:gui.red, s:gui.none, s:gui.none)
 call s:hi("Search", s:gui.red, s:gui.none, s:gui.none)
-call s:hi("Visual", s:gui.green, s:gui.none, s:gui.none)
+call s:hi("Visual", s:gui.orange, s:gui.none, s:gui.none)
 call s:hi("Cursor", s:gui.bg, s:gui.fg, s:gui.none)
 call s:hi("Pmenu", s:gui.fg, s:gui.bg3, s:gui.none)
 call s:hi("Pmenusel", s:gui.red, s:gui.bg3, s:gui.none)
