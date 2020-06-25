@@ -4,13 +4,14 @@ if has("win32")
 elseif has("unix")
     let g:vimhome = '~/.vim/'
 endif
-" @todo is a test
 "===============================================================================================================
 " plugins
 "===============================================================================================================
 call plug#begin(g:vimhome . 'plug')
+" utility
 Plug 'https://github.com/sheerun/vim-polyglot'
 Plug 'https://github.com/itchyny/vim-gitbranch'
+" colors
 Plug 'https://github.com/lifepillar/vim-gruvbox8'
 call plug#end()
 "===============================================================================================================
@@ -19,8 +20,6 @@ call plug#end()
 " crtlp
 let g:ctrlp_by_filename = 1
 let g:ctrlp_regexp = 1
-" doit
-let g:doit_identifier = '::'
 " my functions
 let g:comment_types = { 'vim':"\"", 'python':"#", 'cs':"//", 'cpp':"//", 'js':"//", 'default':"//"}
 " gruvbox8
@@ -37,13 +36,12 @@ if has("gui_running")
 endif
 set nobackup noswapfile noundofile
 set incsearch hlsearch ignorecase smartcase wrap autoindent expandtab tabstop=4 shiftwidth=4
-set belloff=all laststatus=0 background=dark t_Co=256 cursorline
+set belloff=all laststatus=0 background=dark t_Co=256 
 set scrolloff=0
 set tags=tags;/
-set rulerformat=%60(%=%m\ %#Identifier#%t\ %#Label#%{gitbranch#name()}%#Normal#\ %l:%c%)
 set path+=**/*
+set rulerformat=%60(%=%m\ %#Identifier#%t\ %#Search#%{gitbranch#name()}%#Normal#\ %l:%c%)
 filetype plugin indent on
-"color gruvbox8_soft
 color simple
 "===============================================================================================================
 " key bindings
@@ -56,16 +54,15 @@ nnoremap <c-l> <c-w>l
 nnoremap <c-n> :call ToggleComment()<cr>
 vnoremap <c-n> :call ToggleComment()<cr>
 nnoremap <leader>r :silent call ReplaceAll()<cr>
-nnoremap <leader>t :NewTodo<cr>
-nnoremap <leader>d :Doit<cr>
-nnoremap <leader>D :Doit Fresh<cr>
+nnoremap <leader>t :Todo<cr>
 "===============================================================================================================
 " commands 
 "===============================================================================================================
 command Config :execute ":e" . g:vimhome . "config.vim"
-command Todo :execute ":e ~/todo.txt" 
+command Notes :execute ":e ~/todo.txt" 
 command Ctags :execute "!ctags -f tags -R * " . getcwd()
 command CD :cd %:p:h
+command Todo noautocmd vimgrep /\s@\(TODO\)\s/j **/* | cw
 "===============================================================================================================
 " functions 
 "===============================================================================================================

@@ -1,17 +1,9 @@
 
-.netrwhist
-
-tags
+tmp/
 plug/
 
-tmp/backup/*
-tmp/sessions/*
-tmp/swap/*
-tmp/undo/*
-tmp/view/*
+tags
+.netrwhist
 
-!tmp/backup/.gitkeep
-!tmp/sessions/.gitkeep
-!tmp/swap/.gitkeep
-!tmp/undo/.gitkeep
-!tmp/view/.gitkeep
+!.gitkeep
+
