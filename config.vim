@@ -1,6 +1,6 @@
 if has("win32")
     let g:vimhome = '~/vimfiles/'
-    set guifont=Courier_Prime_Code:h10
+    set guifont=Cascadia_Code:h10,ProggyCrossed:h10,Courier_Prime_Code:h10
 elseif has("unix")
     let g:vimhome = '~/.vim/'
 endif
@@ -35,13 +35,12 @@ if has("gui_running")
 endif
 set nobackup noswapfile noundofile
 set incsearch hlsearch ignorecase smartcase wrap autoindent expandtab tabstop=4 shiftwidth=4
-set belloff=all laststatus=0 background=dark t_Co=256 
-set scrolloff=0
+set belloff=all laststatus=0 background=dark t_Co=256 scrolloff=0
 set tags=tags;/
 set path+=**/*
-set rulerformat=%60(%=%m\ %#Identifier#%t\ %#Search#%{gitbranch#name()}%#Normal#\ %l:%c%)
+set rulerformat=%60(%=%m\ %#Identifier#%t\ %#GitBranch#%{gitbranch#name()}%#Normal#\ %l:%c%)
 filetype plugin indent on
-color simple_gruv
+color simple_grey
 "===============================================================================================================
 " key bindings
 "===============================================================================================================
@@ -87,7 +86,7 @@ function! ToggleComment()
         " remove the comment string
         :execute "normal " . strlen(cstr) . "x"
         call setpos(".", save_pos)
-        ":execute "normal " . strlen(cstr) . "h"
+        :execute "normal " . strlen(cstr) . "h"
     else 
         " add a comment string
         :execute "normal i" . cstr
