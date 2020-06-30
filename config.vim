@@ -13,6 +13,7 @@ Plug 'https://github.com/sheerun/vim-polyglot'
 Plug 'https://github.com/itchyny/vim-gitbranch'
 " colors
 Plug 'https://github.com/lifepillar/vim-gruvbox8'
+Plug 'https://github.com/hardselius/warlock'
 call plug#end()
 "===============================================================================================================
 " plugin variables
@@ -26,8 +27,6 @@ let g:comment_types.sh = "#"
 let g:gruvbox_italics = 0
 let g:gruvbox_bold = 0
 let g:gruvbox_italicize_strings = 0
-" simple
-let g:simple_style = "gruvbox"
 "===============================================================================================================
 " vim settings
 "===============================================================================================================
@@ -42,7 +41,7 @@ set tags=tags;/
 set path+=**/*
 set rulerformat=%60(%=%m\ %#Identifier#%t\ %#Search#%{gitbranch#name()}%#Normal#\ %l:%c%)
 filetype plugin indent on
-color simple
+color simple_gruv
 "===============================================================================================================
 " key bindings
 "===============================================================================================================
@@ -83,11 +82,12 @@ function! ToggleComment()
     " jump to first character in line
     normal ^
     " check to see if the line has a comment
-    if getline(".")[(col(".") - 1):(strlen(cstr) - 1)] == cstr
+    let a = col(".") - 1
+    if getline(".")[a : a + (strlen(cstr) - 1)] == cstr
         " remove the comment string
         :execute "normal " . strlen(cstr) . "x"
         call setpos(".", save_pos)
-        :execute "normal " . strlen(cstr) . "h"
+        ":execute "normal " . strlen(cstr) . "h"
     else 
         " add a comment string
         :execute "normal i" . cstr
