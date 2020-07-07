@@ -35,12 +35,18 @@ if has("gui_running")
 endif
 set nobackup noswapfile noundofile
 set incsearch hlsearch ignorecase smartcase wrap autoindent expandtab tabstop=4 shiftwidth=4
-set belloff=all laststatus=0 background=dark t_Co=256 scrolloff=0
+set belloff=all laststatus=0 background=dark scrolloff=0 t_Co=256
 set tags=tags;/
 set path+=**/*
 set rulerformat=%60(%=%m\ %#Identifier#%t\ %#GitBranch#%{gitbranch#name()}%#Normal#\ %l:%c%)
 filetype plugin indent on
-color simple_grey
+
+if has("gui_running")
+    color simple_grey
+else
+    color gruvbox8
+endif
+
 "===============================================================================================================
 " key bindings
 "===============================================================================================================
