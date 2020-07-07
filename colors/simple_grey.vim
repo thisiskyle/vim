@@ -9,6 +9,24 @@ if !exists("g:simple_style")
     let g:simple_style='normal'
 endif
 
+let g:terminal_ansi_colors = [
+            \ '#EEEEEE',
+            \ '#CCCCCC',
+            \ '#999999',
+            \ '#666666',
+            \ '#444444',
+            \ '#333333',
+            \ '#222222',
+            \ '#111111',
+            \ '#000000',
+            \ '#FFFFFF',
+            \ '#FB4934',
+            \ '#2e7d32',
+            \ '#FABD2F',
+            \ '#83A598',
+            \ '#FE8019'
+            \ ]
+
 let s:gui = {}
 let s:gui.grey =    {'normal':'#EEEEEE',}
 let s:gui.grey1 =   {'normal':'#CCCCCC',}
