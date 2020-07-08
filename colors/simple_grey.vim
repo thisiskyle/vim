@@ -25,10 +25,13 @@ let s:green28   = '#008700'
 let s:orange130 = '#af5f00'
 let s:gold142   = '#afaf00'
 let s:red167    = '#d75f5f'
+let s:grey232   = '#080808'
 let s:grey235   = '#262626'
 let s:grey239   = '#4e4e4e'
+let s:grey243   = '#767676'
 let s:grey247   = '#9e9e9e'
 let s:grey252   = '#d0d0d0'
+let s:grey255   = '#eeeeee'
 
 
 call s:hi("Normal",       s:grey247, s:grey235, 'NONE', 247,    235,    'NONE')
