@@ -40,13 +40,7 @@ set tags=tags;/
 set path+=**/*
 set rulerformat=%60(%=%m\ %#Identifier#%t\ %#GitBranch#%{gitbranch#name()}%#Normal#\ %l:%c%)
 filetype plugin indent on
-
-if has("gui_running")
-    color simple_grey
-else
-    color gruvbox8
-endif
-
+color simple_grey
 "===============================================================================================================
 " key bindings
 "===============================================================================================================
