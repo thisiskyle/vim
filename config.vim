@@ -34,7 +34,7 @@ if has("gui_running")
     set guioptions ='' lines=55 columns=120
 endif
 set nobackup noswapfile noundofile
-set incsearch hlsearch ignorecase smartcase wrap autoindent expandtab tabstop=4 shiftwidth=4
+set incsearch hlsearch wrap autoindent expandtab tabstop=4 shiftwidth=4
 set belloff=all laststatus=0 background=dark scrolloff=0 t_Co=256
 set tags=tags;/
 set path+=**/*
