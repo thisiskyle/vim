@@ -13,7 +13,6 @@ Plug 'https://github.com/sheerun/vim-polyglot'
 Plug 'https://github.com/itchyny/vim-gitbranch'
 " colors
 Plug 'https://github.com/lifepillar/vim-gruvbox8'
-Plug 'https://github.com/hardselius/warlock'
 call plug#end()
 "===============================================================================================================
 " plugin variables
