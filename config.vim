@@ -52,7 +52,6 @@ nnoremap <c-l> <c-w>l
 nnoremap <c-n> :call ToggleComment()<cr>
 vnoremap <c-n> :call ToggleComment()<cr>
 nnoremap <leader>r :silent call ReplaceAll()<cr>
-nnoremap <leader>t :Todo<cr>
 "===============================================================================================================
 " commands 
 "===============================================================================================================
@@ -60,7 +59,7 @@ command Config :execute ":e" . g:vimhome . "config.vim"
 command Notes :execute ":e ~/todo.txt" 
 command Ctags :execute "!ctags -f tags -R * " . getcwd()
 command CD :cd %:p:h
-command Todo noautocmd vimgrep /\s@\(TODO\)\s/j **/* | cw
+command Todo noautocmd vimgrep /\s\(TODO\):\s/j **/* | cw
 "===============================================================================================================
 " functions 
 "===============================================================================================================
