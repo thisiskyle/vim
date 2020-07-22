@@ -1,9 +1,8 @@
-
-tmp/
 plug/
-
 tags
 .netrwhist
 
-!.gitkeep
+tmp/*/*
+
+!tmp/*/.gitkeep
 

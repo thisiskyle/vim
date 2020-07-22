@@ -32,8 +32,11 @@ let g:gruvbox_italicize_strings = 0
 if has("gui_running")
     set guioptions ='' lines=55 columns=120
 endif
-set nobackup noswapfile noundofile
-set incsearch hlsearch wrap autoindent expandtab tabstop=4 shiftwidth=4
+exec "set backupdir=" . g:vimhome . "tmp/backup/"
+exec "set undodir="   . g:vimhome . "tmp/undo/"
+exec "set directory=" . g:vimhome . "tmp/swp/"
+exec "set viewdir="   . g:vimhome . "tmp/view/"
+set incsearch hlsearch autoindent expandtab tabstop=4 shiftwidth=4
 set belloff=all laststatus=0 background=dark scrolloff=0 t_Co=256
 set tags=tags;/
 set path+=**/*
@@ -43,7 +46,6 @@ color simple_grey
 "===============================================================================================================
 " key bindings
 "===============================================================================================================
-inoremap {<c-m> {<cr>}<esc>O
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
@@ -59,6 +61,8 @@ command Notes :execute ":e ~/todo.txt"
 command Ctags :execute "!ctags -f tags -R * " . getcwd()
 command CD :cd %:p:h
 command Todo noautocmd vimgrep /\s\(TODO\):\s/j **/* | cw
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview
 "===============================================================================================================
 " functions 
 "===============================================================================================================
