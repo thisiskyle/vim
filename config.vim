@@ -22,6 +22,7 @@ let g:comment_types = { 'default':"//" }
 let g:comment_types.vim = "\""
 let g:comment_types.python = "#"
 let g:comment_types.sh = "#"
+let g:comment_types.gd = "#"
 " gruvbox8
 let g:gruvbox_italics = 0
 let g:gruvbox_bold = 0
@@ -39,7 +40,6 @@ exec "set viewdir="   . g:vimhome . "tmp/view/"
 set incsearch hlsearch autoindent expandtab tabstop=4 shiftwidth=4
 set belloff=all laststatus=0 background=dark scrolloff=0 t_Co=256
 set tags=tags;/
-set path+=**/*
 set rulerformat=%60(%=%m\ %#Identifier#%t\ %#GitBranch#%{gitbranch#name()}%#Normal#\ %l:%c%)
 filetype plugin indent on
 color simple_grey
@@ -60,7 +60,7 @@ command Config :execute ":e" . g:vimhome . "config.vim"
 command Notes :execute ":e ~/todo.txt" 
 command Ctags :execute "!ctags -f tags -R * " . getcwd()
 command CD :cd %:p:h
-command Todo noautocmd vimgrep /\s\(TODO\):\s/j **/* | cw
+command Todo noautocmd vimgrep /\s\(TODO\)\s/j **/* | cw
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
 "===============================================================================================================

@@ -26,6 +26,7 @@ let s:orange130 = '#af5f00'
 let s:gold142   = '#afaf00'
 let s:red167    = '#d75f5f'
 let s:grey232   = '#080808'
+let s:grey234   = '#1c1c1c'
 let s:grey235   = '#262626'
 let s:grey239   = '#4e4e4e'
 let s:grey243   = '#767676'
@@ -51,13 +52,14 @@ call s:hi("Title",        'NONE',      'NONE',    'NONE', 'NONE', 'NONE', 'NONE'
 call s:hi("VertSplit",    'NONE',      'NONE',    'NONE', 'NONE', 'NONE', 'NONE')
 call s:hi("Type",         'NONE',      'NONE',    'NONE', 'NONE', 'NONE', 'NONE')
 call s:hi("Number",       'NONE',      'NONE',    'NONE', 'NONE', 'NONE', 'NONE')
+call s:hi("LineNr",       s:grey239,   'NONE',    'NONE', 239,    'NONE', 'NONE')
 call s:hi("Comment",      s:grey239,   'NONE',    'NONE', 239,    'NONE', 'NONE')
 call s:hi("Todo",         s:grey239,   'NONE',    'NONE', 239,    'NONE', 'NONE')
 call s:hi("Folded",       'NONE',      'NONE',    'NONE', 'NONE', 'NONE', 'NONE')
-call s:hi("EndOfBuffer",  'NONE',      'NONE',    'NONE', 'NONE', 'NONE', 'NONE')
+call s:hi("EndOfBuffer",  s:grey239,   'NONE',    'NONE', 239,    'NONE', 'NONE')
 call s:hi("Linear",       'NONE',      'NONE',    'NONE', 'NONE', 'NONE', 'NONE')
-call s:hi("CursorLineNR", 'NONE',      'NONE',    'NONE', 'NONE', 'NONE', 'NONE')
-call s:hi("CursorLine",   'NONE',      'NONE',    'NONE', 'NONE', 'NONE', 'NONE')
+call s:hi("CursorLine",   'NONE',      'NONE',    'NONE', 'NONE', 234,    'NONE')
+call s:hi("CursorLineNr", s:grey247,   'NONE',    'NONE', 247,    'NONE', 'NONE')
 call s:hi("CursorColumn", 'NONE',      'NONE',    'NONE', 'NONE', 'NONE', 'NONE')
 call s:hi("Error",        s:red167,    'NONE',    'NONE', 167,    'NONE', 'NONE')
 call s:hi("ErrorMsg",     s:red167,    'NONE',    'NONE', 167,    'NONE', 'NONE')
