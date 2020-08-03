@@ -40,7 +40,8 @@ exec "set viewdir="   . g:vimhome . "tmp/view/"
 set incsearch hlsearch autoindent expandtab tabstop=4 shiftwidth=4
 set belloff=all laststatus=0 background=dark scrolloff=0 t_Co=256
 set tags=tags;/
-set rulerformat=%60(%=%m\ %#Identifier#%t\ %#GitBranch#%{gitbranch#name()}%#Normal#\ %l:%c%)
+set rulerformat=%60(%=%m\ %#RulerFile#%t\ %#RulerBranch#%{gitbranch#name()}%#Normal#\ %l:%c%)
+set statusline=%=%#StatusNormal#%m\ %t\ %#StatusBranch#%{gitbranch#name()}%#StatusNormal#\ %l:%c\ 
 filetype plugin indent on
 color simple_grey
 "===============================================================================================================
