@@ -33,13 +33,10 @@ let g:gruvbox_italicize_strings = 0
 if has("gui_running")
     set guioptions ='' lines=55 columns=120
 endif
-exec "set backupdir=" . g:vimhome . "tmp/backup/"
-exec "set undodir="   . g:vimhome . "tmp/undo/"
-exec "set directory=" . g:vimhome . "tmp/swp/"
-exec "set viewdir="   . g:vimhome . "tmp/view/"
-set incsearch hlsearch autoindent expandtab tabstop=4 shiftwidth=4
+set nobackup incsearch hlsearch autoindent expandtab tabstop=4 shiftwidth=4
 set belloff=all laststatus=0 background=dark scrolloff=0 t_Co=256
 set tags=tags;/
+set fillchars=stl:=,stlnc:-,vert:\|,fold:-,diff:-
 set rulerformat=%60(%=%m\ %#RulerFile#%t\ %#RulerBranch#%{gitbranch#name()}%#Normal#\ %l:%c%)
 set statusline=%=%#StatusNormal#%m\ %t\ %#StatusBranch#%{gitbranch#name()}%#StatusNormal#\ %l:%c\ 
 filetype plugin indent on
@@ -61,9 +58,7 @@ command Config :execute ":e" . g:vimhome . "config.vim"
 command Notes :execute ":e ~/todo.txt" 
 command Ctags :execute "!ctags -f tags -R * " . getcwd()
 command CD :cd %:p:h
-command Todo noautocmd vimgrep /\s\(TODO\)\s/j **/* | cw
-autocmd BufWinLeave *.* mkview
-autocmd BufWinEnter *.* silent loadview
+command GrepTodo noautocmd vimgrep /\(TODO\)/j **/* | cw
 "===============================================================================================================
 " functions 
 "===============================================================================================================
