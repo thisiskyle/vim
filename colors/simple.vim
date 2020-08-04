@@ -77,7 +77,7 @@ call s:hi("PmenuThumb", s:none, s:none, s:none, s:none, s:none, s:none)
 call s:hi("Underlined", s:none, s:none, 'underline', s:none, s:none, 'underline')
 call s:hi("Wildmenu", s:red167, s:none, s:none, 167, s:none, s:none)
 call s:hi("StatusLine", s:grey255, s:grey235, s:none, 255, 235, s:none)
-call s:hi("StatusLineNC", s:grey247, s:grey235, s:none, 147, 235, s:none)
+call s:hi("StatusLineNC", s:grey239, s:grey235, s:none, 239, 235, s:none)
 " user defined highlight groups
 call s:hi("RulerBranch", s:red167, s:none, s:none, 167, s:none, s:none)
 call s:hi("RulerFile", s:none, s:none, s:none, s:none, s:none, s:none)
