@@ -36,11 +36,11 @@ endif
 set nobackup incsearch hlsearch autoindent expandtab tabstop=4 shiftwidth=4
 set belloff=all laststatus=0 background=dark scrolloff=0 t_Co=256
 set tags=tags;/
-set fillchars=stl:=,stlnc:-,vert:\|,fold:-,diff:-
+set fillchars=stl:-,stlnc:-,vert:\|,fold:-,diff:-
 set rulerformat=%60(%=%m\ %#RulerFile#%t\ %#RulerBranch#%{gitbranch#name()}%#Normal#\ %l:%c%)
 set statusline=%=%#StatusNormal#%m\ %t\ %#StatusBranch#%{gitbranch#name()}%#StatusNormal#\ %l:%c\ 
 filetype plugin indent on
-color simple_grey
+color simple
 "===============================================================================================================
 " key bindings
 "===============================================================================================================
