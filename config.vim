@@ -40,7 +40,7 @@ set fillchars=stl:-,stlnc:-,vert:\|,fold:-,diff:-
 set rulerformat=%60(%=%m\ %#RulerFile#%t\ %#RulerBranch#%{gitbranch#name()}%#Normal#\ %l:%c%)
 set statusline=%=%#StatusNormal#%m\ %t\ %#StatusBranch#%{gitbranch#name()}%#StatusNormal#\ %l:%c\ 
 filetype plugin indent on
-color simple
+color nightswatch
 "===============================================================================================================
 " key bindings
 "===============================================================================================================

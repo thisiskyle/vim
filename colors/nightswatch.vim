@@ -5,7 +5,6 @@ endif
 
 let g:colors_name="Night's Watch"
 
-
 function! s:hi(group, guifg, guibg, gui, ctermfg, ctermbg, cterm)
     exec "hi " . a:group . " guifg="   . a:guifg
     exec "hi " . a:group . " guibg="   . a:guibg
