@@ -58,6 +58,7 @@ command Config :execute ":e" . g:vimhome . "config.vim"
 command Notes :execute ":e ~/todo.txt" 
 command Ctags :execute "!ctags -f tags -R * " . getcwd()
 command CD :cd %:p:h
+command JSONFormat :%!python -m json.tool
 command GrepTodo noautocmd vimgrep /\(TODO\)/j **/* | cw
 "===============================================================================================================
 " functions 
