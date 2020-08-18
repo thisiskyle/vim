@@ -33,6 +33,7 @@ let g:gruvbox_italicize_strings = 0
 if has("gui_running")
     set guioptions ='' lines=55 columns=120
 endif
+exec "set viewdir=" . g:vimhome . ".tmp/views/"
 set nobackup incsearch hlsearch autoindent expandtab tabstop=4 shiftwidth=4
 set belloff=all laststatus=0 background=dark scrolloff=0 t_Co=256
 set tags=tags;/
@@ -55,11 +56,13 @@ nnoremap <leader>r :silent call ReplaceAll()<cr>
 " commands 
 "===============================================================================================================
 command Config :execute ":e" . g:vimhome . "config.vim"
-command Notes :execute ":e ~/todo.txt" 
+command Notes :execute ":e ~/notes.txt" 
 command Ctags :execute "!ctags -f tags -R * " . getcwd()
 command CD :cd %:p:h
-command JSONFormat :%!python -m json.tool
-command GrepTodo noautocmd vimgrep /\(TODO\)/j **/* | cw
+command FormatJson :%!python -m json.tool
+command Todo noautocmd vimgrep /\(TODO\|todo\|Todo\)/j **/* | cw
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview
 "===============================================================================================================
 " functions 
 "===============================================================================================================
