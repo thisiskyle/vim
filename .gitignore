@@ -4,7 +4,9 @@ plug/
 
 tags
 .netrwhist
-!.tmp/*/.gitkeep
-
 *.swp
 
+
+
+
+!.gitkeep
