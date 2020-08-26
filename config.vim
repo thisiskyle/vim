@@ -18,11 +18,11 @@ call plug#end()
 " plugin variables
 "===============================================================================================================
 " my functions
-let g:comment_types = { 'default':"//" }
-let g:comment_types.vim = "\""
-let g:comment_types.python = "#"
-let g:comment_types.sh = "#"
-let g:comment_types.gd = "#"
+let g:comment_delimiters = { 'default':"//" }
+let g:comment_delimiters.vim = "\""
+let g:comment_delimiters.python = "#"
+let g:comment_delimiters.sh = "#"
+let g:comment_delimiters.gdscript3 = "#"
 " gruvbox8
 let g:gruvbox_italics = 0
 let g:gruvbox_bold = 0
@@ -31,7 +31,7 @@ let g:gruvbox_italicize_strings = 0
 " vim settings
 "===============================================================================================================
 if has("gui_running")
-    set guioptions ='' lines=55 columns=120
+    set guioptions ='' lines=40 columns=120
 endif
 exec "set viewdir=" . g:vimhome . ".tmp/views/"
 set nobackup incsearch hlsearch autoindent expandtab tabstop=4 shiftwidth=4
@@ -75,10 +75,10 @@ function! ToggleComment()
     " save position
     let save_pos = getpos(".")
     " get the comment string
-    if has_key(g:comment_types, &ft) 
-        let cstr = g:comment_types[&ft]
+    if has_key(g:comment_delimiters, &ft) 
+        let cstr = g:comment_delimiters[&ft]
     else 
-        let cstr = g:comment_types["default"] 
+        let cstr = g:comment_delimiters["default"] 
     endif
     " jump to first character in line
     normal ^
