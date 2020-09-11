@@ -1,12 +1,8 @@
-
 plug/
 .tmp/
 
 tags
 .netrwhist
 *.swp
-
-
-
 
 !.gitkeep

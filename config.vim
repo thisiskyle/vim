@@ -1,6 +1,6 @@
 if has("win32")
     let g:vimhome = '~/vimfiles/'
-    set guifont=Cascadia_Code:h10,Courier_Prime_Code:h10
+    set guifont=Victor_Mono:h10,Cascadia_Code_Light:h10
 elseif has("unix")
     let g:vimhome = '~/.vim/'
 endif
@@ -33,14 +33,17 @@ let g:gruvbox_italicize_strings = 0
 if has("gui_running")
     set guioptions ='' lines=40 columns=120
 endif
-exec "set viewdir=" . g:vimhome . ".tmp/views/"
+exec "set viewdir=" . g:vimhome . ".tmp/views//"
+exec "set directory=" . g:vimhome . ".tmp/swap//"
 set nobackup incsearch hlsearch autoindent expandtab tabstop=4 shiftwidth=4
 set belloff=all laststatus=0 background=dark scrolloff=0 t_Co=256
 set tags=tags;/
-set fillchars=stl:-,stlnc:-,vert:\|,fold:-,diff:-
-set rulerformat=%60(%=%m\ %#RulerFile#%t\ %#RulerBranch#%{gitbranch#name()}%#Normal#\ %l:%c%)
-set statusline=%=%#StatusNormal#%m\ %t\ %#StatusBranch#%{gitbranch#name()}%#StatusNormal#\ %l:%c\ 
 filetype plugin indent on
+set rulerformat=%60(%=%m\ %#RulerFile#%t\ %#RulerBranch#%{gitbranch#name()}%#Normal#\ %l:%c%)
+"since window splits force a status line, this makes it look like my ruler
+set fillchars=stl:-,stlnc:-,vert:\|,fold:-,diff:- 
+set statusline=%=%#StatusNormal#%m\ %t\ %#StatusBranch#%{gitbranch#name()}%#StatusNormal#\ %l:%c\  
+
 color nightswatch
 "===============================================================================================================
 " key bindings
