@@ -8,41 +8,38 @@ endif
 " plugins
 "===============================================================================================================
 call plug#begin(g:vimhome . 'plug')
-" utility
 Plug 'https://github.com/sheerun/vim-polyglot'
 Plug 'https://github.com/itchyny/vim-gitbranch'
-" colors
 Plug 'https://github.com/lifepillar/vim-gruvbox8'
 call plug#end()
 "===============================================================================================================
-" plugin variables
+" settings
 "===============================================================================================================
-" my functions
+if has("gui_running")
+    set guioptions ='' lines=40 columns=120
+endif
+
+exec "set viewdir=" . g:vimhome . ".tmp/views//"
+exec "set directory=" . g:vimhome . ".tmp/swap//"
+set tags=tags;/
+
+filetype plugin indent on
+set incsearch hlsearch autoindent expandtab tabstop=4 shiftwidth=4
+
+set nobackup belloff=all laststatus=0 background=dark scrolloff=0 t_Co=256
+set rulerformat=%60(%=%m\ %#RulerFile#%t\ %#RulerBranch#%{gitbranch#name()}%#Normal#\ %l:%c%)
+set statusline=%=%#StatusNormal#%m\ %t\ %#StatusBranch#%{gitbranch#name()}%#StatusNormal#\ %l:%c\  " makes the status line look like my ruler
+set fillchars=stl:-,stlnc:-,vert:\|,fold:-,diff:- " since window splits force a status line, this makes splits look nice 
+
 let g:comment_delimiters = { 'default':"//" }
 let g:comment_delimiters.vim = "\""
 let g:comment_delimiters.python = "#"
 let g:comment_delimiters.sh = "#"
 let g:comment_delimiters.gdscript3 = "#"
-" gruvbox8
+
 let g:gruvbox_italics = 0
 let g:gruvbox_bold = 0
 let g:gruvbox_italicize_strings = 0
-"===============================================================================================================
-" vim settings
-"===============================================================================================================
-if has("gui_running")
-    set guioptions ='' lines=40 columns=120
-endif
-exec "set viewdir=" . g:vimhome . ".tmp/views//"
-exec "set directory=" . g:vimhome . ".tmp/swap//"
-set nobackup incsearch hlsearch autoindent expandtab tabstop=4 shiftwidth=4
-set belloff=all laststatus=0 background=dark scrolloff=0 t_Co=256
-set tags=tags;/
-filetype plugin indent on
-set rulerformat=%60(%=%m\ %#RulerFile#%t\ %#RulerBranch#%{gitbranch#name()}%#Normal#\ %l:%c%)
-"since window splits force a status line, this makes it look like my ruler
-set fillchars=stl:-,stlnc:-,vert:\|,fold:-,diff:- 
-set statusline=%=%#StatusNormal#%m\ %t\ %#StatusBranch#%{gitbranch#name()}%#StatusNormal#\ %l:%c\  
 
 color nightswatch
 "===============================================================================================================
@@ -53,8 +50,10 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 nnoremap <c-n> :call ToggleComment()<cr>
-vnoremap <c-n> :call ToggleComment()<cr>
 nnoremap <leader>r :silent call ReplaceAll()<cr>
+
+vnoremap <c-n> :call ToggleComment()<cr>
+vnoremap <leader>r :silent call ReplaceAll()<cr>
 "===============================================================================================================
 " commands 
 "===============================================================================================================
@@ -64,6 +63,7 @@ command Ctags :execute "!ctags -f tags -R * " . getcwd()
 command CD :cd %:p:h
 command FormatJson :%!python -m json.tool
 command Todo noautocmd vimgrep /\(TODO\|todo\|Todo\)/j **/* | cw
+
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
 "===============================================================================================================
