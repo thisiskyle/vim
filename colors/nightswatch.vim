@@ -54,7 +54,7 @@ call s:hi("Title", s:none, s:none, s:none, s:none, s:none, s:none)
 call s:hi("Type", s:none, s:none, s:none, s:none, s:none, s:none)
 call s:hi("Number", s:none, s:none, s:none, s:none, s:none, s:none)
 call s:hi("LineNr", s:grey239, s:none, s:none, 239, s:none, s:none)
-call s:hi("Comment", s:grey239, s:none, s:italic, 239, s:none, s:italic)
+call s:hi("Comment", s:grey239, s:none, s:none, 239, s:none, s:none)
 call s:hi("VertSplit", s:grey239, s:none, s:none, 239, s:none, s:none)
 call s:hi("Todo", s:grey239, s:none, s:none, 239, s:none, s:none)
 call s:hi("Folded", s:grey239, s:none, s:none, 239, s:none, s:none)
@@ -84,3 +84,8 @@ call s:hi("RulerBranch", s:red167, s:none, s:none, 167, s:none, s:none)
 call s:hi("RulerFile", s:none, s:none, s:none, s:none, s:none, s:none)
 call s:hi("StatusBranch", s:red167, s:grey235, s:none, 167, 235, s:none)
 call s:hi("StatusNormal", s:grey247, s:grey235, s:none, 247, 235, s:none)
+
+
+if has("gui_running")
+    call s:hi("Comment", s:grey239, s:none, s:italic, 239, s:none, s:italic)
+endif
