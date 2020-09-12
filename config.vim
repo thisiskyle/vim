@@ -1,6 +1,6 @@
 if has("win32")
     let g:vimhome = '~/vimfiles/'
-    set guifont=Victor_Mono:h11,Cascadia_Code_Light:h10
+    set guifont=Victor_Mono:h10,Cascadia_Code_Light:h10
 elseif has("unix")
     let g:vimhome = '~/.vim/'
 endif
