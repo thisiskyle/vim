@@ -41,8 +41,6 @@ let g:gruvbox_italics = 0
 let g:gruvbox_bold = 0
 let g:gruvbox_italicize_strings = 0
 
-let g:nightswatch_italics = 0
-
 color nightswatch
 "===============================================================================================================
 " key bindings

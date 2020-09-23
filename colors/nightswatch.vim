@@ -1,10 +1,11 @@
+
 hi clear
+
 if exists("syntax_on")
     syntax reset
 endif
 
-let g:colors_name="Night's Watch"
-
+" main function for applying highlight groups
 function! s:hi(group, guifg, guibg, gui, ctermfg, ctermbg, cterm)
     exec "hi " . a:group . " guifg="   . a:guifg
     exec "hi " . a:group . " guibg="   . a:guibg
@@ -15,6 +16,12 @@ function! s:hi(group, guifg, guibg, gui, ctermfg, ctermbg, cterm)
 endfunction
 
 
+" settings
+let g:colors_name="Night's Watch"
+let g:nightswatch_italics = 0
+
+
+" base colors
 " the lower the number the darker the grey
 let s:black16   = '#000000'
 let s:yellow11  = '#ffff00'
@@ -79,13 +86,14 @@ call s:hi("Underlined", s:none, s:none, 'underline', s:none, s:none, 'underline'
 call s:hi("Wildmenu", s:red167, s:none, s:none, 167, s:none, s:none)
 call s:hi("StatusLine", s:grey255, s:grey235, s:none, 255, 235, s:none)
 call s:hi("StatusLineNC", s:grey239, s:grey235, s:none, 239, 235, s:none)
+
 " user defined highlight groups
 call s:hi("RulerBranch", s:red167, s:none, s:none, 167, s:none, s:none)
 call s:hi("RulerFile", s:none, s:none, s:none, s:none, s:none, s:none)
 call s:hi("StatusBranch", s:red167, s:grey235, s:none, 167, 235, s:none)
 call s:hi("StatusNormal", s:grey247, s:grey235, s:none, 247, 235, s:none)
 
-
+" settings based highlight groups
 if has("gui_running") && g:nightswatch_italics == 1
     call s:hi("Comment", s:grey239, s:none, s:italic, 239, s:none, s:italic)
     call s:hi("Todo", s:grey239, s:none, s:italic, 239, s:none, s:italic)
