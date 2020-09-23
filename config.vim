@@ -1,6 +1,6 @@
 if has("win32")
     let g:vimhome = '~/vimfiles/'
-    set guifont=Victor_Mono:h10,Cascadia_Code_Light:h10
+    set guifont=Fira_Code_Retina:h10
 elseif has("unix")
     let g:vimhome = '~/.vim/'
 endif
@@ -41,6 +41,8 @@ let g:gruvbox_italics = 0
 let g:gruvbox_bold = 0
 let g:gruvbox_italicize_strings = 0
 
+let g:nightswatch_italics = 0
+
 color nightswatch
 "===============================================================================================================
 " key bindings
@@ -54,6 +56,8 @@ nnoremap <leader>r :silent call ReplaceAll()<cr>
 
 vnoremap <c-n> :call ToggleComment()<cr>
 vnoremap <leader>r :silent call ReplaceAll()<cr>
+
+inoremap {<cr> {<cr>}<esc>O
 "===============================================================================================================
 " commands 
 "===============================================================================================================
