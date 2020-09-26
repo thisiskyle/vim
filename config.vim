@@ -53,8 +53,6 @@ nnoremap <leader>r :silent call ReplaceAll()<cr>
 
 vnoremap <c-n> :call ToggleComment()<cr>
 vnoremap <leader>r :silent call ReplaceAll()<cr>
-
-inoremap {<cr> {<cr>}<esc>O
 "===============================================================================================================
 " commands 
 "===============================================================================================================
