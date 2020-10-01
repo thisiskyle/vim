@@ -1,7 +1,7 @@
-if has("win32")
-    let g:vimhome = '~/vimfiles/'
-elseif has("unix")
+if has("unix")
     let g:vimhome = '~/.vim/'
+else
+    let g:vimhome = '~/vimfiles/'
 endif
 "===============================================================================================================
 " plugins
@@ -50,9 +50,9 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 nnoremap <c-n> :call ToggleComment()<cr>
-nnoremap <leader>r :silent call ReplaceAll()<cr>
+nnoremap <leader>r :silent call ReplaceAll(expand("<cword>"))<cr>
+vnoremap <leader>r :<C-U>silent call ReplaceAll(GetVisualSelection())<cr>
 vnoremap <c-n> :call ToggleComment()<cr>
-vnoremap <leader>r :silent call ReplaceAll()<cr>
 "===============================================================================================================
 " commands 
 "===============================================================================================================
@@ -101,20 +101,19 @@ function! ToggleComment()
 endfunction
 
 " shortcut for :%s/<word>/<replacement>/g/
-function! ReplaceAll()
+function! ReplaceAll(str)
     let save_pos = getpos(".")
-    let word = expand("<cword>")
-    :execute "%s/" . word . "/" . input("Replace [" . word . "] with: ") . "/g"
+    :execute "%s/" . a:str . "/" . input("Replace [" . a:str . "] with: ") . "/g"
     call setpos(".", save_pos)
 endfunction
 
-" save the current session
-function! SessionSave(fname)
-    :execute ":mks!" . g:session_dir . a:fname . ".vim"
-endfunction
-
-" load a session
-function! SessionLoad(fname)
-    :execute ":so" . g:session_dir . a:fname . ".vim"
+" returns the selected text from visual mode
+function! GetVisualSelection()
+  let [lnum1, col1] = getpos("'<")[1:2]
+  let [lnum2, col2] = getpos("'>")[1:2]
+  let lines = getline(lnum1, lnum2)
+  let lines[-1] = lines[-1][: col2 - (&selection == 'inclusive' ? 1 : 2)]
+  let lines[0] = lines[0][col1 - 1:]
+  return join(lines, "\n")
 endfunction
 
