@@ -25,11 +25,10 @@ set tags=tags;/
 filetype plugin indent on
 set incsearch hlsearch autoindent expandtab tabstop=4 shiftwidth=4
 
-set nobackup belloff=all laststatus=0 background=dark scrolloff=0 t_Co=256
+set noswap nobackup belloff=all laststatus=0 background=dark scrolloff=0 t_Co=256
 set rulerformat=%60(%=%m\ %#RulerFile#%t\ %#RulerBranch#%{gitbranch#name()}%#Normal#\ %l:%c%)
 set statusline=%=%#StatusNormal#%m\ %t\ %#StatusBranch#%{gitbranch#name()}%#StatusNormal#\ %l:%c\  " makes the status line look like my ruler
 set fillchars=stl:-,stlnc:-,vert:\|,fold:-,diff:- " since window splits force a status line, this makes splits look nice 
-let g:session_dir = g:vimhome . ".tmp/session/"
 
 let g:comment_delimiters = { 'default':"//" }
 let g:comment_delimiters.vim = "\""
@@ -62,8 +61,6 @@ command Ctags :execute "!ctags -f tags -R * " . getcwd()
 command CD :cd %:p:h
 command FormatJson :%!python -m json.tool
 command Todo noautocmd vimgrep /\(TODO\|todo\|Todo\)/j **/* | cw
-command -nargs=? SS call SessionSave(<q-args>)
-command -nargs=? SL call SessionLoad(<q-args>)
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
 "===============================================================================================================
