@@ -25,7 +25,7 @@ set tags=tags;/
 filetype plugin indent on
 set incsearch hlsearch autoindent expandtab tabstop=4 shiftwidth=4
 
-set noswap nobackup belloff=all laststatus=0 background=dark scrolloff=0 t_Co=256
+set noswapfile nobackup belloff=all laststatus=0 background=dark scrolloff=0 t_Co=256
 set rulerformat=%60(%=%m\ %#RulerFile#%t\ %#RulerBranch#%{gitbranch#name()}%#Normal#\ %l:%c%)
 set statusline=%=%#StatusNormal#%m\ %t\ %#StatusBranch#%{gitbranch#name()}%#StatusNormal#\ %l:%c\  " makes the status line look like my ruler
 set fillchars=stl:-,stlnc:-,vert:\|,fold:-,diff:- " since window splits force a status line, this makes splits look nice 
