@@ -64,6 +64,8 @@ vnoremap <c-n> :call ToggleComment()<cr>
 command Config :execute ":e" . g:vimhome . "config.vim"
 command CD :cd %:p:h
 command Todo noautocmd vimgrep /TODO\c/j **/* | copen
+command -nargs=1 Mks call MakeSession(<f-args>)
+command -nargs=1 Lds call LoadSession(<f-args>)
 "===============================================================================================================
 " functions 
 "===============================================================================================================
@@ -113,4 +115,13 @@ function! GetVisualSelection()
   let lines[-1] = lines[-1][: col2 - (&selection == 'inclusive' ? 1 : 2)]
   let lines[0] = lines[0][col1 - 1:]
   return join(lines, "\n")
+endfunction
+
+function! MakeSession(name)
+    execute ":mks! " . g:vimhome . "sessions/" . a:name . ".session"
+endfunction
+
+function! LoadSession(name)
+    execute ":so " . g:vimhome . "sessions/" . a:name . ".session"
+    :color nightswatch
 endfunction
