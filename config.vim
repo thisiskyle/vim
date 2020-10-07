@@ -18,7 +18,7 @@ if has("gui_running")
     set lines=40 
     set columns=120
 endif
-exec "set viewdir=" . g:vimhome . ".tmp/views//"
+exec "set viewdir=" . g:vimhome . "views//"
 filetype plugin indent on
 set incsearch 
 set hlsearch 
