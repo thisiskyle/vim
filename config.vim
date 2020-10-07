@@ -9,36 +9,42 @@ endif
 call plug#begin(g:vimhome . 'plug')
 Plug 'https://github.com/sheerun/vim-polyglot'
 Plug 'https://github.com/itchyny/vim-gitbranch'
-Plug 'https://github.com/lifepillar/vim-gruvbox8'
 call plug#end()
 "===============================================================================================================
 " settings
 "===============================================================================================================
 if has("gui_running")
-    set guioptions ='' lines=40 columns=120
+    set guioptions ='' 
+    set lines=40 
+    set columns=120
 endif
-
 exec "set viewdir=" . g:vimhome . ".tmp/views//"
-exec "set directory=" . g:vimhome . ".tmp/swap//"
-set tags=tags;/
-
 filetype plugin indent on
-set incsearch hlsearch autoindent expandtab tabstop=4 shiftwidth=4
-
-set noswapfile nobackup belloff=all laststatus=0 background=dark scrolloff=0 t_Co=256
+set incsearch 
+set hlsearch 
+set autoindent 
+set expandtab 
+set tabstop=4 
+set shiftwidth=4
+set tags=tags;/
+set noswapfile 
+set nobackup 
+set belloff=all 
+set laststatus=0 
+set background=dark 
+set scrolloff=0 
+set t_Co=256
 set rulerformat=%60(%=%m\ %#RulerFile#%t\ %#RulerBranch#%{gitbranch#name()}%#Normal#\ %l:%c%)
-set statusline=%=%#StatusNormal#%m\ %t\ %#StatusBranch#%{gitbranch#name()}%#StatusNormal#\ %l:%c\  " makes the status line look like my ruler
-set fillchars=stl:-,stlnc:-,vert:\|,fold:-,diff:- " since window splits force a status line, this makes splits look nice 
+" makes the status line look like my ruler
+set statusline=%=%#StatusNormal#%m\ %t\ %#StatusBranch#%{gitbranch#name()}%#StatusNormal#\ %l:%c\  
+" since window splits force a status line, this makes splits look nice 
+set fillchars=stl:-,stlnc:-,vert:\|,fold:-,diff:- 
 
 let g:comment_delimiters = { 'default':"//" }
 let g:comment_delimiters.vim = "\""
 let g:comment_delimiters.python = "#"
 let g:comment_delimiters.sh = "#"
 let g:comment_delimiters.gdscript3 = "#"
-
-let g:gruvbox_italics = 0
-let g:gruvbox_bold = 0
-let g:gruvbox_italicize_strings = 0
 
 color nightswatch
 "===============================================================================================================
@@ -56,13 +62,8 @@ vnoremap <c-n> :call ToggleComment()<cr>
 " commands 
 "===============================================================================================================
 command Config :execute ":e" . g:vimhome . "config.vim"
-command Notes :execute ":e ~/notes.txt" 
-command Ctags :execute "!ctags -f tags -R * " . getcwd()
 command CD :cd %:p:h
-command FormatJson :%!python -m json.tool
-command Todo noautocmd vimgrep /\(TODO\|todo\|Todo\)/j **/* | cw
-autocmd BufWinLeave *.* mkview
-autocmd BufWinEnter *.* silent loadview
+command Todo noautocmd vimgrep /TODO\c/j **/* | copen
 "===============================================================================================================
 " functions 
 "===============================================================================================================
@@ -113,4 +114,3 @@ function! GetVisualSelection()
   let lines[0] = lines[0][col1 - 1:]
   return join(lines, "\n")
 endfunction
-
