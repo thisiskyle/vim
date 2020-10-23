@@ -26,7 +26,7 @@ set autoindent
 set expandtab 
 set tabstop=4 
 set shiftwidth=4
-set tags=tags;/
+set tags=./tags,tags;$HOME
 set noswapfile 
 set nobackup 
 set belloff=all 
