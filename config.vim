@@ -62,7 +62,6 @@ vnoremap <c-n> :call ToggleComment()<cr>
 " commands 
 "===============================================================================================================
 command Config :execute ":e" . g:vimhome . "config.vim"
-command CD :cd %:p:h
 command Todo noautocmd vimgrep /TODO\c/j **/* | copen
 command -nargs=1 Mks call MakeSession(<f-args>)
 command -nargs=1 Lds call LoadSession(<f-args>)

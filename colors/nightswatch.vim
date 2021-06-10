@@ -18,7 +18,6 @@ endfunction
 
 " settings
 let g:colors_name="Night's Watch"
-let g:nightswatch_italics = 0
 
 
 " base colors
@@ -94,7 +93,7 @@ call s:hi("StatusBranch", s:red167, s:grey235, s:none, 167, 235, s:none)
 call s:hi("StatusNormal", s:grey247, s:grey235, s:none, 247, 235, s:none)
 
 " settings based highlight groups
-if has("gui_running") && g:nightswatch_italics == 1
+if has("gui_running") && exists("g:nightswatch_italics") && g:nightswatch_italics == 1
     call s:hi("Comment", s:grey239, s:none, s:italic, 239, s:none, s:italic)
     call s:hi("Todo", s:grey239, s:none, s:italic, 239, s:none, s:italic)
 endif
