@@ -1,7 +1,7 @@
 # Kyle's Vim Pack
 
-This pack utilizes vim8's built in package manager and requires not vimrc at all. 
-All my changes that you would normally find in a .vimrc are located in the ```pack/ke-vim-pack/config/plugin/config.vim```
+This pack utilizes vim8's built in package manager and requires no vimrc at all. Which makes it easier to install this without having to move files around.
+All my settings that you would normally find in a .vimrc are located in the ```pack/ke-vim-pack/config/plugin/config.vim```
 All the other plugins are basically just little helper functions that I use to make some tasks easier.
 
 
