@@ -15,10 +15,8 @@ function! s:hi(group, guifg, guibg, gui, ctermfg, ctermbg, cterm)
     exec "hi " . a:group . " cterm="   . a:cterm
 endfunction
 
-
 " settings
-let g:colors_name="Night's Watch"
-
+let g:colors_name="nightswatch"
 
 " base colors
 " the lower the number the darker the grey

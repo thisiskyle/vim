@@ -3,22 +3,21 @@ if has("unix")
 else
     let g:vimhome = '~/vimfiles/'
 endif
-"===============================================================================================================
-" plugins
-"===============================================================================================================
-call plug#begin(g:vimhome . 'plug')
-Plug 'https://github.com/sheerun/vim-polyglot'
-Plug 'https://github.com/itchyny/vim-gitbranch'
-call plug#end()
-"===============================================================================================================
-" settings
-"===============================================================================================================
+
+" ---------------------[ Plugin ]---------------------
+
+
+
+" ---------------------[ settings ]---------------------
+
 if has("gui_running")
     set guioptions ='' 
     set lines=40 
     set columns=120
 endif
-exec "set viewdir=" . g:vimhome . "views//"
+
+exec "set viewdir=" . g:vimhome . "tmp//"
+
 filetype plugin indent on
 set incsearch 
 set hlsearch 
@@ -34,40 +33,51 @@ set laststatus=0
 set background=dark 
 set scrolloff=0 
 set t_Co=256
-set rulerformat=%60(%=%m\ %#RulerFile#%t\ %#RulerBranch#%{gitbranch#name()}%#Normal#\ %l:%c%)
+
+color nightswatch
+
+" ---------------------[ Ruler Formatting ]---------------------
+
+set rulerformat=%60(%=%m\ %#RulerBranch#%t%#Normal#\ %l:%c%)
+
 " makes the status line look like my ruler
-set statusline=%=%#StatusNormal#%m\ %t\ %#StatusBranch#%{gitbranch#name()}%#StatusNormal#\ %l:%c\  
+set statusline=%=%#StatusNormal#%m\ %t%#StatusNormal#\ %l:%c\  
+
 " since window splits force a status line, this makes splits look nice 
 set fillchars=stl:-,stlnc:-,vert:\|,fold:-,diff:- 
 
-let g:comment_delimiters = { 'default':"//" }
+
+" ---------------------[ General Key Bindings ]---------------------
+
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
+
+
+" ---------------------[ General Commands ]---------------------
+
+command Config :execute ":e" . g:vimhome . "config.vim"
+command Todo noautocmd vimgrep /TODO\c/j **/* | copen
+
+" ---------------------[ Auto Commands ]---------------------
+
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview
+
+" --------------------[ Toggle Comment Plugin ]---------------------
+
+nnoremap <c-n> :call ToggleComment()<cr>
+vnoremap <c-n> :call ToggleComment()<cr>
+
+let g:comment_delimiters = {}
+let g:comment_delimiters.default ="//"
 let g:comment_delimiters.vim = "\""
 let g:comment_delimiters.python = "#"
 let g:comment_delimiters.sh = "#"
 let g:comment_delimiters.gdscript3 = "#"
 
-color nightswatch
-"===============================================================================================================
-" key bindings
-"===============================================================================================================
-nnoremap <c-h> <c-w>h
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-l> <c-w>l
-nnoremap <c-n> :call ToggleComment()<cr>
-nnoremap <leader>r :silent call ReplaceAll(expand("<cword>"))<cr>
-vnoremap <leader>r :<C-U>silent call ReplaceAll(GetVisualSelection())<cr>
-vnoremap <c-n> :call ToggleComment()<cr>
-"===============================================================================================================
-" commands 
-"===============================================================================================================
-command Config :execute ":e" . g:vimhome . "config.vim"
-command Todo noautocmd vimgrep /TODO\c/j **/* | copen
-command -nargs=1 Mks call MakeSession(<f-args>)
-command -nargs=1 Lds call LoadSession(<f-args>)
-"===============================================================================================================
-" functions 
-"===============================================================================================================
+
 " adds a comment string at the beginning of current line unless the line is empty
 function! ToggleComment()
     " skip line if empty
@@ -99,7 +109,13 @@ function! ToggleComment()
     endif
 endfunction
 
-" shortcut for :%s/<word>/<replacement>/g/
+
+" ---------------------[ Replace All Plugin ]---------------------
+" This plugin is a shortcut for :%s/<word>/<replacement>/g/
+
+nnoremap <leader>r :silent call ReplaceAll(expand("<cword>"))<cr>
+vnoremap <leader>r :<C-U>silent call ReplaceAll(GetVisualSelection())<cr>
+
 function! ReplaceAll(str)
     let save_pos = getpos(".")
     :execute "%s/" . a:str . "/" . input("Replace [" . a:str . "] with: ") . "/g"
@@ -116,11 +132,17 @@ function! GetVisualSelection()
   return join(lines, "\n")
 endfunction
 
+
+" --------------------[ Session Loading ]---------------------
+
+command -nargs=1 Mks call MakeSession(<f-args>)
+command -nargs=1 Lds call LoadSession(<f-args>)
+
 function! MakeSession(name)
-    execute ":mks! " . g:vimhome . "sessions/" . a:name . ".session"
+    execute ":mks! " . s:vimhome . "tmp/" . a:name . ".session"
 endfunction
 
 function! LoadSession(name)
-    execute ":so " . g:vimhome . "sessions/" . a:name . ".session"
+    execute ":so " . s:vimhome . "tmp/" . a:name . ".session"
     :color nightswatch
 endfunction

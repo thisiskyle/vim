@@ -1,6 +1,5 @@
-plug/
-sessions/
-views/
+tmp/
+pack/other/*
 
 tags
 .netrwhist
