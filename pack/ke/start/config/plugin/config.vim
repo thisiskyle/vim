@@ -75,6 +75,12 @@ vnoremap <leader>r :<C-U>silent call replace_all#ReplaceAllVis()<cr>
 
 "----------------[ Session Manager Plugin ]---------------------
 
+if has("unix")
+    let g:session_path = '~/.vim/pack/ke/start/session_man/session/'
+else
+    let g:session_path = '~/vimfiles/pack/ke/start/session_man/session/'
+endif
+
 command -nargs=1 Mks call session_man#MakeSession(<f-args>)
 command -nargs=1 Lds call session_man#LoadSession(<f-args>)
 

@@ -4,5 +4,6 @@ pack/other/*
 tags
 .netrwhist
 *.swp
+*.session
 
 !.gitkeep

@@ -1,17 +1,23 @@
 "---------------------[ Session Manager ]---------------------
 
 " check what OS we are on
-if has("unix")
-    let s:vimhome = '~/.vim/'
-else
-    let s:vimhome = '~/vimfiles/'
+
+
+if !exists("g:session_path")
+    if has("unix")
+        let g:session_path = '~/.vim/session/'
+    else
+        let g:session_path = '~/vimfiles/session/'
+    endif
 endif
 
+
+
 function! session_man#MakeSession(name)
-    execute ":mks! " . s:vimhome . "tmp/" . a:name . ".session"
+    execute ":mks! " . g:session_path . a:name . ".session"
 endfunction
 
 function! session_man#LoadSession(name)
-    execute ":so " . s:vimhome . "tmp/" . a:name . ".session"
+    execute ":so " . g:session_path . a:name . ".session"
     :color nightswatch
 endfunction
