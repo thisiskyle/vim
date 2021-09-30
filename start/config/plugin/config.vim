@@ -34,18 +34,6 @@ set t_Co=256
 color nightswatch
 
 
-"----------------[ Ruler Formatting ]---------------------
-
-" format the ruler to look nice
-set rulerformat=%60(%=%m\ %t\ %l:%c%)
-
-" makes the status line look like my ruler, so when we split each window matches
-set statusline=%=%m\ %t\ %l:%c\  
-
-" since window splits force a status line, this makes splits look nice with the status line
-set fillchars=stl:-,stlnc:-,vert:\|,fold:-,diff:- 
-
-
 "----------------[ General Key Bindings ]---------------------
 
 nnoremap <c-h> <c-w>h
