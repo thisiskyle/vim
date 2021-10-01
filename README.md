@@ -8,6 +8,9 @@ All the other plugins are basically just little helper functions that I use to m
 
 ## Full Installation
 
+This will install the pack and will load the config and plugins on startup. This may override some settings in
+your vimrc and may not play nice with some plugins.
+
 
 Windows
 
@@ -23,7 +26,7 @@ git clone https://github.com/thisiskyle/ke-vim-pack.git ~/.vim/pack/ke-vim-pack
 ```
 
 
-## Opt-Installation
+## Opt Installation
 
 If you think my setup sucks but want to try some of the plugins that come with, you can do that too.
 Vim's package manager allows you to use ```:packadd``` to load plugins when you want, instead of on start
