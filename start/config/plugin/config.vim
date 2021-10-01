@@ -1,7 +1,6 @@
 
 "----------------[ General Settings ]---------------------
 
-
 if has("gui_running")
     set guioptions ='' 
     set columns=120
@@ -25,14 +24,12 @@ set noswapfile
 set nobackup
 set ruler
 
-
 "----------------[ Color Settings ]---------------------
 
 set background=dark 
 set t_Co=256
 
 color nightswatch
-
 
 "----------------[ General Key Bindings ]---------------------
 
@@ -41,33 +38,17 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
-
 "----------------[ Toggle Comments Plugin ]---------------------
 
 nnoremap <c-n> :call toggle_comments#ToggleComment()<cr>
 vnoremap <c-n> :call toggle_comments#ToggleComment()<cr>
-
-let g:comment_delimiters = {}
-let g:comment_delimiters.default ="//"
-let g:comment_delimiters.vim = "\""
-let g:comment_delimiters.python = "#"
-let g:comment_delimiters.sh = "#"
-let g:comment_delimiters.gdscript3 = "#"
-
 
 "----------------[ Replace All Plugin ]---------------------
 
 nnoremap <leader>r :silent call replace_all#ReplaceAll()<cr>
 vnoremap <leader>r :<C-U>silent call replace_all#ReplaceAllVis()<cr>
 
-
 "----------------[ Session Manager Plugin ]---------------------
-
-if has("unix")
-    let g:session_path = '~/.vim/pack/ke/start/session_man/session/'
-else
-    let g:session_path = '~/vimfiles/pack/ke/start/session_man/session/'
-endif
 
 command -nargs=1 Mks call session_man#MakeSession(<f-args>)
 command -nargs=1 Lds call session_man#LoadSession(<f-args>)
