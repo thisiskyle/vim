@@ -16,7 +16,7 @@ function! s:hi(group, guifg, guibg, gui, ctermfg, ctermbg, cterm)
 endfunction
 
 " settings
-let g:colors_name="nightswatch"
+let g:colors_name="grayish"
 
 " base colors
 " the lower the number the darker the grey

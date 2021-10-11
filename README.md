@@ -1,44 +1,34 @@
-# Kyle's Vim Pack
+# My Simple Vim Pack
 
-This pack utilizes vim8's built in package manager and requires no vimrc at all. Which makes it easier to install this without having to move files around.
-All my settings that you would normally find in a .vimrc are located in the ```pack/ke-vim-pack/config/plugin/config.vim```
-All the other plugins are basically just little helper functions that I use to make some tasks easier.
+This is my vim setup.
 
+## What's Included
 
+These are just some simple plugins I made to learn vimscript and make my life a little easier. 
+Most of these features are done better with other plugins but I felt the full plugins 
+were always overkill. So I came up with these.
 
-## Full Installation
-
-This will install the pack and will load the config and plugins on startup. This may override some settings in
-your vimrc and may not play nice with some plugins.
-
-
-Windows
-
-```
-git clone https://github.com/thisiskyle/ke-vim-pack.git ~/vimfiles/pack/ke-vim-pack
-```
+* config - This contains all the general settings you would normally find in a ```.vimrc```
+* grayish - My minimal colorscheme
+* plug_man - simple plugin installer
+* replace_all - shortcut for simple string replacement in the current buffer
+* rulers_rule - formats the ruler to act as a statusline
+* toggle_comments - toggles comments, filetypes are limited but more can easily be added
 
 
-Linux
+## Installation
 
-```
-git clone https://github.com/thisiskyle/ke-vim-pack.git ~/.vim/pack/ke-vim-pack
-```
+* Clone the package 
+
+        git clone https://github.com/thisiskyle/ke-vim-pack.git ~/.vim/pack/ke-vim-pack
+
+* In your .vimrc, add packages individually like this
+
+        packadd config
+        packadd replace_all
+        packadd rulers_rule
 
 
-## Opt Installation
-
-If you think my setup sucks but want to try some of the plugins that come with, you can do that too.
-Vim's package manager allows you to use ```:packadd``` to load plugins when you want, instead of on start
-Simply follow the full install instructions but change the folder from ```pack/ke-vim-pack/start``` to ```pack/ke-vim-pack/opt```
-
-
-In your vimrc, you can add specific packages like this
-
-```
-packadd config
-packadd nightswatch
-packadd rulers_rule
-```
+You may want to skip ```packadd config``` if you have compatibility issues with your .vimrc
 
 

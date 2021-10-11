@@ -46,5 +46,3 @@ function! toggle_comments#ToggleComment()
     endif
 endfunction
 
-
-

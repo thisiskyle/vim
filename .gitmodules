@@ -1,3 +1,0 @@
-[submodule "start/vim-polyglot"]
-	path = start/vim-polyglot
-	url = https://github.com/sheerun/vim-polyglot.git
