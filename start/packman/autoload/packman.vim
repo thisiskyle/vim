@@ -2,29 +2,29 @@
 
 
 
-function! plug_man#AddPlugin(str)
+function! packman#AddPlugin(str)
 
-    if !exists("g:plug_man_list")
-        let g:plug_man_list = [ ]
+    if !exists("g:packman_list")
+        let g:packman_list = [ ]
     endif
 
-    call add(g:plug_man_list, a:str)
+    call add(g:packman_list, a:str)
 
 endfunction
 
 
-function! plug_man#InstallAll()
+function! packman#InstallAll()
 
-    if exists("g:plug_man_list")
-        for i in g:plug_man_list
-            call plug_man#Install(i)
+    if exists("g:packman_list")
+        for i in g:packman_list
+            call packman#Install(i)
         endfor
     endif
 
 endfunction
 
 
-function! plug_man#Install(str)
+function! packman#Install(str)
 
     if has("unix")
         execute "silent !git clone --depth=1 https://github.com/" . a:str . " ~/.vim/pack/other/start/" . split(a:str, '/')[1]
