@@ -4,7 +4,7 @@ if has("gui_running")
     set guioptions ='' 
     set columns=110
     set lines=50
-    set guifont=Cascadia_Code:h10
+    set guifont=Cascadia_Code_SemiLight:h10
 endif
 
 filetype plugin indent on
