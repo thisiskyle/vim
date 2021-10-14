@@ -3,18 +3,24 @@
 
 
 
-" This function is a shortcut for :%s/<word>/<replacement>/g/
+" replaces all the instances of the current word
 function! replace_all#ReplaceAll()
-    let str = expand("<cword>")
-    let save_pos = getpos(".")
-    :execute "%s/" . str . "/" . input("Replace [" . str . "] with: ") . "/g"
-    call setpos(".", save_pos)
+    call s:Replace(expand("<cword>"))
 endfunction
 
 
 " replaces all the instances of the selected area
 function! replace_all#ReplaceAllVis()
-    call replace_all#ReplaceAll(s:GetVisualSelection())
+    call s:Replace(s:GetVisualSelection())
+endfunction
+
+
+
+" This function is a shortcut for :%s/<word>/<replacement>/g/
+function! s:Replace(str)
+    let save_pos = getpos(".")
+    :execute "%s/" . a:str . "/" . input("Replace [" . a:str . "] with: ") . "/g"
+    call setpos(".", save_pos)
 endfunction
 
 
