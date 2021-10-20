@@ -11,6 +11,7 @@ let g:comment_delimiters.vim = "\""
 let g:comment_delimiters.python = "#"
 let g:comment_delimiters.sh = "#"
 let g:comment_delimiters.gdscript3 = "#"
+let g:comment_delimiters.ps1 = "#"
 
 
 " add key value pairs for filetypes and comment syntax

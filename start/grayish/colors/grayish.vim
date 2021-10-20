@@ -84,14 +84,13 @@ call s:hi("Wildmenu", s:red167, s:none, s:none, 167, s:none, s:none)
 call s:hi("StatusLine", s:grey255, s:grey235, s:none, 255, 235, s:none)
 call s:hi("StatusLineNC", s:grey239, s:grey235, s:none, 239, 235, s:none)
 
-" user defined highlight groups
-call s:hi("RulerBranch", s:red167, s:none, s:none, 167, s:none, s:none)
-call s:hi("RulerFile", s:none, s:none, s:none, s:none, s:none, s:none)
-call s:hi("StatusBranch", s:red167, s:grey235, s:none, 167, 235, s:none)
-call s:hi("StatusNormal", s:grey247, s:grey235, s:none, 247, 235, s:none)
+" ruler colors
+call s:hi("RulerSeperator", s:blue26, s:none, s:none, 26, s:none, s:none)
+call s:hi("RulerFileName", s:red167, s:grey235, s:none, 167, 235, s:none)
+call s:hi("RulerNormal", s:grey247, s:grey235, s:none, 247, 235, s:none)
 
 " settings based highlight groups
-if has("gui_running") && exists("g:nightswatch_italics") && g:nightswatch_italics == 1
+if has("gui_running") && exists("g:grayish_italics") && g:grayish_italics == 1
     call s:hi("Comment", s:grey239, s:none, s:italic, 239, s:none, s:italic)
     call s:hi("Todo", s:grey239, s:none, s:italic, 239, s:none, s:italic)
 endif
