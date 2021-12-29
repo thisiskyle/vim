@@ -4,7 +4,7 @@ if has("gui_running")
     set guioptions ='' 
     set columns=110
     set lines=50
-    set guifont=Fira_Code:h11
+    set guifont=Iosevka_Light_Extended:h12,Consolas:h12
 endif
 
 filetype plugin indent on
@@ -27,6 +27,13 @@ set background=dark
 set t_Co=256
 color grayish
 
+"----------------[ Commands ]
+if has('win32')
+    command Config :e $HOME/vimfiles/pack/ke-vim-pack/start/config/plugin/config.vim
+else
+    command Config :e $HOME/.vim/pack/ke-vim-pack/start/config/plugin/config.vim
+endif
+
 "----------------[ Key Mapping ]
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
@@ -34,12 +41,12 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
 "----------------[ Toggle Comments Settings ]
-nnoremap <c-n> :call toggle_comments#ToggleComment()<cr>
-vnoremap <c-n> :call toggle_comments#ToggleComment()<cr>
+nnoremap <c-n> :silent call toggle_comments#ToggleComment()<cr><cr>
+vnoremap <c-n> :silent call toggle_comments#ToggleComment()<cr><cr>
 
 "----------------[ Replace All Settings ]
-nnoremap <leader>r :silent call replace_all#ReplaceAll()<cr>
-vnoremap <leader>r :<C-U>silent call replace_all#ReplaceAllVis()<cr>
+nnoremap <leader>r :silent call replace_all#ReplaceAll()<cr><cr>
+vnoremap <leader>r :<C-U>silent call replace_all#ReplaceAllVis()<cr><cr>
 
 "----------------[ Packman Settings ]
 command PackmanInstall call packman#InstallAll()
