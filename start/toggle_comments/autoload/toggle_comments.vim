@@ -1,17 +1,20 @@
 
+let s:delimiterMap = {
+    \ "default": "//",
+    \ "vim": "\"",
+    \ "python": "#",
+    \ "sh": "#",
+    \ "gdscript3": "#",
+    \ "ps1": "#"
+    \ }
+
 " dictionary for filetypes and they comment syntax
 " if it doesnt exist yet, create it
-if !exists("g:comment_delimiters")
-    let g:comment_delimiters = {}
+if exists('g:CustomDelimiters')
+    call extend(s:delimiterMap, g:CustomDelimiters)
 endif
 
 
-let g:comment_delimiters.default ="//"
-let g:comment_delimiters.vim = "\""
-let g:comment_delimiters.python = "#"
-let g:comment_delimiters.sh = "#"
-let g:comment_delimiters.gdscript3 = "#"
-let g:comment_delimiters.ps1 = "#"
 
 
 " add key value pairs for filetypes and comment syntax
@@ -25,10 +28,10 @@ function! toggle_comments#ToggleComment()
     " save position
     let save_pos = getpos(".")
     " get the comment string
-    if has_key(g:comment_delimiters, &ft) 
-        let cstr = g:comment_delimiters[&ft]
+    if has_key(s:delimiterMap, &ft) 
+        let cstr = s:delimiterMap[&ft]
     else 
-        let cstr = g:comment_delimiters["default"] 
+        let cstr = s:delimiterMap["default"] 
     endif
     " jump to first character in line
     normal ^

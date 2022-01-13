@@ -49,6 +49,7 @@ nnoremap <leader>r :silent call replace_all#ReplaceAll()<cr>
 vnoremap <leader>r :<C-U>silent call replace_all#ReplaceAllVis()<cr>
 
 "----------------[ Packman Settings ]
-command PackmanInstall call packman#InstallAll()
-let g:packman_list = [ "sheerun/vim-polyglot" ]
+let g:packer_list = [ 
+    \ "https://github.com/sheerun/vim-polyglot"
+    \ ]
 
