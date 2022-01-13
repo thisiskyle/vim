@@ -41,12 +41,12 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
 "----------------[ Toggle Comments Settings ]
-nnoremap <c-n> :silent call toggle_comments#ToggleComment()<cr><cr>
-vnoremap <c-n> :silent call toggle_comments#ToggleComment()<cr><cr>
+nnoremap <c-n> :call toggle_comments#ToggleComment()<cr>
+vnoremap <c-n> :call toggle_comments#ToggleComment()<cr>
 
 "----------------[ Replace All Settings ]
-nnoremap <leader>r :silent call replace_all#ReplaceAll()<cr><cr>
-vnoremap <leader>r :<C-U>silent call replace_all#ReplaceAllVis()<cr><cr>
+nnoremap <leader>r :silent call replace_all#ReplaceAll()<cr>
+vnoremap <leader>r :<C-U>silent call replace_all#ReplaceAllVis()<cr>
 
 "----------------[ Packman Settings ]
 command PackmanInstall call packman#InstallAll()
