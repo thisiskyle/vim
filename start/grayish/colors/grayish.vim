@@ -20,12 +20,14 @@ endfunction
 " settings
 let g:colors_name="grayish"
 
-let s:yellow  = { "gui": "#ffff00", "cterm": "11"  }
-let s:blue    = { "gui": "#005fd7", "cterm": "26"  }
-let s:green   = { "gui": "#008700", "cterm": "28"  }
+let s:yellow  = { "gui": "#fabd2f", "cterm": "214" }
+let s:blue    = { "gui": "#83a598", "cterm": "109" }
+let s:purple  = { "gui": "#d3869b", "cterm": "175" }
+let s:green   = { "gui": "#b8bb26", "cterm": "142" }
 let s:orange  = { "gui": "#af5f00", "cterm": "130" }
 let s:gold    = { "gui": "#afaf00", "cterm": "142" }
 let s:red     = { "gui": "#d75f5f", "cterm": "167" }
+let s:tan     = { "gui": "#ebdbb2", "cterm": "223" }
 " the lower the number the darker the grey
 let s:black   = { "gui": "#000000", "cterm": "0"   }
 let s:grey1   = { "gui": "#080808", "cterm": "232" }
@@ -39,21 +41,21 @@ let s:grey8   = { "gui": "#eeeeee", "cterm": "255" }
 let s:white   = { "gui": "#ffffff", "cterm": "231" }
 
 
-call s:hi("Normal",       {"fg": s:grey6, "bg": s:grey3})
+call s:hi("Normal",       {"fg": s:grey6, "bg": s:grey2})
 call s:hi("CursorLine",   {"bg": s:grey2})
 call s:hi("Error",        {"fg": s:red})
 call s:hi("WarningMsg",   {"fg": s:orange})
 call s:hi("Matchparen",   {"fg": s:orange, "gui": "bold"})
-call s:hi("IncSearch",    {"fg": s:green})
+call s:hi("IncSearch",    {"fg": s:red})
 call s:hi("Search",       {"fg": s:yellow})
-call s:hi("Visual",       {"fg": s:grey3, "bg": s:grey6})
-call s:hi("Comment",      {"fg": s:grey4, "bg": s:grey3})
+call s:hi("Visual",       {"fg": s:grey2, "bg": s:grey6})
+call s:hi("Comment",      {"fg": s:grey4})
 call s:hi("Cursor",       {"fg": s:grey3, "bg": s:white})
 call s:hi("CursorLineNr", {"fg": s:white})
 call s:hi("Pmenu",        {"bg": s:grey1})
 call s:hi("Pmenusel",     {"fg": s:yellow, "bg": s:grey1}) 
 call s:hi("Wildmenu",     {"fg": s:red})
-call s:hi("StatusLine",   {"fg": s:grey8, "bg": s:grey3})
+call s:hi("StatusLine",   {"fg": s:grey8})
 call s:hi("Underlined",   {"gui": "underline"})
 call s:hi("Function",     {"fg": s:grey7, "gui": "bold"})
 
@@ -91,6 +93,6 @@ hi! link ErrorMsg      Error
 
 " settings based highlight groups
 if has("gui_running") && exists("g:grayish_italics") && g:grayish_italics == 1
-    call s:hi("Comment", {"fg": s:grey4, "bg": s:grey3, "gui": "italic"})
-    call s:hi("Todo",    {"fg": s:grey4, "bg": s:grey3, "gui": "italic"})
+    call s:hi("Comment", {"fg": s:grey4, "bg": s:grey2, "gui": "italic"})
+    call s:hi("Todo",    {"fg": s:grey4, "bg": s:grey2, "gui": "italic"})
 endif

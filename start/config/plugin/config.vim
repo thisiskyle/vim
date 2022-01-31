@@ -50,6 +50,7 @@ vnoremap <leader>r :<C-U>silent call replace_all#ReplaceAllVis()<cr>
 
 "----------------[ Packman Settings ]
 let g:packer_list = [ 
-    \ "https://github.com/sheerun/vim-polyglot"
-    \ ]
+    \ "https://github.com/sheerun/vim-polyglot",
+    \ "https://github.com/chriskempson/base16-vim"
+    \]
 
