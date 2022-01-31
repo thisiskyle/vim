@@ -6,91 +6,90 @@ if exists("syntax_on")
 endif
 
 " main function for applying highlight groups
-function! s:hi(group, guifg, guibg, gui, ctermfg, ctermbg, cterm)
-    exec "hi " . a:group . " guifg="   . a:guifg
-    exec "hi " . a:group . " guibg="   . a:guibg
-    exec "hi " . a:group . " gui="     . a:gui
-    exec "hi " . a:group . " ctermfg=" . a:ctermfg
-    exec "hi " . a:group . " ctermbg=" . a:ctermbg
-    exec "hi " . a:group . " cterm="   . a:cterm
+function! s:hi(group, style)
+    execute "hi" a:group
+        \ "guifg="   (has_key(a:style, "fg")    ? a:style.fg.gui   : "NONE")
+        \ "guibg="   (has_key(a:style, "bg")    ? a:style.bg.gui   : "NONE")
+        \ "guisp="   (has_key(a:style, "sp")    ? a:style.sp.gui   : "NONE")
+        \ "gui="     (has_key(a:style, "gui")   ? a:style.gui      : "NONE")
+        \ "ctermfg=" (has_key(a:style, "fg")    ? a:style.fg.cterm : "NONE")
+        \ "ctermbg=" (has_key(a:style, "bg")    ? a:style.bg.cterm : "NONE")
+        \ "cterm="   (has_key(a:style, "cterm") ? a:style.cterm    : "NONE")
 endfunction
 
 " settings
 let g:colors_name="grayish"
 
-" base colors
+let s:yellow  = { "gui": "#ffff00", "cterm": "11"  }
+let s:blue    = { "gui": "#005fd7", "cterm": "26"  }
+let s:green   = { "gui": "#008700", "cterm": "28"  }
+let s:orange  = { "gui": "#af5f00", "cterm": "130" }
+let s:gold    = { "gui": "#afaf00", "cterm": "142" }
+let s:red     = { "gui": "#d75f5f", "cterm": "167" }
 " the lower the number the darker the grey
-let s:black16   = '#000000'
-let s:yellow11  = '#ffff00'
-let s:white15   = '#ffffff'
-let s:blue26    = '#005fd7'
-let s:green28   = '#008700'
-let s:orange130 = '#af5f00'
-let s:gold142   = '#afaf00'
-let s:red167    = '#d75f5f'
-let s:grey232   = '#080808'
-let s:grey234   = '#1c1c1c'
-let s:grey235   = '#262626'
-let s:grey239   = '#4e4e4e'
-let s:grey243   = '#767676'
-let s:grey247   = '#9e9e9e'
-let s:grey252   = '#d0d0d0'
-let s:grey255   = '#eeeeee'
-let s:none      = 'NONE'
-let s:italic    = 'italic'
+let s:black   = { "gui": "#000000", "cterm": "0"   }
+let s:grey1   = { "gui": "#080808", "cterm": "232" }
+let s:grey2   = { "gui": "#1c1c1c", "cterm": "234" }
+let s:grey3   = { "gui": "#262626", "cterm": "235" }
+let s:grey4   = { "gui": "#4e4e4e", "cterm": "239" }
+let s:grey5   = { "gui": "#767676", "cterm": "243" }
+let s:grey6   = { "gui": "#9e9e9e", "cterm": "247" }
+let s:grey7   = { "gui": "#d0d0d0", "cterm": "252" }
+let s:grey8   = { "gui": "#eeeeee", "cterm": "255" }
+let s:white   = { "gui": "#ffffff", "cterm": "231" }
 
 
-" HI Group, GUIFG, GUIBG, GUI, TERMFG, TERMBG, TERM
-call s:hi("Normal", s:grey247, s:grey235, s:none, 247, 235, s:none)
-call s:hi("NonText", s:none, s:none, s:none, s:none, s:none, s:none)
-call s:hi("Special", s:none, s:none, s:none, s:none, s:none, s:none)
-call s:hi("SpecialKey", s:none, s:none, s:none, s:none, s:none, s:none)
-call s:hi("Character", s:none, s:none, s:none, s:none, s:none, s:none)
-call s:hi("Statement", s:none, s:none, s:none, s:none, s:none, s:none)
-call s:hi("Function", s:none, s:none, s:none, s:none, s:none, s:none)
-call s:hi("PreProc", s:none, s:none, s:none, s:none, s:none, s:none)
-call s:hi("Identifier", s:none, s:none, s:none, s:none, s:none, s:none)
-call s:hi("Constant", s:none, s:none, s:none, s:none, s:none, s:none)
-call s:hi("Boolean", s:none, s:none, s:none, s:none, s:none, s:none)
-call s:hi("String", s:none, s:none, s:none, s:none, s:none, s:none)
-call s:hi("Delimiter", s:none, s:none, s:none, s:none, s:none, s:none)
-call s:hi("Title", s:none, s:none, s:none, s:none, s:none, s:none)
-call s:hi("Type", s:none, s:none, s:none, s:none, s:none, s:none)
-call s:hi("Number", s:none, s:none, s:none, s:none, s:none, s:none)
-call s:hi("LineNr", s:grey239, s:none, s:none, 239, s:none, s:none)
-call s:hi("Comment", s:grey239, s:none, s:none, 239, s:none, s:none)
-call s:hi("VertSplit", s:grey239, s:none, s:none, 239, s:none, s:none)
-call s:hi("Todo", s:grey239, s:none, s:none, 239, s:none, s:none)
-call s:hi("Folded", s:grey239, s:none, s:none, 239, s:none, s:none)
-call s:hi("EndOfBuffer",  s:grey239, s:none, s:none, 239, s:none, s:none)
-call s:hi("Linear", s:none, s:none, s:none, s:none, s:none, s:none)
-call s:hi("CursorLine", s:none, s:none, s:none, s:none, 234, s:none)
-call s:hi("CursorLineNr", s:grey247, s:none, s:none, 247, s:none, s:none)
-call s:hi("CursorColumn", s:none, s:none, s:none, s:none, s:none, s:none)
-call s:hi("Error", s:red167, s:none, s:none, 167, s:none, s:none)
-call s:hi("ErrorMsg", s:red167, s:none, s:none, 167, s:none, s:none)
-call s:hi("WarningMsg", s:gold142, s:none, s:none, 142, s:none, s:none)
-call s:hi("Matchparen", s:orange130, s:none, s:none, 130, s:none, s:none)
-call s:hi("IncSearch", s:green28, s:none, s:none, 28, s:none, s:none)
-call s:hi("Search", s:red167, s:none, s:none, 167, s:none, s:none)
-call s:hi("Visual", s:grey235, s:grey247, s:none, 16, 247, s:none)
-call s:hi("Cursor", s:grey235, s:white15, s:none, 235, 15, s:none)
-call s:hi("Pmenu", s:none, s:grey232, s:none, s:none, 232, s:none)
-call s:hi("Pmenusel", s:red167, s:grey232, s:none, 167, 232, s:none)
-call s:hi("Pmenusbar", s:none, s:none, s:none, s:none, s:none, s:none)
-call s:hi("PmenuThumb", s:none, s:none, s:none, s:none, s:none, s:none)
-call s:hi("Underlined", s:none, s:none, 'underline', s:none, s:none, 'underline')
-call s:hi("Wildmenu", s:red167, s:none, s:none, 167, s:none, s:none)
-call s:hi("StatusLine", s:grey255, s:grey235, s:none, 255, 235, s:none)
-call s:hi("StatusLineNC", s:grey239, s:grey235, s:none, 239, 235, s:none)
+call s:hi("Normal",       {"fg": s:grey6, "bg": s:grey3})
+call s:hi("CursorLine",   {"bg": s:grey2})
+call s:hi("Error",        {"fg": s:red})
+call s:hi("WarningMsg",   {"fg": s:orange})
+call s:hi("Matchparen",   {"fg": s:blue})
+call s:hi("IncSearch",    {"fg": s:green})
+call s:hi("Search",       {"fg": s:gold})
+call s:hi("Visual",       {"fg": s:grey3, "bg": s:grey6})
+call s:hi("Comment",      {"fg": s:grey4, "bg": s:grey3})
+call s:hi("Cursor",       {"fg": s:grey3, "bg": s:white})
+call s:hi("CursorLineNr", {"fg": s:white})
+call s:hi("Pmenu",        {"bg": s:grey1})
+call s:hi("Pmenusel",     {"fg": s:yellow, "bg": s:grey1}) 
+call s:hi("Wildmenu",     {"fg": s:red})
+call s:hi("StatusLine",   {"fg": s:grey8, "bg": s:grey3})
+call s:hi("Underlined",   {"gui": "underline"})
 
-" ruler colors
-call s:hi("RulerSeperator", s:blue26, s:none, s:none, 26, s:none, s:none)
-call s:hi("RulerFileName", s:red167, s:grey235, s:none, 167, 235, s:none)
-call s:hi("RulerNormal", s:grey247, s:grey235, s:none, 247, 235, s:none)
+hi! link NonText       Normal
+hi! link Special       Normal
+hi! link SpecialKey    Normal
+hi! link Character     Normal
+hi! link Statement     Normal
+hi! link Function      Normal
+hi! link PreProc       Normal
+hi! link Identifier    Normal
+hi! link Constant      Normal
+hi! link Boolean       Normal
+hi! link String        Normal
+hi! link Delimiter     Normal
+hi! link Title         Normal
+hi! link Type          Normal
+hi! link Number        Normal
+hi! link Pmenusbar     Normal
+hi! link PmenuThumb    Normal
+hi! link Linear        Normal
+
+hi! link LineNr        Comment
+hi! link Comment       Comment
+hi! link VertSplit     Comment
+hi! link Todo          Comment
+hi! link Folded        Comment
+hi! link EndOfBuffer   Comment
+hi! link StatusLineNC  Comment
+
+hi! link CursorColumn  CursorLine
+
+hi! link ErrorMsg      Error
+
 
 " settings based highlight groups
 if has("gui_running") && exists("g:grayish_italics") && g:grayish_italics == 1
-    call s:hi("Comment", s:grey239, s:none, s:italic, 239, s:none, s:italic)
-    call s:hi("Todo", s:grey239, s:none, s:italic, 239, s:none, s:italic)
+    call s:hi("Comment", {"fg": s:grey4, "bg": s:grey3, "gui": "italic"})
+    call s:hi("Todo",    {"fg": s:grey4, "bg": s:grey3, "gui": "italic"})
 endif
