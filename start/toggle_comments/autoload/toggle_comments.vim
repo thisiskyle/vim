@@ -1,25 +1,21 @@
 
 let s:delimiterMap = {
-    \ "default": "//",
-    \ "vim": "\"",
-    \ "python": "#",
-    \ "sh": "#",
+    \ "default":   "//",
+    \ "vim":       "\"",
+    \ "python":    "#",
+    \ "sh":        "#",
     \ "gdscript3": "#",
-    \ "ps1": "#"
+    \ "ps1":       "#"
     \ }
 
-" dictionary for filetypes and they comment syntax
+" dictionary for filetypes and their comment syntax
 " if it doesnt exist yet, create it
 if exists('g:CustomDelimiters')
     call extend(s:delimiterMap, g:CustomDelimiters)
 endif
 
 
-
-
-" add key value pairs for filetypes and comment syntax
-
-" adds a comment string at the beginning of current line unless the line is empty
+" adds or removes a comment string at the beginning of current line unless the line is empty
 function! toggle_comments#ToggleComment()
     " skip line if empty
     if strlen(getline('.')) <= 0 

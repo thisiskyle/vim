@@ -7,7 +7,7 @@ set rulerformat=%60(%=%m\ %t\ \ %c,%l%)
 set statusline=%=%m\ %t\ \ %c,%l\  
 
 " since window splits force a status line, these
-" fillchars make splits look nice with the status line
+" fillchars make split status lines match the ruler
 "
 " set these in vimrc to change from default
 if !exists("g:ruler_fillchars")

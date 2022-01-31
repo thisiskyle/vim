@@ -43,9 +43,9 @@ call s:hi("Normal",       {"fg": s:grey6, "bg": s:grey3})
 call s:hi("CursorLine",   {"bg": s:grey2})
 call s:hi("Error",        {"fg": s:red})
 call s:hi("WarningMsg",   {"fg": s:orange})
-call s:hi("Matchparen",   {"fg": s:blue})
+call s:hi("Matchparen",   {"fg": s:orange, "gui": "bold"})
 call s:hi("IncSearch",    {"fg": s:green})
-call s:hi("Search",       {"fg": s:gold})
+call s:hi("Search",       {"fg": s:yellow})
 call s:hi("Visual",       {"fg": s:grey3, "bg": s:grey6})
 call s:hi("Comment",      {"fg": s:grey4, "bg": s:grey3})
 call s:hi("Cursor",       {"fg": s:grey3, "bg": s:white})
@@ -55,18 +55,17 @@ call s:hi("Pmenusel",     {"fg": s:yellow, "bg": s:grey1})
 call s:hi("Wildmenu",     {"fg": s:red})
 call s:hi("StatusLine",   {"fg": s:grey8, "bg": s:grey3})
 call s:hi("Underlined",   {"gui": "underline"})
+call s:hi("Function",     {"fg": s:grey7, "gui": "bold"})
 
 hi! link NonText       Normal
 hi! link Special       Normal
 hi! link SpecialKey    Normal
 hi! link Character     Normal
 hi! link Statement     Normal
-hi! link Function      Normal
 hi! link PreProc       Normal
 hi! link Identifier    Normal
 hi! link Constant      Normal
 hi! link Boolean       Normal
-hi! link String        Normal
 hi! link Delimiter     Normal
 hi! link Title         Normal
 hi! link Type          Normal
@@ -74,12 +73,14 @@ hi! link Number        Normal
 hi! link Pmenusbar     Normal
 hi! link PmenuThumb    Normal
 hi! link Linear        Normal
+hi! link String        Normal
 
 hi! link LineNr        Comment
 hi! link Comment       Comment
 hi! link VertSplit     Comment
 hi! link Todo          Comment
 hi! link Folded        Comment
+hi! link FoldColumn    Comment
 hi! link EndOfBuffer   Comment
 hi! link StatusLineNC  Comment
 
