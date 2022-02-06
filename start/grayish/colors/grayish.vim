@@ -9,14 +9,7 @@ endif
 let g:colors_name="grayish"
 
 " colors
-let s:yellow  = {"gui": "#fabd2f", "cterm": "214"}
-let s:blue    = {"gui": "#83a598", "cterm": "109"}
-let s:purple  = {"gui": "#d3869b", "cterm": "175"}
-let s:green   = {"gui": "#b8bb26", "cterm": "142"}
-let s:orange  = {"gui": "#af5f00", "cterm": "130"}
-let s:gold    = {"gui": "#afaf00", "cterm": "142"}
-let s:red     = {"gui": "#d75f5f", "cterm": "167"}
-let s:tan     = {"gui": "#ebdbb2", "cterm": "223"}
+let s:red     = {"gui": "#ff0000", "cterm": "9"  }
 " the lower the number the darker the grey
 let s:black   = {"gui": "#000000", "cterm": "0"  }
 let s:grey1   = {"gui": "#080808", "cterm": "232"}
@@ -43,7 +36,7 @@ endfunction
 
 " vim editor
 call s:hi("Normal",       {"fg": s:grey6, "bg": s:grey2})
-call s:hi("Matchparen",   {"fg": s:orange, "gui": "bold"})
+call s:hi("Matchparen",   {"fg": s:white, "gui": "bold"})
 hi! link EndOfBuffer      Comment
 hi! link Directory        Normal
 hi! link ColorColumn      Normal
@@ -55,20 +48,20 @@ hi! link VertSplit        Comment
 hi! link SignColumn       Normal
 hi! link Title            Normal
 
-call s:hi("WarningMsg",   {"fg": s:orange})
+call s:hi("WarningMsg",   {"fg": s:red})
 hi! link ErrorMsg         Error
 hi! link MoreMsg          Normal
 hi! link ModeMsg          Normal
 
-call s:hi("Search",       {"fg": s:yellow})
-call s:hi("IncSearch",    {"fg": s:red})
+call s:hi("Search",       {"fg": s:white})
+call s:hi("IncSearch",    {"fg": s:black, "bg": s:white})
 
 call s:hi("Visual",       {"fg": s:grey2, "bg": s:grey6})
 hi! link VisualNOS        Normal
 
-call s:hi("Cursor",       {"fg": s:grey3, "bg": s:white})
+call s:hi("Cursor",       {"fg": s:grey3, "bg": s:grey7})
 call s:hi("CursorLineNr", {"fg": s:white})
-call s:hi("CursorLine",   {"bg": s:grey2})
+call s:hi("CursorLine",   {"bg": s:grey1})
 hi! link lCursor          Normal
 hi! link CursorColumn     CursorLine
 
@@ -77,10 +70,10 @@ hi! link LineNrAbove      Normal
 hi! link LineNrBelow      Normal
 
 call s:hi("Pmenu",        {"bg": s:grey1})
-call s:hi("PmenuSel",     {"fg": s:yellow, "bg": s:grey1}) 
+call s:hi("PmenuSel",     {"fg": s:white, "bg": s:grey1}) 
 hi! link PmenuSbar        Normal
 hi! link PmenuThumb       Normal
-call s:hi("WildMenu",     {"fg": s:red})
+call s:hi("WildMenu",     {"fg": s:white})
 
 call s:hi("StatusLine",   {"fg": s:grey8})
 hi! link StatusLineNC     Comment
@@ -99,15 +92,15 @@ hi! link TabLineFill      Normal
 hi! link ToolbarLine      Normal
 hi! link ToolbarButton    Normal
 
-hi! link SpellBad         Normal
+call s:hi("SpellBad",     {"gui": "undercurl"})
 hi! link SpellCap         Normal
 hi! link SpellRare        Normal
 hi! link SpellLocal       Normal
 
 " code syntax
 call s:hi("Comment",      {"fg": s:grey4})
-call s:hi("Error",        {"fg": s:red, "gui": "undercurl"})
-call s:hi("Function",     {"fg": s:grey7, "gui": "bold"})
+call s:hi("Error",        {"fg": s:red})
+hi! link Function         Normal
 hi! link String           Normal
 hi! link Character        Normal
 hi! link Statement        Normal
