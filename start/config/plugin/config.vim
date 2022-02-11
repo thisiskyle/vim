@@ -4,7 +4,7 @@ if has("gui_running")
     set guioptions ='' 
     set columns=110
     set lines=50
-    set guifont=Iosevka_Light_Extended:h12,Consolas:h12
+    set guifont=Iosevka_Extended:h12,Consolas:h12
 endif
 
 filetype plugin indent on
@@ -51,6 +51,6 @@ vnoremap <leader>r :<C-U>silent call replace_all#ReplaceAllVis()<cr>
 "----------------[ Packman Settings ]
 let g:packer_list = [ 
     \ "https://github.com/sheerun/vim-polyglot",
-    \ "https://github.com/chriskempson/base16-vim"
+    \ "https://github.com/skywind3000/vim-quickui",
     \]
 

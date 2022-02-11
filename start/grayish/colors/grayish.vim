@@ -9,18 +9,33 @@ endif
 let g:colors_name="grayish"
 
 " colors
-let s:red     = {"gui": "#ff0000", "cterm": "9"  }
-" the lower the number the darker the grey
-let s:black   = {"gui": "#000000", "cterm": "0"  }
-let s:grey1   = {"gui": "#080808", "cterm": "232"}
-let s:grey2   = {"gui": "#1c1c1c", "cterm": "234"}
-let s:grey3   = {"gui": "#262626", "cterm": "235"}
-let s:grey4   = {"gui": "#4e4e4e", "cterm": "239"}
-let s:grey5   = {"gui": "#767676", "cterm": "243"}
-let s:grey6   = {"gui": "#9e9e9e", "cterm": "247"}
-let s:grey7   = {"gui": "#d0d0d0", "cterm": "252"}
-let s:grey8   = {"gui": "#eeeeee", "cterm": "255"}
-let s:white   = {"gui": "#ffffff", "cterm": "231"}
+let s:red    = {"gui": "#ff0000", "cterm": "9"  }
+let s:black  = {"gui": "#000000", "cterm": "0"  }
+let s:grey3  = {"gui": "#080808", "cterm": "232"}
+let s:grey7  = {"gui": "#121212", "cterm": "233"}
+let s:grey11 = {"gui": "#1c1c1c", "cterm": "234"}
+let s:grey15 = {"gui": "#262626", "cterm": "235"}
+let s:grey19 = {"gui": "#303030", "cterm": "236"}
+let s:grey23 = {"gui": "#3a3a3a", "cterm": "237"}
+let s:grey27 = {"gui": "#444444", "cterm": "238"}
+let s:grey30 = {"gui": "#4e4e4e", "cterm": "239"}
+let s:grey35 = {"gui": "#585858", "cterm": "240"}
+let s:grey39 = {"gui": "#626262", "cterm": "241"}
+let s:grey42 = {"gui": "#6c6c6c", "cterm": "242"}
+let s:grey46 = {"gui": "#767676", "cterm": "243"}
+let s:grey50 = {"gui": "#808080", "cterm": "244"}
+let s:grey54 = {"gui": "#8a8a8a", "cterm": "245"}
+let s:grey58 = {"gui": "#949494", "cterm": "246"}
+let s:grey62 = {"gui": "#9e9e9e", "cterm": "247"}
+let s:grey66 = {"gui": "#a8a8a8", "cterm": "248"}
+let s:grey70 = {"gui": "#b2b2b2", "cterm": "249"}
+let s:grey74 = {"gui": "#bcbcbc", "cterm": "250"}
+let s:grey78 = {"gui": "#c6c6c6", "cterm": "251"}
+let s:grey82 = {"gui": "#d0d0d0", "cterm": "252"}
+let s:grey85 = {"gui": "#dadada", "cterm": "253"}
+let s:grey89 = {"gui": "#e4e4e4", "cterm": "254"}
+let s:grey93 = {"gui": "#eeeeee", "cterm": "255"}
+let s:white  = {"gui": "#ffffff", "cterm": "231"}
 
 " main function for applying highlight groups
 function! s:hi(group, style)
@@ -35,7 +50,7 @@ endfunction
 
 
 " vim editor
-call s:hi("Normal",       {"fg": s:grey6, "bg": s:grey2})
+call s:hi("Normal",       {"fg": s:grey62, "bg": s:grey15})
 call s:hi("Matchparen",   {"fg": s:white, "gui": "bold"})
 hi! link EndOfBuffer      Comment
 hi! link Directory        Normal
@@ -54,14 +69,14 @@ hi! link MoreMsg          Normal
 hi! link ModeMsg          Normal
 
 call s:hi("Search",       {"fg": s:white})
-call s:hi("IncSearch",    {"fg": s:black, "bg": s:white})
+call s:hi("IncSearch",    {"fg": s:grey15, "bg": s:grey62})
 
-call s:hi("Visual",       {"fg": s:grey2, "bg": s:grey6})
+call s:hi("Visual",       {"fg": s:grey15, "bg": s:grey70})
 hi! link VisualNOS        Normal
 
-call s:hi("Cursor",       {"fg": s:grey3, "bg": s:grey7})
+call s:hi("Cursor",       {"fg": s:grey3, "bg": s:grey62})
 call s:hi("CursorLineNr", {"fg": s:white})
-call s:hi("CursorLine",   {"bg": s:grey1})
+call s:hi("CursorLine",   {"bg": s:grey3})
 hi! link lCursor          Normal
 hi! link CursorColumn     CursorLine
 
@@ -69,13 +84,13 @@ hi! link LineNr           Comment
 hi! link LineNrAbove      Normal
 hi! link LineNrBelow      Normal
 
-call s:hi("Pmenu",        {"bg": s:grey1})
-call s:hi("PmenuSel",     {"fg": s:white, "bg": s:grey1}) 
+call s:hi("Pmenu",        {"bg": s:grey3})
+call s:hi("PmenuSel",     {"fg": s:white, "bg": s:grey3}) 
 hi! link PmenuSbar        Normal
 hi! link PmenuThumb       Normal
-call s:hi("WildMenu",     {"fg": s:white})
+call s:hi("Wildmenu",     {"fg": s:grey15, "bg": s:grey62})
 
-call s:hi("StatusLine",   {"fg": s:grey8})
+call s:hi("StatusLine",   {"fg": s:white})
 hi! link StatusLineNC     Comment
 hi! link StatusLineTerm   Normal
 hi! link StatusLineTermNC Normal
@@ -98,7 +113,7 @@ hi! link SpellRare        Normal
 hi! link SpellLocal       Normal
 
 " code syntax
-call s:hi("Comment",      {"fg": s:grey4})
+call s:hi("Comment",      {"fg": s:grey30})
 call s:hi("Error",        {"fg": s:red})
 hi! link Function         Normal
 hi! link String           Normal
