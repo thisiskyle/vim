@@ -41,16 +41,15 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
 "----------------[ Toggle Comments Settings ]
-nnoremap <c-n> :call toggle_comments#ToggleComment()<cr>
-vnoremap <c-n> :call toggle_comments#ToggleComment()<cr>
+nnoremap <silent> <c-n> :call toggle_comments#ToggleComment()<cr>
+vnoremap <silent> <c-n> :call toggle_comments#ToggleComment()<cr>
 
 "----------------[ Replace All Settings ]
-nnoremap <leader>r :silent call replace_all#ReplaceAll()<cr>
-vnoremap <leader>r :<C-U>silent call replace_all#ReplaceAllVis()<cr>
+nnoremap <silent> <leader>r :call replace_all#ReplaceAll()<cr>
+vnoremap <silent> <leader>r :<C-U> call replace_all#ReplaceAllVis()<cr>
 
 "----------------[ Packman Settings ]
 let g:packer_list = [ 
     \ "https://github.com/sheerun/vim-polyglot",
-    \ "https://github.com/skywind3000/vim-quickui",
     \]
 
