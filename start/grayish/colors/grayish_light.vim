@@ -50,8 +50,8 @@ endfunction
 
 
 " vim editor
-call s:hi("Normal",       {"fg": s:grey62, "bg": s:grey15})
-call s:hi("Matchparen",   {"fg": s:white, "gui": "bold"})
+call s:hi("Normal",       {"fg": s:black, "bg": s:white})
+call s:hi("Matchparen",   {"fg": s:black, "bg": s:grey85, "gui": "bold"})
 hi! link EndOfBuffer      Comment
 hi! link Directory        Normal
 hi! link ColorColumn      Normal
@@ -68,13 +68,13 @@ hi! link ErrorMsg         Error
 hi! link MoreMsg          Normal
 hi! link ModeMsg          Normal
 
-call s:hi("Search",       {"fg": s:white})
-call s:hi("IncSearch",    {"fg": s:grey15, "bg": s:grey62})
+call s:hi("Search",       {"fg": s:black, "bg": s:grey78})
+call s:hi("IncSearch",    {"fg": s:white, "bg": s:black})
 
-call s:hi("Visual",       {"fg": s:grey15, "bg": s:grey70})
+call s:hi("Visual",       {"fg": s:black, "bg": s:grey70})
 hi! link VisualNOS        Normal
 
-call s:hi("Cursor",       {"fg": s:grey3, "bg": s:grey62})
+call s:hi("Cursor",       {"fg": s:white, "bg": s:black})
 call s:hi("CursorLineNr", {"fg": s:white})
 call s:hi("CursorLine",   {"bg": s:grey3})
 hi! link lCursor          Normal
@@ -84,13 +84,13 @@ hi! link LineNr           Comment
 hi! link LineNrAbove      Normal
 hi! link LineNrBelow      Normal
 
-call s:hi("Pmenu",        {"bg": s:grey3})
+call s:hi("Pmenu",        {"fg": s:grey50, "bg": s:grey3})
 call s:hi("PmenuSel",     {"fg": s:white, "bg": s:grey3}) 
-hi! link PmenuSbar        Normal
-hi! link PmenuThumb       Normal
-call s:hi("Wildmenu",     {"fg": s:grey15, "bg": s:grey62})
+hi! link PmenuSbar        Pmenu
+hi! link PmenuThumb       Pmenu
+call s:hi("Wildmenu",     {"fg": s:white, "bg": s:black})
 
-call s:hi("StatusLine",   {"fg": s:white})
+call s:hi("StatusLine",   {"fg": s:black})
 hi! link StatusLineNC     Comment
 hi! link StatusLineTerm   Normal
 hi! link StatusLineTermNC Normal
@@ -148,7 +148,7 @@ hi! link Tag              Normal
 hi! link SpecialChar      Normal
 hi! link SpecialComment   Normal
 hi! link Debug            Normal 
-call s:hi("Comment",      {"fg": s:grey30})
+call s:hi("Comment",      {"fg": s:grey70})
 
 " diff
 hi! link DiffAdd          Normal
