@@ -25,7 +25,7 @@ set noundofile
 set nobackup
 set background=dark 
 set t_Co=256
-color grayish
+color elyk_light
 
 "----------------[ Commands ]
 if has('win32')
