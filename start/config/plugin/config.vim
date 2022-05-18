@@ -1,4 +1,3 @@
-
 "----------------[ Settings ]
 if has("gui_running")
     set guioptions ='' 
@@ -25,7 +24,7 @@ set noundofile
 set nobackup
 set background=dark 
 set t_Co=256
-color elyk_light
+color elyk
 
 "----------------[ Commands ]
 if has('win32')
