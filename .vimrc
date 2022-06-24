@@ -43,6 +43,8 @@ else
     command Config :e $HOME/.vim/pack/ke-vim-pack/start/config/plugin/config.vim
 endif
 
+autocmd BufWinEnter * silent loadview
+
 "
 " Key Mappings
 "
