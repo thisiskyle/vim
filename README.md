@@ -11,13 +11,13 @@ Most of these features are done better with other plugins but I felt the full pl
 were always overkill. So I came up with these.
 
 * [elyk][2] - colorscheme
-* [packer][3] - WIP, simple plugin installer
+* [autopack][3] - WIP, simple plugin installer
 * [replace_all][4] - shortcut for simple string replacement in the current buffer
 * [rulers_rule][5] - formats the ruler (and statusline for splits)
 * [toggle_comments][6] - toggles comments, filetypes are limited but more can easily be added
 
 [2]: https://github.com/thisiskyle/vim/tree/master/pack/my_stuff/opt/elyk_colors
-[3]: https://github.com/thisiskyle/vim/tree/master/pack/my_stuff/opt/packer
+[3]: https://github.com/thisiskyle/vim/tree/master/pack/my_stuff/opt/autopack
 [4]: https://github.com/thisiskyle/vim/tree/master/pack/my_stuff/opt/replace_all
 [5]: https://github.com/thisiskyle/vim/tree/master/pack/my_stuff/opt/rulers_rule
 [6]: https://github.com/thisiskyle/vim/tree/master/pack/my_stuff/opt/toggle_comments
