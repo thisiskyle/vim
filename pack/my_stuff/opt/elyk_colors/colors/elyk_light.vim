@@ -6,7 +6,7 @@ if exists("syntax_on")
 endif
 
 " settings
-let g:colors_name="grayish_light"
+let g:colors_name="elyk_bright"
 
 " colors
 let s:red    = {"gui": "#ff0000", "cterm": "9"  }
@@ -50,7 +50,7 @@ endfunction
 
 
 " vim editor
-call s:hi("Normal",       {"fg": s:black, "bg": s:white})
+call s:hi("Normal",       {"fg": s:black, "bg": s:grey70})
 call s:hi("Matchparen",   {"fg": s:black, "bg": s:grey85, "gui": "bold"})
 hi! link EndOfBuffer      Comment
 hi! link Directory        Normal
@@ -68,10 +68,10 @@ hi! link ErrorMsg         Error
 hi! link MoreMsg          Normal
 hi! link ModeMsg          Normal
 
-call s:hi("Search",       {"fg": s:black, "bg": s:grey78})
+call s:hi("Search",       {"fg": s:black, "bg": s:grey82})
 call s:hi("IncSearch",    {"fg": s:white, "bg": s:black})
 
-call s:hi("Visual",       {"fg": s:black, "bg": s:grey70})
+call s:hi("Visual",       {"fg": s:black, "bg": s:grey85})
 hi! link VisualNOS        Normal
 
 call s:hi("Cursor",       {"fg": s:white, "bg": s:black})
@@ -148,7 +148,7 @@ hi! link Tag              Normal
 hi! link SpecialChar      Normal
 hi! link SpecialComment   Normal
 hi! link Debug            Normal 
-call s:hi("Comment",      {"fg": s:grey70})
+call s:hi("Comment",      {"fg": s:grey93})
 
 " diff
 hi! link DiffAdd          Normal

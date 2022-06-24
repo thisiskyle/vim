@@ -1,6 +1,5 @@
-
-other/*
-vim-polyglot/*
+packer/
+views/
 
 tags
 .netrwhist

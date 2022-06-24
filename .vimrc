@@ -1,4 +1,6 @@
-"----------------[ Settings ]
+"
+" Settings
+"
 if has("gui_running")
     set guioptions ='' 
     set columns=110
@@ -22,33 +24,58 @@ set tags=./tags,tags;$HOME
 set noswapfile 
 set noundofile
 set nobackup
-set background=dark 
 set t_Co=256
-color elyk
+set background=dark 
+color elyk_bright
 
-"----------------[ Commands ]
+if has('win32')
+    set viewdir=$HOME/vimfiles/views
+else
+    set viewdir=$HOME/.vim/views
+endif
+
+"
+" Commands
+"
 if has('win32')
     command Config :e $HOME/vimfiles/pack/ke-vim-pack/start/config/plugin/config.vim
 else
     command Config :e $HOME/.vim/pack/ke-vim-pack/start/config/plugin/config.vim
 endif
 
-"----------------[ Key Mapping ]
+"
+" Key Mappings
+"
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
-"----------------[ Toggle Comments Settings ]
+"
+" plugin settings: Toggle Comment
+"
 nnoremap <silent> <c-n> :call toggle_comments#ToggleComment()<cr>
 vnoremap <silent> <c-n> :call toggle_comments#ToggleComment()<cr>
 
-"----------------[ Replace All Settings ]
+"
+" plugin settings: Replace All
+"
 nnoremap <silent> <leader>r :call replace_all#ReplaceAll()<cr>
 vnoremap <silent> <leader>r :<C-U> call replace_all#ReplaceAllVis()<cr>
 
-"----------------[ Packman Settings ]
+"
+" plugin settings: Packer
+"
 let g:packer_list = [ 
     \ "https://github.com/sheerun/vim-polyglot",
     \]
 
+"
+" Package Loading
+"
+packadd rulers_rule
+packadd toggle_comments
+packadd elyk_colors
+packadd packer
+packadd replace_all
+packadd vim-polyglot

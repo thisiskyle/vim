@@ -6,7 +6,7 @@ if exists("syntax_on")
 endif
 
 " settings
-let g:colors_name="grayish"
+let g:colors_name="elyk"
 
 " colors
 let s:red    = {"gui": "#ff0000", "cterm": "9"  }
