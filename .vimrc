@@ -76,6 +76,6 @@ let g:packer_list = [
 packadd rulers_rule
 packadd toggle_comments
 packadd elyk_colors
-packadd packer
+packadd autopack
 packadd replace_all
 packadd vim-polyglot
