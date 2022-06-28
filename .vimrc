@@ -4,8 +4,8 @@
 if has("gui_running")
     set guioptions ='' 
     set columns=110
-    set lines=50
-    set guifont=Iosevka_Extended:h12,Consolas:h12
+    set lines=40
+    set guifont=Iosevka_Extended:h12
 endif
 
 filetype plugin indent on
@@ -38,9 +38,9 @@ endif
 " Commands
 "
 if has('win32')
-    command Config :e $HOME/vimfiles/pack/ke-vim-pack/start/config/plugin/config.vim
+    command Config :e $HOME/vimfiles/.vimrc
 else
-    command Config :e $HOME/.vim/pack/ke-vim-pack/start/config/plugin/config.vim
+    command Config :e $HOME/.vim/.vimrc
 endif
 
 autocmd BufWinEnter * silent loadview
@@ -54,23 +54,21 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
 "
-" plugin settings: Toggle Comment
+" plugin specific: Toggle Comment
 "
 nnoremap <silent> <c-n> :call toggle_comments#ToggleComment()<cr>
 vnoremap <silent> <c-n> :call toggle_comments#ToggleComment()<cr>
 
 "
-" plugin settings: Replace All
+" plugin specific: Replace All
 "
 nnoremap <silent> <leader>r :call replace_all#ReplaceAll()<cr>
 vnoremap <silent> <leader>r :<C-U> call replace_all#ReplaceAllVis()<cr>
 
 "
-" plugin settings: Packer
+" plugin specific: Packer
 "
-let g:packer_list = [ 
-    \ "https://github.com/sheerun/vim-polyglot",
-    \]
+let g:packer_list = [ "https://github.com/sheerun/vim-polyglot" ]
 
 "
 " Package Loading
