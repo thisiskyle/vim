@@ -1,11 +1,21 @@
 "
+" Package Loading
+"
+packadd vim-polyglot
+packadd replace_all
+packadd toggle_comments
+packadd rulers_rule
+packadd elyk_colors
+packadd autopack
+"
 " Settings
 "
 if has("gui_running")
-    set guioptions ='' 
+    set guioptions='' 
     set columns=110
     set lines=40
     set guifont=Iosevka_Extended:h12
+
 endif
 
 filetype plugin indent on
@@ -33,18 +43,10 @@ if has('win32')
 else
     set viewdir=$HOME/.vim/views
 endif
-
 "
 " Commands
 "
-if has('win32')
-    command Config :e $HOME/vimfiles/.vimrc
-else
-    command Config :e $HOME/.vim/.vimrc
-endif
-
-autocmd BufWinEnter * silent loadview
-
+autocmd BufWinEnter * silent! loadview
 "
 " Key Mappings
 "
@@ -52,30 +54,17 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
-
 "
 " plugin specific: Toggle Comment
 "
 nnoremap <silent> <c-n> :call toggle_comments#ToggleComment()<cr>
 vnoremap <silent> <c-n> :call toggle_comments#ToggleComment()<cr>
-
 "
 " plugin specific: Replace All
 "
 nnoremap <silent> <leader>r :call replace_all#ReplaceAll()<cr>
 vnoremap <silent> <leader>r :<C-U> call replace_all#ReplaceAllVis()<cr>
-
 "
-" plugin specific: Packer
+" plugin specific: AutoPack
 "
-let g:packer_list = [ "https://github.com/sheerun/vim-polyglot" ]
-
-"
-" Package Loading
-"
-packadd rulers_rule
-packadd toggle_comments
-packadd elyk_colors
-packadd autopack
-packadd replace_all
-packadd vim-polyglot
+let g:autopack_list = [ "https://github.com/sheerun/vim-polyglot" ]
