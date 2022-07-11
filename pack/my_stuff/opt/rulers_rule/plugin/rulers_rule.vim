@@ -2,8 +2,7 @@
 " format the ruler to look nice and clean and act as a statusline
 set rulerformat=%60(%=%m\ %t\ \ %c,%l%)
 
-" makes the status line look like the ruler. 
-" so when we split, each window matches
+" makes the status line look like the ruler so when we split, each window matches
 set statusline=%=%m\ %t\ \ %c,%l\  
 
 " since window splits force a status line, these
