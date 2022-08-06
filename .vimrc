@@ -35,15 +35,17 @@ set tags=./tags,tags;$HOME
 set noswapfile 
 set noundofile
 set nobackup
+set termguicolors
 set t_Co=256
 set background=dark 
-color elyk_bright
 set fillchars=stl:-,stlnc:-,vert:\|,fold:-,diff:-
 # format the ruler to look nice and clean and act as a statusline
-set rulerformat=%60(%=%m\ %t\ \ %c,%l%)
-# splits force a statusline to show this makes the status line look like the ruler 
-# so when we split, each window matches
-set statusline=%=%m\ %t\ \ %c,%l\  
+set rulerformat=%60(%=%m\ %t\ \ %c,%l%) 
+# splits force a statusline to show this makes the status line look like the ruler so when we split, each window matches
+set statusline=%=%m\ %t\ \ %c,%l\ 
+
+g:elyk_style = "bright"
+color elyk
 
 if has('win32')
     set viewdir=$HOME/vimfiles/views
