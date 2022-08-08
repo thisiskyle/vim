@@ -46,5 +46,5 @@ export def ToggleComment()
         call setpos(".", save_pos)
         :execute "normal " .. strlen(cstr) .. "l"
     endif
-    enddef
+enddef
 

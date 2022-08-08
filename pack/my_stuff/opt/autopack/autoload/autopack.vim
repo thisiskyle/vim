@@ -14,31 +14,25 @@ else
 endif
 
 
-#
 # install all plugins in the list
-#
 export def InstallAll()
     if exists("g:autopack_list")
         for i in g:autopack_list
             execute "silent !git clone --depth=1 " .. i .. " " .. autopack_path .. split(i, '/')[4]
         endfor
     endif
-    enddef
+enddef
 
-#
 # update all plugins in the list
-#
 export def UpdateAll()
     if exists("g:autopack_list")
         for i in g:autopack_list
             execute "silent !cd " .. autopack_path .. split(i, '/')[4] .. " && git pull" 
         endfor
     endif
-    enddef
+enddef
 
-#
 # update all plugins in the list
-#
 export def Cleanup()
     # temporary list for package names
     var templist = [ ]
@@ -69,4 +63,4 @@ export def Cleanup()
             endif
         endif
     endfor
-    enddef
+enddef

@@ -8,6 +8,8 @@ packadd replace_all
 packadd toggle_comments
 packadd elyk_colors
 packadd autopack
+packadd smooth_scrolling
+
 #
 # Settings
 #
@@ -52,10 +54,12 @@ if has('win32')
 else
     set viewdir=$HOME/.vim/views
 endif
+
 #
 # Commands
 #
 autocmd BufWinEnter * silent! loadview
+
 #
 # Key Mappings
 #
@@ -63,17 +67,17 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
-#
-# plugin specific: Toggle Comment
-#
+nnoremap <silent> <leader>u :call smooth_scrolling#Smooth_Scroll("u", 0.1, 20)<cr>
+nnoremap <silent> <leader>d :call smooth_scrolling#Smooth_Scroll("d", 0.1, 20)<cr>
+nnoremap <silent> <leader>b :call smooth_scrolling#Smooth_Scroll("u", 0.1, 50)<cr>
+nnoremap <silent> <leader>f :call smooth_scrolling#Smooth_Scroll("d", 0.1, 50)<cr>
 nnoremap <silent> <c-n> :call toggle_comments#ToggleComment()<cr>
-vnoremap <silent> <c-n> :call toggle_comments#ToggleComment()<cr>
-#
-# plugin specific: Replace All
-#
 nnoremap <silent> <leader>r :call replace_all#ReplaceAll()<cr>
 vnoremap <silent> <leader>r :<C-U> call replace_all#ReplaceAllVis()<cr>
+vnoremap <silent> <c-n> :call toggle_comments#ToggleComment()<cr>
+
 #
-# plugin specific: AutoPack
+# Plugin Specific Settings 
 #
+# AutoPack
 g:autopack_list = [ "https://github.com/sheerun/vim-polyglot" ]
