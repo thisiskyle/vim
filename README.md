@@ -15,7 +15,7 @@ were always overkill. So I came up with these.
 * [replace_all][4] - shortcut for simple string replacement in the current buffer
 * [toggle_comments][6] - toggles comments, filetypes are limited but more can easily be added
 
-[2]: https://github.com/thisiskyle/vim/tree/master/pack/my_stuff/opt/elyk_colors
+[2]: https://github.com/thisiskyle/vim/tree/master/pack/my_stuff/opt/elyk
 [3]: https://github.com/thisiskyle/vim/tree/master/pack/my_stuff/opt/autopack
 [4]: https://github.com/thisiskyle/vim/tree/master/pack/my_stuff/opt/replace_all
 [6]: https://github.com/thisiskyle/vim/tree/master/pack/my_stuff/opt/toggle_comments
