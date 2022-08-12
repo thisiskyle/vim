@@ -45,7 +45,7 @@ set rulerformat=%60(%=%m\ %t\ \ %c,%l%)
 # splits force a statusline to show this makes the status line look like the ruler so when we split, each window matches
 set statusline=%=%m\ %t\ \ %c,%l\ 
 
-g:elyk_style = "dark"
+g:elyk_style = "bright"
 color elyk
 
 if has('win32')

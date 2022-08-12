@@ -1,4 +1,4 @@
-## Packer
+## AutoPack
 
 Super simple and super incomplete package manager. Really is more of just a wrapper for 
 cloning git repos from a list.
@@ -6,26 +6,26 @@ cloning git repos from a list.
 
 ### Setup
 
-Set ```g:packer_list```
+Set ```g:autopack_list```
 
 ```
-let g:packer_list = [ "https://github.com/sheerun/vim-polyglot" ]
+let g:autopack_list = [ "https://github.com/sheerun/vim-polyglot" ]
 ```
 
-Optional: Set ```g:packer_path``` the default location is used in the example below
+Optional: Set ```g:autopack_path``` the default location is used in the example below
 This is where plugins are cloned to
 
 ```
-let g:packer_path = "~/.vim/pack/packer/start/"
+let g:autopack_path = "~/.vim/pack/autopack/start/"
 ```
 
 
 ### Commands
 
-PackerInstall
+AutoPackInstall
 
-PackerUpdate
+AutoPackUpdate
 
-PackerClean
+AutoPackClean
 
 

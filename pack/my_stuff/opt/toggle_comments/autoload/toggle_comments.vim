@@ -1,4 +1,4 @@
-vim9script noclear
+vim9script
 
 var delimiterMap = {
     "default":   "//",
@@ -11,8 +11,8 @@ var delimiterMap = {
 
 # dictionary for filetypes and their comment syntax
 # if it doesnt exist yet, create it
-if exists('g:CustomDelimiters')
-    call extend(delimiterMap, g:CustomDelimiters)
+if exists('g:togglecomment_custom_delimiters')
+    call extend(delimiterMap, g:togglecomment_custom_delimiters)
 endif
 
 
