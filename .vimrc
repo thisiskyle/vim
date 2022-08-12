@@ -1,17 +1,16 @@
 vim9script
 
 #
-# Package Loading
+#  Package Loading
 #
 packadd vim-polyglot
 packadd replace_all
 packadd toggle_comments
-packadd elyk_colors
+packadd elyk
 packadd autopack
-packadd smooth_scrolling
 
 #
-# Settings
+#  Settings
 #
 if has("gui_running")
     set guioptions='' 
@@ -46,7 +45,7 @@ set rulerformat=%60(%=%m\ %t\ \ %c,%l%)
 # splits force a statusline to show this makes the status line look like the ruler so when we split, each window matches
 set statusline=%=%m\ %t\ \ %c,%l\ 
 
-g:elyk_style = "bright"
+g:elyk_style = "dark"
 color elyk
 
 if has('win32')
@@ -56,28 +55,38 @@ else
 endif
 
 #
-# Commands
+#  Commands
 #
 autocmd BufWinEnter * silent! loadview
 
 #
-# Key Mappings
+#  Key Mappings
 #
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
-nnoremap <silent> <leader>u :call smooth_scrolling#Smooth_Scroll("u", 0.1, 20)<cr>
-nnoremap <silent> <leader>d :call smooth_scrolling#Smooth_Scroll("d", 0.1, 20)<cr>
-nnoremap <silent> <leader>b :call smooth_scrolling#Smooth_Scroll("u", 0.1, 50)<cr>
-nnoremap <silent> <leader>f :call smooth_scrolling#Smooth_Scroll("d", 0.1, 50)<cr>
 nnoremap <silent> <c-n> :call toggle_comments#ToggleComment()<cr>
 nnoremap <silent> <leader>r :call replace_all#ReplaceAll()<cr>
+nnoremap <silent> <leader>h :call SynGroup()<cr>
 vnoremap <silent> <leader>r :<C-U> call replace_all#ReplaceAllVis()<cr>
 vnoremap <silent> <c-n> :call toggle_comments#ToggleComment()<cr>
 
 #
-# Plugin Specific Settings 
+#  Plugin Specific Settings 
 #
 # AutoPack
 g:autopack_list = [ "https://github.com/sheerun/vim-polyglot" ]
+
+
+#
+#  Helper Functions
+#
+
+# Get the highlight of the word under the cursor
+def g:SynGroup(): void
+    var s = synID(line('.'), col('.'), 1)
+    echo synIDattr(s, 'name') .. ' -> ' .. synIDattr(synIDtrans(s), 'name')
+enddef
+
+defcompile
