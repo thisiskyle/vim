@@ -16,7 +16,7 @@ if has("gui_running")
     set guioptions='' 
     set columns=110
     set lines=40
-    set guifont=Iosevka_Extended:h10
+    set guifont=Iosevka:h11
 
 endif
 
