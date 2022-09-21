@@ -75,18 +75,18 @@ vnoremap <silent> <c-n> :call toggle_comments#ToggleComment()<cr>
 #
 #  Plugin Specific Settings 
 #
-# AutoPack
 g:autopack_list = [ "https://github.com/sheerun/vim-polyglot" ]
-
 
 #
 #  Helper Functions
 #
 
 # Get the highlight of the word under the cursor
+# This is helpful for debugging colorschemes and what not
 def g:SynGroup(): void
     var s = synID(line('.'), col('.'), 1)
     echo synIDattr(s, 'name') .. ' -> ' .. synIDattr(synIDtrans(s), 'name')
 enddef
 
+# compile the functions
 defcompile

@@ -1,10 +1,12 @@
 
 pack/autopack/
 views/
+sessions/
 
 tags
 .netrwhist
 *.swp
 *.session
+*.view
 
 !.gitkeep
