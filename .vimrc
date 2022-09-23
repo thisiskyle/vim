@@ -3,11 +3,11 @@ vim9script
 #
 #  Package Loading
 #
-packadd vim-polyglot
 packadd replace_all
 packadd toggle_comments
 packadd elyk
 packadd autopack
+packadd vim-polyglot
 
 #
 #  Settings
@@ -37,7 +37,6 @@ set tags=./tags,tags;
 set noswapfile 
 set noundofile
 set nobackup
-set termguicolors
 set t_Co=256
 set background=dark 
 set fillchars=stl:-,stlnc:-,vert:\|,fold:-,diff:-
