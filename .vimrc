@@ -49,7 +49,6 @@ set statusline=%=%m\ %t\ \ %l,%c\
 #
 # Colorscheme
 #
-g:elyk_style = "bright"
 color elyk
 
 #

@@ -2,28 +2,28 @@ vim9script
 
 import "../helper.vim" as h
 
-g:colors_name = "elyk"
+g:colors_name = "elyk_dark"
 
-
-h.Hi(["Normal"], {fg: h.black, bg: h.white})
-h.Hi(["Matchparen"], {fg: h.black, bg: h.grey85, gui: {bold: v:true}})
-h.Hi(["Search"], {fg: h.black, bg: h.grey78})
-h.Hi(["IncSearch"], {fg: h.white, bg: h.black})
-h.Hi(["Visual"], {fg: h.black, bg: h.grey70})
-h.Hi(["Cursor"], {fg: h.white, bg: h.black})
+h.Hi(["Normal"], {fg: h.grey62, bg: h.grey15})
+h.Hi(["Matchparen"], {fg: h.white, gui: {bold: v:true}})
+h.Hi(["Search"], {fg: h.white})
+h.Hi(["IncSearch"], {fg: h.grey15, bg: h.grey62})
+h.Hi(["Visual"], {fg: h.grey15, bg: h.grey70})
+h.Hi(["Cursor"], {fg: h.grey03, bg: h.grey62})
 h.Hi(["CursorLineNr"], {fg: h.white})
-h.Hi(["CursorLine"], {bg: h.grey93})
-h.Hi(["Pmenu"], {fg: h.grey50, bg: h.grey03})
+h.Hi(["CursorLine"], {bg: h.grey03})
+h.Hi(["Pmenu"], {bg: h.grey03})
 h.Hi(["PmenuSel"], {fg: h.white, bg: h.grey03}) 
-h.Hi(["Wildmenu"], {fg: h.white, bg: h.black})
-h.Hi(["Comment"], {fg: h.grey70})
-h.Hi(["StatusLine"], {fg: h.black})
+h.Hi(["Wildmenu"], {fg: h.grey15, bg: h.grey62})
+h.Hi(["Comment"], {fg: h.grey30})
+h.Hi(["StatusLine"], {fg: h.grey62})
 h.Hi(["Underlined"], {gui: {underline: v:true}})
 h.Hi(["SpellBad"], {gui: {undercurl: v:true}})
 h.Hi(["Error"], {fg: h.red})
 h.Hi(["CursorColumn"], {linksto: "CursorLine"})
 h.Hi(["ErrorMsg", "WarningMsg"], {linksto: "Error"})
 
+# link to Normal
 h.Hi([
     "DiffAdd",
     "DiffChange",
@@ -87,9 +87,10 @@ h.Hi([
     "LineNrBelow",
     "VisualNOS",
     "MoreMsg",
-    "ModeMsg" 
-    ], {linksto: "Normal"})
+    "ModeMsg"
+], {linksto: "Normal"})
 
+# link to comment
 h.Hi([
     "Folded",
     "FoldColumn",
@@ -98,7 +99,8 @@ h.Hi([
     "VertSplit",
     "EndOfBuffer",
     "LineNr"
-    ], {linksto: "Comment"})
+], {linksto: "Comment"})
+
 
 # Run the highlight set
 hlset(h.hl_set)
