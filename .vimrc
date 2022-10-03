@@ -26,9 +26,9 @@ set scrolloff=0
 set modelines=0
 set wildmenu
 set wildoptions=pum
-set ruler
 set incsearch 
 set hlsearch 
+set nowrapscan
 set autoindent 
 set expandtab 
 set tabstop=4 
@@ -37,12 +37,15 @@ set tags=./tags,tags;
 set noswapfile 
 set noundofile
 set nobackup
+set cursorline
 set t_Co=256
 set background=dark 
-set fillchars=stl:-,stlnc:-,vert:\|,fold:-,diff:-
+set ruler
 set rulerformat=%60(%=%m\ %t\ \ %l,%c%) 
-# splits forces a statusline to show even if its turned off
-# this statusline format make the statusline look like the ruler so when we split, each window matches
+# splits forces a statusline to show even if its turned off.
+# these settings below make the statusline look like the ruler. 
+# so when we split, each window matches
+set fillchars=stl:-,stlnc:-,vert:\|,fold:-,diff:-
 set statusline=%=%m\ %t\ \ %l,%c\ 
 
 #
