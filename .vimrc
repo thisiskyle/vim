@@ -1,7 +1,7 @@
 vim9script
 
 #  Package Loading
-packadd vim-polyglot
+silent! packadd vim-polyglot
 
 #  Settings
 if has("gui_running")
@@ -51,6 +51,5 @@ nnoremap <c-l> <c-w>l
 
 #  Plugin Specific Settings 
 g:vimpack_list = [ 
-    "https://github.com/sheerun/vim-polyglot",
-    "https://github.com/tpope/vim-commentary" 
+    "https://github.com/sheerun/vim-polyglot"
 ]

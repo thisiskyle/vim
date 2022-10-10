@@ -1,53 +1,27 @@
 vim9script
 
-# adds or removes a comment string at the beginning of current line unless the line is empty
-def ToggleComment(...args: list<string>): string
-    if len(args) == 0
-        &operatorfunc = ToggleComment
-        return 'g@'
+def ToggleComment(): void
+    var line = getline(".")
+
+    if strlen(line) <= 0 
+        return
     endif
 
-    :echoerr args[0]
+    var cstr: list<string> = split(&commentstring, '%s')
 
-    # skip line if empty
-    if strlen(getline('.')) <= 0 
-        return ''
-    endif
-    # save position
-    var save_pos = getpos(".")
-    var cstr = substitute(&commentstring, '%s', '', '')
-
-    # jump to first character in line
-    normal ^
-    # check to see if the line has a comment
-    var a = col(".") - 1
-    if getline(".")[a : a + (strlen(cstr) - 1)] == cstr
-        # remove the comment string
-        :execute "normal " .. strlen(cstr) .. "x"
-        call setpos(".", save_pos)
-        :execute "normal " .. strlen(cstr) .. "h"
+    if stridx(line, cstr[0]) != -1 
+        line = substitute(line, cstr[0], '', '')
+        if len(cstr) > 1
+            line = substitute(line, cstr[1], '', '')
+        endif
+        call setline(".", line)
     else 
-        # add a comment string
-        :execute "normal i" .. cstr
-        call setpos(".", save_pos)
-        :execute "normal " .. strlen(cstr) .. "l"
+        call setline(".", substitute(&commentstring, '%s', line, ''))
     endif
-    return ''
 
-    enddef
-
-# compile the function
+enddef
 defcompile
 
 
-command! -range -bar -bang ToggleComment call <SID>ToggleComment(<line1>, <line2>, <bang>0)
-
-nnoremap <expr> <Plug>ToggleComment     <SID>ToggleComment()
-nnoremap <expr> <Plug>ToggleCommentLine <SID>ToggleComment() .. '_'
-
-if !hasmapto('<Plug>ToggleComment')
-    nmap gc  <Plug>ToggleComment
-    nmap gcc <Plug>ToggleCommentLine
-    xmap gc  <Plug>ToggleComment
-    omap gc  <Plug>ToggleComment
-endif
+nnoremap <silent> gc :call <SID>ToggleComment()<cr>
+xnoremap <silent> gc :call <SID>ToggleComment()<cr>
