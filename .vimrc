@@ -1,17 +1,9 @@
 vim9script
 
-#
 #  Package Loading
-#
-packadd replace_all
-packadd toggle_comments
-packadd elyk
-packadd autopack
 packadd vim-polyglot
 
-#
 #  Settings
-#
 if has("gui_running")
     set guioptions='' 
     set columns=110
@@ -48,38 +40,17 @@ set rulerformat=%60(%=%m\ %t\ \ %l,%c%)
 set fillchars=stl:-,stlnc:-,vert:\|,fold:-,diff:-
 set statusline=%=%m\ %t\ \ %l,%c\ 
 
-#
-# Colorscheme
-#
+#  Colorscheme
 color elyk
 
-#
 #  Key Mappings
-#
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
-nnoremap <silent> <c-n> :call toggle_comments#ToggleComment()<cr>
-vnoremap <silent> <c-n> :call toggle_comments#ToggleComment()<cr>
-nnoremap <silent> <leader>r :call replace_all#ReplaceAll()<cr>
-vnoremap <silent> <leader>r :<C-U> call replace_all#ReplaceAllVis()<cr>
-nnoremap <silent> <leader>h :call SynGroup()<cr>
 
-#
 #  Plugin Specific Settings 
-#
-g:autopack_list = [ "https://github.com/sheerun/vim-polyglot" ]
-
-#
-#  Helper Functions
-#
-
-# Get the highlight of the word under the cursor
-# This is helpful for debugging colorschemes and what not
-def g:SynGroup(): void
-    var s = synID(line('.'), col('.'), 1)
-    echo synIDattr(s, 'name') .. ' -> ' .. synIDattr(synIDtrans(s), 'name')
-enddef
-
-defcompile
+g:vimpack_list = [ 
+    "https://github.com/sheerun/vim-polyglot",
+    "https://github.com/tpope/vim-commentary" 
+]
