@@ -1,30 +1,30 @@
 vim9script
 
 import "../helper.vim" as h
+import "../color_palette.vim" as p
 
 g:colors_name = "elyk"
 
+h.HL(["Normal"],                 {fg: p.black, bg: p.white})
+h.HL(["Matchparen"],             {fg: p.black, bg: p.grey85, gui: {bold: v:true}})
+h.HL(["Search"],                 {fg: p.black, bg: p.grey78})
+h.HL(["IncSearch"],              {fg: p.white, bg: p.black})
+h.HL(["Visual"],                 {fg: p.black, bg: p.grey70})
+h.HL(["Cursor"],                 {fg: p.white, bg: p.black})
+h.HL(["CursorLineNr"],           {fg: p.grey70, bg: p.grey93})
+h.HL(["CursorLine"],             {bg: p.grey93})
+h.HL(["Pmenu"],                  {fg: p.grey50, bg: p.grey03})
+h.HL(["PmenuSel"],               {fg: p.white, bg: p.grey03}) 
+h.HL(["Wildmenu"],               {fg: p.white, bg: p.black})
+h.HL(["Comment"],                {fg: p.grey70})
+h.HL(["StatusLine"],             {fg: p.black})
+h.HL(["Underlined"],             {gui: {underline: v:true}})
+h.HL(["SpellBad"],               {gui: {undercurl: v:true}})
+h.HL(["Error"],                  {fg: p.red})
+h.HL(["CursorColumn"],           {linksto: "CursorLine"})
+h.HL(["ErrorMsg", "WarningMsg"], {linksto: "Error"})
 
-h.Hi(["Normal"], {fg: h.black, bg: h.white})
-h.Hi(["Matchparen"], {fg: h.black, bg: h.grey85, gui: {bold: v:true}})
-h.Hi(["Search"], {fg: h.black, bg: h.grey78})
-h.Hi(["IncSearch"], {fg: h.white, bg: h.black})
-h.Hi(["Visual"], {fg: h.black, bg: h.grey70})
-h.Hi(["Cursor"], {fg: h.white, bg: h.black})
-h.Hi(["CursorLineNr"], {fg: h.white})
-h.Hi(["CursorLine"], {bg: h.grey93})
-h.Hi(["Pmenu"], {fg: h.grey50, bg: h.grey03})
-h.Hi(["PmenuSel"], {fg: h.white, bg: h.grey03}) 
-h.Hi(["Wildmenu"], {fg: h.white, bg: h.black})
-h.Hi(["Comment"], {fg: h.grey70})
-h.Hi(["StatusLine"], {fg: h.black})
-h.Hi(["Underlined"], {gui: {underline: v:true}})
-h.Hi(["SpellBad"], {gui: {undercurl: v:true}})
-h.Hi(["Error"], {fg: h.red})
-h.Hi(["CursorColumn"], {linksto: "CursorLine"})
-h.Hi(["ErrorMsg", "WarningMsg"], {linksto: "Error"})
-
-h.Hi([
+h.HL([
     "DiffAdd",
     "DiffChange",
     "DiffDelete",
@@ -90,7 +90,7 @@ h.Hi([
     "ModeMsg" 
     ], {linksto: "Normal"})
 
-h.Hi([
+h.HL([
     "Folded",
     "FoldColumn",
     "StatusLineNC",
@@ -101,4 +101,4 @@ h.Hi([
     ], {linksto: "Comment"})
 
 # Run the highlight set
-hlset(h.hl_set)
+h.Set()
