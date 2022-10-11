@@ -9,7 +9,7 @@ def Replace(str: string): void
     endif
     :execute ":%s/" .. str .. "/" .. replace_str .. "/g"
     call setpos(".", save_pos)
-    enddef
+enddef
 
 # returns the selected text from visual mode
 def GetVisualSelection(): string
@@ -19,15 +19,9 @@ def GetVisualSelection(): string
     lines[-1] = lines[-1][ : col2 - (&selection == 'inclusive' ? 1 : 2)]
     lines[0] = lines[0][col1 - 1 : ]
     return join(lines, "\n")
-    enddef
-
+enddef
 
 defcompile
 
-nnoremap <silent> <Plug>Replace    :<C-U>call <SID>Replace(expand('<cword>'))<cr>
-xnoremap <silent> <Plug>ReplaceVis :<C-U>call <SID>Replace(<SID>GetVisualSelection())<cr>
-
-if !hasmapto('<Plug>Replace')
-    nmap gr <Plug>Replace
-    xmap gr <Plug>ReplaceVis
-endif
+nnoremap <silent> gr :<C-U>call <SID>Replace(expand('<cword>'))<cr>
+xnoremap <silent> gr :<C-U>call <SID>Replace(<SID>GetVisualSelection())<cr>

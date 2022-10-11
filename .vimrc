@@ -50,6 +50,4 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
 #  Plugin Specific Settings 
-g:vimpack_list = [ 
-    "https://github.com/sheerun/vim-polyglot"
-]
+g:vimpack_list = [ "https://github.com/sheerun/vim-polyglot" ]
