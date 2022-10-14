@@ -6,18 +6,21 @@ def Commentator(): void
         return
     endif
 
-    # escape any asterisks in the comment string to play nice with regex
-    var cstr: string = substitute(&commentstring, '\*', '\\\*', 'g')
-    # split the string in case the comment string has two parts
-    var cstrs: list<string> = split(cstr, '%s')
+    var cstrs: list<string> = split(&commentstring, '%s')
 
     # if we find the comment string in the line, uncomment the line
     # we are assuming that if the first part of a comment is here, then the whole line is a comment
     if stridx(line, cstrs[0]) != -1
-        # replace the first comment str with empty string
+        # clean up the string for regex
+        cstrs[0] = substitute(cstrs[0], '\/', '\\\/', 'g')
+        cstrs[0] = substitute(cstrs[0], '\*', '\\\*', 'g')
         line = substitute(line, cstrs[0], '', '')
+
         # replace the second comment str with empty string, if there is one
         if len(cstrs) > 1
+            # clean up the string for regex
+            cstrs[1] = substitute(cstrs[1], '\/', '\\\/', 'g')
+            cstrs[1] = substitute(cstrs[1], '\*', '\\\*', 'g')
             line = substitute(line, cstrs[1], '', '')
         endif
     else
