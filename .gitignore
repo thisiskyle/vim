@@ -1,7 +1,9 @@
 
 pack/vimpack/
 views/
+view/
 sessions/
+session/
 
 tags
 .netrwhist
