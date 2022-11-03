@@ -4,24 +4,24 @@ import "../helper.vim" as h
 import "../color_palette.vim" as p
 
 g:colors_name = "elyk_dark"
-
-h.HL(["Normal"],                 {fg: p.grey62, bg: p.grey15})
-h.HL(["Matchparen"],             {fg: p.white, gui: {bold: v:true}})
-h.HL(["Search"],                 {fg: p.white})
-h.HL(["IncSearch"],              {fg: p.grey15, bg: p.grey62})
-h.HL(["Visual"],                 {fg: p.grey15, bg: p.grey70})
-h.HL(["Cursor"],                 {fg: p.grey03, bg: p.grey62})
-h.HL(["CursorLineNr"],           {fg: p.white})
-h.HL(["CursorLine"],             {bg: p.grey03})
-h.HL(["Pmenu"],                  {bg: p.grey03})
-h.HL(["PmenuSel"],               {fg: p.white, bg: p.grey03}) 
-h.HL(["Wildmenu"],               {fg: p.grey15, bg: p.grey62})
-h.HL(["Comment"],                {fg: p.grey30})
-h.HL(["StatusLine"],             {fg: p.grey62})
-h.HL(["Underlined"],             {gui: {underline: v:true}})
-h.HL(["SpellBad"],               {gui: {undercurl: v:true}})
-h.HL(["Error"],                  {fg: p.red})
-h.HL(["CursorColumn"],           {linksto: "CursorLine"})
+# test
+h.HL(["Normal"], {fg: p.grey62, bg: p.grey15})
+h.HL(["Matchparen"], {fg: p.white, gui: {bold: v:true}})
+h.HL(["Search"], {fg: p.white})
+h.HL(["IncSearch"], {fg: p.white, bg: p.grey07})
+h.HL(["Visual"], {bg: p.grey07})
+h.HL(["Cursor"], {fg: p.grey03, bg: p.grey74})
+h.HL(["CursorLineNr"], {fg: p.white})
+h.HL(["CursorLine"], {bg: p.grey11})
+h.HL(["Pmenu"], {bg: p.grey03})
+h.HL(["PmenuSel"], {fg: p.white, bg: p.grey03}) 
+h.HL(["Wildmenu"], {fg: p.grey15, bg: p.grey62})
+h.HL(["Comment"], {fg: p.grey30})
+h.HL(["StatusLine"], {fg: p.grey62})
+h.HL(["Underlined"], {gui: {underline: v:true}})
+h.HL(["SpellBad"], {gui: {undercurl: v:true}})
+h.HL(["Error"], {fg: p.red})
+h.HL(["CursorLine", "CursorColumn"], {linksto: "Visual"})
 h.HL(["ErrorMsg", "WarningMsg"], {linksto: "Error"})
 
 # link to Normal

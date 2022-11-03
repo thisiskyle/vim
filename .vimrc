@@ -34,7 +34,7 @@ set t_Co=256
 set background=dark 
 set ruler
 set rulerformat=%60(%=%m\ %t\ \ %l,%c%) 
-# splits forces a statusline to show even if its turned off.
+# window splits forces a statusline to show even if its turned off.
 # these settings below make the statusline look like the ruler. 
 # so when we split, each window matches
 set fillchars=stl:-,stlnc:-,vert:\|,fold:-,diff:-
