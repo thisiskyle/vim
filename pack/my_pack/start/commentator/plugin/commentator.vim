@@ -23,12 +23,15 @@ def Commentator(): void
             cstrs[1] = substitute(cstrs[1], '\*', '\\\*', 'g')
             line = substitute(line, cstrs[1], '', '')
         endif
+        # set the line to the new string
+        call setline(".", line)
     else
-        # add comment string to line
-        line = substitute(&commentstring, '%s', line, '')
+        if len(cstrs) > 1
+            call setline(".", cstrs[0] .. line .. cstrs[1])
+        else
+            call setline(".", cstrs[0] .. line)
+        endif
     endif
-    # set the line to the new string
-    call setline(".", line)
 
 enddef
 
