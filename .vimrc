@@ -8,10 +8,10 @@ if has("gui_running")
     set guioptions='' 
     set columns=110
     set lines=40
-    set guifont=Iosevka:h11
 endif
 
 filetype plugin indent on
+syntax on
 set belloff=all 
 set laststatus=0 
 set scrolloff=0 
