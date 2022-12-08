@@ -51,21 +51,4 @@ nnoremap <c-l> <c-w>l
 
 #  Plugin Specific Settings 
 g:vimpack_list = [ "https://github.com/sheerun/vim-polyglot" ]
-g:quickfont_list = [ "jetbrains\\ mono\\ nl:h10", "fixedsys" ]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+g:quickfont_list = [ "fixedsys", "jetbrains\\ mono\\ nl:h10" ]

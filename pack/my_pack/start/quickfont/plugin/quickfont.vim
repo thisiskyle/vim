@@ -1,8 +1,6 @@
 vim9script
 
 
-g:quickfont_index = 0
-
 # sets the font_index to a specific value
 def QuickFont_Set(n: number): void
     g:quickfont_index = n
@@ -22,8 +20,13 @@ enddef
 
 defcompile
 
-# set the default font on start up
-call QuickFont_Set(1)
+# set the font on start up, if no default is set, the default is zero
+if has("g:quickfont_default")
+    call QuickFont_Set(g:quickfont_default)
+else
+    call QuickFont_Set(0)
+endif
+
 
 
 nnoremap gn :call <SID>QuickFont_Next()<cr>
