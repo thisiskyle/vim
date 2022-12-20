@@ -1,9 +1,17 @@
 vim9script
 
-#  Package Loading
-silent! packadd vim-polyglot
+# Global Variables
+g:vimpack_list = [ "https://github.com/sheerun/vim-polyglot" ]
+g:quickfont_list = [ "fixedsys", "iosevka:h11" ]
 
-#  Settings
+# Load Packages
+packadd vim-polyglot
+packadd elyk
+packadd quickfont
+packadd replaced
+packadd vimpack
+
+# Settings
 if has("gui_running")
     set guioptions='' 
     set columns=110
@@ -40,16 +48,10 @@ set rulerformat=%60(%=%m\ %t\ \ %l,%c%)
 set fillchars=stl:-,stlnc:-,vert:\|,fold:-,diff:-
 set statusline=%=%m\ %t\ \ %l,%c\ 
 
-#  Colorscheme
 color elyk
 
-#  Key Mappings
+# Key Mappings
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
-
-#  Plugin Specific Settings 
-g:vimpack_list = [ "https://github.com/sheerun/vim-polyglot" ]
-g:quickfont_list = [ "iosevka:h10", fixedsys" ]
-
