@@ -2,7 +2,7 @@ vim9script
 
 # Global Variables
 g:vimpack_list = [ "https://github.com/sheerun/vim-polyglot" ]
-g:quickfont_list = [ "fixedsys", "iosevka:h11" ]
+g:quickfont_list = [ "iosevka:h11", "fixedsys" ]
 
 # Load Packages
 packadd vim-polyglot
