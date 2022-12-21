@@ -1,11 +1,9 @@
 vim9script
 
 g:vimpack_list = [ "https://github.com/sheerun/vim-polyglot" ]
-g:quickfont_list = [ "agave:h11", "fixedsys", "iosevka:h11" ]
 
 packadd vim-polyglot
 packadd elyk
-packadd quickfont
 packadd replaced
 packadd vimpack
 
@@ -13,6 +11,7 @@ if has("gui_running")
     set guioptions='' 
     set columns=110
     set lines=40
+    set guifont=agave:h11
 endif
 
 filetype plugin indent on
