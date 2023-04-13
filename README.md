@@ -14,10 +14,10 @@ were always overkill. So I came up with these.
 * [vimpack][3] - simple plugin installer
 * [replaced][4] - shortcut for string replacement in the current buffer
 * [commentator][6] - toggle comments
-* [quickfont][7] - quickly switches between a list of fonts
+* [fontman][7] - quickly switches between a list of fonts
 
 [2]: https://github.com/thisiskyle/vim/tree/master/pack/my_pack/start/elyk
 [3]: https://github.com/thisiskyle/vim/tree/master/pack/my_pack/start/vimpack
 [4]: https://github.com/thisiskyle/vim/tree/master/pack/my_pack/start/replaced
 [6]: https://github.com/thisiskyle/vim/tree/master/pack/my_pack/opt/commentator
-[7]: https://github.com/thisiskyle/vim/tree/master/pack/my_pack/start/quickfont
+[7]: https://github.com/thisiskyle/vim/tree/master/pack/my_pack/start/fontman

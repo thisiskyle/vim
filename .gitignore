@@ -1,14 +1,11 @@
 
 pack/vimpack/
-views/
 view/
-sessions/
 session/
+undo/
 
 tags
 .netrwhist
 *.swp
-*.session
-*.view
 
 !.gitkeep

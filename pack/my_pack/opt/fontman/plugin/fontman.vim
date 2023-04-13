@@ -17,7 +17,7 @@ var quickfont_index = 0
 # increments font_index and calls apply
 def QuickFont_Next(): void
 
-    if !has("g:quickfont_list")
+    if !exists("g:quickfont_list")
         return
     endif
 
@@ -29,7 +29,7 @@ enddef
 # apply the new font based on the value on font_index
 def QuickFont_Apply(): void
 
-    if !has("g:quickfont_list")
+    if !exists("g:quickfont_list")
         return
     endif
     

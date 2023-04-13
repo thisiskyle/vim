@@ -6,7 +6,7 @@ import "../color_palette.vim" as p
 g:colors_name = "elyk"
 # test
 h.HL(["Normal"],       {fg: p.black, bg: p.white})
-h.HL(["Matchparen"],   {fg: p.black, bg: p.grey85, gui: {bold: v:true}})
+h.HL(["Matchparen"],   {fg: p.black, bg: p.grey78, gui: {bold: v:true}})
 h.HL(["Search"],       {fg: p.black, bg: p.grey78})
 h.HL(["Visual"],       {bg: p.grey89})
 h.HL(["Cursor"],       {fg: p.white, bg: p.black})
