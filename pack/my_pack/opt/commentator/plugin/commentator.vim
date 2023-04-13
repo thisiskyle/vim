@@ -37,5 +37,5 @@ enddef
 
 defcompile
 
-nnoremap <silent> gc :call <SID>Commentator()<cr>
-xnoremap <silent> gc :call <SID>Commentator()<cr>
+nnoremap <silent> <leader>c :call <SID>Commentator()<cr>
+xnoremap <silent> <leader>c :call <SID>Commentator()<cr>

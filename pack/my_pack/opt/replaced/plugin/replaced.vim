@@ -23,5 +23,5 @@ enddef
 
 defcompile
 
-nnoremap <silent> gr :<C-U>call <SID>Replace(expand('<cword>'))<cr>
-xnoremap <silent> gr :<C-U>call <SID>Replace(<SID>GetVisualSelection())<cr>
+nnoremap <silent> <leader>r :<C-U>call <SID>Replace(expand('<cword>'))<cr>
+xnoremap <silent> <leader>r :<C-U>call <SID>Replace(<SID>GetVisualSelection())<cr>
