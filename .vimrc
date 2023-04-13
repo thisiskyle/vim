@@ -29,6 +29,24 @@ if has("win32")
     vimhome = "$HOME/vimfiles"
 endif
 
+if has("win32")
+    set undodir=$HOME/vimfiles/undo/
+    set viewdir=$HOME/vimfiles/view/
+else
+    set undodir=$HOME/.vim/undo/
+    set viewdir=$HOME/.vim/view/
+endif
+
+
+if !isdirectory(&undodir)
+    call mkdir(&undodir, "", 0700)
+endif
+
+if !isdirectory(&viewdir)
+    call mkdir(&viewdir, "", 0700)
+endif
+
+
 filetype plugin indent on
 syntax on
 set belloff=all 
