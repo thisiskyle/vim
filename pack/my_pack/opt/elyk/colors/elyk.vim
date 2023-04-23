@@ -10,7 +10,6 @@ h.HL(["Matchparen"],   {fg: p.black, bg: p.grey78, gui: {bold: v:true}})
 h.HL(["Search"],       {fg: p.black, bg: p.grey78})
 h.HL(["Visual"],       {bg: p.grey89})
 h.HL(["Cursor"],       {fg: p.white, bg: p.black})
-h.HL(["CursorLineNr"], {fg: p.grey70, bg: p.grey89})
 h.HL(["Pmenu"],        {fg: p.grey50, bg: p.grey03})
 h.HL(["PmenuSel"],     {fg: p.white, bg: p.grey03}) 
 h.HL(["Wildmenu"],     {fg: p.white, bg: p.black})
@@ -19,8 +18,11 @@ h.HL(["StatusLine"],   {fg: p.black})
 h.HL(["Underlined"],   {gui: {underline: v:true}})
 h.HL(["SpellBad"],     {gui: {undercurl: v:true}})
 h.HL(["Error"],        {fg: p.red})
+h.HL(["CursorLineNR"], {gui: {underline: v:true}})
 
-h.HL(["IncSearch"], {linksto: "Cursor"})
+h.HL([
+    "IncSearch"
+], {linksto: "Cursor"})
 
 h.HL([
     "ErrorMsg", 
@@ -29,10 +31,7 @@ h.HL([
 
 h.HL([
     "CursorLine", 
-    "CursorColumn"
-], {linksto: "Visual"})
-
-h.HL([
+    "CursorColumn",
     "DiffAdd",
     "DiffChange",
     "DiffDelete",

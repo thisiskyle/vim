@@ -45,6 +45,7 @@ set noswapfile
 set nobackup
 set undofile
 set cursorline
+set number
 set t_Co=256
 set ruler
 set rulerformat=%60(%=%m\ %t\ \ %l,%c%) 
