@@ -48,7 +48,7 @@ set cursorline
 set number
 set t_Co=256
 set ruler
-set rulerformat=%60(%=%m\ %t%) 
+set rulerformat=%60(%=%m\ %F%) 
 set fillchars=stl:-,stlnc:-,vert:\|,fold:-,diff:-
 set statusline=%=%m\ %t\ \ %l,%c\ 
 exec "set viewdir=" .. vimhome .. "/view/"
