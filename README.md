@@ -16,8 +16,8 @@ were always overkill. So I came up with these.
 * [commentator][6] - toggle comments
 * [fontman][7] - quickly switches between a list of fonts
 
-[2]: https://github.com/thisiskyle/vim/tree/master/pack/my_pack/start/elyk
-[3]: https://github.com/thisiskyle/vim/tree/master/pack/my_pack/start/vimpack
-[4]: https://github.com/thisiskyle/vim/tree/master/pack/my_pack/start/replaced
+[2]: https://github.com/thisiskyle/vim/tree/master/pack/my_pack/opt/elyk
+[3]: https://github.com/thisiskyle/vim/tree/master/pack/my_pack/opt/vimpack
+[4]: https://github.com/thisiskyle/vim/tree/master/pack/my_pack/opt/replaced
 [6]: https://github.com/thisiskyle/vim/tree/master/pack/my_pack/opt/commentator
-[7]: https://github.com/thisiskyle/vim/tree/master/pack/my_pack/start/fontman
+[7]: https://github.com/thisiskyle/vim/tree/master/pack/my_pack/opt/fontman

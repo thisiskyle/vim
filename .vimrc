@@ -44,11 +44,10 @@ set tags=./tags,tags;
 set noswapfile 
 set nobackup
 set undofile
-set cursorline
-set number
+set nocursorline
 set t_Co=256
 set ruler
-set rulerformat=%60(%=%m\ %F%) 
+set rulerformat=%60(%=%m\ %t\ \(%c,%l\)%) 
 set fillchars=stl:-,stlnc:-,vert:\|,fold:-,diff:-
 set statusline=%=%m\ %t\ \ %l,%c\ 
 exec "set viewdir=" .. vimhome .. "/view/"
