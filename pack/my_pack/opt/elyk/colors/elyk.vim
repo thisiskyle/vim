@@ -29,6 +29,7 @@ h.HL([ "CursorLine", "CursorColumn" ], {linksto: "Visual"})
 
 # link to normal
 h.HL([
+    "Terminal",
     "CursorLineNR",
     "DiffAdd",
     "DiffChange",
