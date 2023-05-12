@@ -1,17 +1,19 @@
 vim9script
 
 #
-#  Plugin
+# Plugin
 #
-g:vimpack_list = [ "https://github.com/sheerun/vim-polyglot" ]
+g:vimpack_list = [ 
+    "https://github.com/sheerun/vim-polyglot",
+    "https://github.com/vim-scripts/dbext.vim"
+]
 
-packadd vim-polyglot
 packadd elyk
 packadd replaced
 packadd vimpack
 
 #
-#  Settings
+# Settings
 #
 if has("gui_running")
     set guioptions='' 
@@ -56,7 +58,7 @@ set background=dark
 color elyk
 
 #
-#  Bindings
+# Bindings
 #
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
@@ -64,7 +66,7 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
 #
-#  Misc Stuff
+# Misc Stuff
 #
 if !isdirectory(&viewdir)
     call mkdir(&viewdir, "", 0700)
