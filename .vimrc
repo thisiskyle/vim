@@ -3,10 +3,7 @@ vim9script
 #
 # Plugin
 #
-g:vimpack_list = [ 
-    "https://github.com/sheerun/vim-polyglot",
-    "https://github.com/vim-scripts/dbext.vim"
-]
+g:vimpack_list = [ "https://github.com/sheerun/vim-polyglot" ]
 
 packadd elyk
 packadd replaced
