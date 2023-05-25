@@ -28,9 +28,9 @@ var grey85 = {gui: "#dadada", cterm: "253"}
 var grey89 = {gui: "#e4e4e4", cterm: "254"}
 var grey93 = {gui: "#eeeeee", cterm: "255"}
 var white = {gui: "#ffffff", cterm: "231"}
-var underline = {underline: v:true}
-var bold = {bold: v:true}
-var undercurl = {undercurl: v:true}
+var underline = {gui: {underline: v:true}, cterm: {underline: v:true}}
+var undercurl = {gui: {undercurl: v:true}, cterm: {undercurl: v:true}}
+var bold = {gui: {bold: v:true}, cterm: {bold: v:true}}
 
 
 g:colors_name = "elyk"
@@ -52,20 +52,20 @@ def HL(names: list<string>, style: dict<any>)
 
         var gui_fg = (has_key(style, "fg") ? style.fg.gui : "NONE")
         var gui_bg = (has_key(style, "bg") ? style.bg.gui : "NONE")
-        var gui_ = (has_key(style, "gui") ? style.gui : {})
+        var gui_att = (has_key(style, "att") ? style.att.gui : {})
         var cterm_fg = (has_key(style, "fg") ? style.fg.cterm : "NONE")
         var cterm_bg = (has_key(style, "bg") ? style.bg.cterm : "NONE")
-        var cterm_ = (has_key(style, "cterm") ? style.cterm : {})
+        var cterm_att = (has_key(style, "att") ? style.att.cterm : {})
 
         for name in names
             hl_rules->add({
                 name: name, 
                 guifg: gui_fg,
                 guibg: gui_bg,
-                gui: gui_,
+                gui: gui_att,
                 ctermfg: cterm_fg,
                 ctermbg: cterm_bg,
-                cterm: cterm_
+                cterm: cterm_att
             })
         endfor
     endif
@@ -73,7 +73,7 @@ enddef
 
 
 HL(["Normal"], {fg: black, bg: white})
-HL(["Matchparen"], {fg: black, bg: grey78, gui: bold})
+HL(["Matchparen"], {fg: black, bg: grey78, att: bold})
 HL(["Search"], {fg: black, bg: grey78})
 HL(["Visual"], {bg: grey89})
 HL(["Cursor"], {fg: white, bg: black})
@@ -81,19 +81,19 @@ HL(["Pmenu"], {fg: grey50, bg: grey03})
 HL(["PmenuSel"], {fg: white, bg: grey03}) 
 HL(["Wildmenu"], {fg: white, bg: black})
 HL(["Comment"], {fg: grey70})
-HL(["Underlined"], {gui: underline})
-HL(["SpellBad"], {gui: undercurl})
+HL(["Underlined"], {att: underline})
+HL(["SpellBad"], {att: undercurl})
 HL(["Error"], {fg: red})
-HL(["TabLine"], {bg: grey78, gui: underline})
-HL(["TabLineFill"], {bg: white, gui: underline})
+HL(["TabLine"], {bg: grey78, att: underline})
+HL(["TabLineFill"], {bg: white, att: underline})
 HL(["TabLineSel"], {fg: white, bg: black})
-HL(["StatusLine"], {fg: white, bg: black})
-HL(["StatusLineNC"], {fg: black, bg: grey89})
+HL(["StatusLine"], {fg: black, bg: white, att: underline})
+HL(["StatusLineNC"], {fg: grey70, bg: white, att: underline})
 
 
-HL([ "IncSearch" ], {linksto: "Cursor"})
-HL([ "ErrorMsg", "WarningMsg" ], {linksto: "Error"})
-HL([ "CursorLine", "CursorColumn" ], {linksto: "Visual"})
+HL(["IncSearch"], {linksto: "Cursor"})
+HL(["ErrorMsg", "WarningMsg"], {linksto: "Error"})
+HL(["CursorLine", "CursorColumn"], {linksto: "Visual"})
 HL(["StatusLineTerm"], {linksto: "StatusLine"})
 HL(["StatusLineTermNC"], {linksto: "StatusLineNC"})
 

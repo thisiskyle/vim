@@ -27,8 +27,7 @@ endif
 filetype plugin indent on
 syntax on
 set belloff=all 
-set laststatus=2
-set noshowmode
+set laststatus=0
 set scrolloff=0 
 set modelines=0
 set wildmenu
@@ -48,9 +47,9 @@ set nocursorline
 set t_Co=256
 set background=dark 
 set ruler
-set rulerformat=%60(%=%t%m\ \ \ %l:%c%) 
+set rulerformat=%60(%=%m\ \ %t\ \ %l:%c%) 
 set fillchars=stl:\ ,stlnc:\ ,vert:\|,fold:-,diff:-
-set statusline=\ %{mode()}%=%m\ \ %F\ \ \ %l:%c\ 
+set statusline=%=\ %m\ \ %t\ \ %l:%c\ 
 
 color elyk
 
