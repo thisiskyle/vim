@@ -27,7 +27,8 @@ endif
 filetype plugin indent on
 syntax on
 set belloff=all 
-set laststatus=0 
+set laststatus=2
+set noshowmode
 set scrolloff=0 
 set modelines=0
 set wildmenu
@@ -45,14 +46,16 @@ set nobackup
 set undofile
 set nocursorline
 set t_Co=256
+set background=dark 
 set ruler
-set rulerformat=%60(%=%m\ %t\ \(%c,%l\)%) 
-set fillchars=stl:-,stlnc:-,vert:\|,fold:-,diff:-
-set statusline=%=%m\ %t\ \ %l,%c\ 
+set rulerformat=%60(%=%t%m\ \ \ %l:%c%) 
+set fillchars=stl:\ ,stlnc:\ ,vert:\|,fold:-,diff:-
+set statusline=\ %{mode()}%=%m\ \ %F\ \ \ %l:%c\ 
+
+color elyk
+
 exec "set viewdir=" .. vimhome .. "/view/"
 exec "set undodir=" .. vimhome .. "/undo/"
-set background=dark 
-color elyk
 
 #
 # Bindings
