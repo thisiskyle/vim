@@ -8,6 +8,7 @@ g:vimpack_list = []
 packadd elyk
 packadd replaced
 packadd vimpack
+packadd grepbro
 
 #
 # Settings
