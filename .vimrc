@@ -7,7 +7,6 @@ g:packbro_list = [
 packadd elyk
 packadd replaced
 packadd packbro
-packadd commentator
 
 #
 # Settings
