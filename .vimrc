@@ -1,15 +1,13 @@
 vim9script
 
-#
-# PackBro
-# 
-g:packbro_list = [
-    { name: "catppuccin", url: "https://github.com/catppuccin/vim", load_method: "opt" }
+g:packbro_list = [ 
+    { name: "catppuccin", url: "https://github.com/catppuccin/vim", load_method: "opt" } 
 ]
 
 packadd elyk
 packadd replaced
 packadd packbro
+packadd commentator
 
 #
 # Settings
@@ -47,14 +45,13 @@ set nobackup
 set undofile
 set nocursorline
 set t_Co=256
-set background=dark 
 set ruler
 set rulerformat=%60(%=%m\ \ %t\ \ %l:%c%) 
 set fillchars=stl:\ ,stlnc:\ ,vert:\|,fold:-,diff:-
 set statusline=%=\ %m\ \ %t\ \ %l:%c\ 
 exec "set viewdir=" .. vimhome .. "/view/"
 exec "set undodir=" .. vimhome .. "/undo/"
-
+set background=light 
 color elyk
 
 #
