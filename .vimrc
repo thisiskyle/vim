@@ -1,14 +1,15 @@
 vim9script
 
 #
-# Plugin
-#
-g:vimpack_list = []
+# PackBro
+# 
+g:packbro_list = [
+    { name: "catppuccin", url: "https://github.com/catppuccin/vim", load_method: "opt" }
+]
 
 packadd elyk
 packadd replaced
-packadd vimpack
-packadd grepbro
+packadd packbro
 
 #
 # Settings
@@ -51,14 +52,13 @@ set ruler
 set rulerformat=%60(%=%m\ \ %t\ \ %l:%c%) 
 set fillchars=stl:\ ,stlnc:\ ,vert:\|,fold:-,diff:-
 set statusline=%=\ %m\ \ %t\ \ %l:%c\ 
-
-color elyk
-
 exec "set viewdir=" .. vimhome .. "/view/"
 exec "set undodir=" .. vimhome .. "/undo/"
 
+color elyk
+
 #
-# Bindings
+# Binding
 #
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
@@ -66,13 +66,17 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
 #
-# Misc Stuff
+# Commands
+#
+command -nargs=1 Vgrep noautocmd vimgrep /<args>/gj `git ls-files` | cw
+
+#
+# Misc
 #
 if !isdirectory(&viewdir)
     call mkdir(&viewdir, "", 0700)
 endif
 
-# make the undo directory if needed
 if !isdirectory(&undodir)
     call mkdir(&undodir, "", 0700)
 endif

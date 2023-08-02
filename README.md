@@ -11,15 +11,15 @@ Most of these features are done better with other plugins but I felt the full pl
 were always overkill. So I came up with these.
 
 * [elyk][2] - my colorscheme
-* [vimpack][3] - simple plugin installer
+* [packbro][3] - simple plugin installer
 * [replaced][4] - shortcut for string replacement in the current buffer
 * [commentator][6] - toggle comments
-* [fontman][7] - quickly switches between a list of fonts
+* [fontbro][7] - quickly switches between a list of fonts
 * [grepbro][8] - run a vimgrep on the word under the cursor
 
 [2]: https://github.com/thisiskyle/vim/tree/master/pack/my_pack/opt/elyk
-[3]: https://github.com/thisiskyle/vim/tree/master/pack/my_pack/opt/vimpack
+[3]: https://github.com/thisiskyle/vim/tree/master/pack/my_pack/opt/packbro
 [4]: https://github.com/thisiskyle/vim/tree/master/pack/my_pack/opt/replaced
 [6]: https://github.com/thisiskyle/vim/tree/master/pack/my_pack/opt/commentator
-[7]: https://github.com/thisiskyle/vim/tree/master/pack/my_pack/opt/fontman
+[7]: https://github.com/thisiskyle/vim/tree/master/pack/my_pack/opt/fontbro
 [8]: https://github.com/thisiskyle/vim/tree/master/pack/my_pack/opt/grepbro
